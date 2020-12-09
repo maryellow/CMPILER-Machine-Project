@@ -1,16 +1,24 @@
-//Code Editor Template from Geeks for Geeks
 //https://www.geeksforgeeks.org/java-swing-create-a-simple-text-editor/
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
 
 import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 import java.awt.event.*;
+import java.nio.charset.StandardCharsets;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.plaf.metal.*;
-import javax.swing.text.*;
+import javax.swing.text.Element;
+
 class editor extends JFrame implements ActionListener {
 
-    JTextArea t, console;
+    JTextArea t, console, lines;
     JFrame f;
+    JScrollPane jsp;
 
     PrintStream standardOut;
 
@@ -26,6 +34,32 @@ class editor extends JFrame implements ActionListener {
         }
 
         t = new JTextArea();
+        lines = new JTextArea("1");
+        lines.setBackground(Color.LIGHT_GRAY);
+        lines.setEditable(false);
+        t.getDocument().addDocumentListener(new DocumentListener() {
+            public String getText() {
+                int caretPosition = t.getDocument().getLength();
+                Element root = t.getDocument().getDefaultRootElement();
+                String text = "1" + System.getProperty("line.separator");
+                for(int i = 2; i < root.getElementIndex(caretPosition) + 2; i++) {
+                    text += i + System.getProperty("line.separator");
+                }
+                return text;
+            }
+            @Override
+            public void changedUpdate(DocumentEvent de) {
+                lines.setText(getText());
+            }
+            @Override
+            public void insertUpdate(DocumentEvent de) {
+                lines.setText(getText());
+            }
+            @Override
+            public void removeUpdate(DocumentEvent de) {
+                lines.setText(getText());
+            }
+        });
 
         JMenuBar mb = new JMenuBar();
 
@@ -63,6 +97,8 @@ class editor extends JFrame implements ActionListener {
         mb.add(m1);
         mb.add(m2);
 
+
+
         console = new JTextArea();
         console.setEditable(false);
         PrintStream printStream = new PrintStream(new CustomOutputStream(console));
@@ -91,8 +127,11 @@ class editor extends JFrame implements ActionListener {
         constraints.weighty = 2.0;
         constraints.insets = new Insets(10, 10, 10, 10);
 
+        jsp = new JScrollPane();
+        jsp.getViewport().add(t);
+        jsp.setRowHeaderView(lines);
 
-        panel.add(new JScrollPane(t), constraints);
+        panel.add(jsp, constraints);
 
         constraints.gridy = 2;
         constraints.gridwidth = 0;
@@ -186,6 +225,15 @@ class editor extends JFrame implements ActionListener {
             System.out.println(t.getText());
         }else if(s.equals("Run")){
             System.out.println("Run");
+            try {
+                InputStream stream = new ByteArrayInputStream(t.getText().getBytes(StandardCharsets.UTF_8));
+                ClypsLexer lexer = new ClypsLexer(CharStreams.fromStream(stream, StandardCharsets.UTF_8));
+                ClypsParser parser = new ClypsParser(new CommonTokenStream(lexer));
+                parser.addParseListener(new ClypsCustomListener());
+                parser.classDeclaration();
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
