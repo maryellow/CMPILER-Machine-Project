@@ -222,8 +222,10 @@ class editor extends JFrame implements ActionListener {
         else if (s.equals("Close")) {
             f.dispose();
         }else if(s.equals("Build")) {
+            console.setText("");
             System.out.println(t.getText());
         }else if(s.equals("Run")){
+            console.setText("");
             System.out.println("Run");
             try {
                 InputStream stream = new ByteArrayInputStream(t.getText().getBytes(StandardCharsets.UTF_8));

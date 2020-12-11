@@ -160,12 +160,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWildcardBounds(ClypsParser.WildcardBoundsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#packageName}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPackageName(ClypsParser.PackageNameContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#typeName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -196,60 +190,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAmbiguousName(ClypsParser.AmbiguousNameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#compilationUnit}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCompilationUnit(ClypsParser.CompilationUnitContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#packageDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPackageDeclaration(ClypsParser.PackageDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#packageModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPackageModifier(ClypsParser.PackageModifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#importDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitImportDeclaration(ClypsParser.ImportDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#singleTypeImportDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSingleTypeImportDeclaration(ClypsParser.SingleTypeImportDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#typeImportOnDemandDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTypeImportOnDemandDeclaration(ClypsParser.TypeImportOnDemandDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#singleStaticImportDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSingleStaticImportDeclaration(ClypsParser.SingleStaticImportDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#staticImportOnDemandDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStaticImportOnDemandDeclaration(ClypsParser.StaticImportOnDemandDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#typeDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTypeDeclaration(ClypsParser.TypeDeclarationContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -262,12 +202,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNormalClassDeclaration(ClypsParser.NormalClassDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#classModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitClassModifier(ClypsParser.ClassModifierContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#typeParameters}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -279,24 +213,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTypeParameterList(ClypsParser.TypeParameterListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#superclass}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSuperclass(ClypsParser.SuperclassContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#superinterfaces}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSuperinterfaces(ClypsParser.SuperinterfacesContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#interfaceTypeList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceTypeList(ClypsParser.InterfaceTypeListContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#classBody}.
 	 * @param ctx the parse tree
@@ -316,17 +232,11 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitClassMemberDeclaration(ClypsParser.ClassMemberDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#fieldDeclaration}.
+	 * Visit a parse tree produced by {@link ClypsParser#mainDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFieldDeclaration(ClypsParser.FieldDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#fieldModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFieldModifier(ClypsParser.FieldModifierContext ctx);
+	T visitMainDeclaration(ClypsParser.MainDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#variableDeclaratorList}.
 	 * @param ctx the parse tree
@@ -394,12 +304,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUnannClassType_lfno_unannClassOrInterfaceType(ClypsParser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#unannInterfaceType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitUnannInterfaceType(ClypsParser.UnannInterfaceTypeContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#unannInterfaceType_lf_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -429,12 +333,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMethodDeclaration(ClypsParser.MethodDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#methodModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMethodModifier(ClypsParser.MethodModifierContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#methodHeader}.
 	 * @param ctx the parse tree
@@ -526,174 +424,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStaticInitializer(ClypsParser.StaticInitializerContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#constructorDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstructorDeclaration(ClypsParser.ConstructorDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#constructorModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstructorModifier(ClypsParser.ConstructorModifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#constructorDeclarator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstructorDeclarator(ClypsParser.ConstructorDeclaratorContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#simpleTypeName}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSimpleTypeName(ClypsParser.SimpleTypeNameContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#constructorBody}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstructorBody(ClypsParser.ConstructorBodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#explicitConstructorInvocation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExplicitConstructorInvocation(ClypsParser.ExplicitConstructorInvocationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enumDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumDeclaration(ClypsParser.EnumDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enumBody}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumBody(ClypsParser.EnumBodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enumConstantList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumConstantList(ClypsParser.EnumConstantListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enumConstant}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumConstant(ClypsParser.EnumConstantContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enumConstantModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumConstantModifier(ClypsParser.EnumConstantModifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enumBodyDeclarations}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumBodyDeclarations(ClypsParser.EnumBodyDeclarationsContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#interfaceDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceDeclaration(ClypsParser.InterfaceDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#normalInterfaceDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNormalInterfaceDeclaration(ClypsParser.NormalInterfaceDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#interfaceModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceModifier(ClypsParser.InterfaceModifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#extendsInterfaces}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExtendsInterfaces(ClypsParser.ExtendsInterfacesContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#interfaceBody}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceBody(ClypsParser.InterfaceBodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#interfaceMemberDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceMemberDeclaration(ClypsParser.InterfaceMemberDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#constantDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstantDeclaration(ClypsParser.ConstantDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#constantModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstantModifier(ClypsParser.ConstantModifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#interfaceMethodDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceMethodDeclaration(ClypsParser.InterfaceMethodDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#interfaceMethodModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceMethodModifier(ClypsParser.InterfaceMethodModifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#annotationTypeDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnnotationTypeDeclaration(ClypsParser.AnnotationTypeDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#annotationTypeBody}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnnotationTypeBody(ClypsParser.AnnotationTypeBodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#annotationTypeMemberDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnnotationTypeMemberDeclaration(ClypsParser.AnnotationTypeMemberDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#annotationTypeElementDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnnotationTypeElementDeclaration(ClypsParser.AnnotationTypeElementDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#annotationTypeElementModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnnotationTypeElementModifier(ClypsParser.AnnotationTypeElementModifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#defaultValue}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDefaultValue(ClypsParser.DefaultValueContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#annotation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -735,18 +465,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitElementValueList(ClypsParser.ElementValueListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#markerAnnotation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMarkerAnnotation(ClypsParser.MarkerAnnotationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#singleElementAnnotation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSingleElementAnnotation(ClypsParser.SingleElementAnnotationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#arrayInitializer}.
 	 * @param ctx the parse tree
@@ -796,6 +514,36 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatement(ClypsParser.StatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ClypsParser#printStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintStatement(ClypsParser.PrintStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ClypsParser#printBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintBlock(ClypsParser.PrintBlockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ClypsParser#printExtra}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintExtra(ClypsParser.PrintExtraContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ClypsParser#scanStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScanStatement(ClypsParser.ScanStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ClypsParser#scanExtra}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScanExtra(ClypsParser.ScanExtraContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ClypsParser#statementNoShortIf}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -807,12 +555,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStatementWithoutTrailingSubstatement(ClypsParser.StatementWithoutTrailingSubstatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#emptyStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEmptyStatement(ClypsParser.EmptyStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#labeledStatement}.
 	 * @param ctx the parse tree
@@ -855,48 +597,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIfThenElseStatementNoShortIf(ClypsParser.IfThenElseStatementNoShortIfContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#assertStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAssertStatement(ClypsParser.AssertStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#switchStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSwitchStatement(ClypsParser.SwitchStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#switchBlock}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSwitchBlock(ClypsParser.SwitchBlockContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#switchBlockStatementGroup}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSwitchBlockStatementGroup(ClypsParser.SwitchBlockStatementGroupContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#switchLabels}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSwitchLabels(ClypsParser.SwitchLabelsContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#switchLabel}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSwitchLabel(ClypsParser.SwitchLabelContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enumConstantName}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumConstantName(ClypsParser.EnumConstantNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#whileStatement}.
 	 * @param ctx the parse tree
@@ -970,95 +670,11 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEnhancedForStatementNoShortIf(ClypsParser.EnhancedForStatementNoShortIfContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#breakStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBreakStatement(ClypsParser.BreakStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#continueStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitContinueStatement(ClypsParser.ContinueStatementContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#returnStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitReturnStatement(ClypsParser.ReturnStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#throwStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitThrowStatement(ClypsParser.ThrowStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#synchronizedStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSynchronizedStatement(ClypsParser.SynchronizedStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#tryStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTryStatement(ClypsParser.TryStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#catches}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCatches(ClypsParser.CatchesContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#catchClause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCatchClause(ClypsParser.CatchClauseContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#catchFormalParameter}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCatchFormalParameter(ClypsParser.CatchFormalParameterContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#catchType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCatchType(ClypsParser.CatchTypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#finally_}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFinally_(ClypsParser.Finally_Context ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#tryWithResourcesStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTryWithResourcesStatement(ClypsParser.TryWithResourcesStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#resourceSpecification}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitResourceSpecification(ClypsParser.ResourceSpecificationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#resourceList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitResourceList(ClypsParser.ResourceListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#resource}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitResource(ClypsParser.ResourceContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#primary}.
 	 * @param ctx the parse tree
@@ -1119,30 +735,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#classInstanceCreationExpression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitClassInstanceCreationExpression(ClypsParser.ClassInstanceCreationExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#classInstanceCreationExpression_lf_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitClassInstanceCreationExpression_lf_primary(ClypsParser.ClassInstanceCreationExpression_lf_primaryContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#classInstanceCreationExpression_lfno_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitClassInstanceCreationExpression_lfno_primary(ClypsParser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#typeArgumentsOrDiamond}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTypeArgumentsOrDiamond(ClypsParser.TypeArgumentsOrDiamondContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#fieldAccess}.
 	 * @param ctx the parse tree
@@ -1239,12 +831,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDimExpr(ClypsParser.DimExprContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#constantExpression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstantExpression(ClypsParser.ConstantExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#expression}.
 	 * @param ctx the parse tree

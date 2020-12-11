@@ -257,16 +257,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitWildcardBounds(ClypsParser.WildcardBoundsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#packageName}.
-	 * @param ctx the parse tree
-	 */
-	void enterPackageName(ClypsParser.PackageNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#packageName}.
-	 * @param ctx the parse tree
-	 */
-	void exitPackageName(ClypsParser.PackageNameContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#typeName}.
 	 * @param ctx the parse tree
 	 */
@@ -317,96 +307,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitAmbiguousName(ClypsParser.AmbiguousNameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#compilationUnit}.
-	 * @param ctx the parse tree
-	 */
-	void enterCompilationUnit(ClypsParser.CompilationUnitContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#compilationUnit}.
-	 * @param ctx the parse tree
-	 */
-	void exitCompilationUnit(ClypsParser.CompilationUnitContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#packageDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterPackageDeclaration(ClypsParser.PackageDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#packageDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitPackageDeclaration(ClypsParser.PackageDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#packageModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterPackageModifier(ClypsParser.PackageModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#packageModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitPackageModifier(ClypsParser.PackageModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#importDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterImportDeclaration(ClypsParser.ImportDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#importDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitImportDeclaration(ClypsParser.ImportDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#singleTypeImportDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterSingleTypeImportDeclaration(ClypsParser.SingleTypeImportDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#singleTypeImportDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitSingleTypeImportDeclaration(ClypsParser.SingleTypeImportDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#typeImportOnDemandDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypeImportOnDemandDeclaration(ClypsParser.TypeImportOnDemandDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#typeImportOnDemandDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypeImportOnDemandDeclaration(ClypsParser.TypeImportOnDemandDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#singleStaticImportDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterSingleStaticImportDeclaration(ClypsParser.SingleStaticImportDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#singleStaticImportDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitSingleStaticImportDeclaration(ClypsParser.SingleStaticImportDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#staticImportOnDemandDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterStaticImportOnDemandDeclaration(ClypsParser.StaticImportOnDemandDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#staticImportOnDemandDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitStaticImportOnDemandDeclaration(ClypsParser.StaticImportOnDemandDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#typeDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypeDeclaration(ClypsParser.TypeDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#typeDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypeDeclaration(ClypsParser.TypeDeclarationContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 */
@@ -427,16 +327,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitNormalClassDeclaration(ClypsParser.NormalClassDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#classModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterClassModifier(ClypsParser.ClassModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#classModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitClassModifier(ClypsParser.ClassModifierContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#typeParameters}.
 	 * @param ctx the parse tree
 	 */
@@ -456,36 +346,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTypeParameterList(ClypsParser.TypeParameterListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#superclass}.
-	 * @param ctx the parse tree
-	 */
-	void enterSuperclass(ClypsParser.SuperclassContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#superclass}.
-	 * @param ctx the parse tree
-	 */
-	void exitSuperclass(ClypsParser.SuperclassContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#superinterfaces}.
-	 * @param ctx the parse tree
-	 */
-	void enterSuperinterfaces(ClypsParser.SuperinterfacesContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#superinterfaces}.
-	 * @param ctx the parse tree
-	 */
-	void exitSuperinterfaces(ClypsParser.SuperinterfacesContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#interfaceTypeList}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceTypeList(ClypsParser.InterfaceTypeListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#interfaceTypeList}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceTypeList(ClypsParser.InterfaceTypeListContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#classBody}.
 	 * @param ctx the parse tree
@@ -517,25 +377,15 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitClassMemberDeclaration(ClypsParser.ClassMemberDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#fieldDeclaration}.
+	 * Enter a parse tree produced by {@link ClypsParser#mainDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterFieldDeclaration(ClypsParser.FieldDeclarationContext ctx);
+	void enterMainDeclaration(ClypsParser.MainDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ClypsParser#fieldDeclaration}.
+	 * Exit a parse tree produced by {@link ClypsParser#mainDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitFieldDeclaration(ClypsParser.FieldDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#fieldModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterFieldModifier(ClypsParser.FieldModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#fieldModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitFieldModifier(ClypsParser.FieldModifierContext ctx);
+	void exitMainDeclaration(ClypsParser.MainDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#variableDeclaratorList}.
 	 * @param ctx the parse tree
@@ -647,16 +497,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitUnannClassType_lfno_unannClassOrInterfaceType(ClypsParser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#unannInterfaceType}.
-	 * @param ctx the parse tree
-	 */
-	void enterUnannInterfaceType(ClypsParser.UnannInterfaceTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#unannInterfaceType}.
-	 * @param ctx the parse tree
-	 */
-	void exitUnannInterfaceType(ClypsParser.UnannInterfaceTypeContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#unannInterfaceType_lf_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
@@ -706,16 +546,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMethodDeclaration(ClypsParser.MethodDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#methodModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterMethodModifier(ClypsParser.MethodModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#methodModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitMethodModifier(ClypsParser.MethodModifierContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#methodHeader}.
 	 * @param ctx the parse tree
@@ -867,286 +697,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitStaticInitializer(ClypsParser.StaticInitializerContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#constructorDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterConstructorDeclaration(ClypsParser.ConstructorDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#constructorDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitConstructorDeclaration(ClypsParser.ConstructorDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#constructorModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterConstructorModifier(ClypsParser.ConstructorModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#constructorModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitConstructorModifier(ClypsParser.ConstructorModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#constructorDeclarator}.
-	 * @param ctx the parse tree
-	 */
-	void enterConstructorDeclarator(ClypsParser.ConstructorDeclaratorContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#constructorDeclarator}.
-	 * @param ctx the parse tree
-	 */
-	void exitConstructorDeclarator(ClypsParser.ConstructorDeclaratorContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#simpleTypeName}.
-	 * @param ctx the parse tree
-	 */
-	void enterSimpleTypeName(ClypsParser.SimpleTypeNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#simpleTypeName}.
-	 * @param ctx the parse tree
-	 */
-	void exitSimpleTypeName(ClypsParser.SimpleTypeNameContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#constructorBody}.
-	 * @param ctx the parse tree
-	 */
-	void enterConstructorBody(ClypsParser.ConstructorBodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#constructorBody}.
-	 * @param ctx the parse tree
-	 */
-	void exitConstructorBody(ClypsParser.ConstructorBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#explicitConstructorInvocation}.
-	 * @param ctx the parse tree
-	 */
-	void enterExplicitConstructorInvocation(ClypsParser.ExplicitConstructorInvocationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#explicitConstructorInvocation}.
-	 * @param ctx the parse tree
-	 */
-	void exitExplicitConstructorInvocation(ClypsParser.ExplicitConstructorInvocationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enumDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumDeclaration(ClypsParser.EnumDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enumDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumDeclaration(ClypsParser.EnumDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enumBody}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumBody(ClypsParser.EnumBodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enumBody}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumBody(ClypsParser.EnumBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enumConstantList}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumConstantList(ClypsParser.EnumConstantListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enumConstantList}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumConstantList(ClypsParser.EnumConstantListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enumConstant}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumConstant(ClypsParser.EnumConstantContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enumConstant}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumConstant(ClypsParser.EnumConstantContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enumConstantModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumConstantModifier(ClypsParser.EnumConstantModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enumConstantModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumConstantModifier(ClypsParser.EnumConstantModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enumBodyDeclarations}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumBodyDeclarations(ClypsParser.EnumBodyDeclarationsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enumBodyDeclarations}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumBodyDeclarations(ClypsParser.EnumBodyDeclarationsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#interfaceDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceDeclaration(ClypsParser.InterfaceDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#interfaceDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceDeclaration(ClypsParser.InterfaceDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#normalInterfaceDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterNormalInterfaceDeclaration(ClypsParser.NormalInterfaceDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#normalInterfaceDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitNormalInterfaceDeclaration(ClypsParser.NormalInterfaceDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#interfaceModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceModifier(ClypsParser.InterfaceModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#interfaceModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceModifier(ClypsParser.InterfaceModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#extendsInterfaces}.
-	 * @param ctx the parse tree
-	 */
-	void enterExtendsInterfaces(ClypsParser.ExtendsInterfacesContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#extendsInterfaces}.
-	 * @param ctx the parse tree
-	 */
-	void exitExtendsInterfaces(ClypsParser.ExtendsInterfacesContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#interfaceBody}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceBody(ClypsParser.InterfaceBodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#interfaceBody}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceBody(ClypsParser.InterfaceBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#interfaceMemberDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceMemberDeclaration(ClypsParser.InterfaceMemberDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#interfaceMemberDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceMemberDeclaration(ClypsParser.InterfaceMemberDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#constantDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterConstantDeclaration(ClypsParser.ConstantDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#constantDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitConstantDeclaration(ClypsParser.ConstantDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#constantModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterConstantModifier(ClypsParser.ConstantModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#constantModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitConstantModifier(ClypsParser.ConstantModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#interfaceMethodDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceMethodDeclaration(ClypsParser.InterfaceMethodDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#interfaceMethodDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceMethodDeclaration(ClypsParser.InterfaceMethodDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#interfaceMethodModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceMethodModifier(ClypsParser.InterfaceMethodModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#interfaceMethodModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceMethodModifier(ClypsParser.InterfaceMethodModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#annotationTypeDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnnotationTypeDeclaration(ClypsParser.AnnotationTypeDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#annotationTypeDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnnotationTypeDeclaration(ClypsParser.AnnotationTypeDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#annotationTypeBody}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnnotationTypeBody(ClypsParser.AnnotationTypeBodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#annotationTypeBody}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnnotationTypeBody(ClypsParser.AnnotationTypeBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#annotationTypeMemberDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnnotationTypeMemberDeclaration(ClypsParser.AnnotationTypeMemberDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#annotationTypeMemberDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnnotationTypeMemberDeclaration(ClypsParser.AnnotationTypeMemberDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#annotationTypeElementDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnnotationTypeElementDeclaration(ClypsParser.AnnotationTypeElementDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#annotationTypeElementDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnnotationTypeElementDeclaration(ClypsParser.AnnotationTypeElementDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#annotationTypeElementModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnnotationTypeElementModifier(ClypsParser.AnnotationTypeElementModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#annotationTypeElementModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnnotationTypeElementModifier(ClypsParser.AnnotationTypeElementModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#defaultValue}.
-	 * @param ctx the parse tree
-	 */
-	void enterDefaultValue(ClypsParser.DefaultValueContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#defaultValue}.
-	 * @param ctx the parse tree
-	 */
-	void exitDefaultValue(ClypsParser.DefaultValueContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#annotation}.
 	 * @param ctx the parse tree
 	 */
@@ -1216,26 +766,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitElementValueList(ClypsParser.ElementValueListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#markerAnnotation}.
-	 * @param ctx the parse tree
-	 */
-	void enterMarkerAnnotation(ClypsParser.MarkerAnnotationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#markerAnnotation}.
-	 * @param ctx the parse tree
-	 */
-	void exitMarkerAnnotation(ClypsParser.MarkerAnnotationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#singleElementAnnotation}.
-	 * @param ctx the parse tree
-	 */
-	void enterSingleElementAnnotation(ClypsParser.SingleElementAnnotationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#singleElementAnnotation}.
-	 * @param ctx the parse tree
-	 */
-	void exitSingleElementAnnotation(ClypsParser.SingleElementAnnotationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#arrayInitializer}.
 	 * @param ctx the parse tree
@@ -1317,6 +847,56 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitStatement(ClypsParser.StatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ClypsParser#printStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintStatement(ClypsParser.PrintStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#printStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintStatement(ClypsParser.PrintStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ClypsParser#printBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintBlock(ClypsParser.PrintBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#printBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintBlock(ClypsParser.PrintBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ClypsParser#printExtra}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintExtra(ClypsParser.PrintExtraContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#printExtra}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintExtra(ClypsParser.PrintExtraContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ClypsParser#scanStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterScanStatement(ClypsParser.ScanStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#scanStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitScanStatement(ClypsParser.ScanStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ClypsParser#scanExtra}.
+	 * @param ctx the parse tree
+	 */
+	void enterScanExtra(ClypsParser.ScanExtraContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#scanExtra}.
+	 * @param ctx the parse tree
+	 */
+	void exitScanExtra(ClypsParser.ScanExtraContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ClypsParser#statementNoShortIf}.
 	 * @param ctx the parse tree
 	 */
@@ -1336,16 +916,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStatementWithoutTrailingSubstatement(ClypsParser.StatementWithoutTrailingSubstatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#emptyStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterEmptyStatement(ClypsParser.EmptyStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#emptyStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitEmptyStatement(ClypsParser.EmptyStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#labeledStatement}.
 	 * @param ctx the parse tree
@@ -1416,76 +986,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfThenElseStatementNoShortIf(ClypsParser.IfThenElseStatementNoShortIfContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#assertStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssertStatement(ClypsParser.AssertStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#assertStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssertStatement(ClypsParser.AssertStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#switchStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterSwitchStatement(ClypsParser.SwitchStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#switchStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitSwitchStatement(ClypsParser.SwitchStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#switchBlock}.
-	 * @param ctx the parse tree
-	 */
-	void enterSwitchBlock(ClypsParser.SwitchBlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#switchBlock}.
-	 * @param ctx the parse tree
-	 */
-	void exitSwitchBlock(ClypsParser.SwitchBlockContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#switchBlockStatementGroup}.
-	 * @param ctx the parse tree
-	 */
-	void enterSwitchBlockStatementGroup(ClypsParser.SwitchBlockStatementGroupContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#switchBlockStatementGroup}.
-	 * @param ctx the parse tree
-	 */
-	void exitSwitchBlockStatementGroup(ClypsParser.SwitchBlockStatementGroupContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#switchLabels}.
-	 * @param ctx the parse tree
-	 */
-	void enterSwitchLabels(ClypsParser.SwitchLabelsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#switchLabels}.
-	 * @param ctx the parse tree
-	 */
-	void exitSwitchLabels(ClypsParser.SwitchLabelsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#switchLabel}.
-	 * @param ctx the parse tree
-	 */
-	void enterSwitchLabel(ClypsParser.SwitchLabelContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#switchLabel}.
-	 * @param ctx the parse tree
-	 */
-	void exitSwitchLabel(ClypsParser.SwitchLabelContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enumConstantName}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumConstantName(ClypsParser.EnumConstantNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enumConstantName}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumConstantName(ClypsParser.EnumConstantNameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#whileStatement}.
 	 * @param ctx the parse tree
@@ -1607,26 +1107,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitEnhancedForStatementNoShortIf(ClypsParser.EnhancedForStatementNoShortIfContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#breakStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterBreakStatement(ClypsParser.BreakStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#breakStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitBreakStatement(ClypsParser.BreakStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#continueStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterContinueStatement(ClypsParser.ContinueStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#continueStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitContinueStatement(ClypsParser.ContinueStatementContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#returnStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -1636,126 +1116,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitReturnStatement(ClypsParser.ReturnStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#throwStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterThrowStatement(ClypsParser.ThrowStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#throwStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitThrowStatement(ClypsParser.ThrowStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#synchronizedStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterSynchronizedStatement(ClypsParser.SynchronizedStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#synchronizedStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitSynchronizedStatement(ClypsParser.SynchronizedStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#tryStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterTryStatement(ClypsParser.TryStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#tryStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitTryStatement(ClypsParser.TryStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#catches}.
-	 * @param ctx the parse tree
-	 */
-	void enterCatches(ClypsParser.CatchesContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#catches}.
-	 * @param ctx the parse tree
-	 */
-	void exitCatches(ClypsParser.CatchesContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#catchClause}.
-	 * @param ctx the parse tree
-	 */
-	void enterCatchClause(ClypsParser.CatchClauseContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#catchClause}.
-	 * @param ctx the parse tree
-	 */
-	void exitCatchClause(ClypsParser.CatchClauseContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#catchFormalParameter}.
-	 * @param ctx the parse tree
-	 */
-	void enterCatchFormalParameter(ClypsParser.CatchFormalParameterContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#catchFormalParameter}.
-	 * @param ctx the parse tree
-	 */
-	void exitCatchFormalParameter(ClypsParser.CatchFormalParameterContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#catchType}.
-	 * @param ctx the parse tree
-	 */
-	void enterCatchType(ClypsParser.CatchTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#catchType}.
-	 * @param ctx the parse tree
-	 */
-	void exitCatchType(ClypsParser.CatchTypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#finally_}.
-	 * @param ctx the parse tree
-	 */
-	void enterFinally_(ClypsParser.Finally_Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#finally_}.
-	 * @param ctx the parse tree
-	 */
-	void exitFinally_(ClypsParser.Finally_Context ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#tryWithResourcesStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterTryWithResourcesStatement(ClypsParser.TryWithResourcesStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#tryWithResourcesStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitTryWithResourcesStatement(ClypsParser.TryWithResourcesStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#resourceSpecification}.
-	 * @param ctx the parse tree
-	 */
-	void enterResourceSpecification(ClypsParser.ResourceSpecificationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#resourceSpecification}.
-	 * @param ctx the parse tree
-	 */
-	void exitResourceSpecification(ClypsParser.ResourceSpecificationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#resourceList}.
-	 * @param ctx the parse tree
-	 */
-	void enterResourceList(ClypsParser.ResourceListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#resourceList}.
-	 * @param ctx the parse tree
-	 */
-	void exitResourceList(ClypsParser.ResourceListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#resource}.
-	 * @param ctx the parse tree
-	 */
-	void enterResource(ClypsParser.ResourceContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#resource}.
-	 * @param ctx the parse tree
-	 */
-	void exitResource(ClypsParser.ResourceContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#primary}.
 	 * @param ctx the parse tree
@@ -1856,46 +1216,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#classInstanceCreationExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterClassInstanceCreationExpression(ClypsParser.ClassInstanceCreationExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#classInstanceCreationExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitClassInstanceCreationExpression(ClypsParser.ClassInstanceCreationExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#classInstanceCreationExpression_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterClassInstanceCreationExpression_lf_primary(ClypsParser.ClassInstanceCreationExpression_lf_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#classInstanceCreationExpression_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitClassInstanceCreationExpression_lf_primary(ClypsParser.ClassInstanceCreationExpression_lf_primaryContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#classInstanceCreationExpression_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterClassInstanceCreationExpression_lfno_primary(ClypsParser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#classInstanceCreationExpression_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitClassInstanceCreationExpression_lfno_primary(ClypsParser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#typeArgumentsOrDiamond}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypeArgumentsOrDiamond(ClypsParser.TypeArgumentsOrDiamondContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#typeArgumentsOrDiamond}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypeArgumentsOrDiamond(ClypsParser.TypeArgumentsOrDiamondContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#fieldAccess}.
 	 * @param ctx the parse tree
@@ -2056,16 +1376,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDimExpr(ClypsParser.DimExprContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#constantExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterConstantExpression(ClypsParser.ConstantExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#constantExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitConstantExpression(ClypsParser.ConstantExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#expression}.
 	 * @param ctx the parse tree
