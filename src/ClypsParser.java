@@ -16,106 +16,70 @@ public class ClypsParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, ABSTRACT=5, ASSERT=6, BOOLEAN=7, BREAK=8, 
-		BYTE=9, CASE=10, CATCH=11, CHAR=12, CLASS=13, CONST=14, CONTINUE=15, DEFAULT=16, 
-		DO=17, DOUBLE=18, ELSE=19, ENUM=20, EXTENDS=21, FINAL=22, FINALLY=23, 
-		FLOAT=24, FOR=25, IF=26, GOTO=27, IMPLEMENTS=28, IMPORT=29, INSTANCEOF=30, 
-		INT=31, INTERFACE=32, LONG=33, NATIVE=34, NEW=35, PACKAGE=36, PRIVATE=37, 
-		PROTECTED=38, PUBLIC=39, RETURN=40, SHORT=41, STATIC=42, STRICTFP=43, 
-		SUPER=44, SWITCH=45, SYNCHRONIZED=46, THIS=47, THROW=48, THROWS=49, TRANSIENT=50, 
-		TRY=51, VOID=52, VOLATILE=53, WHILE=54, IntegerLiteral=55, FloatingPointLiteral=56, 
-		BooleanLiteral=57, CharacterLiteral=58, StringLiteral=59, NullLiteral=60, 
-		LPAREN=61, RPAREN=62, LBRACE=63, RBRACE=64, LBRACK=65, RBRACK=66, SEMI=67, 
-		COMMA=68, DOT=69, ASSIGN=70, GT=71, LT=72, BANG=73, TILDE=74, QUESTION=75, 
-		COLON=76, EQUAL=77, LE=78, GE=79, NOTEQUAL=80, AND=81, OR=82, INC=83, 
-		DEC=84, ADD=85, SUB=86, MUL=87, DIV=88, BITAND=89, BITOR=90, CARET=91, 
-		MOD=92, ARROW=93, COLONCOLON=94, ADD_ASSIGN=95, SUB_ASSIGN=96, MUL_ASSIGN=97, 
-		DIV_ASSIGN=98, AND_ASSIGN=99, OR_ASSIGN=100, XOR_ASSIGN=101, MOD_ASSIGN=102, 
-		LSHIFT_ASSIGN=103, RSHIFT_ASSIGN=104, URSHIFT_ASSIGN=105, Identifier=106, 
-		AT=107, ELLIPSIS=108, WS=109, COMMENT=110, LINE_COMMENT=111;
+		T__0=1, T__1=2, T__2=3, T__3=4, BOOLEAN=5, BREAK=6, BYTE=7, CHAR=8, CLASS=9, 
+		CONST=10, DO=11, DOUBLE=12, ELSE=13, FINAL=14, FLOAT=15, FOR=16, IF=17, 
+		INT=18, LONG=19, NEW=20, PRINT=21, RETURN=22, SCAN=23, SHORT=24, VOID=25, 
+		WHILE=26, IntegerLiteral=27, FloatingPointLiteral=28, BooleanLiteral=29, 
+		CharacterLiteral=30, StringLiteral=31, NullLiteral=32, LPAREN=33, RPAREN=34, 
+		LBRACE=35, RBRACE=36, LBRACK=37, RBRACK=38, SEMI=39, COMMA=40, DOT=41, 
+		ASSIGN=42, GT=43, LT=44, BANG=45, TILDE=46, QUESTION=47, COLON=48, EQUAL=49, 
+		LE=50, GE=51, NOTEQUAL=52, AND=53, OR=54, INC=55, DEC=56, ADD=57, SUB=58, 
+		MUL=59, DIV=60, BITAND=61, BITOR=62, CARET=63, MOD=64, ARROW=65, COLONCOLON=66, 
+		ADD_ASSIGN=67, SUB_ASSIGN=68, MUL_ASSIGN=69, DIV_ASSIGN=70, AND_ASSIGN=71, 
+		OR_ASSIGN=72, XOR_ASSIGN=73, MOD_ASSIGN=74, LSHIFT_ASSIGN=75, RSHIFT_ASSIGN=76, 
+		URSHIFT_ASSIGN=77, Identifier=78, AT=79, ELLIPSIS=80, WS=81, COMMENT=82, 
+		LINE_COMMENT=83;
 	public static final int
 		RULE_literal = 0, RULE_primitiveType = 1, RULE_numericType = 2, RULE_integralType = 3, 
-		RULE_floatingPointType = 4, RULE_referenceType = 5, RULE_classOrInterfaceType = 6, 
-		RULE_classType = 7, RULE_classType_lf_classOrInterfaceType = 8, RULE_classType_lfno_classOrInterfaceType = 9, 
-		RULE_interfaceType = 10, RULE_interfaceType_lf_classOrInterfaceType = 11, 
-		RULE_interfaceType_lfno_classOrInterfaceType = 12, RULE_typeVariable = 13, 
-		RULE_arrayType = 14, RULE_dims = 15, RULE_typeParameter = 16, RULE_typeParameterModifier = 17, 
-		RULE_typeBound = 18, RULE_additionalBound = 19, RULE_typeArguments = 20, 
-		RULE_typeArgumentList = 21, RULE_typeArgument = 22, RULE_wildcard = 23, 
-		RULE_wildcardBounds = 24, RULE_typeName = 25, RULE_packageOrTypeName = 26, 
-		RULE_expressionName = 27, RULE_methodName = 28, RULE_ambiguousName = 29, 
-		RULE_classDeclaration = 30, RULE_normalClassDeclaration = 31, RULE_typeParameters = 32, 
-		RULE_typeParameterList = 33, RULE_classBody = 34, RULE_classBodyDeclaration = 35, 
-		RULE_classMemberDeclaration = 36, RULE_mainDeclaration = 37, RULE_variableDeclaratorList = 38, 
-		RULE_variableDeclarator = 39, RULE_variableDeclaratorId = 40, RULE_variableInitializer = 41, 
-		RULE_unannType = 42, RULE_unannPrimitiveType = 43, RULE_unannReferenceType = 44, 
-		RULE_unannClassOrInterfaceType = 45, RULE_unannClassType = 46, RULE_unannClassType_lf_unannClassOrInterfaceType = 47, 
-		RULE_unannClassType_lfno_unannClassOrInterfaceType = 48, RULE_unannInterfaceType_lf_unannClassOrInterfaceType = 49, 
-		RULE_unannInterfaceType_lfno_unannClassOrInterfaceType = 50, RULE_unannTypeVariable = 51, 
-		RULE_unannArrayType = 52, RULE_methodDeclaration = 53, RULE_methodHeader = 54, 
-		RULE_result = 55, RULE_methodDeclarator = 56, RULE_formalParameterList = 57, 
-		RULE_formalParameters = 58, RULE_formalParameter = 59, RULE_variableModifier = 60, 
-		RULE_lastFormalParameter = 61, RULE_receiverParameter = 62, RULE_throws_ = 63, 
-		RULE_exceptionTypeList = 64, RULE_exceptionType = 65, RULE_methodBody = 66, 
-		RULE_instanceInitializer = 67, RULE_staticInitializer = 68, RULE_annotation = 69, 
-		RULE_normalAnnotation = 70, RULE_elementValuePairList = 71, RULE_elementValuePair = 72, 
-		RULE_elementValue = 73, RULE_elementValueArrayInitializer = 74, RULE_elementValueList = 75, 
-		RULE_arrayInitializer = 76, RULE_variableInitializerList = 77, RULE_block = 78, 
-		RULE_blockStatements = 79, RULE_blockStatement = 80, RULE_localVariableDeclarationStatement = 81, 
-		RULE_localVariableDeclaration = 82, RULE_statement = 83, RULE_printStatement = 84, 
-		RULE_printBlock = 85, RULE_printExtra = 86, RULE_scanStatement = 87, RULE_scanExtra = 88, 
-		RULE_statementNoShortIf = 89, RULE_statementWithoutTrailingSubstatement = 90, 
-		RULE_labeledStatement = 91, RULE_labeledStatementNoShortIf = 92, RULE_expressionStatement = 93, 
-		RULE_statementExpression = 94, RULE_ifThenStatement = 95, RULE_ifThenElseStatement = 96, 
-		RULE_ifThenElseStatementNoShortIf = 97, RULE_whileStatement = 98, RULE_whileStatementNoShortIf = 99, 
-		RULE_doStatement = 100, RULE_forStatement = 101, RULE_forStatementNoShortIf = 102, 
-		RULE_basicForStatement = 103, RULE_basicForStatementNoShortIf = 104, RULE_forInit = 105, 
-		RULE_forUpdate = 106, RULE_statementExpressionList = 107, RULE_enhancedForStatement = 108, 
-		RULE_enhancedForStatementNoShortIf = 109, RULE_returnStatement = 110, 
-		RULE_primary = 111, RULE_primaryNoNewArray = 112, RULE_primaryNoNewArray_lf_arrayAccess = 113, 
-		RULE_primaryNoNewArray_lfno_arrayAccess = 114, RULE_primaryNoNewArray_lf_primary = 115, 
-		RULE_primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary = 116, RULE_primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary = 117, 
-		RULE_primaryNoNewArray_lfno_primary = 118, RULE_primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary = 119, 
-		RULE_primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary = 120, 
-		RULE_fieldAccess = 121, RULE_fieldAccess_lf_primary = 122, RULE_fieldAccess_lfno_primary = 123, 
-		RULE_arrayAccess = 124, RULE_arrayAccess_lf_primary = 125, RULE_arrayAccess_lfno_primary = 126, 
-		RULE_methodInvocation = 127, RULE_methodInvocation_lf_primary = 128, RULE_methodInvocation_lfno_primary = 129, 
-		RULE_argumentList = 130, RULE_methodReference = 131, RULE_methodReference_lf_primary = 132, 
-		RULE_methodReference_lfno_primary = 133, RULE_arrayCreationExpression = 134, 
-		RULE_dimExprs = 135, RULE_dimExpr = 136, RULE_expression = 137, RULE_lambdaExpression = 138, 
-		RULE_lambdaParameters = 139, RULE_inferredFormalParameterList = 140, RULE_lambdaBody = 141, 
-		RULE_assignmentExpression = 142, RULE_assignment = 143, RULE_leftHandSide = 144, 
-		RULE_assignmentOperator = 145, RULE_conditionalExpression = 146, RULE_conditionalOrExpression = 147, 
-		RULE_conditionalAndExpression = 148, RULE_inclusiveOrExpression = 149, 
-		RULE_exclusiveOrExpression = 150, RULE_andExpression = 151, RULE_equalityExpression = 152, 
-		RULE_relationalExpression = 153, RULE_shiftExpression = 154, RULE_additiveExpression = 155, 
-		RULE_multiplicativeExpression = 156, RULE_unaryExpression = 157, RULE_preIncrementExpression = 158, 
-		RULE_preDecrementExpression = 159, RULE_unaryExpressionNotPlusMinus = 160, 
-		RULE_postfixExpression = 161, RULE_postIncrementExpression = 162, RULE_postIncrementExpression_lf_postfixExpression = 163, 
-		RULE_postDecrementExpression = 164, RULE_postDecrementExpression_lf_postfixExpression = 165, 
-		RULE_castExpression = 166;
+		RULE_floatingPointType = 4, RULE_referenceType = 5, RULE_typeVariable = 6, 
+		RULE_arrayType = 7, RULE_dims = 8, RULE_expressionName = 9, RULE_methodName = 10, 
+		RULE_normalClassDeclaration = 11, RULE_classBody = 12, RULE_classBodyDeclaration = 13, 
+		RULE_classMemberDeclaration = 14, RULE_mainDeclaration = 15, RULE_variableDeclaratorList = 16, 
+		RULE_variableDeclarator = 17, RULE_variableDeclaratorId = 18, RULE_variableInitializer = 19, 
+		RULE_unannType = 20, RULE_unannPrimitiveType = 21, RULE_unannReferenceType = 22, 
+		RULE_unannTypeVariable = 23, RULE_unannArrayType = 24, RULE_methodDeclaration = 25, 
+		RULE_methodHeader = 26, RULE_result = 27, RULE_methodDeclarator = 28, 
+		RULE_formalParameterList = 29, RULE_formalParameters = 30, RULE_formalParameter = 31, 
+		RULE_variableModifier = 32, RULE_lastFormalParameter = 33, RULE_receiverParameter = 34, 
+		RULE_methodBody = 35, RULE_arrayInitializer = 36, RULE_variableInitializerList = 37, 
+		RULE_block = 38, RULE_blockStatements = 39, RULE_blockStatement = 40, 
+		RULE_localVariableDeclarationStatement = 41, RULE_localVariableDeclaration = 42, 
+		RULE_statement = 43, RULE_printStatement = 44, RULE_printBlock = 45, RULE_printExtra = 46, 
+		RULE_scanStatement = 47, RULE_scanExtra = 48, RULE_statementNoShortIf = 49, 
+		RULE_statementWithoutTrailingSubstatement = 50, RULE_labeledStatement = 51, 
+		RULE_labeledStatementNoShortIf = 52, RULE_expressionStatement = 53, RULE_statementExpression = 54, 
+		RULE_ifThenStatement = 55, RULE_ifThenElseStatement = 56, RULE_ifThenElseStatementNoShortIf = 57, 
+		RULE_whileStatement = 58, RULE_whileStatementNoShortIf = 59, RULE_doStatement = 60, 
+		RULE_forStatement = 61, RULE_forStatementNoShortIf = 62, RULE_basicForStatement = 63, 
+		RULE_basicForStatementNoShortIf = 64, RULE_forInit = 65, RULE_forUpdate = 66, 
+		RULE_statementExpressionList = 67, RULE_enhancedForStatement = 68, RULE_enhancedForStatementNoShortIf = 69, 
+		RULE_returnStatement = 70, RULE_primary = 71, RULE_primaryNoNewArray_lf_arrayAccess = 72, 
+		RULE_primaryNoNewArray_lfno_arrayAccess = 73, RULE_primaryNoNewArray_lf_primary = 74, 
+		RULE_primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary = 75, RULE_primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary = 76, 
+		RULE_primaryNoNewArray_lfno_primary = 77, RULE_primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary = 78, 
+		RULE_primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary = 79, 
+		RULE_arrayAccess = 80, RULE_arrayAccess_lf_primary = 81, RULE_arrayAccess_lfno_primary = 82, 
+		RULE_methodInvocation = 83, RULE_methodInvocation_lfno_primary = 84, RULE_argumentList = 85, 
+		RULE_arrayCreationExpression = 86, RULE_dimExprs = 87, RULE_dimExpr = 88, 
+		RULE_expression = 89, RULE_assignmentExpression = 90, RULE_assignment = 91, 
+		RULE_leftHandSide = 92, RULE_assignmentOperator = 93, RULE_conditionalExpression = 94, 
+		RULE_conditionalOrExpression = 95, RULE_conditionalAndExpression = 96, 
+		RULE_inclusiveOrExpression = 97, RULE_exclusiveOrExpression = 98, RULE_andExpression = 99, 
+		RULE_equalityExpression = 100, RULE_relationalExpression = 101, RULE_shiftExpression = 102, 
+		RULE_additiveExpression = 103, RULE_multiplicativeExpression = 104, RULE_unaryExpression = 105, 
+		RULE_unaryExpressionNotPlusMinus = 106, RULE_postfixExpression = 107, 
+		RULE_postIncrementExpression = 108, RULE_postDecrementExpression = 109;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"literal", "primitiveType", "numericType", "integralType", "floatingPointType", 
-			"referenceType", "classOrInterfaceType", "classType", "classType_lf_classOrInterfaceType", 
-			"classType_lfno_classOrInterfaceType", "interfaceType", "interfaceType_lf_classOrInterfaceType", 
-			"interfaceType_lfno_classOrInterfaceType", "typeVariable", "arrayType", 
-			"dims", "typeParameter", "typeParameterModifier", "typeBound", "additionalBound", 
-			"typeArguments", "typeArgumentList", "typeArgument", "wildcard", "wildcardBounds", 
-			"typeName", "packageOrTypeName", "expressionName", "methodName", "ambiguousName", 
-			"classDeclaration", "normalClassDeclaration", "typeParameters", "typeParameterList", 
-			"classBody", "classBodyDeclaration", "classMemberDeclaration", "mainDeclaration", 
-			"variableDeclaratorList", "variableDeclarator", "variableDeclaratorId", 
-			"variableInitializer", "unannType", "unannPrimitiveType", "unannReferenceType", 
-			"unannClassOrInterfaceType", "unannClassType", "unannClassType_lf_unannClassOrInterfaceType", 
-			"unannClassType_lfno_unannClassOrInterfaceType", "unannInterfaceType_lf_unannClassOrInterfaceType", 
-			"unannInterfaceType_lfno_unannClassOrInterfaceType", "unannTypeVariable", 
+			"referenceType", "typeVariable", "arrayType", "dims", "expressionName", 
+			"methodName", "normalClassDeclaration", "classBody", "classBodyDeclaration", 
+			"classMemberDeclaration", "mainDeclaration", "variableDeclaratorList", 
+			"variableDeclarator", "variableDeclaratorId", "variableInitializer", 
+			"unannType", "unannPrimitiveType", "unannReferenceType", "unannTypeVariable", 
 			"unannArrayType", "methodDeclaration", "methodHeader", "result", "methodDeclarator", 
 			"formalParameterList", "formalParameters", "formalParameter", "variableModifier", 
-			"lastFormalParameter", "receiverParameter", "throws_", "exceptionTypeList", 
-			"exceptionType", "methodBody", "instanceInitializer", "staticInitializer", 
-			"annotation", "normalAnnotation", "elementValuePairList", "elementValuePair", 
-			"elementValue", "elementValueArrayInitializer", "elementValueList", "arrayInitializer", 
+			"lastFormalParameter", "receiverParameter", "methodBody", "arrayInitializer", 
 			"variableInitializerList", "block", "blockStatements", "blockStatement", 
 			"localVariableDeclarationStatement", "localVariableDeclaration", "statement", 
 			"printStatement", "printBlock", "printExtra", "scanStatement", "scanExtra", 
@@ -125,66 +89,53 @@ public class ClypsParser extends Parser {
 			"whileStatement", "whileStatementNoShortIf", "doStatement", "forStatement", 
 			"forStatementNoShortIf", "basicForStatement", "basicForStatementNoShortIf", 
 			"forInit", "forUpdate", "statementExpressionList", "enhancedForStatement", 
-			"enhancedForStatementNoShortIf", "returnStatement", "primary", "primaryNoNewArray", 
-			"primaryNoNewArray_lf_arrayAccess", "primaryNoNewArray_lfno_arrayAccess", 
-			"primaryNoNewArray_lf_primary", "primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary", 
-			"primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary", "primaryNoNewArray_lfno_primary", 
-			"primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary", "primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary", 
-			"fieldAccess", "fieldAccess_lf_primary", "fieldAccess_lfno_primary", 
-			"arrayAccess", "arrayAccess_lf_primary", "arrayAccess_lfno_primary", 
-			"methodInvocation", "methodInvocation_lf_primary", "methodInvocation_lfno_primary", 
-			"argumentList", "methodReference", "methodReference_lf_primary", "methodReference_lfno_primary", 
-			"arrayCreationExpression", "dimExprs", "dimExpr", "expression", "lambdaExpression", 
-			"lambdaParameters", "inferredFormalParameterList", "lambdaBody", "assignmentExpression", 
-			"assignment", "leftHandSide", "assignmentOperator", "conditionalExpression", 
-			"conditionalOrExpression", "conditionalAndExpression", "inclusiveOrExpression", 
-			"exclusiveOrExpression", "andExpression", "equalityExpression", "relationalExpression", 
-			"shiftExpression", "additiveExpression", "multiplicativeExpression", 
-			"unaryExpression", "preIncrementExpression", "preDecrementExpression", 
+			"enhancedForStatementNoShortIf", "returnStatement", "primary", "primaryNoNewArray_lf_arrayAccess", 
+			"primaryNoNewArray_lfno_arrayAccess", "primaryNoNewArray_lf_primary", 
+			"primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary", "primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary", 
+			"primaryNoNewArray_lfno_primary", "primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary", 
+			"primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary", "arrayAccess", 
+			"arrayAccess_lf_primary", "arrayAccess_lfno_primary", "methodInvocation", 
+			"methodInvocation_lfno_primary", "argumentList", "arrayCreationExpression", 
+			"dimExprs", "dimExpr", "expression", "assignmentExpression", "assignment", 
+			"leftHandSide", "assignmentOperator", "conditionalExpression", "conditionalOrExpression", 
+			"conditionalAndExpression", "inclusiveOrExpression", "exclusiveOrExpression", 
+			"andExpression", "equalityExpression", "relationalExpression", "shiftExpression", 
+			"additiveExpression", "multiplicativeExpression", "unaryExpression", 
 			"unaryExpressionNotPlusMinus", "postfixExpression", "postIncrementExpression", 
-			"postIncrementExpression_lf_postfixExpression", "postDecrementExpression", 
-			"postDecrementExpression_lf_postfixExpression", "castExpression"
+			"postDecrementExpression"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'main'", "'String'", "'print'", "'scan'", "'abstract'", "'assert'", 
-			"'boolean'", "'break'", "'byte'", "'case'", "'catch'", "'char'", "'class'", 
-			"'const'", "'continue'", "'default'", "'do'", "'double'", "'else'", "'enum'", 
-			"'extends'", "'final'", "'finally'", "'float'", "'for'", "'if'", "'goto'", 
-			"'implements'", "'import'", "'instanceof'", "'int'", "'interface'", "'long'", 
-			"'native'", "'new'", "'package'", "'private'", "'protected'", "'public'", 
-			"'return'", "'short'", "'static'", "'strictfp'", "'super'", "'switch'", 
-			"'synchronized'", "'this'", "'throw'", "'throws'", "'transient'", "'try'", 
-			"'void'", "'volatile'", "'while'", null, null, null, null, null, "'null'", 
-			"'('", "')'", "'{'", "'}'", "'['", "']'", "';'", "','", "'.'", "'='", 
-			"'>'", "'<'", "'!'", "'~'", "'?'", "':'", "'=='", "'<='", "'>='", "'!='", 
-			"'&&'", "'||'", "'++'", "'--'", "'+'", "'-'", "'*'", "'/'", "'&'", "'|'", 
-			"'^'", "'%'", "'->'", "'::'", "'+='", "'-='", "'*='", "'/='", "'&='", 
-			"'|='", "'^='", "'%='", "'<<='", "'>>='", "'>>>='", null, "'@'", "'...'"
+			null, "'main'", "'String'", "'this'", "'instanceof'", "'boolean'", "'break'", 
+			"'byte'", "'char'", "'class'", "'const'", "'do'", "'double'", "'else'", 
+			"'final'", "'float'", "'for'", "'if'", "'int'", "'long'", "'new'", "'print'", 
+			"'return'", "'scan'", "'short'", "'void'", "'while'", null, null, null, 
+			null, null, "'null'", "'('", "')'", "'{'", "'}'", "'['", "']'", "';'", 
+			"','", "'.'", "'='", "'>'", "'<'", "'!'", "'~'", "'?'", "':'", "'=='", 
+			"'<='", "'>='", "'!='", "'&&'", "'||'", "'++'", "'--'", "'+'", "'-'", 
+			"'*'", "'/'", "'&'", "'|'", "'^'", "'%'", "'->'", "'::'", "'+='", "'-='", 
+			"'*='", "'/='", "'&='", "'|='", "'^='", "'%='", "'<<='", "'>>='", "'>>>='", 
+			null, "'@'", "'...'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", 
-			"BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONST", "CONTINUE", "DEFAULT", 
-			"DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FINAL", "FINALLY", "FLOAT", 
-			"FOR", "IF", "GOTO", "IMPLEMENTS", "IMPORT", "INSTANCEOF", "INT", "INTERFACE", 
-			"LONG", "NATIVE", "NEW", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", 
-			"RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", "SYNCHRONIZED", 
-			"THIS", "THROW", "THROWS", "TRANSIENT", "TRY", "VOID", "VOLATILE", "WHILE", 
-			"IntegerLiteral", "FloatingPointLiteral", "BooleanLiteral", "CharacterLiteral", 
-			"StringLiteral", "NullLiteral", "LPAREN", "RPAREN", "LBRACE", "RBRACE", 
-			"LBRACK", "RBRACK", "SEMI", "COMMA", "DOT", "ASSIGN", "GT", "LT", "BANG", 
-			"TILDE", "QUESTION", "COLON", "EQUAL", "LE", "GE", "NOTEQUAL", "AND", 
-			"OR", "INC", "DEC", "ADD", "SUB", "MUL", "DIV", "BITAND", "BITOR", "CARET", 
-			"MOD", "ARROW", "COLONCOLON", "ADD_ASSIGN", "SUB_ASSIGN", "MUL_ASSIGN", 
-			"DIV_ASSIGN", "AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "MOD_ASSIGN", 
-			"LSHIFT_ASSIGN", "RSHIFT_ASSIGN", "URSHIFT_ASSIGN", "Identifier", "AT", 
-			"ELLIPSIS", "WS", "COMMENT", "LINE_COMMENT"
+			null, null, null, null, null, "BOOLEAN", "BREAK", "BYTE", "CHAR", "CLASS", 
+			"CONST", "DO", "DOUBLE", "ELSE", "FINAL", "FLOAT", "FOR", "IF", "INT", 
+			"LONG", "NEW", "PRINT", "RETURN", "SCAN", "SHORT", "VOID", "WHILE", "IntegerLiteral", 
+			"FloatingPointLiteral", "BooleanLiteral", "CharacterLiteral", "StringLiteral", 
+			"NullLiteral", "LPAREN", "RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK", 
+			"SEMI", "COMMA", "DOT", "ASSIGN", "GT", "LT", "BANG", "TILDE", "QUESTION", 
+			"COLON", "EQUAL", "LE", "GE", "NOTEQUAL", "AND", "OR", "INC", "DEC", 
+			"ADD", "SUB", "MUL", "DIV", "BITAND", "BITOR", "CARET", "MOD", "ARROW", 
+			"COLONCOLON", "ADD_ASSIGN", "SUB_ASSIGN", "MUL_ASSIGN", "DIV_ASSIGN", 
+			"AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "MOD_ASSIGN", "LSHIFT_ASSIGN", 
+			"RSHIFT_ASSIGN", "URSHIFT_ASSIGN", "Identifier", "AT", "ELLIPSIS", "WS", 
+			"COMMENT", "LINE_COMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -271,7 +222,7 @@ public class ClypsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(334);
+			setState(220);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -298,12 +249,6 @@ public class ClypsParser extends Parser {
 		public NumericTypeContext numericType() {
 			return getRuleContext(NumericTypeContext.class,0);
 		}
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
 		public TerminalNode BOOLEAN() { return getToken(ClypsParser.BOOLEAN, 0); }
 		public PrimitiveTypeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -327,53 +272,32 @@ public class ClypsParser extends Parser {
 	public final PrimitiveTypeContext primitiveType() throws RecognitionException {
 		PrimitiveTypeContext _localctx = new PrimitiveTypeContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_primitiveType);
-		int _la;
 		try {
-			setState(350);
+			setState(224);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case BYTE:
+			case CHAR:
+			case DOUBLE:
+			case FLOAT:
+			case INT:
+			case LONG:
+			case SHORT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(339);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==AT) {
-					{
-					{
-					setState(336);
-					annotation();
-					}
-					}
-					setState(341);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(342);
+				setState(222);
 				numericType();
 				}
 				break;
-			case 2:
+			case BOOLEAN:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(346);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==AT) {
-					{
-					{
-					setState(343);
-					annotation();
-					}
-					}
-					setState(348);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(349);
+				setState(223);
 				match(BOOLEAN);
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -417,7 +341,7 @@ public class ClypsParser extends Parser {
 		NumericTypeContext _localctx = new NumericTypeContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_numericType);
 		try {
-			setState(354);
+			setState(228);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case BYTE:
@@ -427,7 +351,7 @@ public class ClypsParser extends Parser {
 			case SHORT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(352);
+				setState(226);
 				integralType();
 				}
 				break;
@@ -435,7 +359,7 @@ public class ClypsParser extends Parser {
 			case FLOAT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(353);
+				setState(227);
 				floatingPointType();
 				}
 				break;
@@ -486,7 +410,7 @@ public class ClypsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(356);
+			setState(230);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BYTE) | (1L << CHAR) | (1L << INT) | (1L << LONG) | (1L << SHORT))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -538,7 +462,7 @@ public class ClypsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(358);
+			setState(232);
 			_la = _input.LA(1);
 			if ( !(_la==DOUBLE || _la==FLOAT) ) {
 			_errHandler.recoverInline(this);
@@ -562,9 +486,6 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class ReferenceTypeContext extends ParserRuleContext {
-		public ClassOrInterfaceTypeContext classOrInterfaceType() {
-			return getRuleContext(ClassOrInterfaceTypeContext.class,0);
-		}
 		public TypeVariableContext typeVariable() {
 			return getRuleContext(TypeVariableContext.class,0);
 		}
@@ -594,27 +515,20 @@ public class ClypsParser extends Parser {
 		ReferenceTypeContext _localctx = new ReferenceTypeContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_referenceType);
 		try {
-			setState(363);
+			setState(236);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(360);
-				classOrInterfaceType();
+				setState(234);
+				typeVariable();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(361);
-				typeVariable();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(362);
+				setState(235);
 				arrayType();
 				}
 				break;
@@ -631,524 +545,8 @@ public class ClypsParser extends Parser {
 		return _localctx;
 	}
 
-	public static class ClassOrInterfaceTypeContext extends ParserRuleContext {
-		public ClassType_lfno_classOrInterfaceTypeContext classType_lfno_classOrInterfaceType() {
-			return getRuleContext(ClassType_lfno_classOrInterfaceTypeContext.class,0);
-		}
-		public InterfaceType_lfno_classOrInterfaceTypeContext interfaceType_lfno_classOrInterfaceType() {
-			return getRuleContext(InterfaceType_lfno_classOrInterfaceTypeContext.class,0);
-		}
-		public List<ClassType_lf_classOrInterfaceTypeContext> classType_lf_classOrInterfaceType() {
-			return getRuleContexts(ClassType_lf_classOrInterfaceTypeContext.class);
-		}
-		public ClassType_lf_classOrInterfaceTypeContext classType_lf_classOrInterfaceType(int i) {
-			return getRuleContext(ClassType_lf_classOrInterfaceTypeContext.class,i);
-		}
-		public List<InterfaceType_lf_classOrInterfaceTypeContext> interfaceType_lf_classOrInterfaceType() {
-			return getRuleContexts(InterfaceType_lf_classOrInterfaceTypeContext.class);
-		}
-		public InterfaceType_lf_classOrInterfaceTypeContext interfaceType_lf_classOrInterfaceType(int i) {
-			return getRuleContext(InterfaceType_lf_classOrInterfaceTypeContext.class,i);
-		}
-		public ClassOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_classOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterClassOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitClassOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitClassOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ClassOrInterfaceTypeContext classOrInterfaceType() throws RecognitionException {
-		ClassOrInterfaceTypeContext _localctx = new ClassOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_classOrInterfaceType);
-		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(367);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
-			case 1:
-				{
-				setState(365);
-				classType_lfno_classOrInterfaceType();
-				}
-				break;
-			case 2:
-				{
-				setState(366);
-				interfaceType_lfno_classOrInterfaceType();
-				}
-				break;
-			}
-			setState(373);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					setState(371);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
-					case 1:
-						{
-						setState(369);
-						classType_lf_classOrInterfaceType();
-						}
-						break;
-					case 2:
-						{
-						setState(370);
-						interfaceType_lf_classOrInterfaceType();
-						}
-						break;
-					}
-					} 
-				}
-				setState(375);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ClassTypeContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public ClassOrInterfaceTypeContext classOrInterfaceType() {
-			return getRuleContext(ClassOrInterfaceTypeContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public ClassTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_classType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterClassType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitClassType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitClassType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ClassTypeContext classType() throws RecognitionException {
-		ClassTypeContext _localctx = new ClassTypeContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_classType);
-		int _la;
-		try {
-			setState(398);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(379);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==AT) {
-					{
-					{
-					setState(376);
-					annotation();
-					}
-					}
-					setState(381);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(382);
-				match(Identifier);
-				setState(384);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(383);
-					typeArguments();
-					}
-				}
-
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(386);
-				classOrInterfaceType();
-				setState(387);
-				match(DOT);
-				setState(391);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==AT) {
-					{
-					{
-					setState(388);
-					annotation();
-					}
-					}
-					setState(393);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(394);
-				match(Identifier);
-				setState(396);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(395);
-					typeArguments();
-					}
-				}
-
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ClassType_lf_classOrInterfaceTypeContext extends ParserRuleContext {
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public ClassType_lf_classOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_classType_lf_classOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterClassType_lf_classOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitClassType_lf_classOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitClassType_lf_classOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ClassType_lf_classOrInterfaceTypeContext classType_lf_classOrInterfaceType() throws RecognitionException {
-		ClassType_lf_classOrInterfaceTypeContext _localctx = new ClassType_lf_classOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_classType_lf_classOrInterfaceType);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(400);
-			match(DOT);
-			setState(404);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(401);
-				annotation();
-				}
-				}
-				setState(406);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(407);
-			match(Identifier);
-			setState(409);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
-			case 1:
-				{
-				setState(408);
-				typeArguments();
-				}
-				break;
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ClassType_lfno_classOrInterfaceTypeContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public ClassType_lfno_classOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_classType_lfno_classOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterClassType_lfno_classOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitClassType_lfno_classOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitClassType_lfno_classOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ClassType_lfno_classOrInterfaceTypeContext classType_lfno_classOrInterfaceType() throws RecognitionException {
-		ClassType_lfno_classOrInterfaceTypeContext _localctx = new ClassType_lfno_classOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_classType_lfno_classOrInterfaceType);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(414);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(411);
-				annotation();
-				}
-				}
-				setState(416);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(417);
-			match(Identifier);
-			setState(419);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
-			case 1:
-				{
-				setState(418);
-				typeArguments();
-				}
-				break;
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class InterfaceTypeContext extends ParserRuleContext {
-		public ClassTypeContext classType() {
-			return getRuleContext(ClassTypeContext.class,0);
-		}
-		public InterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_interfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final InterfaceTypeContext interfaceType() throws RecognitionException {
-		InterfaceTypeContext _localctx = new InterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_interfaceType);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(421);
-			classType();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class InterfaceType_lf_classOrInterfaceTypeContext extends ParserRuleContext {
-		public ClassType_lf_classOrInterfaceTypeContext classType_lf_classOrInterfaceType() {
-			return getRuleContext(ClassType_lf_classOrInterfaceTypeContext.class,0);
-		}
-		public InterfaceType_lf_classOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_interfaceType_lf_classOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterInterfaceType_lf_classOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitInterfaceType_lf_classOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitInterfaceType_lf_classOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final InterfaceType_lf_classOrInterfaceTypeContext interfaceType_lf_classOrInterfaceType() throws RecognitionException {
-		InterfaceType_lf_classOrInterfaceTypeContext _localctx = new InterfaceType_lf_classOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_interfaceType_lf_classOrInterfaceType);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(423);
-			classType_lf_classOrInterfaceType();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class InterfaceType_lfno_classOrInterfaceTypeContext extends ParserRuleContext {
-		public ClassType_lfno_classOrInterfaceTypeContext classType_lfno_classOrInterfaceType() {
-			return getRuleContext(ClassType_lfno_classOrInterfaceTypeContext.class,0);
-		}
-		public InterfaceType_lfno_classOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_interfaceType_lfno_classOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterInterfaceType_lfno_classOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitInterfaceType_lfno_classOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitInterfaceType_lfno_classOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final InterfaceType_lfno_classOrInterfaceTypeContext interfaceType_lfno_classOrInterfaceType() throws RecognitionException {
-		InterfaceType_lfno_classOrInterfaceTypeContext _localctx = new InterfaceType_lfno_classOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_interfaceType_lfno_classOrInterfaceType);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(425);
-			classType_lfno_classOrInterfaceType();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
 	public static class TypeVariableContext extends ParserRuleContext {
 		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
 		public TypeVariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1170,26 +568,11 @@ public class ClypsParser extends Parser {
 
 	public final TypeVariableContext typeVariable() throws RecognitionException {
 		TypeVariableContext _localctx = new TypeVariableContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_typeVariable);
-		int _la;
+		enterRule(_localctx, 12, RULE_typeVariable);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(430);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(427);
-				annotation();
-				}
-				}
-				setState(432);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(433);
+			setState(238);
 			match(Identifier);
 			}
 		}
@@ -1210,9 +593,6 @@ public class ClypsParser extends Parser {
 		}
 		public DimsContext dims() {
 			return getRuleContext(DimsContext.class,0);
-		}
-		public ClassOrInterfaceTypeContext classOrInterfaceType() {
-			return getRuleContext(ClassOrInterfaceTypeContext.class,0);
 		}
 		public TypeVariableContext typeVariable() {
 			return getRuleContext(TypeVariableContext.class,0);
@@ -1238,38 +618,38 @@ public class ClypsParser extends Parser {
 
 	public final ArrayTypeContext arrayType() throws RecognitionException {
 		ArrayTypeContext _localctx = new ArrayTypeContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_arrayType);
+		enterRule(_localctx, 14, RULE_arrayType);
 		try {
-			setState(444);
+			setState(246);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case BOOLEAN:
+			case BYTE:
+			case CHAR:
+			case DOUBLE:
+			case FLOAT:
+			case INT:
+			case LONG:
+			case SHORT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(435);
+				setState(240);
 				primitiveType();
-				setState(436);
+				setState(241);
 				dims();
 				}
 				break;
-			case 2:
+			case Identifier:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(438);
-				classOrInterfaceType();
-				setState(439);
-				dims();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(441);
+				setState(243);
 				typeVariable();
-				setState(442);
+				setState(244);
 				dims();
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1292,12 +672,6 @@ public class ClypsParser extends Parser {
 		public TerminalNode RBRACK(int i) {
 			return getToken(ClypsParser.RBRACK, i);
 		}
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
 		public DimsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1319,61 +693,32 @@ public class ClypsParser extends Parser {
 
 	public final DimsContext dims() throws RecognitionException {
 		DimsContext _localctx = new DimsContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_dims);
-		int _la;
+		enterRule(_localctx, 16, RULE_dims);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(449);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(446);
-				annotation();
-				}
-				}
-				setState(451);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(452);
+			setState(248);
 			match(LBRACK);
-			setState(453);
+			setState(249);
 			match(RBRACK);
-			setState(464);
+			setState(254);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,21,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(457);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					while (_la==AT) {
-						{
-						{
-						setState(454);
-						annotation();
-						}
-						}
-						setState(459);
-						_errHandler.sync(this);
-						_la = _input.LA(1);
-					}
-					setState(460);
+					setState(250);
 					match(LBRACK);
-					setState(461);
+					setState(251);
 					match(RBRACK);
 					}
 					} 
 				}
-				setState(466);
+				setState(256);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,21,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
 			}
 		}
@@ -1384,733 +729,12 @@ public class ClypsParser extends Parser {
 		}
 		finally {
 			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeParameterContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public List<TypeParameterModifierContext> typeParameterModifier() {
-			return getRuleContexts(TypeParameterModifierContext.class);
-		}
-		public TypeParameterModifierContext typeParameterModifier(int i) {
-			return getRuleContext(TypeParameterModifierContext.class,i);
-		}
-		public TypeBoundContext typeBound() {
-			return getRuleContext(TypeBoundContext.class,0);
-		}
-		public TypeParameterContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeParameter; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeParameter(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeParameter(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeParameter(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeParameterContext typeParameter() throws RecognitionException {
-		TypeParameterContext _localctx = new TypeParameterContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_typeParameter);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(470);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(467);
-				typeParameterModifier();
-				}
-				}
-				setState(472);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(473);
-			match(Identifier);
-			setState(475);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==EXTENDS) {
-				{
-				setState(474);
-				typeBound();
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeParameterModifierContext extends ParserRuleContext {
-		public AnnotationContext annotation() {
-			return getRuleContext(AnnotationContext.class,0);
-		}
-		public TypeParameterModifierContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeParameterModifier; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeParameterModifier(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeParameterModifier(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeParameterModifier(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeParameterModifierContext typeParameterModifier() throws RecognitionException {
-		TypeParameterModifierContext _localctx = new TypeParameterModifierContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_typeParameterModifier);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(477);
-			annotation();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeBoundContext extends ParserRuleContext {
-		public TerminalNode EXTENDS() { return getToken(ClypsParser.EXTENDS, 0); }
-		public TypeVariableContext typeVariable() {
-			return getRuleContext(TypeVariableContext.class,0);
-		}
-		public ClassOrInterfaceTypeContext classOrInterfaceType() {
-			return getRuleContext(ClassOrInterfaceTypeContext.class,0);
-		}
-		public List<AdditionalBoundContext> additionalBound() {
-			return getRuleContexts(AdditionalBoundContext.class);
-		}
-		public AdditionalBoundContext additionalBound(int i) {
-			return getRuleContext(AdditionalBoundContext.class,i);
-		}
-		public TypeBoundContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeBound; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeBound(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeBound(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeBound(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeBoundContext typeBound() throws RecognitionException {
-		TypeBoundContext _localctx = new TypeBoundContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_typeBound);
-		int _la;
-		try {
-			setState(489);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,25,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(479);
-				match(EXTENDS);
-				setState(480);
-				typeVariable();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(481);
-				match(EXTENDS);
-				setState(482);
-				classOrInterfaceType();
-				setState(486);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==BITAND) {
-					{
-					{
-					setState(483);
-					additionalBound();
-					}
-					}
-					setState(488);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class AdditionalBoundContext extends ParserRuleContext {
-		public TerminalNode BITAND() { return getToken(ClypsParser.BITAND, 0); }
-		public InterfaceTypeContext interfaceType() {
-			return getRuleContext(InterfaceTypeContext.class,0);
-		}
-		public AdditionalBoundContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_additionalBound; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterAdditionalBound(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitAdditionalBound(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitAdditionalBound(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final AdditionalBoundContext additionalBound() throws RecognitionException {
-		AdditionalBoundContext _localctx = new AdditionalBoundContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_additionalBound);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(491);
-			match(BITAND);
-			setState(492);
-			interfaceType();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeArgumentsContext extends ParserRuleContext {
-		public TerminalNode LT() { return getToken(ClypsParser.LT, 0); }
-		public TypeArgumentListContext typeArgumentList() {
-			return getRuleContext(TypeArgumentListContext.class,0);
-		}
-		public TerminalNode GT() { return getToken(ClypsParser.GT, 0); }
-		public TypeArgumentsContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeArguments; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeArguments(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeArguments(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeArguments(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeArgumentsContext typeArguments() throws RecognitionException {
-		TypeArgumentsContext _localctx = new TypeArgumentsContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_typeArguments);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(494);
-			match(LT);
-			setState(495);
-			typeArgumentList();
-			setState(496);
-			match(GT);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeArgumentListContext extends ParserRuleContext {
-		public List<TypeArgumentContext> typeArgument() {
-			return getRuleContexts(TypeArgumentContext.class);
-		}
-		public TypeArgumentContext typeArgument(int i) {
-			return getRuleContext(TypeArgumentContext.class,i);
-		}
-		public List<TerminalNode> COMMA() { return getTokens(ClypsParser.COMMA); }
-		public TerminalNode COMMA(int i) {
-			return getToken(ClypsParser.COMMA, i);
-		}
-		public TypeArgumentListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeArgumentList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeArgumentList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeArgumentList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeArgumentList(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeArgumentListContext typeArgumentList() throws RecognitionException {
-		TypeArgumentListContext _localctx = new TypeArgumentListContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_typeArgumentList);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(498);
-			typeArgument();
-			setState(503);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==COMMA) {
-				{
-				{
-				setState(499);
-				match(COMMA);
-				setState(500);
-				typeArgument();
-				}
-				}
-				setState(505);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeArgumentContext extends ParserRuleContext {
-		public ReferenceTypeContext referenceType() {
-			return getRuleContext(ReferenceTypeContext.class,0);
-		}
-		public WildcardContext wildcard() {
-			return getRuleContext(WildcardContext.class,0);
-		}
-		public TypeArgumentContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeArgument; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeArgument(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeArgument(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeArgument(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeArgumentContext typeArgument() throws RecognitionException {
-		TypeArgumentContext _localctx = new TypeArgumentContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_typeArgument);
-		try {
-			setState(508);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,27,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(506);
-				referenceType();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(507);
-				wildcard();
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class WildcardContext extends ParserRuleContext {
-		public TerminalNode QUESTION() { return getToken(ClypsParser.QUESTION, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
-		public WildcardBoundsContext wildcardBounds() {
-			return getRuleContext(WildcardBoundsContext.class,0);
-		}
-		public WildcardContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_wildcard; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterWildcard(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitWildcard(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitWildcard(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final WildcardContext wildcard() throws RecognitionException {
-		WildcardContext _localctx = new WildcardContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_wildcard);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(513);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(510);
-				annotation();
-				}
-				}
-				setState(515);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(516);
-			match(QUESTION);
-			setState(518);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==EXTENDS || _la==SUPER) {
-				{
-				setState(517);
-				wildcardBounds();
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class WildcardBoundsContext extends ParserRuleContext {
-		public TerminalNode EXTENDS() { return getToken(ClypsParser.EXTENDS, 0); }
-		public ReferenceTypeContext referenceType() {
-			return getRuleContext(ReferenceTypeContext.class,0);
-		}
-		public TerminalNode SUPER() { return getToken(ClypsParser.SUPER, 0); }
-		public WildcardBoundsContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_wildcardBounds; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterWildcardBounds(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitWildcardBounds(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitWildcardBounds(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final WildcardBoundsContext wildcardBounds() throws RecognitionException {
-		WildcardBoundsContext _localctx = new WildcardBoundsContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_wildcardBounds);
-		try {
-			setState(524);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case EXTENDS:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(520);
-				match(EXTENDS);
-				setState(521);
-				referenceType();
-				}
-				break;
-			case SUPER:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(522);
-				match(SUPER);
-				setState(523);
-				referenceType();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeNameContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public PackageOrTypeNameContext packageOrTypeName() {
-			return getRuleContext(PackageOrTypeNameContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public TypeNameContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeName; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeName(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeName(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeName(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeNameContext typeName() throws RecognitionException {
-		TypeNameContext _localctx = new TypeNameContext(_ctx, getState());
-		enterRule(_localctx, 50, RULE_typeName);
-		try {
-			setState(531);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,31,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(526);
-				match(Identifier);
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(527);
-				packageOrTypeName(0);
-				setState(528);
-				match(DOT);
-				setState(529);
-				match(Identifier);
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class PackageOrTypeNameContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public PackageOrTypeNameContext packageOrTypeName() {
-			return getRuleContext(PackageOrTypeNameContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public PackageOrTypeNameContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_packageOrTypeName; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterPackageOrTypeName(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitPackageOrTypeName(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitPackageOrTypeName(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final PackageOrTypeNameContext packageOrTypeName() throws RecognitionException {
-		return packageOrTypeName(0);
-	}
-
-	private PackageOrTypeNameContext packageOrTypeName(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		PackageOrTypeNameContext _localctx = new PackageOrTypeNameContext(_ctx, _parentState);
-		PackageOrTypeNameContext _prevctx = _localctx;
-		int _startState = 52;
-		enterRecursionRule(_localctx, 52, RULE_packageOrTypeName, _p);
-		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			{
-			setState(534);
-			match(Identifier);
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(541);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,32,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new PackageOrTypeNameContext(_parentctx, _parentState);
-					pushNewRecursionContext(_localctx, _startState, RULE_packageOrTypeName);
-					setState(536);
-					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(537);
-					match(DOT);
-					setState(538);
-					match(Identifier);
-					}
-					} 
-				}
-				setState(543);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,32,_ctx);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			unrollRecursionContexts(_parentctx);
 		}
 		return _localctx;
 	}
 
 	public static class ExpressionNameContext extends ParserRuleContext {
 		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public AmbiguousNameContext ambiguousName() {
-			return getRuleContext(AmbiguousNameContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
 		public ExpressionNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2132,29 +756,12 @@ public class ClypsParser extends Parser {
 
 	public final ExpressionNameContext expressionName() throws RecognitionException {
 		ExpressionNameContext _localctx = new ExpressionNameContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_expressionName);
+		enterRule(_localctx, 18, RULE_expressionName);
 		try {
-			setState(549);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,33,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(544);
-				match(Identifier);
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(545);
-				ambiguousName(0);
-				setState(546);
-				match(DOT);
-				setState(547);
-				match(Identifier);
-				}
-				break;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(257);
+			match(Identifier);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2191,138 +798,12 @@ public class ClypsParser extends Parser {
 
 	public final MethodNameContext methodName() throws RecognitionException {
 		MethodNameContext _localctx = new MethodNameContext(_ctx, getState());
-		enterRule(_localctx, 56, RULE_methodName);
+		enterRule(_localctx, 20, RULE_methodName);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(551);
+			setState(259);
 			match(Identifier);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class AmbiguousNameContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public AmbiguousNameContext ambiguousName() {
-			return getRuleContext(AmbiguousNameContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public AmbiguousNameContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ambiguousName; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterAmbiguousName(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitAmbiguousName(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitAmbiguousName(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final AmbiguousNameContext ambiguousName() throws RecognitionException {
-		return ambiguousName(0);
-	}
-
-	private AmbiguousNameContext ambiguousName(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		AmbiguousNameContext _localctx = new AmbiguousNameContext(_ctx, _parentState);
-		AmbiguousNameContext _prevctx = _localctx;
-		int _startState = 58;
-		enterRecursionRule(_localctx, 58, RULE_ambiguousName, _p);
-		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			{
-			setState(554);
-			match(Identifier);
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(561);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,34,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new AmbiguousNameContext(_parentctx, _parentState);
-					pushNewRecursionContext(_localctx, _startState, RULE_ambiguousName);
-					setState(556);
-					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(557);
-					match(DOT);
-					setState(558);
-					match(Identifier);
-					}
-					} 
-				}
-				setState(563);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,34,_ctx);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			unrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public static class ClassDeclarationContext extends ParserRuleContext {
-		public NormalClassDeclarationContext normalClassDeclaration() {
-			return getRuleContext(NormalClassDeclarationContext.class,0);
-		}
-		public ClassDeclarationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_classDeclaration; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterClassDeclaration(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitClassDeclaration(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitClassDeclaration(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ClassDeclarationContext classDeclaration() throws RecognitionException {
-		ClassDeclarationContext _localctx = new ClassDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 60, RULE_classDeclaration);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(564);
-			normalClassDeclaration();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2363,134 +844,16 @@ public class ClypsParser extends Parser {
 
 	public final NormalClassDeclarationContext normalClassDeclaration() throws RecognitionException {
 		NormalClassDeclarationContext _localctx = new NormalClassDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 62, RULE_normalClassDeclaration);
+		enterRule(_localctx, 22, RULE_normalClassDeclaration);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(566);
+			setState(261);
 			match(CLASS);
-			setState(567);
+			setState(262);
 			match(Identifier);
-			setState(568);
+			setState(263);
 			classBody();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeParametersContext extends ParserRuleContext {
-		public TerminalNode LT() { return getToken(ClypsParser.LT, 0); }
-		public TypeParameterListContext typeParameterList() {
-			return getRuleContext(TypeParameterListContext.class,0);
-		}
-		public TerminalNode GT() { return getToken(ClypsParser.GT, 0); }
-		public TypeParametersContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeParameters; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeParameters(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeParameters(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeParameters(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeParametersContext typeParameters() throws RecognitionException {
-		TypeParametersContext _localctx = new TypeParametersContext(_ctx, getState());
-		enterRule(_localctx, 64, RULE_typeParameters);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(570);
-			match(LT);
-			setState(571);
-			typeParameterList();
-			setState(572);
-			match(GT);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeParameterListContext extends ParserRuleContext {
-		public List<TypeParameterContext> typeParameter() {
-			return getRuleContexts(TypeParameterContext.class);
-		}
-		public TypeParameterContext typeParameter(int i) {
-			return getRuleContext(TypeParameterContext.class,i);
-		}
-		public List<TerminalNode> COMMA() { return getTokens(ClypsParser.COMMA); }
-		public TerminalNode COMMA(int i) {
-			return getToken(ClypsParser.COMMA, i);
-		}
-		public TypeParameterListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_typeParameterList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterTypeParameterList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitTypeParameterList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitTypeParameterList(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeParameterListContext typeParameterList() throws RecognitionException {
-		TypeParameterListContext _localctx = new TypeParameterListContext(_ctx, getState());
-		enterRule(_localctx, 66, RULE_typeParameterList);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(574);
-			typeParameter();
-			setState(579);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==COMMA) {
-				{
-				{
-				setState(575);
-				match(COMMA);
-				setState(576);
-				typeParameter();
-				}
-				}
-				setState(581);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -2507,11 +870,8 @@ public class ClypsParser extends Parser {
 	public static class ClassBodyContext extends ParserRuleContext {
 		public TerminalNode LBRACE() { return getToken(ClypsParser.LBRACE, 0); }
 		public TerminalNode RBRACE() { return getToken(ClypsParser.RBRACE, 0); }
-		public List<ClassBodyDeclarationContext> classBodyDeclaration() {
-			return getRuleContexts(ClassBodyDeclarationContext.class);
-		}
-		public ClassBodyDeclarationContext classBodyDeclaration(int i) {
-			return getRuleContext(ClassBodyDeclarationContext.class,i);
+		public ClassBodyDeclarationContext classBodyDeclaration() {
+			return getRuleContext(ClassBodyDeclarationContext.class,0);
 		}
 		public ClassBodyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2534,28 +894,23 @@ public class ClypsParser extends Parser {
 
 	public final ClassBodyContext classBody() throws RecognitionException {
 		ClassBodyContext _localctx = new ClassBodyContext(_ctx, getState());
-		enterRule(_localctx, 68, RULE_classBody);
-		int _la;
+		enterRule(_localctx, 24, RULE_classBody);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(582);
+			setState(265);
 			match(LBRACE);
-			setState(586);
+			setState(267);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << CLASS) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << SHORT) | (1L << STATIC) | (1L << VOID) | (1L << LBRACE))) != 0) || _la==SEMI || _la==LT) {
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			case 1:
 				{
-				{
-				setState(583);
+				setState(266);
 				classBodyDeclaration();
 				}
-				}
-				setState(588);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
+				break;
 			}
-			setState(589);
+			setState(269);
 			match(RBRACE);
 			}
 		}
@@ -2571,14 +926,11 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class ClassBodyDeclarationContext extends ParserRuleContext {
-		public ClassMemberDeclarationContext classMemberDeclaration() {
-			return getRuleContext(ClassMemberDeclarationContext.class,0);
+		public List<ClassMemberDeclarationContext> classMemberDeclaration() {
+			return getRuleContexts(ClassMemberDeclarationContext.class);
 		}
-		public InstanceInitializerContext instanceInitializer() {
-			return getRuleContext(InstanceInitializerContext.class,0);
-		}
-		public StaticInitializerContext staticInitializer() {
-			return getRuleContext(StaticInitializerContext.class,0);
+		public ClassMemberDeclarationContext classMemberDeclaration(int i) {
+			return getRuleContext(ClassMemberDeclarationContext.class,i);
 		}
 		public ClassBodyDeclarationContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2601,47 +953,25 @@ public class ClypsParser extends Parser {
 
 	public final ClassBodyDeclarationContext classBodyDeclaration() throws RecognitionException {
 		ClassBodyDeclarationContext _localctx = new ClassBodyDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 70, RULE_classBodyDeclaration);
+		enterRule(_localctx, 26, RULE_classBodyDeclaration);
+		int _la;
 		try {
-			setState(594);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(274);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case T__0:
-			case T__1:
-			case BOOLEAN:
-			case BYTE:
-			case CHAR:
-			case CLASS:
-			case DOUBLE:
-			case FLOAT:
-			case INT:
-			case LONG:
-			case SHORT:
-			case VOID:
-			case SEMI:
-			case LT:
-				enterOuterAlt(_localctx, 1);
+			_la = _input.LA(1);
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << SHORT) | (1L << VOID))) != 0)) {
 				{
-				setState(591);
+				{
+				setState(271);
 				classMemberDeclaration();
 				}
-				break;
-			case LBRACE:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(592);
-				instanceInitializer();
 				}
-				break;
-			case STATIC:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(593);
-				staticInitializer();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
+				setState(276);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -2662,10 +992,6 @@ public class ClypsParser extends Parser {
 		public MethodDeclarationContext methodDeclaration() {
 			return getRuleContext(MethodDeclarationContext.class,0);
 		}
-		public ClassDeclarationContext classDeclaration() {
-			return getRuleContext(ClassDeclarationContext.class,0);
-		}
-		public TerminalNode SEMI() { return getToken(ClypsParser.SEMI, 0); }
 		public ClassMemberDeclarationContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2687,15 +1013,15 @@ public class ClypsParser extends Parser {
 
 	public final ClassMemberDeclarationContext classMemberDeclaration() throws RecognitionException {
 		ClassMemberDeclarationContext _localctx = new ClassMemberDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 72, RULE_classMemberDeclaration);
+		enterRule(_localctx, 28, RULE_classMemberDeclaration);
 		try {
-			setState(600);
+			setState(279);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__0:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(596);
+				setState(277);
 				mainDeclaration();
 				}
 				break;
@@ -2709,25 +1035,10 @@ public class ClypsParser extends Parser {
 			case LONG:
 			case SHORT:
 			case VOID:
-			case LT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(597);
+				setState(278);
 				methodDeclaration();
-				}
-				break;
-			case CLASS:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(598);
-				classDeclaration();
-				}
-				break;
-			case SEMI:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(599);
-				match(SEMI);
 				}
 				break;
 			default:
@@ -2772,17 +1083,17 @@ public class ClypsParser extends Parser {
 
 	public final MainDeclarationContext mainDeclaration() throws RecognitionException {
 		MainDeclarationContext _localctx = new MainDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 74, RULE_mainDeclaration);
+		enterRule(_localctx, 30, RULE_mainDeclaration);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(602);
+			setState(281);
 			match(T__0);
-			setState(603);
+			setState(282);
 			match(LPAREN);
-			setState(604);
+			setState(283);
 			match(RPAREN);
-			setState(605);
+			setState(284);
 			methodBody();
 			}
 		}
@@ -2829,26 +1140,26 @@ public class ClypsParser extends Parser {
 
 	public final VariableDeclaratorListContext variableDeclaratorList() throws RecognitionException {
 		VariableDeclaratorListContext _localctx = new VariableDeclaratorListContext(_ctx, getState());
-		enterRule(_localctx, 76, RULE_variableDeclaratorList);
+		enterRule(_localctx, 32, RULE_variableDeclaratorList);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(607);
+			setState(286);
 			variableDeclarator();
-			setState(612);
+			setState(291);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(608);
+				setState(287);
 				match(COMMA);
-				setState(609);
+				setState(288);
 				variableDeclarator();
 				}
 				}
-				setState(614);
+				setState(293);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -2894,21 +1205,21 @@ public class ClypsParser extends Parser {
 
 	public final VariableDeclaratorContext variableDeclarator() throws RecognitionException {
 		VariableDeclaratorContext _localctx = new VariableDeclaratorContext(_ctx, getState());
-		enterRule(_localctx, 78, RULE_variableDeclarator);
+		enterRule(_localctx, 34, RULE_variableDeclarator);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(615);
+			setState(294);
 			variableDeclaratorId();
-			setState(618);
+			setState(297);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ASSIGN) {
 				{
-				setState(616);
+				setState(295);
 				match(ASSIGN);
-				setState(617);
+				setState(296);
 				variableInitializer();
 				}
 			}
@@ -2952,19 +1263,19 @@ public class ClypsParser extends Parser {
 
 	public final VariableDeclaratorIdContext variableDeclaratorId() throws RecognitionException {
 		VariableDeclaratorIdContext _localctx = new VariableDeclaratorIdContext(_ctx, getState());
-		enterRule(_localctx, 80, RULE_variableDeclaratorId);
+		enterRule(_localctx, 36, RULE_variableDeclaratorId);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(620);
+			setState(299);
 			match(Identifier);
-			setState(622);
+			setState(301);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==LBRACK || _la==AT) {
+			if (_la==LBRACK) {
 				{
-				setState(621);
+				setState(300);
 				dims();
 				}
 			}
@@ -3010,53 +1321,25 @@ public class ClypsParser extends Parser {
 
 	public final VariableInitializerContext variableInitializer() throws RecognitionException {
 		VariableInitializerContext _localctx = new VariableInitializerContext(_ctx, getState());
-		enterRule(_localctx, 82, RULE_variableInitializer);
+		enterRule(_localctx, 38, RULE_variableInitializer);
 		try {
-			setState(626);
+			setState(305);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case BOOLEAN:
-			case BYTE:
-			case CHAR:
-			case DOUBLE:
-			case FLOAT:
-			case INT:
-			case LONG:
-			case NEW:
-			case SHORT:
-			case SUPER:
-			case THIS:
-			case VOID:
-			case IntegerLiteral:
-			case FloatingPointLiteral:
-			case BooleanLiteral:
-			case CharacterLiteral:
-			case StringLiteral:
-			case NullLiteral:
-			case LPAREN:
-			case BANG:
-			case TILDE:
-			case INC:
-			case DEC:
-			case ADD:
-			case SUB:
-			case Identifier:
-			case AT:
+			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
+			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(624);
+				setState(303);
 				expression();
 				}
 				break;
-			case LBRACE:
+			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(625);
+				setState(304);
 				arrayInitializer();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -3098,22 +1381,22 @@ public class ClypsParser extends Parser {
 
 	public final UnannTypeContext unannType() throws RecognitionException {
 		UnannTypeContext _localctx = new UnannTypeContext(_ctx, getState());
-		enterRule(_localctx, 84, RULE_unannType);
+		enterRule(_localctx, 40, RULE_unannType);
 		try {
-			setState(630);
+			setState(309);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,43,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(628);
+				setState(307);
 				unannPrimitiveType();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(629);
+				setState(308);
 				unannReferenceType();
 				}
 				break;
@@ -3156,9 +1439,9 @@ public class ClypsParser extends Parser {
 
 	public final UnannPrimitiveTypeContext unannPrimitiveType() throws RecognitionException {
 		UnannPrimitiveTypeContext _localctx = new UnannPrimitiveTypeContext(_ctx, getState());
-		enterRule(_localctx, 86, RULE_unannPrimitiveType);
+		enterRule(_localctx, 42, RULE_unannPrimitiveType);
 		try {
-			setState(634);
+			setState(313);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case BYTE:
@@ -3170,14 +1453,14 @@ public class ClypsParser extends Parser {
 			case SHORT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(632);
+				setState(311);
 				numericType();
 				}
 				break;
 			case BOOLEAN:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(633);
+				setState(312);
 				match(BOOLEAN);
 				}
 				break;
@@ -3224,457 +1507,25 @@ public class ClypsParser extends Parser {
 
 	public final UnannReferenceTypeContext unannReferenceType() throws RecognitionException {
 		UnannReferenceTypeContext _localctx = new UnannReferenceTypeContext(_ctx, getState());
-		enterRule(_localctx, 88, RULE_unannReferenceType);
+		enterRule(_localctx, 44, RULE_unannReferenceType);
 		try {
-			setState(638);
+			setState(317);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,45,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(636);
+				setState(315);
 				unannTypeVariable();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(637);
+				setState(316);
 				unannArrayType();
 				}
 				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class UnannClassOrInterfaceTypeContext extends ParserRuleContext {
-		public UnannClassType_lfno_unannClassOrInterfaceTypeContext unannClassType_lfno_unannClassOrInterfaceType() {
-			return getRuleContext(UnannClassType_lfno_unannClassOrInterfaceTypeContext.class,0);
-		}
-		public UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext unannInterfaceType_lfno_unannClassOrInterfaceType() {
-			return getRuleContext(UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext.class,0);
-		}
-		public List<UnannClassType_lf_unannClassOrInterfaceTypeContext> unannClassType_lf_unannClassOrInterfaceType() {
-			return getRuleContexts(UnannClassType_lf_unannClassOrInterfaceTypeContext.class);
-		}
-		public UnannClassType_lf_unannClassOrInterfaceTypeContext unannClassType_lf_unannClassOrInterfaceType(int i) {
-			return getRuleContext(UnannClassType_lf_unannClassOrInterfaceTypeContext.class,i);
-		}
-		public List<UnannInterfaceType_lf_unannClassOrInterfaceTypeContext> unannInterfaceType_lf_unannClassOrInterfaceType() {
-			return getRuleContexts(UnannInterfaceType_lf_unannClassOrInterfaceTypeContext.class);
-		}
-		public UnannInterfaceType_lf_unannClassOrInterfaceTypeContext unannInterfaceType_lf_unannClassOrInterfaceType(int i) {
-			return getRuleContext(UnannInterfaceType_lf_unannClassOrInterfaceTypeContext.class,i);
-		}
-		public UnannClassOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_unannClassOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterUnannClassOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitUnannClassOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitUnannClassOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final UnannClassOrInterfaceTypeContext unannClassOrInterfaceType() throws RecognitionException {
-		UnannClassOrInterfaceTypeContext _localctx = new UnannClassOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 90, RULE_unannClassOrInterfaceType);
-		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(642);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,46,_ctx) ) {
-			case 1:
-				{
-				setState(640);
-				unannClassType_lfno_unannClassOrInterfaceType();
-				}
-				break;
-			case 2:
-				{
-				setState(641);
-				unannInterfaceType_lfno_unannClassOrInterfaceType();
-				}
-				break;
-			}
-			setState(648);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,48,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					setState(646);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,47,_ctx) ) {
-					case 1:
-						{
-						setState(644);
-						unannClassType_lf_unannClassOrInterfaceType();
-						}
-						break;
-					case 2:
-						{
-						setState(645);
-						unannInterfaceType_lf_unannClassOrInterfaceType();
-						}
-						break;
-					}
-					} 
-				}
-				setState(650);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,48,_ctx);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class UnannClassTypeContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public UnannClassOrInterfaceTypeContext unannClassOrInterfaceType() {
-			return getRuleContext(UnannClassOrInterfaceTypeContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
-		public UnannClassTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_unannClassType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterUnannClassType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitUnannClassType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitUnannClassType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final UnannClassTypeContext unannClassType() throws RecognitionException {
-		UnannClassTypeContext _localctx = new UnannClassTypeContext(_ctx, getState());
-		enterRule(_localctx, 92, RULE_unannClassType);
-		int _la;
-		try {
-			setState(667);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,52,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(651);
-				match(Identifier);
-				setState(653);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(652);
-					typeArguments();
-					}
-				}
-
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(655);
-				unannClassOrInterfaceType();
-				setState(656);
-				match(DOT);
-				setState(660);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==AT) {
-					{
-					{
-					setState(657);
-					annotation();
-					}
-					}
-					setState(662);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(663);
-				match(Identifier);
-				setState(665);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(664);
-					typeArguments();
-					}
-				}
-
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class UnannClassType_lf_unannClassOrInterfaceTypeContext extends ParserRuleContext {
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public UnannClassType_lf_unannClassOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_unannClassType_lf_unannClassOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterUnannClassType_lf_unannClassOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitUnannClassType_lf_unannClassOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitUnannClassType_lf_unannClassOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final UnannClassType_lf_unannClassOrInterfaceTypeContext unannClassType_lf_unannClassOrInterfaceType() throws RecognitionException {
-		UnannClassType_lf_unannClassOrInterfaceTypeContext _localctx = new UnannClassType_lf_unannClassOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 94, RULE_unannClassType_lf_unannClassOrInterfaceType);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(669);
-			match(DOT);
-			setState(673);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(670);
-				annotation();
-				}
-				}
-				setState(675);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(676);
-			match(Identifier);
-			setState(678);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==LT) {
-				{
-				setState(677);
-				typeArguments();
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class UnannClassType_lfno_unannClassOrInterfaceTypeContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public UnannClassType_lfno_unannClassOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_unannClassType_lfno_unannClassOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterUnannClassType_lfno_unannClassOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitUnannClassType_lfno_unannClassOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitUnannClassType_lfno_unannClassOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final UnannClassType_lfno_unannClassOrInterfaceTypeContext unannClassType_lfno_unannClassOrInterfaceType() throws RecognitionException {
-		UnannClassType_lfno_unannClassOrInterfaceTypeContext _localctx = new UnannClassType_lfno_unannClassOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 96, RULE_unannClassType_lfno_unannClassOrInterfaceType);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(680);
-			match(Identifier);
-			setState(682);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==LT) {
-				{
-				setState(681);
-				typeArguments();
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class UnannInterfaceType_lf_unannClassOrInterfaceTypeContext extends ParserRuleContext {
-		public UnannClassType_lf_unannClassOrInterfaceTypeContext unannClassType_lf_unannClassOrInterfaceType() {
-			return getRuleContext(UnannClassType_lf_unannClassOrInterfaceTypeContext.class,0);
-		}
-		public UnannInterfaceType_lf_unannClassOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_unannInterfaceType_lf_unannClassOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterUnannInterfaceType_lf_unannClassOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitUnannInterfaceType_lf_unannClassOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitUnannInterfaceType_lf_unannClassOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final UnannInterfaceType_lf_unannClassOrInterfaceTypeContext unannInterfaceType_lf_unannClassOrInterfaceType() throws RecognitionException {
-		UnannInterfaceType_lf_unannClassOrInterfaceTypeContext _localctx = new UnannInterfaceType_lf_unannClassOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 98, RULE_unannInterfaceType_lf_unannClassOrInterfaceType);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(684);
-			unannClassType_lf_unannClassOrInterfaceType();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext extends ParserRuleContext {
-		public UnannClassType_lfno_unannClassOrInterfaceTypeContext unannClassType_lfno_unannClassOrInterfaceType() {
-			return getRuleContext(UnannClassType_lfno_unannClassOrInterfaceTypeContext.class,0);
-		}
-		public UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_unannInterfaceType_lfno_unannClassOrInterfaceType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterUnannInterfaceType_lfno_unannClassOrInterfaceType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitUnannInterfaceType_lfno_unannClassOrInterfaceType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitUnannInterfaceType_lfno_unannClassOrInterfaceType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext unannInterfaceType_lfno_unannClassOrInterfaceType() throws RecognitionException {
-		UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext _localctx = new UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext(_ctx, getState());
-		enterRule(_localctx, 100, RULE_unannInterfaceType_lfno_unannClassOrInterfaceType);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(686);
-			unannClassType_lfno_unannClassOrInterfaceType();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3710,11 +1561,11 @@ public class ClypsParser extends Parser {
 
 	public final UnannTypeVariableContext unannTypeVariable() throws RecognitionException {
 		UnannTypeVariableContext _localctx = new UnannTypeVariableContext(_ctx, getState());
-		enterRule(_localctx, 102, RULE_unannTypeVariable);
+		enterRule(_localctx, 46, RULE_unannTypeVariable);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(688);
+			setState(319);
 			match(T__1);
 			}
 		}
@@ -3760,9 +1611,9 @@ public class ClypsParser extends Parser {
 
 	public final UnannArrayTypeContext unannArrayType() throws RecognitionException {
 		UnannArrayTypeContext _localctx = new UnannArrayTypeContext(_ctx, getState());
-		enterRule(_localctx, 104, RULE_unannArrayType);
+		enterRule(_localctx, 48, RULE_unannArrayType);
 		try {
-			setState(696);
+			setState(327);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case BOOLEAN:
@@ -3775,18 +1626,18 @@ public class ClypsParser extends Parser {
 			case SHORT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(690);
+				setState(321);
 				unannPrimitiveType();
-				setState(691);
+				setState(322);
 				dims();
 				}
 				break;
 			case T__1:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(693);
+				setState(324);
 				unannTypeVariable();
-				setState(694);
+				setState(325);
 				dims();
 				}
 				break;
@@ -3833,13 +1684,13 @@ public class ClypsParser extends Parser {
 
 	public final MethodDeclarationContext methodDeclaration() throws RecognitionException {
 		MethodDeclarationContext _localctx = new MethodDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 106, RULE_methodDeclaration);
+		enterRule(_localctx, 50, RULE_methodDeclaration);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(698);
+			setState(329);
 			methodHeader();
-			setState(699);
+			setState(330);
 			methodBody();
 			}
 		}
@@ -3860,18 +1711,6 @@ public class ClypsParser extends Parser {
 		}
 		public MethodDeclaratorContext methodDeclarator() {
 			return getRuleContext(MethodDeclaratorContext.class,0);
-		}
-		public Throws_Context throws_() {
-			return getRuleContext(Throws_Context.class,0);
-		}
-		public TypeParametersContext typeParameters() {
-			return getRuleContext(TypeParametersContext.class,0);
-		}
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
 		}
 		public MethodHeaderContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3894,77 +1733,14 @@ public class ClypsParser extends Parser {
 
 	public final MethodHeaderContext methodHeader() throws RecognitionException {
 		MethodHeaderContext _localctx = new MethodHeaderContext(_ctx, getState());
-		enterRule(_localctx, 108, RULE_methodHeader);
-		int _la;
+		enterRule(_localctx, 52, RULE_methodHeader);
 		try {
-			setState(718);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case T__1:
-			case BOOLEAN:
-			case BYTE:
-			case CHAR:
-			case DOUBLE:
-			case FLOAT:
-			case INT:
-			case LONG:
-			case SHORT:
-			case VOID:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(701);
-				result();
-				setState(702);
-				methodDeclarator();
-				setState(704);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==THROWS) {
-					{
-					setState(703);
-					throws_();
-					}
-				}
-
-				}
-				break;
-			case LT:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(706);
-				typeParameters();
-				setState(710);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==AT) {
-					{
-					{
-					setState(707);
-					annotation();
-					}
-					}
-					setState(712);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(713);
-				result();
-				setState(714);
-				methodDeclarator();
-				setState(716);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==THROWS) {
-					{
-					setState(715);
-					throws_();
-					}
-				}
-
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(332);
+			result();
+			setState(333);
+			methodDeclarator();
 			}
 		}
 		catch (RecognitionException re) {
@@ -4004,9 +1780,9 @@ public class ClypsParser extends Parser {
 
 	public final ResultContext result() throws RecognitionException {
 		ResultContext _localctx = new ResultContext(_ctx, getState());
-		enterRule(_localctx, 110, RULE_result);
+		enterRule(_localctx, 54, RULE_result);
 		try {
-			setState(722);
+			setState(337);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__1:
@@ -4020,14 +1796,14 @@ public class ClypsParser extends Parser {
 			case SHORT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(720);
+				setState(335);
 				unannType();
 				}
 				break;
 			case VOID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(721);
+				setState(336);
 				match(VOID);
 				}
 				break;
@@ -4077,33 +1853,33 @@ public class ClypsParser extends Parser {
 
 	public final MethodDeclaratorContext methodDeclarator() throws RecognitionException {
 		MethodDeclaratorContext _localctx = new MethodDeclaratorContext(_ctx, getState());
-		enterRule(_localctx, 112, RULE_methodDeclarator);
+		enterRule(_localctx, 56, RULE_methodDeclarator);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(724);
+			setState(339);
 			match(Identifier);
-			setState(725);
+			setState(340);
 			match(LPAREN);
-			setState(727);
+			setState(342);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FINAL) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << SHORT))) != 0) || _la==AT) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FINAL) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << SHORT))) != 0)) {
 				{
-				setState(726);
+				setState(341);
 				formalParameterList();
 				}
 			}
 
-			setState(729);
+			setState(344);
 			match(RPAREN);
-			setState(731);
+			setState(346);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==LBRACK || _la==AT) {
+			if (_la==LBRACK) {
 				{
-				setState(730);
+				setState(345);
 				dims();
 				}
 			}
@@ -4153,33 +1929,33 @@ public class ClypsParser extends Parser {
 
 	public final FormalParameterListContext formalParameterList() throws RecognitionException {
 		FormalParameterListContext _localctx = new FormalParameterListContext(_ctx, getState());
-		enterRule(_localctx, 114, RULE_formalParameterList);
+		enterRule(_localctx, 58, RULE_formalParameterList);
 		try {
-			setState(739);
+			setState(354);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,64,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(733);
+				setState(348);
 				receiverParameter();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(734);
+				setState(349);
 				formalParameters();
-				setState(735);
+				setState(350);
 				match(COMMA);
-				setState(736);
+				setState(351);
 				lastFormalParameter();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(738);
+				setState(353);
 				lastFormalParameter();
 				}
 				break;
@@ -4231,59 +2007,59 @@ public class ClypsParser extends Parser {
 
 	public final FormalParametersContext formalParameters() throws RecognitionException {
 		FormalParametersContext _localctx = new FormalParametersContext(_ctx, getState());
-		enterRule(_localctx, 116, RULE_formalParameters);
+		enterRule(_localctx, 60, RULE_formalParameters);
 		try {
 			int _alt;
-			setState(757);
+			setState(372);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,67,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,22,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(741);
+				setState(356);
 				formalParameter();
-				setState(746);
+				setState(361);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,65,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(742);
+						setState(357);
 						match(COMMA);
-						setState(743);
+						setState(358);
 						formalParameter();
 						}
 						} 
 					}
-					setState(748);
+					setState(363);
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,65,_ctx);
+					_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
 				}
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(749);
+				setState(364);
 				receiverParameter();
-				setState(754);
+				setState(369);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,66,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,21,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(750);
+						setState(365);
 						match(COMMA);
-						setState(751);
+						setState(366);
 						formalParameter();
 						}
 						} 
 					}
-					setState(756);
+					setState(371);
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,66,_ctx);
+					_alt = getInterpreter().adaptivePredict(_input,21,_ctx);
 				}
 				}
 				break;
@@ -4334,28 +2110,28 @@ public class ClypsParser extends Parser {
 
 	public final FormalParameterContext formalParameter() throws RecognitionException {
 		FormalParameterContext _localctx = new FormalParameterContext(_ctx, getState());
-		enterRule(_localctx, 118, RULE_formalParameter);
+		enterRule(_localctx, 62, RULE_formalParameter);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(762);
+			setState(377);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==FINAL || _la==AT) {
+			while (_la==FINAL) {
 				{
 				{
-				setState(759);
+				setState(374);
 				variableModifier();
 				}
 				}
-				setState(764);
+				setState(379);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(765);
+			setState(380);
 			unannType();
-			setState(766);
+			setState(381);
 			variableDeclaratorId();
 			}
 		}
@@ -4371,9 +2147,6 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class VariableModifierContext extends ParserRuleContext {
-		public AnnotationContext annotation() {
-			return getRuleContext(AnnotationContext.class,0);
-		}
 		public TerminalNode FINAL() { return getToken(ClypsParser.FINAL, 0); }
 		public VariableModifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -4396,27 +2169,12 @@ public class ClypsParser extends Parser {
 
 	public final VariableModifierContext variableModifier() throws RecognitionException {
 		VariableModifierContext _localctx = new VariableModifierContext(_ctx, getState());
-		enterRule(_localctx, 120, RULE_variableModifier);
+		enterRule(_localctx, 64, RULE_variableModifier);
 		try {
-			setState(770);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case AT:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(768);
-				annotation();
-				}
-				break;
-			case FINAL:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(769);
-				match(FINAL);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(383);
+			match(FINAL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -4444,12 +2202,6 @@ public class ClypsParser extends Parser {
 		public VariableModifierContext variableModifier(int i) {
 			return getRuleContext(VariableModifierContext.class,i);
 		}
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
 		public FormalParameterContext formalParameter() {
 			return getRuleContext(FormalParameterContext.class,0);
 		}
@@ -4474,55 +2226,41 @@ public class ClypsParser extends Parser {
 
 	public final LastFormalParameterContext lastFormalParameter() throws RecognitionException {
 		LastFormalParameterContext _localctx = new LastFormalParameterContext(_ctx, getState());
-		enterRule(_localctx, 122, RULE_lastFormalParameter);
+		enterRule(_localctx, 66, RULE_lastFormalParameter);
 		int _la;
 		try {
-			setState(789);
+			setState(396);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,72,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,25,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(775);
+				setState(388);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==FINAL || _la==AT) {
+				while (_la==FINAL) {
 					{
 					{
-					setState(772);
+					setState(385);
 					variableModifier();
 					}
 					}
-					setState(777);
+					setState(390);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(778);
+				setState(391);
 				unannType();
-				setState(782);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==AT) {
-					{
-					{
-					setState(779);
-					annotation();
-					}
-					}
-					setState(784);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(785);
+				setState(392);
 				match(ELLIPSIS);
-				setState(786);
+				setState(393);
 				variableDeclaratorId();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(788);
+				setState(395);
 				formalParameter();
 				}
 				break;
@@ -4542,13 +2280,6 @@ public class ClypsParser extends Parser {
 	public static class ReceiverParameterContext extends ParserRuleContext {
 		public UnannTypeContext unannType() {
 			return getRuleContext(UnannTypeContext.class,0);
-		}
-		public TerminalNode THIS() { return getToken(ClypsParser.THIS, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
 		}
 		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
 		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
@@ -4573,216 +2304,27 @@ public class ClypsParser extends Parser {
 
 	public final ReceiverParameterContext receiverParameter() throws RecognitionException {
 		ReceiverParameterContext _localctx = new ReceiverParameterContext(_ctx, getState());
-		enterRule(_localctx, 124, RULE_receiverParameter);
+		enterRule(_localctx, 68, RULE_receiverParameter);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(794);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(791);
-				annotation();
-				}
-				}
-				setState(796);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(797);
+			setState(398);
 			unannType();
-			setState(800);
+			setState(401);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Identifier) {
 				{
-				setState(798);
+				setState(399);
 				match(Identifier);
-				setState(799);
+				setState(400);
 				match(DOT);
 				}
 			}
 
-			setState(802);
-			match(THIS);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class Throws_Context extends ParserRuleContext {
-		public TerminalNode THROWS() { return getToken(ClypsParser.THROWS, 0); }
-		public ExceptionTypeListContext exceptionTypeList() {
-			return getRuleContext(ExceptionTypeListContext.class,0);
-		}
-		public Throws_Context(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_throws_; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterThrows_(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitThrows_(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitThrows_(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final Throws_Context throws_() throws RecognitionException {
-		Throws_Context _localctx = new Throws_Context(_ctx, getState());
-		enterRule(_localctx, 126, RULE_throws_);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(804);
-			match(THROWS);
-			setState(805);
-			exceptionTypeList();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ExceptionTypeListContext extends ParserRuleContext {
-		public List<ExceptionTypeContext> exceptionType() {
-			return getRuleContexts(ExceptionTypeContext.class);
-		}
-		public ExceptionTypeContext exceptionType(int i) {
-			return getRuleContext(ExceptionTypeContext.class,i);
-		}
-		public List<TerminalNode> COMMA() { return getTokens(ClypsParser.COMMA); }
-		public TerminalNode COMMA(int i) {
-			return getToken(ClypsParser.COMMA, i);
-		}
-		public ExceptionTypeListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_exceptionTypeList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterExceptionTypeList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitExceptionTypeList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitExceptionTypeList(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ExceptionTypeListContext exceptionTypeList() throws RecognitionException {
-		ExceptionTypeListContext _localctx = new ExceptionTypeListContext(_ctx, getState());
-		enterRule(_localctx, 128, RULE_exceptionTypeList);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(807);
-			exceptionType();
-			setState(812);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==COMMA) {
-				{
-				{
-				setState(808);
-				match(COMMA);
-				setState(809);
-				exceptionType();
-				}
-				}
-				setState(814);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ExceptionTypeContext extends ParserRuleContext {
-		public ClassTypeContext classType() {
-			return getRuleContext(ClassTypeContext.class,0);
-		}
-		public TypeVariableContext typeVariable() {
-			return getRuleContext(TypeVariableContext.class,0);
-		}
-		public ExceptionTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_exceptionType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterExceptionType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitExceptionType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitExceptionType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ExceptionTypeContext exceptionType() throws RecognitionException {
-		ExceptionTypeContext _localctx = new ExceptionTypeContext(_ctx, getState());
-		enterRule(_localctx, 130, RULE_exceptionType);
-		try {
-			setState(817);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,76,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(815);
-				classType();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(816);
-				typeVariable();
-				}
-				break;
+			setState(403);
+			match(T__2);
 			}
 		}
 		catch (RecognitionException re) {
@@ -4800,7 +2342,6 @@ public class ClypsParser extends Parser {
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(ClypsParser.SEMI, 0); }
 		public MethodBodyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -4822,557 +2363,12 @@ public class ClypsParser extends Parser {
 
 	public final MethodBodyContext methodBody() throws RecognitionException {
 		MethodBodyContext _localctx = new MethodBodyContext(_ctx, getState());
-		enterRule(_localctx, 132, RULE_methodBody);
-		try {
-			setState(821);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case LBRACE:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(819);
-				block();
-				}
-				break;
-			case SEMI:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(820);
-				match(SEMI);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class InstanceInitializerContext extends ParserRuleContext {
-		public BlockContext block() {
-			return getRuleContext(BlockContext.class,0);
-		}
-		public InstanceInitializerContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_instanceInitializer; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterInstanceInitializer(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitInstanceInitializer(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitInstanceInitializer(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final InstanceInitializerContext instanceInitializer() throws RecognitionException {
-		InstanceInitializerContext _localctx = new InstanceInitializerContext(_ctx, getState());
-		enterRule(_localctx, 134, RULE_instanceInitializer);
+		enterRule(_localctx, 70, RULE_methodBody);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(823);
+			setState(405);
 			block();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class StaticInitializerContext extends ParserRuleContext {
-		public TerminalNode STATIC() { return getToken(ClypsParser.STATIC, 0); }
-		public BlockContext block() {
-			return getRuleContext(BlockContext.class,0);
-		}
-		public StaticInitializerContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_staticInitializer; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterStaticInitializer(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitStaticInitializer(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitStaticInitializer(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final StaticInitializerContext staticInitializer() throws RecognitionException {
-		StaticInitializerContext _localctx = new StaticInitializerContext(_ctx, getState());
-		enterRule(_localctx, 136, RULE_staticInitializer);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(825);
-			match(STATIC);
-			setState(826);
-			block();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class AnnotationContext extends ParserRuleContext {
-		public NormalAnnotationContext normalAnnotation() {
-			return getRuleContext(NormalAnnotationContext.class,0);
-		}
-		public AnnotationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_annotation; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterAnnotation(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitAnnotation(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitAnnotation(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final AnnotationContext annotation() throws RecognitionException {
-		AnnotationContext _localctx = new AnnotationContext(_ctx, getState());
-		enterRule(_localctx, 138, RULE_annotation);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(828);
-			normalAnnotation();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class NormalAnnotationContext extends ParserRuleContext {
-		public TerminalNode AT() { return getToken(ClypsParser.AT, 0); }
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
-		}
-		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
-		public ElementValuePairListContext elementValuePairList() {
-			return getRuleContext(ElementValuePairListContext.class,0);
-		}
-		public NormalAnnotationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_normalAnnotation; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterNormalAnnotation(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitNormalAnnotation(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitNormalAnnotation(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final NormalAnnotationContext normalAnnotation() throws RecognitionException {
-		NormalAnnotationContext _localctx = new NormalAnnotationContext(_ctx, getState());
-		enterRule(_localctx, 140, RULE_normalAnnotation);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(830);
-			match(AT);
-			setState(831);
-			typeName();
-			setState(832);
-			match(LPAREN);
-			setState(834);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==Identifier) {
-				{
-				setState(833);
-				elementValuePairList();
-				}
-			}
-
-			setState(836);
-			match(RPAREN);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ElementValuePairListContext extends ParserRuleContext {
-		public List<ElementValuePairContext> elementValuePair() {
-			return getRuleContexts(ElementValuePairContext.class);
-		}
-		public ElementValuePairContext elementValuePair(int i) {
-			return getRuleContext(ElementValuePairContext.class,i);
-		}
-		public List<TerminalNode> COMMA() { return getTokens(ClypsParser.COMMA); }
-		public TerminalNode COMMA(int i) {
-			return getToken(ClypsParser.COMMA, i);
-		}
-		public ElementValuePairListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_elementValuePairList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterElementValuePairList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitElementValuePairList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitElementValuePairList(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ElementValuePairListContext elementValuePairList() throws RecognitionException {
-		ElementValuePairListContext _localctx = new ElementValuePairListContext(_ctx, getState());
-		enterRule(_localctx, 142, RULE_elementValuePairList);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(838);
-			elementValuePair();
-			setState(843);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==COMMA) {
-				{
-				{
-				setState(839);
-				match(COMMA);
-				setState(840);
-				elementValuePair();
-				}
-				}
-				setState(845);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ElementValuePairContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TerminalNode ASSIGN() { return getToken(ClypsParser.ASSIGN, 0); }
-		public ElementValueContext elementValue() {
-			return getRuleContext(ElementValueContext.class,0);
-		}
-		public ElementValuePairContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_elementValuePair; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterElementValuePair(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitElementValuePair(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitElementValuePair(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ElementValuePairContext elementValuePair() throws RecognitionException {
-		ElementValuePairContext _localctx = new ElementValuePairContext(_ctx, getState());
-		enterRule(_localctx, 144, RULE_elementValuePair);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(846);
-			match(Identifier);
-			setState(847);
-			match(ASSIGN);
-			setState(848);
-			elementValue();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ElementValueContext extends ParserRuleContext {
-		public ConditionalExpressionContext conditionalExpression() {
-			return getRuleContext(ConditionalExpressionContext.class,0);
-		}
-		public ElementValueArrayInitializerContext elementValueArrayInitializer() {
-			return getRuleContext(ElementValueArrayInitializerContext.class,0);
-		}
-		public AnnotationContext annotation() {
-			return getRuleContext(AnnotationContext.class,0);
-		}
-		public ElementValueContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_elementValue; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterElementValue(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitElementValue(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitElementValue(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ElementValueContext elementValue() throws RecognitionException {
-		ElementValueContext _localctx = new ElementValueContext(_ctx, getState());
-		enterRule(_localctx, 146, RULE_elementValue);
-		try {
-			setState(853);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,80,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(850);
-				conditionalExpression();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(851);
-				elementValueArrayInitializer();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(852);
-				annotation();
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ElementValueArrayInitializerContext extends ParserRuleContext {
-		public TerminalNode LBRACE() { return getToken(ClypsParser.LBRACE, 0); }
-		public TerminalNode RBRACE() { return getToken(ClypsParser.RBRACE, 0); }
-		public ElementValueListContext elementValueList() {
-			return getRuleContext(ElementValueListContext.class,0);
-		}
-		public TerminalNode COMMA() { return getToken(ClypsParser.COMMA, 0); }
-		public ElementValueArrayInitializerContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_elementValueArrayInitializer; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterElementValueArrayInitializer(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitElementValueArrayInitializer(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitElementValueArrayInitializer(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ElementValueArrayInitializerContext elementValueArrayInitializer() throws RecognitionException {
-		ElementValueArrayInitializerContext _localctx = new ElementValueArrayInitializerContext(_ctx, getState());
-		enterRule(_localctx, 148, RULE_elementValueArrayInitializer);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(855);
-			match(LBRACE);
-			setState(857);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN) | (1L << LBRACE))) != 0) || ((((_la - 73)) & ~0x3f) == 0 && ((1L << (_la - 73)) & ((1L << (BANG - 73)) | (1L << (TILDE - 73)) | (1L << (INC - 73)) | (1L << (DEC - 73)) | (1L << (ADD - 73)) | (1L << (SUB - 73)) | (1L << (Identifier - 73)) | (1L << (AT - 73)))) != 0)) {
-				{
-				setState(856);
-				elementValueList();
-				}
-			}
-
-			setState(860);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==COMMA) {
-				{
-				setState(859);
-				match(COMMA);
-				}
-			}
-
-			setState(862);
-			match(RBRACE);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ElementValueListContext extends ParserRuleContext {
-		public List<ElementValueContext> elementValue() {
-			return getRuleContexts(ElementValueContext.class);
-		}
-		public ElementValueContext elementValue(int i) {
-			return getRuleContext(ElementValueContext.class,i);
-		}
-		public List<TerminalNode> COMMA() { return getTokens(ClypsParser.COMMA); }
-		public TerminalNode COMMA(int i) {
-			return getToken(ClypsParser.COMMA, i);
-		}
-		public ElementValueListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_elementValueList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterElementValueList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitElementValueList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitElementValueList(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ElementValueListContext elementValueList() throws RecognitionException {
-		ElementValueListContext _localctx = new ElementValueListContext(_ctx, getState());
-		enterRule(_localctx, 150, RULE_elementValueList);
-		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(864);
-			elementValue();
-			setState(869);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,83,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					setState(865);
-					match(COMMA);
-					setState(866);
-					elementValue();
-					}
-					} 
-				}
-				setState(871);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,83,_ctx);
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -5414,34 +2410,34 @@ public class ClypsParser extends Parser {
 
 	public final ArrayInitializerContext arrayInitializer() throws RecognitionException {
 		ArrayInitializerContext _localctx = new ArrayInitializerContext(_ctx, getState());
-		enterRule(_localctx, 152, RULE_arrayInitializer);
+		enterRule(_localctx, 72, RULE_arrayInitializer);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(872);
+			setState(407);
 			match(LBRACE);
-			setState(874);
+			setState(409);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN) | (1L << LBRACE))) != 0) || ((((_la - 73)) & ~0x3f) == 0 && ((1L << (_la - 73)) & ((1L << (BANG - 73)) | (1L << (TILDE - 73)) | (1L << (INC - 73)) | (1L << (DEC - 73)) | (1L << (ADD - 73)) | (1L << (SUB - 73)) | (1L << (Identifier - 73)) | (1L << (AT - 73)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,27,_ctx) ) {
+			case 1:
 				{
-				setState(873);
+				setState(408);
 				variableInitializerList();
 				}
+				break;
 			}
-
-			setState(877);
+			setState(412);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==COMMA) {
 				{
-				setState(876);
+				setState(411);
 				match(COMMA);
 				}
 			}
 
-			setState(879);
+			setState(414);
 			match(RBRACE);
 			}
 		}
@@ -5488,30 +2484,30 @@ public class ClypsParser extends Parser {
 
 	public final VariableInitializerListContext variableInitializerList() throws RecognitionException {
 		VariableInitializerListContext _localctx = new VariableInitializerListContext(_ctx, getState());
-		enterRule(_localctx, 154, RULE_variableInitializerList);
+		enterRule(_localctx, 74, RULE_variableInitializerList);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(881);
+			setState(416);
 			variableInitializer();
-			setState(886);
+			setState(421);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,86,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,29,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(882);
+					setState(417);
 					match(COMMA);
-					setState(883);
+					setState(418);
 					variableInitializer();
 					}
 					} 
 				}
-				setState(888);
+				setState(423);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,86,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,29,_ctx);
 			}
 			}
 		}
@@ -5553,24 +2549,23 @@ public class ClypsParser extends Parser {
 
 	public final BlockContext block() throws RecognitionException {
 		BlockContext _localctx = new BlockContext(_ctx, getState());
-		enterRule(_localctx, 156, RULE_block);
-		int _la;
+		enterRule(_localctx, 76, RULE_block);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(889);
+			setState(424);
 			match(LBRACE);
-			setState(891);
+			setState(426);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__2) | (1L << T__3) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << CLASS) | (1L << DO) | (1L << DOUBLE) | (1L << FINAL) | (1L << FLOAT) | (1L << FOR) | (1L << IF) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << RETURN) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << WHILE) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN) | (1L << LBRACE))) != 0) || ((((_la - 83)) & ~0x3f) == 0 && ((1L << (_la - 83)) & ((1L << (INC - 83)) | (1L << (DEC - 83)) | (1L << (Identifier - 83)) | (1L << (AT - 83)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,30,_ctx) ) {
+			case 1:
 				{
-				setState(890);
+				setState(425);
 				blockStatements();
 				}
+				break;
 			}
-
-			setState(893);
+			setState(428);
 			match(RBRACE);
 			}
 		}
@@ -5613,25 +2608,31 @@ public class ClypsParser extends Parser {
 
 	public final BlockStatementsContext blockStatements() throws RecognitionException {
 		BlockStatementsContext _localctx = new BlockStatementsContext(_ctx, getState());
-		enterRule(_localctx, 158, RULE_blockStatements);
-		int _la;
+		enterRule(_localctx, 78, RULE_blockStatements);
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(896); 
+			setState(431); 
 			_errHandler.sync(this);
-			_la = _input.LA(1);
+			_alt = 1;
 			do {
-				{
-				{
-				setState(895);
-				blockStatement();
+				switch (_alt) {
+				case 1:
+					{
+					{
+					setState(430);
+					blockStatement();
+					}
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
 				}
-				}
-				setState(898); 
+				setState(433); 
 				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__2) | (1L << T__3) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << CLASS) | (1L << DO) | (1L << DOUBLE) | (1L << FINAL) | (1L << FLOAT) | (1L << FOR) | (1L << IF) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << RETURN) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << WHILE) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN) | (1L << LBRACE))) != 0) || ((((_la - 83)) & ~0x3f) == 0 && ((1L << (_la - 83)) & ((1L << (INC - 83)) | (1L << (DEC - 83)) | (1L << (Identifier - 83)) | (1L << (AT - 83)))) != 0) );
+				_alt = getInterpreter().adaptivePredict(_input,31,_ctx);
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
 		catch (RecognitionException re) {
@@ -5648,9 +2649,6 @@ public class ClypsParser extends Parser {
 	public static class BlockStatementContext extends ParserRuleContext {
 		public LocalVariableDeclarationStatementContext localVariableDeclarationStatement() {
 			return getRuleContext(LocalVariableDeclarationStatementContext.class,0);
-		}
-		public ClassDeclarationContext classDeclaration() {
-			return getRuleContext(ClassDeclarationContext.class,0);
 		}
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
@@ -5676,29 +2674,22 @@ public class ClypsParser extends Parser {
 
 	public final BlockStatementContext blockStatement() throws RecognitionException {
 		BlockStatementContext _localctx = new BlockStatementContext(_ctx, getState());
-		enterRule(_localctx, 160, RULE_blockStatement);
+		enterRule(_localctx, 80, RULE_blockStatement);
 		try {
-			setState(903);
+			setState(437);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,89,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,32,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(900);
+				setState(435);
 				localVariableDeclarationStatement();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(901);
-				classDeclaration();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(902);
+				setState(436);
 				statement();
 				}
 				break;
@@ -5741,13 +2732,13 @@ public class ClypsParser extends Parser {
 
 	public final LocalVariableDeclarationStatementContext localVariableDeclarationStatement() throws RecognitionException {
 		LocalVariableDeclarationStatementContext _localctx = new LocalVariableDeclarationStatementContext(_ctx, getState());
-		enterRule(_localctx, 162, RULE_localVariableDeclarationStatement);
+		enterRule(_localctx, 82, RULE_localVariableDeclarationStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(905);
+			setState(439);
 			localVariableDeclaration();
-			setState(906);
+			setState(440);
 			match(SEMI);
 			}
 		}
@@ -5796,28 +2787,28 @@ public class ClypsParser extends Parser {
 
 	public final LocalVariableDeclarationContext localVariableDeclaration() throws RecognitionException {
 		LocalVariableDeclarationContext _localctx = new LocalVariableDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 164, RULE_localVariableDeclaration);
+		enterRule(_localctx, 84, RULE_localVariableDeclaration);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(911);
+			setState(445);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==FINAL || _la==AT) {
+			while (_la==FINAL) {
 				{
 				{
-				setState(908);
+				setState(442);
 				variableModifier();
 				}
 				}
-				setState(913);
+				setState(447);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(914);
+			setState(448);
 			unannType();
-			setState(915);
+			setState(449);
 			variableDeclaratorList();
 			}
 		}
@@ -5878,64 +2869,64 @@ public class ClypsParser extends Parser {
 
 	public final StatementContext statement() throws RecognitionException {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
-		enterRule(_localctx, 166, RULE_statement);
+		enterRule(_localctx, 86, RULE_statement);
 		try {
-			setState(925);
+			setState(459);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,91,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,34,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(917);
+				setState(451);
 				statementWithoutTrailingSubstatement();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(918);
+				setState(452);
 				labeledStatement();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(919);
+				setState(453);
 				ifThenStatement();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(920);
+				setState(454);
 				ifThenElseStatement();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(921);
+				setState(455);
 				whileStatement();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(922);
+				setState(456);
 				forStatement();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(923);
+				setState(457);
 				printStatement();
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(924);
+				setState(458);
 				scanStatement();
 				}
 				break;
@@ -5953,6 +2944,7 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class PrintStatementContext extends ParserRuleContext {
+		public TerminalNode PRINT() { return getToken(ClypsParser.PRINT, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
 		public PrintBlockContext printBlock() {
 			return getRuleContext(PrintBlockContext.class,0);
@@ -5980,19 +2972,19 @@ public class ClypsParser extends Parser {
 
 	public final PrintStatementContext printStatement() throws RecognitionException {
 		PrintStatementContext _localctx = new PrintStatementContext(_ctx, getState());
-		enterRule(_localctx, 168, RULE_printStatement);
+		enterRule(_localctx, 88, RULE_printStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(927);
-			match(T__2);
-			setState(928);
+			setState(461);
+			match(PRINT);
+			setState(462);
 			match(LPAREN);
-			setState(929);
+			setState(463);
 			printBlock();
-			setState(930);
+			setState(464);
 			match(RPAREN);
-			setState(931);
+			setState(465);
 			match(SEMI);
 			}
 		}
@@ -6009,13 +3001,13 @@ public class ClypsParser extends Parser {
 
 	public static class PrintBlockContext extends ParserRuleContext {
 		public TerminalNode StringLiteral() { return getToken(ClypsParser.StringLiteral, 0); }
-		public TerminalNode ADD() { return getToken(ClypsParser.ADD, 0); }
 		public List<PrintExtraContext> printExtra() {
 			return getRuleContexts(PrintExtraContext.class);
 		}
 		public PrintExtraContext printExtra(int i) {
 			return getRuleContext(PrintExtraContext.class,i);
 		}
+		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
 		public PrintBlockContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -6037,37 +3029,56 @@ public class ClypsParser extends Parser {
 
 	public final PrintBlockContext printBlock() throws RecognitionException {
 		PrintBlockContext _localctx = new PrintBlockContext(_ctx, getState());
-		enterRule(_localctx, 170, RULE_printBlock);
+		enterRule(_localctx, 90, RULE_printBlock);
 		int _la;
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(933);
-			match(StringLiteral);
-			setState(935);
+			setState(481);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,92,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case StringLiteral:
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(934);
-				match(ADD);
-				}
-				break;
-			}
-			setState(940);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==ADD) {
-				{
-				{
-				setState(937);
-				printExtra();
-				}
-				}
-				setState(942);
+				setState(467);
+				match(StringLiteral);
+				setState(471);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			}
+				while (_la==ADD) {
+					{
+					{
+					setState(468);
+					printExtra();
+					}
+					}
+					setState(473);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				}
+				break;
+			case Identifier:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(474);
+				match(Identifier);
+				setState(478);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==ADD) {
+					{
+					{
+					setState(475);
+					printExtra();
+					}
+					}
+					setState(480);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -6106,26 +3117,26 @@ public class ClypsParser extends Parser {
 
 	public final PrintExtraContext printExtra() throws RecognitionException {
 		PrintExtraContext _localctx = new PrintExtraContext(_ctx, getState());
-		enterRule(_localctx, 172, RULE_printExtra);
+		enterRule(_localctx, 92, RULE_printExtra);
 		try {
-			setState(947);
+			setState(487);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,94,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,38,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(943);
+				setState(483);
 				match(ADD);
-				setState(944);
+				setState(484);
 				match(Identifier);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(945);
+				setState(485);
 				match(ADD);
-				setState(946);
+				setState(486);
 				match(StringLiteral);
 				}
 				break;
@@ -6143,6 +3154,7 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class ScanStatementContext extends ParserRuleContext {
+		public TerminalNode SCAN() { return getToken(ClypsParser.SCAN, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
 		public TerminalNode SEMI() { return getToken(ClypsParser.SEMI, 0); }
@@ -6174,42 +3186,42 @@ public class ClypsParser extends Parser {
 
 	public final ScanStatementContext scanStatement() throws RecognitionException {
 		ScanStatementContext _localctx = new ScanStatementContext(_ctx, getState());
-		enterRule(_localctx, 174, RULE_scanStatement);
+		enterRule(_localctx, 94, RULE_scanStatement);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(949);
-			match(T__3);
-			setState(950);
+			setState(489);
+			match(SCAN);
+			setState(490);
 			match(LPAREN);
-			setState(952);
+			setState(492);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==StringLiteral) {
 				{
-				setState(951);
+				setState(491);
 				match(StringLiteral);
 				}
 			}
 
-			setState(955); 
+			setState(495); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(954);
+				setState(494);
 				scanExtra();
 				}
 				}
-				setState(957); 
+				setState(497); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==COLON );
-			setState(959);
+			setState(499);
 			match(RPAREN);
-			setState(960);
+			setState(500);
 			match(SEMI);
 			}
 		}
@@ -6248,13 +3260,13 @@ public class ClypsParser extends Parser {
 
 	public final ScanExtraContext scanExtra() throws RecognitionException {
 		ScanExtraContext _localctx = new ScanExtraContext(_ctx, getState());
-		enterRule(_localctx, 176, RULE_scanExtra);
+		enterRule(_localctx, 96, RULE_scanExtra);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(962);
+			setState(502);
 			match(COLON);
-			setState(963);
+			setState(503);
 			match(Identifier);
 			}
 		}
@@ -6306,43 +3318,43 @@ public class ClypsParser extends Parser {
 
 	public final StatementNoShortIfContext statementNoShortIf() throws RecognitionException {
 		StatementNoShortIfContext _localctx = new StatementNoShortIfContext(_ctx, getState());
-		enterRule(_localctx, 178, RULE_statementNoShortIf);
+		enterRule(_localctx, 98, RULE_statementNoShortIf);
 		try {
-			setState(970);
+			setState(510);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,97,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,41,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(965);
+				setState(505);
 				statementWithoutTrailingSubstatement();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(966);
+				setState(506);
 				labeledStatementNoShortIf();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(967);
+				setState(507);
 				ifThenElseStatementNoShortIf();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(968);
+				setState(508);
 				whileStatementNoShortIf();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(969);
+				setState(509);
 				forStatementNoShortIf();
 				}
 				break;
@@ -6393,63 +3405,39 @@ public class ClypsParser extends Parser {
 
 	public final StatementWithoutTrailingSubstatementContext statementWithoutTrailingSubstatement() throws RecognitionException {
 		StatementWithoutTrailingSubstatementContext _localctx = new StatementWithoutTrailingSubstatementContext(_ctx, getState());
-		enterRule(_localctx, 180, RULE_statementWithoutTrailingSubstatement);
+		enterRule(_localctx, 100, RULE_statementWithoutTrailingSubstatement);
 		try {
-			setState(976);
+			setState(516);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case LBRACE:
+			switch ( getInterpreter().adaptivePredict(_input,42,_ctx) ) {
+			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(972);
+				setState(512);
 				block();
 				}
 				break;
-			case BOOLEAN:
-			case BYTE:
-			case CHAR:
-			case DOUBLE:
-			case FLOAT:
-			case INT:
-			case LONG:
-			case NEW:
-			case SHORT:
-			case SUPER:
-			case THIS:
-			case VOID:
-			case IntegerLiteral:
-			case FloatingPointLiteral:
-			case BooleanLiteral:
-			case CharacterLiteral:
-			case StringLiteral:
-			case NullLiteral:
-			case LPAREN:
-			case INC:
-			case DEC:
-			case Identifier:
-			case AT:
+			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(973);
+				setState(513);
 				expressionStatement();
 				}
 				break;
-			case DO:
+			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(974);
+				setState(514);
 				doStatement();
 				}
 				break;
-			case RETURN:
+			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(975);
+				setState(515);
 				returnStatement();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -6490,15 +3478,15 @@ public class ClypsParser extends Parser {
 
 	public final LabeledStatementContext labeledStatement() throws RecognitionException {
 		LabeledStatementContext _localctx = new LabeledStatementContext(_ctx, getState());
-		enterRule(_localctx, 182, RULE_labeledStatement);
+		enterRule(_localctx, 102, RULE_labeledStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(978);
+			setState(518);
 			match(Identifier);
-			setState(979);
+			setState(519);
 			match(COLON);
-			setState(980);
+			setState(520);
 			statement();
 			}
 		}
@@ -6540,15 +3528,15 @@ public class ClypsParser extends Parser {
 
 	public final LabeledStatementNoShortIfContext labeledStatementNoShortIf() throws RecognitionException {
 		LabeledStatementNoShortIfContext _localctx = new LabeledStatementNoShortIfContext(_ctx, getState());
-		enterRule(_localctx, 184, RULE_labeledStatementNoShortIf);
+		enterRule(_localctx, 104, RULE_labeledStatementNoShortIf);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(982);
+			setState(522);
 			match(Identifier);
-			setState(983);
+			setState(523);
 			match(COLON);
-			setState(984);
+			setState(524);
 			statementNoShortIf();
 			}
 		}
@@ -6589,13 +3577,13 @@ public class ClypsParser extends Parser {
 
 	public final ExpressionStatementContext expressionStatement() throws RecognitionException {
 		ExpressionStatementContext _localctx = new ExpressionStatementContext(_ctx, getState());
-		enterRule(_localctx, 186, RULE_expressionStatement);
+		enterRule(_localctx, 106, RULE_expressionStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(986);
+			setState(526);
 			statementExpression();
-			setState(987);
+			setState(527);
 			match(SEMI);
 			}
 		}
@@ -6613,12 +3601,6 @@ public class ClypsParser extends Parser {
 	public static class StatementExpressionContext extends ParserRuleContext {
 		public AssignmentContext assignment() {
 			return getRuleContext(AssignmentContext.class,0);
-		}
-		public PreIncrementExpressionContext preIncrementExpression() {
-			return getRuleContext(PreIncrementExpressionContext.class,0);
-		}
-		public PreDecrementExpressionContext preDecrementExpression() {
-			return getRuleContext(PreDecrementExpressionContext.class,0);
 		}
 		public PostIncrementExpressionContext postIncrementExpression() {
 			return getRuleContext(PostIncrementExpressionContext.class,0);
@@ -6650,50 +3632,36 @@ public class ClypsParser extends Parser {
 
 	public final StatementExpressionContext statementExpression() throws RecognitionException {
 		StatementExpressionContext _localctx = new StatementExpressionContext(_ctx, getState());
-		enterRule(_localctx, 188, RULE_statementExpression);
+		enterRule(_localctx, 108, RULE_statementExpression);
 		try {
-			setState(995);
+			setState(533);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,99,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,43,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(989);
+				setState(529);
 				assignment();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(990);
-				preIncrementExpression();
+				setState(530);
+				postIncrementExpression();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(991);
-				preDecrementExpression();
+				setState(531);
+				postDecrementExpression();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(992);
-				postIncrementExpression();
-				}
-				break;
-			case 5:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(993);
-				postDecrementExpression();
-				}
-				break;
-			case 6:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(994);
+				setState(532);
 				methodInvocation();
 				}
 				break;
@@ -6713,8 +3681,8 @@ public class ClypsParser extends Parser {
 	public static class IfThenStatementContext extends ParserRuleContext {
 		public TerminalNode IF() { return getToken(ClypsParser.IF, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
 		public StatementContext statement() {
@@ -6741,19 +3709,19 @@ public class ClypsParser extends Parser {
 
 	public final IfThenStatementContext ifThenStatement() throws RecognitionException {
 		IfThenStatementContext _localctx = new IfThenStatementContext(_ctx, getState());
-		enterRule(_localctx, 190, RULE_ifThenStatement);
+		enterRule(_localctx, 110, RULE_ifThenStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(997);
+			setState(535);
 			match(IF);
-			setState(998);
+			setState(536);
 			match(LPAREN);
-			setState(999);
-			expression();
-			setState(1000);
+			setState(537);
+			conditionalExpression();
+			setState(538);
 			match(RPAREN);
-			setState(1001);
+			setState(539);
 			statement();
 			}
 		}
@@ -6771,8 +3739,8 @@ public class ClypsParser extends Parser {
 	public static class IfThenElseStatementContext extends ParserRuleContext {
 		public TerminalNode IF() { return getToken(ClypsParser.IF, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
 		public StatementNoShortIfContext statementNoShortIf() {
@@ -6803,23 +3771,23 @@ public class ClypsParser extends Parser {
 
 	public final IfThenElseStatementContext ifThenElseStatement() throws RecognitionException {
 		IfThenElseStatementContext _localctx = new IfThenElseStatementContext(_ctx, getState());
-		enterRule(_localctx, 192, RULE_ifThenElseStatement);
+		enterRule(_localctx, 112, RULE_ifThenElseStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1003);
+			setState(541);
 			match(IF);
-			setState(1004);
+			setState(542);
 			match(LPAREN);
-			setState(1005);
-			expression();
-			setState(1006);
+			setState(543);
+			conditionalExpression();
+			setState(544);
 			match(RPAREN);
-			setState(1007);
+			setState(545);
 			statementNoShortIf();
-			setState(1008);
+			setState(546);
 			match(ELSE);
-			setState(1009);
+			setState(547);
 			statement();
 			}
 		}
@@ -6837,8 +3805,8 @@ public class ClypsParser extends Parser {
 	public static class IfThenElseStatementNoShortIfContext extends ParserRuleContext {
 		public TerminalNode IF() { return getToken(ClypsParser.IF, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
 		public List<StatementNoShortIfContext> statementNoShortIf() {
@@ -6869,23 +3837,23 @@ public class ClypsParser extends Parser {
 
 	public final IfThenElseStatementNoShortIfContext ifThenElseStatementNoShortIf() throws RecognitionException {
 		IfThenElseStatementNoShortIfContext _localctx = new IfThenElseStatementNoShortIfContext(_ctx, getState());
-		enterRule(_localctx, 194, RULE_ifThenElseStatementNoShortIf);
+		enterRule(_localctx, 114, RULE_ifThenElseStatementNoShortIf);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1011);
+			setState(549);
 			match(IF);
-			setState(1012);
+			setState(550);
 			match(LPAREN);
-			setState(1013);
-			expression();
-			setState(1014);
+			setState(551);
+			conditionalExpression();
+			setState(552);
 			match(RPAREN);
-			setState(1015);
+			setState(553);
 			statementNoShortIf();
-			setState(1016);
+			setState(554);
 			match(ELSE);
-			setState(1017);
+			setState(555);
 			statementNoShortIf();
 			}
 		}
@@ -6903,8 +3871,8 @@ public class ClypsParser extends Parser {
 	public static class WhileStatementContext extends ParserRuleContext {
 		public TerminalNode WHILE() { return getToken(ClypsParser.WHILE, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
 		public StatementContext statement() {
@@ -6931,19 +3899,19 @@ public class ClypsParser extends Parser {
 
 	public final WhileStatementContext whileStatement() throws RecognitionException {
 		WhileStatementContext _localctx = new WhileStatementContext(_ctx, getState());
-		enterRule(_localctx, 196, RULE_whileStatement);
+		enterRule(_localctx, 116, RULE_whileStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1019);
+			setState(557);
 			match(WHILE);
-			setState(1020);
+			setState(558);
 			match(LPAREN);
-			setState(1021);
-			expression();
-			setState(1022);
+			setState(559);
+			conditionalExpression();
+			setState(560);
 			match(RPAREN);
-			setState(1023);
+			setState(561);
 			statement();
 			}
 		}
@@ -6961,8 +3929,8 @@ public class ClypsParser extends Parser {
 	public static class WhileStatementNoShortIfContext extends ParserRuleContext {
 		public TerminalNode WHILE() { return getToken(ClypsParser.WHILE, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
 		public StatementNoShortIfContext statementNoShortIf() {
@@ -6989,19 +3957,19 @@ public class ClypsParser extends Parser {
 
 	public final WhileStatementNoShortIfContext whileStatementNoShortIf() throws RecognitionException {
 		WhileStatementNoShortIfContext _localctx = new WhileStatementNoShortIfContext(_ctx, getState());
-		enterRule(_localctx, 198, RULE_whileStatementNoShortIf);
+		enterRule(_localctx, 118, RULE_whileStatementNoShortIf);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1025);
+			setState(563);
 			match(WHILE);
-			setState(1026);
+			setState(564);
 			match(LPAREN);
-			setState(1027);
-			expression();
-			setState(1028);
+			setState(565);
+			conditionalExpression();
+			setState(566);
 			match(RPAREN);
-			setState(1029);
+			setState(567);
 			statementNoShortIf();
 			}
 		}
@@ -7023,8 +3991,8 @@ public class ClypsParser extends Parser {
 		}
 		public TerminalNode WHILE() { return getToken(ClypsParser.WHILE, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
 		public TerminalNode SEMI() { return getToken(ClypsParser.SEMI, 0); }
@@ -7049,23 +4017,23 @@ public class ClypsParser extends Parser {
 
 	public final DoStatementContext doStatement() throws RecognitionException {
 		DoStatementContext _localctx = new DoStatementContext(_ctx, getState());
-		enterRule(_localctx, 200, RULE_doStatement);
+		enterRule(_localctx, 120, RULE_doStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1031);
+			setState(569);
 			match(DO);
-			setState(1032);
+			setState(570);
 			statement();
-			setState(1033);
+			setState(571);
 			match(WHILE);
-			setState(1034);
+			setState(572);
 			match(LPAREN);
-			setState(1035);
-			expression();
-			setState(1036);
+			setState(573);
+			conditionalExpression();
+			setState(574);
 			match(RPAREN);
-			setState(1037);
+			setState(575);
 			match(SEMI);
 			}
 		}
@@ -7108,22 +4076,22 @@ public class ClypsParser extends Parser {
 
 	public final ForStatementContext forStatement() throws RecognitionException {
 		ForStatementContext _localctx = new ForStatementContext(_ctx, getState());
-		enterRule(_localctx, 202, RULE_forStatement);
+		enterRule(_localctx, 122, RULE_forStatement);
 		try {
-			setState(1041);
+			setState(579);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,100,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,44,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1039);
+				setState(577);
 				basicForStatement();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1040);
+				setState(578);
 				enhancedForStatement();
 				}
 				break;
@@ -7168,22 +4136,22 @@ public class ClypsParser extends Parser {
 
 	public final ForStatementNoShortIfContext forStatementNoShortIf() throws RecognitionException {
 		ForStatementNoShortIfContext _localctx = new ForStatementNoShortIfContext(_ctx, getState());
-		enterRule(_localctx, 204, RULE_forStatementNoShortIf);
+		enterRule(_localctx, 124, RULE_forStatementNoShortIf);
 		try {
-			setState(1045);
+			setState(583);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,101,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,45,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1043);
+				setState(581);
 				basicForStatementNoShortIf();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1044);
+				setState(582);
 				enhancedForStatementNoShortIf();
 				}
 				break;
@@ -7214,8 +4182,8 @@ public class ClypsParser extends Parser {
 		public ForInitContext forInit() {
 			return getRuleContext(ForInitContext.class,0);
 		}
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public ForUpdateContext forUpdate() {
 			return getRuleContext(ForUpdateContext.class,0);
@@ -7241,52 +4209,52 @@ public class ClypsParser extends Parser {
 
 	public final BasicForStatementContext basicForStatement() throws RecognitionException {
 		BasicForStatementContext _localctx = new BasicForStatementContext(_ctx, getState());
-		enterRule(_localctx, 206, RULE_basicForStatement);
+		enterRule(_localctx, 126, RULE_basicForStatement);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1047);
+			setState(585);
 			match(FOR);
-			setState(1048);
+			setState(586);
 			match(LPAREN);
-			setState(1050);
+			setState(588);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FINAL) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 83)) & ~0x3f) == 0 && ((1L << (_la - 83)) & ((1L << (INC - 83)) | (1L << (DEC - 83)) | (1L << (Identifier - 83)) | (1L << (AT - 83)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,46,_ctx) ) {
+			case 1:
 				{
-				setState(1049);
+				setState(587);
 				forInit();
 				}
+				break;
 			}
-
-			setState(1052);
+			setState(590);
 			match(SEMI);
-			setState(1054);
+			setState(592);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 73)) & ~0x3f) == 0 && ((1L << (_la - 73)) & ((1L << (BANG - 73)) | (1L << (TILDE - 73)) | (1L << (INC - 73)) | (1L << (DEC - 73)) | (1L << (ADD - 73)) | (1L << (SUB - 73)) | (1L << (Identifier - 73)) | (1L << (AT - 73)))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN) | (1L << BANG) | (1L << TILDE))) != 0) || _la==Identifier) {
 				{
-				setState(1053);
-				expression();
+				setState(591);
+				conditionalExpression();
 				}
 			}
 
-			setState(1056);
+			setState(594);
 			match(SEMI);
-			setState(1058);
+			setState(596);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 83)) & ~0x3f) == 0 && ((1L << (_la - 83)) & ((1L << (INC - 83)) | (1L << (DEC - 83)) | (1L << (Identifier - 83)) | (1L << (AT - 83)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,48,_ctx) ) {
+			case 1:
 				{
-				setState(1057);
+				setState(595);
 				forUpdate();
 				}
+				break;
 			}
-
-			setState(1060);
+			setState(598);
 			match(RPAREN);
-			setState(1061);
+			setState(599);
 			statement();
 			}
 		}
@@ -7315,8 +4283,8 @@ public class ClypsParser extends Parser {
 		public ForInitContext forInit() {
 			return getRuleContext(ForInitContext.class,0);
 		}
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public ForUpdateContext forUpdate() {
 			return getRuleContext(ForUpdateContext.class,0);
@@ -7342,52 +4310,52 @@ public class ClypsParser extends Parser {
 
 	public final BasicForStatementNoShortIfContext basicForStatementNoShortIf() throws RecognitionException {
 		BasicForStatementNoShortIfContext _localctx = new BasicForStatementNoShortIfContext(_ctx, getState());
-		enterRule(_localctx, 208, RULE_basicForStatementNoShortIf);
+		enterRule(_localctx, 128, RULE_basicForStatementNoShortIf);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1063);
+			setState(601);
 			match(FOR);
-			setState(1064);
+			setState(602);
 			match(LPAREN);
-			setState(1066);
+			setState(604);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FINAL) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 83)) & ~0x3f) == 0 && ((1L << (_la - 83)) & ((1L << (INC - 83)) | (1L << (DEC - 83)) | (1L << (Identifier - 83)) | (1L << (AT - 83)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,49,_ctx) ) {
+			case 1:
 				{
-				setState(1065);
+				setState(603);
 				forInit();
 				}
+				break;
 			}
-
-			setState(1068);
+			setState(606);
 			match(SEMI);
-			setState(1070);
+			setState(608);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 73)) & ~0x3f) == 0 && ((1L << (_la - 73)) & ((1L << (BANG - 73)) | (1L << (TILDE - 73)) | (1L << (INC - 73)) | (1L << (DEC - 73)) | (1L << (ADD - 73)) | (1L << (SUB - 73)) | (1L << (Identifier - 73)) | (1L << (AT - 73)))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN) | (1L << BANG) | (1L << TILDE))) != 0) || _la==Identifier) {
 				{
-				setState(1069);
-				expression();
+				setState(607);
+				conditionalExpression();
 				}
 			}
 
-			setState(1072);
+			setState(610);
 			match(SEMI);
-			setState(1074);
+			setState(612);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 83)) & ~0x3f) == 0 && ((1L << (_la - 83)) & ((1L << (INC - 83)) | (1L << (DEC - 83)) | (1L << (Identifier - 83)) | (1L << (AT - 83)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,51,_ctx) ) {
+			case 1:
 				{
-				setState(1073);
+				setState(611);
 				forUpdate();
 				}
+				break;
 			}
-
-			setState(1076);
+			setState(614);
 			match(RPAREN);
-			setState(1077);
+			setState(615);
 			statementNoShortIf();
 			}
 		}
@@ -7430,22 +4398,22 @@ public class ClypsParser extends Parser {
 
 	public final ForInitContext forInit() throws RecognitionException {
 		ForInitContext _localctx = new ForInitContext(_ctx, getState());
-		enterRule(_localctx, 210, RULE_forInit);
+		enterRule(_localctx, 130, RULE_forInit);
 		try {
-			setState(1081);
+			setState(619);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,108,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,52,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1079);
+				setState(617);
 				statementExpressionList();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1080);
+				setState(618);
 				localVariableDeclaration();
 				}
 				break;
@@ -7487,11 +4455,11 @@ public class ClypsParser extends Parser {
 
 	public final ForUpdateContext forUpdate() throws RecognitionException {
 		ForUpdateContext _localctx = new ForUpdateContext(_ctx, getState());
-		enterRule(_localctx, 212, RULE_forUpdate);
+		enterRule(_localctx, 132, RULE_forUpdate);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1083);
+			setState(621);
 			statementExpressionList();
 			}
 		}
@@ -7538,26 +4506,26 @@ public class ClypsParser extends Parser {
 
 	public final StatementExpressionListContext statementExpressionList() throws RecognitionException {
 		StatementExpressionListContext _localctx = new StatementExpressionListContext(_ctx, getState());
-		enterRule(_localctx, 214, RULE_statementExpressionList);
+		enterRule(_localctx, 134, RULE_statementExpressionList);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1085);
+			setState(623);
 			statementExpression();
-			setState(1090);
+			setState(628);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(1086);
+				setState(624);
 				match(COMMA);
-				setState(1087);
+				setState(625);
 				statementExpression();
 				}
 				}
-				setState(1092);
+				setState(630);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -7618,40 +4586,40 @@ public class ClypsParser extends Parser {
 
 	public final EnhancedForStatementContext enhancedForStatement() throws RecognitionException {
 		EnhancedForStatementContext _localctx = new EnhancedForStatementContext(_ctx, getState());
-		enterRule(_localctx, 216, RULE_enhancedForStatement);
+		enterRule(_localctx, 136, RULE_enhancedForStatement);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1093);
+			setState(631);
 			match(FOR);
-			setState(1094);
+			setState(632);
 			match(LPAREN);
-			setState(1098);
+			setState(636);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==FINAL || _la==AT) {
+			while (_la==FINAL) {
 				{
 				{
-				setState(1095);
+				setState(633);
 				variableModifier();
 				}
 				}
-				setState(1100);
+				setState(638);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(1101);
+			setState(639);
 			unannType();
-			setState(1102);
+			setState(640);
 			variableDeclaratorId();
-			setState(1103);
+			setState(641);
 			match(COLON);
-			setState(1104);
+			setState(642);
 			expression();
-			setState(1105);
+			setState(643);
 			match(RPAREN);
-			setState(1106);
+			setState(644);
 			statement();
 			}
 		}
@@ -7710,40 +4678,40 @@ public class ClypsParser extends Parser {
 
 	public final EnhancedForStatementNoShortIfContext enhancedForStatementNoShortIf() throws RecognitionException {
 		EnhancedForStatementNoShortIfContext _localctx = new EnhancedForStatementNoShortIfContext(_ctx, getState());
-		enterRule(_localctx, 218, RULE_enhancedForStatementNoShortIf);
+		enterRule(_localctx, 138, RULE_enhancedForStatementNoShortIf);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1108);
+			setState(646);
 			match(FOR);
-			setState(1109);
+			setState(647);
 			match(LPAREN);
-			setState(1113);
+			setState(651);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==FINAL || _la==AT) {
+			while (_la==FINAL) {
 				{
 				{
-				setState(1110);
+				setState(648);
 				variableModifier();
 				}
 				}
-				setState(1115);
+				setState(653);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(1116);
+			setState(654);
 			unannType();
-			setState(1117);
+			setState(655);
 			variableDeclaratorId();
-			setState(1118);
+			setState(656);
 			match(COLON);
-			setState(1119);
+			setState(657);
 			expression();
-			setState(1120);
+			setState(658);
 			match(RPAREN);
-			setState(1121);
+			setState(659);
 			statementNoShortIf();
 			}
 		}
@@ -7785,24 +4753,23 @@ public class ClypsParser extends Parser {
 
 	public final ReturnStatementContext returnStatement() throws RecognitionException {
 		ReturnStatementContext _localctx = new ReturnStatementContext(_ctx, getState());
-		enterRule(_localctx, 220, RULE_returnStatement);
-		int _la;
+		enterRule(_localctx, 140, RULE_returnStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1123);
+			setState(661);
 			match(RETURN);
-			setState(1125);
+			setState(663);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 73)) & ~0x3f) == 0 && ((1L << (_la - 73)) & ((1L << (BANG - 73)) | (1L << (TILDE - 73)) | (1L << (INC - 73)) | (1L << (DEC - 73)) | (1L << (ADD - 73)) | (1L << (SUB - 73)) | (1L << (Identifier - 73)) | (1L << (AT - 73)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,56,_ctx) ) {
+			case 1:
 				{
-				setState(1124);
+				setState(662);
 				expression();
 				}
+				break;
 			}
-
-			setState(1127);
+			setState(665);
 			match(SEMI);
 			}
 		}
@@ -7851,14 +4818,15 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryContext primary() throws RecognitionException {
 		PrimaryContext _localctx = new PrimaryContext(_ctx, getState());
-		enterRule(_localctx, 222, RULE_primary);
+		enterRule(_localctx, 142, RULE_primary);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1131);
+			setState(669);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
+			case T__2:
 			case BOOLEAN:
 			case BYTE:
 			case CHAR:
@@ -7867,8 +4835,6 @@ public class ClypsParser extends Parser {
 			case INT:
 			case LONG:
 			case SHORT:
-			case SUPER:
-			case THIS:
 			case VOID:
 			case IntegerLiteral:
 			case FloatingPointLiteral:
@@ -7878,215 +4844,36 @@ public class ClypsParser extends Parser {
 			case NullLiteral:
 			case LPAREN:
 			case Identifier:
-			case AT:
 				{
-				setState(1129);
+				setState(667);
 				primaryNoNewArray_lfno_primary();
 				}
 				break;
 			case NEW:
 				{
-				setState(1130);
+				setState(668);
 				arrayCreationExpression();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(1136);
+			setState(674);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,114,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,58,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(1133);
+					setState(671);
 					primaryNoNewArray_lf_primary();
 					}
 					} 
 				}
-				setState(1138);
+				setState(676);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,114,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,58,_ctx);
 			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class PrimaryNoNewArrayContext extends ParserRuleContext {
-		public LiteralContext literal() {
-			return getRuleContext(LiteralContext.class,0);
-		}
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public TerminalNode CLASS() { return getToken(ClypsParser.CLASS, 0); }
-		public List<TerminalNode> LBRACK() { return getTokens(ClypsParser.LBRACK); }
-		public TerminalNode LBRACK(int i) {
-			return getToken(ClypsParser.LBRACK, i);
-		}
-		public List<TerminalNode> RBRACK() { return getTokens(ClypsParser.RBRACK); }
-		public TerminalNode RBRACK(int i) {
-			return getToken(ClypsParser.RBRACK, i);
-		}
-		public TerminalNode VOID() { return getToken(ClypsParser.VOID, 0); }
-		public TerminalNode THIS() { return getToken(ClypsParser.THIS, 0); }
-		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
-		}
-		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
-		public FieldAccessContext fieldAccess() {
-			return getRuleContext(FieldAccessContext.class,0);
-		}
-		public ArrayAccessContext arrayAccess() {
-			return getRuleContext(ArrayAccessContext.class,0);
-		}
-		public MethodInvocationContext methodInvocation() {
-			return getRuleContext(MethodInvocationContext.class,0);
-		}
-		public MethodReferenceContext methodReference() {
-			return getRuleContext(MethodReferenceContext.class,0);
-		}
-		public PrimaryNoNewArrayContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_primaryNoNewArray; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterPrimaryNoNewArray(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitPrimaryNoNewArray(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitPrimaryNoNewArray(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final PrimaryNoNewArrayContext primaryNoNewArray() throws RecognitionException {
-		PrimaryNoNewArrayContext _localctx = new PrimaryNoNewArrayContext(_ctx, getState());
-		enterRule(_localctx, 224, RULE_primaryNoNewArray);
-		int _la;
-		try {
-			setState(1167);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,116,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1139);
-				literal();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1140);
-				typeName();
-				setState(1145);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==LBRACK) {
-					{
-					{
-					setState(1141);
-					match(LBRACK);
-					setState(1142);
-					match(RBRACK);
-					}
-					}
-					setState(1147);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(1148);
-				match(DOT);
-				setState(1149);
-				match(CLASS);
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1151);
-				match(VOID);
-				setState(1152);
-				match(DOT);
-				setState(1153);
-				match(CLASS);
-				}
-				break;
-			case 4:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(1154);
-				match(THIS);
-				}
-				break;
-			case 5:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(1155);
-				typeName();
-				setState(1156);
-				match(DOT);
-				setState(1157);
-				match(THIS);
-				}
-				break;
-			case 6:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(1159);
-				match(LPAREN);
-				setState(1160);
-				expression();
-				setState(1161);
-				match(RPAREN);
-				}
-				break;
-			case 7:
-				enterOuterAlt(_localctx, 7);
-				{
-				setState(1163);
-				fieldAccess();
-				}
-				break;
-			case 8:
-				enterOuterAlt(_localctx, 8);
-				{
-				setState(1164);
-				arrayAccess();
-				}
-				break;
-			case 9:
-				enterOuterAlt(_localctx, 9);
-				{
-				setState(1165);
-				methodInvocation();
-				}
-				break;
-			case 10:
-				enterOuterAlt(_localctx, 10);
-				{
-				setState(1166);
-				methodReference();
-				}
-				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -8122,7 +4909,7 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryNoNewArray_lf_arrayAccessContext primaryNoNewArray_lf_arrayAccess() throws RecognitionException {
 		PrimaryNoNewArray_lf_arrayAccessContext _localctx = new PrimaryNoNewArray_lf_arrayAccessContext(_ctx, getState());
-		enterRule(_localctx, 226, RULE_primaryNoNewArray_lf_arrayAccess);
+		enterRule(_localctx, 144, RULE_primaryNoNewArray_lf_arrayAccess);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -8143,34 +4930,16 @@ public class ClypsParser extends Parser {
 		public LiteralContext literal() {
 			return getRuleContext(LiteralContext.class,0);
 		}
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
-		}
+		public TerminalNode VOID() { return getToken(ClypsParser.VOID, 0); }
 		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
 		public TerminalNode CLASS() { return getToken(ClypsParser.CLASS, 0); }
-		public List<TerminalNode> LBRACK() { return getTokens(ClypsParser.LBRACK); }
-		public TerminalNode LBRACK(int i) {
-			return getToken(ClypsParser.LBRACK, i);
-		}
-		public List<TerminalNode> RBRACK() { return getTokens(ClypsParser.RBRACK); }
-		public TerminalNode RBRACK(int i) {
-			return getToken(ClypsParser.RBRACK, i);
-		}
-		public TerminalNode VOID() { return getToken(ClypsParser.VOID, 0); }
-		public TerminalNode THIS() { return getToken(ClypsParser.THIS, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
-		public FieldAccessContext fieldAccess() {
-			return getRuleContext(FieldAccessContext.class,0);
-		}
 		public MethodInvocationContext methodInvocation() {
 			return getRuleContext(MethodInvocationContext.class,0);
-		}
-		public MethodReferenceContext methodReference() {
-			return getRuleContext(MethodReferenceContext.class,0);
 		}
 		public PrimaryNoNewArray_lfno_arrayAccessContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -8193,107 +4962,61 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryNoNewArray_lfno_arrayAccessContext primaryNoNewArray_lfno_arrayAccess() throws RecognitionException {
 		PrimaryNoNewArray_lfno_arrayAccessContext _localctx = new PrimaryNoNewArray_lfno_arrayAccessContext(_ctx, getState());
-		enterRule(_localctx, 228, RULE_primaryNoNewArray_lfno_arrayAccess);
-		int _la;
+		enterRule(_localctx, 146, RULE_primaryNoNewArray_lfno_arrayAccess);
 		try {
-			setState(1198);
+			setState(689);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,118,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case IntegerLiteral:
+			case FloatingPointLiteral:
+			case BooleanLiteral:
+			case CharacterLiteral:
+			case StringLiteral:
+			case NullLiteral:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1171);
+				setState(679);
 				literal();
 				}
 				break;
-			case 2:
+			case VOID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1172);
-				typeName();
-				setState(1177);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==LBRACK) {
-					{
-					{
-					setState(1173);
-					match(LBRACK);
-					setState(1174);
-					match(RBRACK);
-					}
-					}
-					setState(1179);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(1180);
+				setState(680);
+				match(VOID);
+				setState(681);
 				match(DOT);
-				setState(1181);
+				setState(682);
 				match(CLASS);
 				}
 				break;
-			case 3:
+			case T__2:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1183);
-				match(VOID);
-				setState(1184);
-				match(DOT);
-				setState(1185);
-				match(CLASS);
+				setState(683);
+				match(T__2);
 				}
 				break;
-			case 4:
+			case LPAREN:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1186);
-				match(THIS);
-				}
-				break;
-			case 5:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(1187);
-				typeName();
-				setState(1188);
-				match(DOT);
-				setState(1189);
-				match(THIS);
-				}
-				break;
-			case 6:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(1191);
+				setState(684);
 				match(LPAREN);
-				setState(1192);
+				setState(685);
 				expression();
-				setState(1193);
+				setState(686);
 				match(RPAREN);
 				}
 				break;
-			case 7:
-				enterOuterAlt(_localctx, 7);
+			case Identifier:
+				enterOuterAlt(_localctx, 5);
 				{
-				setState(1195);
-				fieldAccess();
-				}
-				break;
-			case 8:
-				enterOuterAlt(_localctx, 8);
-				{
-				setState(1196);
+				setState(688);
 				methodInvocation();
 				}
 				break;
-			case 9:
-				enterOuterAlt(_localctx, 9);
-				{
-				setState(1197);
-				methodReference();
-				}
-				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -8308,17 +5031,8 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class PrimaryNoNewArray_lf_primaryContext extends ParserRuleContext {
-		public FieldAccess_lf_primaryContext fieldAccess_lf_primary() {
-			return getRuleContext(FieldAccess_lf_primaryContext.class,0);
-		}
 		public ArrayAccess_lf_primaryContext arrayAccess_lf_primary() {
 			return getRuleContext(ArrayAccess_lf_primaryContext.class,0);
-		}
-		public MethodInvocation_lf_primaryContext methodInvocation_lf_primary() {
-			return getRuleContext(MethodInvocation_lf_primaryContext.class,0);
-		}
-		public MethodReference_lf_primaryContext methodReference_lf_primary() {
-			return getRuleContext(MethodReference_lf_primaryContext.class,0);
 		}
 		public PrimaryNoNewArray_lf_primaryContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -8341,39 +5055,12 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryNoNewArray_lf_primaryContext primaryNoNewArray_lf_primary() throws RecognitionException {
 		PrimaryNoNewArray_lf_primaryContext _localctx = new PrimaryNoNewArray_lf_primaryContext(_ctx, getState());
-		enterRule(_localctx, 230, RULE_primaryNoNewArray_lf_primary);
+		enterRule(_localctx, 148, RULE_primaryNoNewArray_lf_primary);
 		try {
-			setState(1204);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,119,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1200);
-				fieldAccess_lf_primary();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1201);
-				arrayAccess_lf_primary();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1202);
-				methodInvocation_lf_primary();
-				}
-				break;
-			case 4:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(1203);
-				methodReference_lf_primary();
-				}
-				break;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(691);
+			arrayAccess_lf_primary();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8409,7 +5096,7 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary() throws RecognitionException {
 		PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext _localctx = new PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext(_ctx, getState());
-		enterRule(_localctx, 232, RULE_primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary);
+		enterRule(_localctx, 150, RULE_primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -8427,15 +5114,6 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext extends ParserRuleContext {
-		public FieldAccess_lf_primaryContext fieldAccess_lf_primary() {
-			return getRuleContext(FieldAccess_lf_primaryContext.class,0);
-		}
-		public MethodInvocation_lf_primaryContext methodInvocation_lf_primary() {
-			return getRuleContext(MethodInvocation_lf_primaryContext.class,0);
-		}
-		public MethodReference_lf_primaryContext methodReference_lf_primary() {
-			return getRuleContext(MethodReference_lf_primaryContext.class,0);
-		}
 		public PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -8457,32 +5135,10 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary() throws RecognitionException {
 		PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext _localctx = new PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext(_ctx, getState());
-		enterRule(_localctx, 234, RULE_primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary);
+		enterRule(_localctx, 152, RULE_primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary);
 		try {
-			setState(1211);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,120,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1208);
-				fieldAccess_lf_primary();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1209);
-				methodInvocation_lf_primary();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1210);
-				methodReference_lf_primary();
-				}
-				break;
+			enterOuterAlt(_localctx, 1);
+			{
 			}
 		}
 		catch (RecognitionException re) {
@@ -8500,8 +5156,8 @@ public class ClypsParser extends Parser {
 		public LiteralContext literal() {
 			return getRuleContext(LiteralContext.class,0);
 		}
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
+		public UnannPrimitiveTypeContext unannPrimitiveType() {
+			return getRuleContext(UnannPrimitiveTypeContext.class,0);
 		}
 		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
 		public TerminalNode CLASS() { return getToken(ClypsParser.CLASS, 0); }
@@ -8513,27 +5169,17 @@ public class ClypsParser extends Parser {
 		public TerminalNode RBRACK(int i) {
 			return getToken(ClypsParser.RBRACK, i);
 		}
-		public UnannPrimitiveTypeContext unannPrimitiveType() {
-			return getRuleContext(UnannPrimitiveTypeContext.class,0);
-		}
 		public TerminalNode VOID() { return getToken(ClypsParser.VOID, 0); }
-		public TerminalNode THIS() { return getToken(ClypsParser.THIS, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
-		public FieldAccess_lfno_primaryContext fieldAccess_lfno_primary() {
-			return getRuleContext(FieldAccess_lfno_primaryContext.class,0);
-		}
 		public ArrayAccess_lfno_primaryContext arrayAccess_lfno_primary() {
 			return getRuleContext(ArrayAccess_lfno_primaryContext.class,0);
 		}
 		public MethodInvocation_lfno_primaryContext methodInvocation_lfno_primary() {
 			return getRuleContext(MethodInvocation_lfno_primaryContext.class,0);
-		}
-		public MethodReference_lfno_primaryContext methodReference_lfno_primary() {
-			return getRuleContext(MethodReference_lfno_primaryContext.class,0);
 		}
 		public PrimaryNoNewArray_lfno_primaryContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -8556,139 +5202,87 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryNoNewArray_lfno_primaryContext primaryNoNewArray_lfno_primary() throws RecognitionException {
 		PrimaryNoNewArray_lfno_primaryContext _localctx = new PrimaryNoNewArray_lfno_primaryContext(_ctx, getState());
-		enterRule(_localctx, 236, RULE_primaryNoNewArray_lfno_primary);
+		enterRule(_localctx, 154, RULE_primaryNoNewArray_lfno_primary);
 		int _la;
 		try {
-			setState(1252);
+			setState(719);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,123,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,61,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1213);
+				setState(697);
 				literal();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1214);
-				typeName();
-				setState(1219);
+				setState(698);
+				unannPrimitiveType();
+				setState(703);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==LBRACK) {
 					{
 					{
-					setState(1215);
+					setState(699);
 					match(LBRACK);
-					setState(1216);
+					setState(700);
 					match(RBRACK);
 					}
 					}
-					setState(1221);
+					setState(705);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1222);
+				setState(706);
 				match(DOT);
-				setState(1223);
+				setState(707);
 				match(CLASS);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1225);
-				unannPrimitiveType();
-				setState(1230);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==LBRACK) {
-					{
-					{
-					setState(1226);
-					match(LBRACK);
-					setState(1227);
-					match(RBRACK);
-					}
-					}
-					setState(1232);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(1233);
+				setState(709);
+				match(VOID);
+				setState(710);
 				match(DOT);
-				setState(1234);
+				setState(711);
 				match(CLASS);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1236);
-				match(VOID);
-				setState(1237);
-				match(DOT);
-				setState(1238);
-				match(CLASS);
+				setState(712);
+				match(T__2);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(1239);
-				match(THIS);
+				setState(713);
+				match(LPAREN);
+				setState(714);
+				expression();
+				setState(715);
+				match(RPAREN);
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(1240);
-				typeName();
-				setState(1241);
-				match(DOT);
-				setState(1242);
-				match(THIS);
+				setState(717);
+				arrayAccess_lfno_primary();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(1244);
-				match(LPAREN);
-				setState(1245);
-				expression();
-				setState(1246);
-				match(RPAREN);
-				}
-				break;
-			case 8:
-				enterOuterAlt(_localctx, 8);
-				{
-				setState(1248);
-				fieldAccess_lfno_primary();
-				}
-				break;
-			case 9:
-				enterOuterAlt(_localctx, 9);
-				{
-				setState(1249);
-				arrayAccess_lfno_primary();
-				}
-				break;
-			case 10:
-				enterOuterAlt(_localctx, 10);
-				{
-				setState(1250);
+				setState(718);
 				methodInvocation_lfno_primary();
-				}
-				break;
-			case 11:
-				enterOuterAlt(_localctx, 11);
-				{
-				setState(1251);
-				methodReference_lfno_primary();
 				}
 				break;
 			}
@@ -8726,7 +5320,7 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary() throws RecognitionException {
 		PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext _localctx = new PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext(_ctx, getState());
-		enterRule(_localctx, 238, RULE_primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary);
+		enterRule(_localctx, 156, RULE_primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -8747,8 +5341,8 @@ public class ClypsParser extends Parser {
 		public LiteralContext literal() {
 			return getRuleContext(LiteralContext.class,0);
 		}
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
+		public UnannPrimitiveTypeContext unannPrimitiveType() {
+			return getRuleContext(UnannPrimitiveTypeContext.class,0);
 		}
 		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
 		public TerminalNode CLASS() { return getToken(ClypsParser.CLASS, 0); }
@@ -8760,24 +5354,14 @@ public class ClypsParser extends Parser {
 		public TerminalNode RBRACK(int i) {
 			return getToken(ClypsParser.RBRACK, i);
 		}
-		public UnannPrimitiveTypeContext unannPrimitiveType() {
-			return getRuleContext(UnannPrimitiveTypeContext.class,0);
-		}
 		public TerminalNode VOID() { return getToken(ClypsParser.VOID, 0); }
-		public TerminalNode THIS() { return getToken(ClypsParser.THIS, 0); }
 		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
-		public FieldAccess_lfno_primaryContext fieldAccess_lfno_primary() {
-			return getRuleContext(FieldAccess_lfno_primaryContext.class,0);
-		}
 		public MethodInvocation_lfno_primaryContext methodInvocation_lfno_primary() {
 			return getRuleContext(MethodInvocation_lfno_primaryContext.class,0);
-		}
-		public MethodReference_lfno_primaryContext methodReference_lfno_primary() {
-			return getRuleContext(MethodReference_lfno_primaryContext.class,0);
 		}
 		public PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -8800,341 +5384,92 @@ public class ClypsParser extends Parser {
 
 	public final PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary() throws RecognitionException {
 		PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext _localctx = new PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext(_ctx, getState());
-		enterRule(_localctx, 240, RULE_primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary);
+		enterRule(_localctx, 158, RULE_primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary);
 		int _la;
 		try {
-			setState(1294);
+			setState(744);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,126,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case IntegerLiteral:
+			case FloatingPointLiteral:
+			case BooleanLiteral:
+			case CharacterLiteral:
+			case StringLiteral:
+			case NullLiteral:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1256);
+				setState(723);
 				literal();
 				}
 				break;
-			case 2:
+			case BOOLEAN:
+			case BYTE:
+			case CHAR:
+			case DOUBLE:
+			case FLOAT:
+			case INT:
+			case LONG:
+			case SHORT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1257);
-				typeName();
-				setState(1262);
+				setState(724);
+				unannPrimitiveType();
+				setState(729);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==LBRACK) {
 					{
 					{
-					setState(1258);
+					setState(725);
 					match(LBRACK);
-					setState(1259);
+					setState(726);
 					match(RBRACK);
 					}
 					}
-					setState(1264);
+					setState(731);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1265);
+				setState(732);
 				match(DOT);
-				setState(1266);
+				setState(733);
 				match(CLASS);
 				}
 				break;
-			case 3:
+			case VOID:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1268);
-				unannPrimitiveType();
-				setState(1273);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==LBRACK) {
-					{
-					{
-					setState(1269);
-					match(LBRACK);
-					setState(1270);
-					match(RBRACK);
-					}
-					}
-					setState(1275);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(1276);
+				setState(735);
+				match(VOID);
+				setState(736);
 				match(DOT);
-				setState(1277);
+				setState(737);
 				match(CLASS);
 				}
 				break;
-			case 4:
+			case T__2:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1279);
-				match(VOID);
-				setState(1280);
-				match(DOT);
-				setState(1281);
-				match(CLASS);
+				setState(738);
+				match(T__2);
 				}
 				break;
-			case 5:
+			case LPAREN:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(1282);
-				match(THIS);
-				}
-				break;
-			case 6:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(1283);
-				typeName();
-				setState(1284);
-				match(DOT);
-				setState(1285);
-				match(THIS);
-				}
-				break;
-			case 7:
-				enterOuterAlt(_localctx, 7);
-				{
-				setState(1287);
+				setState(739);
 				match(LPAREN);
-				setState(1288);
+				setState(740);
 				expression();
-				setState(1289);
+				setState(741);
 				match(RPAREN);
 				}
 				break;
-			case 8:
-				enterOuterAlt(_localctx, 8);
-				{
-				setState(1291);
-				fieldAccess_lfno_primary();
-				}
-				break;
-			case 9:
-				enterOuterAlt(_localctx, 9);
-				{
-				setState(1292);
-				methodInvocation_lfno_primary();
-				}
-				break;
-			case 10:
-				enterOuterAlt(_localctx, 10);
-				{
-				setState(1293);
-				methodReference_lfno_primary();
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class FieldAccessContext extends ParserRuleContext {
-		public PrimaryContext primary() {
-			return getRuleContext(PrimaryContext.class,0);
-		}
-		public List<TerminalNode> DOT() { return getTokens(ClypsParser.DOT); }
-		public TerminalNode DOT(int i) {
-			return getToken(ClypsParser.DOT, i);
-		}
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TerminalNode SUPER() { return getToken(ClypsParser.SUPER, 0); }
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
-		}
-		public FieldAccessContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_fieldAccess; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterFieldAccess(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitFieldAccess(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitFieldAccess(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final FieldAccessContext fieldAccess() throws RecognitionException {
-		FieldAccessContext _localctx = new FieldAccessContext(_ctx, getState());
-		enterRule(_localctx, 242, RULE_fieldAccess);
-		try {
-			setState(1309);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,127,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1296);
-				primary();
-				setState(1297);
-				match(DOT);
-				setState(1298);
-				match(Identifier);
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1300);
-				match(SUPER);
-				setState(1301);
-				match(DOT);
-				setState(1302);
-				match(Identifier);
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1303);
-				typeName();
-				setState(1304);
-				match(DOT);
-				setState(1305);
-				match(SUPER);
-				setState(1306);
-				match(DOT);
-				setState(1307);
-				match(Identifier);
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class FieldAccess_lf_primaryContext extends ParserRuleContext {
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public FieldAccess_lf_primaryContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_fieldAccess_lf_primary; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterFieldAccess_lf_primary(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitFieldAccess_lf_primary(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitFieldAccess_lf_primary(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final FieldAccess_lf_primaryContext fieldAccess_lf_primary() throws RecognitionException {
-		FieldAccess_lf_primaryContext _localctx = new FieldAccess_lf_primaryContext(_ctx, getState());
-		enterRule(_localctx, 244, RULE_fieldAccess_lf_primary);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1311);
-			match(DOT);
-			setState(1312);
-			match(Identifier);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class FieldAccess_lfno_primaryContext extends ParserRuleContext {
-		public TerminalNode SUPER() { return getToken(ClypsParser.SUPER, 0); }
-		public List<TerminalNode> DOT() { return getTokens(ClypsParser.DOT); }
-		public TerminalNode DOT(int i) {
-			return getToken(ClypsParser.DOT, i);
-		}
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
-		}
-		public FieldAccess_lfno_primaryContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_fieldAccess_lfno_primary; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterFieldAccess_lfno_primary(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitFieldAccess_lfno_primary(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitFieldAccess_lfno_primary(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final FieldAccess_lfno_primaryContext fieldAccess_lfno_primary() throws RecognitionException {
-		FieldAccess_lfno_primaryContext _localctx = new FieldAccess_lfno_primaryContext(_ctx, getState());
-		enterRule(_localctx, 246, RULE_fieldAccess_lfno_primary);
-		try {
-			setState(1323);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case SUPER:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1314);
-				match(SUPER);
-				setState(1315);
-				match(DOT);
-				setState(1316);
-				match(Identifier);
-				}
-				break;
 			case Identifier:
-				enterOuterAlt(_localctx, 2);
+				enterOuterAlt(_localctx, 6);
 				{
-				setState(1317);
-				typeName();
-				setState(1318);
-				match(DOT);
-				setState(1319);
-				match(SUPER);
-				setState(1320);
-				match(DOT);
-				setState(1321);
-				match(Identifier);
+				setState(743);
+				methodInvocation_lfno_primary();
 				}
 				break;
 			default:
@@ -9200,56 +5535,56 @@ public class ClypsParser extends Parser {
 
 	public final ArrayAccessContext arrayAccess() throws RecognitionException {
 		ArrayAccessContext _localctx = new ArrayAccessContext(_ctx, getState());
-		enterRule(_localctx, 248, RULE_arrayAccess);
+		enterRule(_localctx, 160, RULE_arrayAccess);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1335);
+			setState(756);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,129,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,64,_ctx) ) {
 			case 1:
 				{
-				setState(1325);
+				setState(746);
 				expressionName();
-				setState(1326);
+				setState(747);
 				match(LBRACK);
-				setState(1327);
+				setState(748);
 				expression();
-				setState(1328);
+				setState(749);
 				match(RBRACK);
 				}
 				break;
 			case 2:
 				{
-				setState(1330);
+				setState(751);
 				primaryNoNewArray_lfno_arrayAccess();
-				setState(1331);
+				setState(752);
 				match(LBRACK);
-				setState(1332);
+				setState(753);
 				expression();
-				setState(1333);
+				setState(754);
 				match(RBRACK);
 				}
 				break;
 			}
-			setState(1344);
+			setState(765);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==LBRACK) {
 				{
 				{
-				setState(1337);
+				setState(758);
 				primaryNoNewArray_lf_arrayAccess();
-				setState(1338);
+				setState(759);
 				match(LBRACK);
-				setState(1339);
+				setState(760);
 				expression();
-				setState(1340);
+				setState(761);
 				match(RBRACK);
 				}
 				}
-				setState(1346);
+				setState(767);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -9311,42 +5646,42 @@ public class ClypsParser extends Parser {
 
 	public final ArrayAccess_lf_primaryContext arrayAccess_lf_primary() throws RecognitionException {
 		ArrayAccess_lf_primaryContext _localctx = new ArrayAccess_lf_primaryContext(_ctx, getState());
-		enterRule(_localctx, 250, RULE_arrayAccess_lf_primary);
+		enterRule(_localctx, 162, RULE_arrayAccess_lf_primary);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1347);
+			setState(768);
 			primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary();
-			setState(1348);
+			setState(769);
 			match(LBRACK);
-			setState(1349);
+			setState(770);
 			expression();
-			setState(1350);
+			setState(771);
 			match(RBRACK);
 			}
-			setState(1359);
+			setState(780);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,131,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,66,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(1352);
+					setState(773);
 					primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary();
-					setState(1353);
+					setState(774);
 					match(LBRACK);
-					setState(1354);
+					setState(775);
 					expression();
-					setState(1355);
+					setState(776);
 					match(RBRACK);
 					}
 					} 
 				}
-				setState(1361);
+				setState(782);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,131,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,66,_ctx);
 			}
 			}
 		}
@@ -9409,60 +5744,60 @@ public class ClypsParser extends Parser {
 
 	public final ArrayAccess_lfno_primaryContext arrayAccess_lfno_primary() throws RecognitionException {
 		ArrayAccess_lfno_primaryContext _localctx = new ArrayAccess_lfno_primaryContext(_ctx, getState());
-		enterRule(_localctx, 252, RULE_arrayAccess_lfno_primary);
+		enterRule(_localctx, 164, RULE_arrayAccess_lfno_primary);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1372);
+			setState(793);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,132,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,67,_ctx) ) {
 			case 1:
 				{
-				setState(1362);
+				setState(783);
 				expressionName();
-				setState(1363);
+				setState(784);
 				match(LBRACK);
-				setState(1364);
+				setState(785);
 				expression();
-				setState(1365);
+				setState(786);
 				match(RBRACK);
 				}
 				break;
 			case 2:
 				{
-				setState(1367);
+				setState(788);
 				primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary();
-				setState(1368);
+				setState(789);
 				match(LBRACK);
-				setState(1369);
+				setState(790);
 				expression();
-				setState(1370);
+				setState(791);
 				match(RBRACK);
 				}
 				break;
 			}
-			setState(1381);
+			setState(802);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,133,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,68,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(1374);
+					setState(795);
 					primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary();
-					setState(1375);
+					setState(796);
 					match(LBRACK);
-					setState(1376);
+					setState(797);
 					expression();
-					setState(1377);
+					setState(798);
 					match(RBRACK);
 					}
 					} 
 				}
-				setState(1383);
+				setState(804);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,133,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,68,_ctx);
 			}
 			}
 		}
@@ -9507,104 +5842,25 @@ public class ClypsParser extends Parser {
 
 	public final MethodInvocationContext methodInvocation() throws RecognitionException {
 		MethodInvocationContext _localctx = new MethodInvocationContext(_ctx, getState());
-		enterRule(_localctx, 254, RULE_methodInvocation);
-		int _la;
+		enterRule(_localctx, 166, RULE_methodInvocation);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1384);
+			setState(805);
 			methodName();
-			setState(1385);
+			setState(806);
 			match(LPAREN);
-			setState(1387);
+			setState(808);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 73)) & ~0x3f) == 0 && ((1L << (_la - 73)) & ((1L << (BANG - 73)) | (1L << (TILDE - 73)) | (1L << (INC - 73)) | (1L << (DEC - 73)) | (1L << (ADD - 73)) | (1L << (SUB - 73)) | (1L << (Identifier - 73)) | (1L << (AT - 73)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,69,_ctx) ) {
+			case 1:
 				{
-				setState(1386);
+				setState(807);
 				argumentList();
 				}
+				break;
 			}
-
-			setState(1389);
-			match(RPAREN);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class MethodInvocation_lf_primaryContext extends ParserRuleContext {
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public ArgumentListContext argumentList() {
-			return getRuleContext(ArgumentListContext.class,0);
-		}
-		public MethodInvocation_lf_primaryContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_methodInvocation_lf_primary; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterMethodInvocation_lf_primary(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitMethodInvocation_lf_primary(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitMethodInvocation_lf_primary(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final MethodInvocation_lf_primaryContext methodInvocation_lf_primary() throws RecognitionException {
-		MethodInvocation_lf_primaryContext _localctx = new MethodInvocation_lf_primaryContext(_ctx, getState());
-		enterRule(_localctx, 256, RULE_methodInvocation_lf_primary);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1391);
-			match(DOT);
-			setState(1393);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==LT) {
-				{
-				setState(1392);
-				typeArguments();
-				}
-			}
-
-			setState(1395);
-			match(Identifier);
-			setState(1396);
-			match(LPAREN);
-			setState(1398);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 73)) & ~0x3f) == 0 && ((1L << (_la - 73)) & ((1L << (BANG - 73)) | (1L << (TILDE - 73)) | (1L << (INC - 73)) | (1L << (DEC - 73)) | (1L << (ADD - 73)) | (1L << (SUB - 73)) | (1L << (Identifier - 73)) | (1L << (AT - 73)))) != 0)) {
-				{
-				setState(1397);
-				argumentList();
-				}
-			}
-
-			setState(1400);
+			setState(810);
 			match(RPAREN);
 			}
 		}
@@ -9649,26 +5905,25 @@ public class ClypsParser extends Parser {
 
 	public final MethodInvocation_lfno_primaryContext methodInvocation_lfno_primary() throws RecognitionException {
 		MethodInvocation_lfno_primaryContext _localctx = new MethodInvocation_lfno_primaryContext(_ctx, getState());
-		enterRule(_localctx, 258, RULE_methodInvocation_lfno_primary);
-		int _la;
+		enterRule(_localctx, 168, RULE_methodInvocation_lfno_primary);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1402);
+			setState(812);
 			methodName();
-			setState(1403);
+			setState(813);
 			match(LPAREN);
-			setState(1405);
+			setState(815);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << NEW) | (1L << SHORT) | (1L << SUPER) | (1L << THIS) | (1L << VOID) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN))) != 0) || ((((_la - 73)) & ~0x3f) == 0 && ((1L << (_la - 73)) & ((1L << (BANG - 73)) | (1L << (TILDE - 73)) | (1L << (INC - 73)) | (1L << (DEC - 73)) | (1L << (ADD - 73)) | (1L << (SUB - 73)) | (1L << (Identifier - 73)) | (1L << (AT - 73)))) != 0)) {
+			switch ( getInterpreter().adaptivePredict(_input,70,_ctx) ) {
+			case 1:
 				{
-				setState(1404);
+				setState(814);
 				argumentList();
 				}
+				break;
 			}
-
-			setState(1407);
+			setState(817);
 			match(RPAREN);
 			}
 		}
@@ -9684,11 +5939,11 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class ArgumentListContext extends ParserRuleContext {
-		public List<ExpressionContext> expression() {
-			return getRuleContexts(ExpressionContext.class);
+		public List<AssignmentExpressionContext> assignmentExpression() {
+			return getRuleContexts(AssignmentExpressionContext.class);
 		}
-		public ExpressionContext expression(int i) {
-			return getRuleContext(ExpressionContext.class,i);
+		public AssignmentExpressionContext assignmentExpression(int i) {
+			return getRuleContext(AssignmentExpressionContext.class,i);
 		}
 		public List<TerminalNode> COMMA() { return getTokens(ClypsParser.COMMA); }
 		public TerminalNode COMMA(int i) {
@@ -9715,480 +5970,29 @@ public class ClypsParser extends Parser {
 
 	public final ArgumentListContext argumentList() throws RecognitionException {
 		ArgumentListContext _localctx = new ArgumentListContext(_ctx, getState());
-		enterRule(_localctx, 260, RULE_argumentList);
+		enterRule(_localctx, 170, RULE_argumentList);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1409);
-			expression();
-			setState(1414);
+			setState(819);
+			assignmentExpression();
+			setState(824);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(1410);
+				setState(820);
 				match(COMMA);
-				setState(1411);
-				expression();
+				setState(821);
+				assignmentExpression();
 				}
 				}
-				setState(1416);
+				setState(826);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class MethodReferenceContext extends ParserRuleContext {
-		public ExpressionNameContext expressionName() {
-			return getRuleContext(ExpressionNameContext.class,0);
-		}
-		public TerminalNode COLONCOLON() { return getToken(ClypsParser.COLONCOLON, 0); }
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public ReferenceTypeContext referenceType() {
-			return getRuleContext(ReferenceTypeContext.class,0);
-		}
-		public PrimaryContext primary() {
-			return getRuleContext(PrimaryContext.class,0);
-		}
-		public TerminalNode SUPER() { return getToken(ClypsParser.SUPER, 0); }
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public ClassTypeContext classType() {
-			return getRuleContext(ClassTypeContext.class,0);
-		}
-		public TerminalNode NEW() { return getToken(ClypsParser.NEW, 0); }
-		public ArrayTypeContext arrayType() {
-			return getRuleContext(ArrayTypeContext.class,0);
-		}
-		public MethodReferenceContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_methodReference; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterMethodReference(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitMethodReference(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitMethodReference(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final MethodReferenceContext methodReference() throws RecognitionException {
-		MethodReferenceContext _localctx = new MethodReferenceContext(_ctx, getState());
-		enterRule(_localctx, 262, RULE_methodReference);
-		int _la;
-		try {
-			setState(1464);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,145,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1417);
-				expressionName();
-				setState(1418);
-				match(COLONCOLON);
-				setState(1420);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1419);
-					typeArguments();
-					}
-				}
-
-				setState(1422);
-				match(Identifier);
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1424);
-				referenceType();
-				setState(1425);
-				match(COLONCOLON);
-				setState(1427);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1426);
-					typeArguments();
-					}
-				}
-
-				setState(1429);
-				match(Identifier);
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1431);
-				primary();
-				setState(1432);
-				match(COLONCOLON);
-				setState(1434);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1433);
-					typeArguments();
-					}
-				}
-
-				setState(1436);
-				match(Identifier);
-				}
-				break;
-			case 4:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(1438);
-				match(SUPER);
-				setState(1439);
-				match(COLONCOLON);
-				setState(1441);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1440);
-					typeArguments();
-					}
-				}
-
-				setState(1443);
-				match(Identifier);
-				}
-				break;
-			case 5:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(1444);
-				typeName();
-				setState(1445);
-				match(DOT);
-				setState(1446);
-				match(SUPER);
-				setState(1447);
-				match(COLONCOLON);
-				setState(1449);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1448);
-					typeArguments();
-					}
-				}
-
-				setState(1451);
-				match(Identifier);
-				}
-				break;
-			case 6:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(1453);
-				classType();
-				setState(1454);
-				match(COLONCOLON);
-				setState(1456);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1455);
-					typeArguments();
-					}
-				}
-
-				setState(1458);
-				match(NEW);
-				}
-				break;
-			case 7:
-				enterOuterAlt(_localctx, 7);
-				{
-				setState(1460);
-				arrayType();
-				setState(1461);
-				match(COLONCOLON);
-				setState(1462);
-				match(NEW);
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class MethodReference_lf_primaryContext extends ParserRuleContext {
-		public TerminalNode COLONCOLON() { return getToken(ClypsParser.COLONCOLON, 0); }
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public MethodReference_lf_primaryContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_methodReference_lf_primary; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterMethodReference_lf_primary(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitMethodReference_lf_primary(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitMethodReference_lf_primary(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final MethodReference_lf_primaryContext methodReference_lf_primary() throws RecognitionException {
-		MethodReference_lf_primaryContext _localctx = new MethodReference_lf_primaryContext(_ctx, getState());
-		enterRule(_localctx, 264, RULE_methodReference_lf_primary);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1466);
-			match(COLONCOLON);
-			setState(1468);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==LT) {
-				{
-				setState(1467);
-				typeArguments();
-				}
-			}
-
-			setState(1470);
-			match(Identifier);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class MethodReference_lfno_primaryContext extends ParserRuleContext {
-		public ExpressionNameContext expressionName() {
-			return getRuleContext(ExpressionNameContext.class,0);
-		}
-		public TerminalNode COLONCOLON() { return getToken(ClypsParser.COLONCOLON, 0); }
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TypeArgumentsContext typeArguments() {
-			return getRuleContext(TypeArgumentsContext.class,0);
-		}
-		public ReferenceTypeContext referenceType() {
-			return getRuleContext(ReferenceTypeContext.class,0);
-		}
-		public TerminalNode SUPER() { return getToken(ClypsParser.SUPER, 0); }
-		public TypeNameContext typeName() {
-			return getRuleContext(TypeNameContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(ClypsParser.DOT, 0); }
-		public ClassTypeContext classType() {
-			return getRuleContext(ClassTypeContext.class,0);
-		}
-		public TerminalNode NEW() { return getToken(ClypsParser.NEW, 0); }
-		public ArrayTypeContext arrayType() {
-			return getRuleContext(ArrayTypeContext.class,0);
-		}
-		public MethodReference_lfno_primaryContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_methodReference_lfno_primary; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterMethodReference_lfno_primary(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitMethodReference_lfno_primary(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitMethodReference_lfno_primary(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final MethodReference_lfno_primaryContext methodReference_lfno_primary() throws RecognitionException {
-		MethodReference_lfno_primaryContext _localctx = new MethodReference_lfno_primaryContext(_ctx, getState());
-		enterRule(_localctx, 266, RULE_methodReference_lfno_primary);
-		int _la;
-		try {
-			setState(1512);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,152,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1472);
-				expressionName();
-				setState(1473);
-				match(COLONCOLON);
-				setState(1475);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1474);
-					typeArguments();
-					}
-				}
-
-				setState(1477);
-				match(Identifier);
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1479);
-				referenceType();
-				setState(1480);
-				match(COLONCOLON);
-				setState(1482);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1481);
-					typeArguments();
-					}
-				}
-
-				setState(1484);
-				match(Identifier);
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1486);
-				match(SUPER);
-				setState(1487);
-				match(COLONCOLON);
-				setState(1489);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1488);
-					typeArguments();
-					}
-				}
-
-				setState(1491);
-				match(Identifier);
-				}
-				break;
-			case 4:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(1492);
-				typeName();
-				setState(1493);
-				match(DOT);
-				setState(1494);
-				match(SUPER);
-				setState(1495);
-				match(COLONCOLON);
-				setState(1497);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1496);
-					typeArguments();
-					}
-				}
-
-				setState(1499);
-				match(Identifier);
-				}
-				break;
-			case 5:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(1501);
-				classType();
-				setState(1502);
-				match(COLONCOLON);
-				setState(1504);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==LT) {
-					{
-					setState(1503);
-					typeArguments();
-					}
-				}
-
-				setState(1506);
-				match(NEW);
-				}
-				break;
-			case 6:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(1508);
-				arrayType();
-				setState(1509);
-				match(COLONCOLON);
-				setState(1510);
-				match(NEW);
-				}
-				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -10212,9 +6016,6 @@ public class ClypsParser extends Parser {
 		}
 		public DimsContext dims() {
 			return getRuleContext(DimsContext.class,0);
-		}
-		public ClassOrInterfaceTypeContext classOrInterfaceType() {
-			return getRuleContext(ClassOrInterfaceTypeContext.class,0);
 		}
 		public ArrayInitializerContext arrayInitializer() {
 			return getRuleContext(ArrayInitializerContext.class,0);
@@ -10240,26 +6041,26 @@ public class ClypsParser extends Parser {
 
 	public final ArrayCreationExpressionContext arrayCreationExpression() throws RecognitionException {
 		ArrayCreationExpressionContext _localctx = new ArrayCreationExpressionContext(_ctx, getState());
-		enterRule(_localctx, 268, RULE_arrayCreationExpression);
+		enterRule(_localctx, 172, RULE_arrayCreationExpression);
 		try {
-			setState(1536);
+			setState(838);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,155,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,73,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1514);
+				setState(827);
 				match(NEW);
-				setState(1515);
+				setState(828);
 				primitiveType();
-				setState(1516);
+				setState(829);
 				dimExprs();
-				setState(1518);
+				setState(831);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,153,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,72,_ctx) ) {
 				case 1:
 					{
-					setState(1517);
+					setState(830);
 					dims();
 					}
 					break;
@@ -10269,47 +6070,13 @@ public class ClypsParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1520);
+				setState(833);
 				match(NEW);
-				setState(1521);
-				classOrInterfaceType();
-				setState(1522);
-				dimExprs();
-				setState(1524);
-				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,154,_ctx) ) {
-				case 1:
-					{
-					setState(1523);
-					dims();
-					}
-					break;
-				}
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1526);
-				match(NEW);
-				setState(1527);
+				setState(834);
 				primitiveType();
-				setState(1528);
+				setState(835);
 				dims();
-				setState(1529);
-				arrayInitializer();
-				}
-				break;
-			case 4:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(1531);
-				match(NEW);
-				setState(1532);
-				classOrInterfaceType();
-				setState(1533);
-				dims();
-				setState(1534);
+				setState(836);
 				arrayInitializer();
 				}
 				break;
@@ -10354,28 +6121,28 @@ public class ClypsParser extends Parser {
 
 	public final DimExprsContext dimExprs() throws RecognitionException {
 		DimExprsContext _localctx = new DimExprsContext(_ctx, getState());
-		enterRule(_localctx, 270, RULE_dimExprs);
+		enterRule(_localctx, 174, RULE_dimExprs);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1538);
+			setState(840);
 			dimExpr();
-			setState(1542);
+			setState(844);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,156,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,74,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(1539);
+					setState(841);
 					dimExpr();
 					}
 					} 
 				}
-				setState(1544);
+				setState(846);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,156,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,74,_ctx);
 			}
 			}
 		}
@@ -10396,12 +6163,6 @@ public class ClypsParser extends Parser {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public TerminalNode RBRACK() { return getToken(ClypsParser.RBRACK, 0); }
-		public List<AnnotationContext> annotation() {
-			return getRuleContexts(AnnotationContext.class);
-		}
-		public AnnotationContext annotation(int i) {
-			return getRuleContext(AnnotationContext.class,i);
-		}
 		public DimExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -10423,30 +6184,15 @@ public class ClypsParser extends Parser {
 
 	public final DimExprContext dimExpr() throws RecognitionException {
 		DimExprContext _localctx = new DimExprContext(_ctx, getState());
-		enterRule(_localctx, 272, RULE_dimExpr);
-		int _la;
+		enterRule(_localctx, 176, RULE_dimExpr);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1548);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==AT) {
-				{
-				{
-				setState(1545);
-				annotation();
-				}
-				}
-				setState(1550);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(1551);
+			setState(847);
 			match(LBRACK);
-			setState(1552);
+			setState(848);
 			expression();
-			setState(1553);
+			setState(849);
 			match(RBRACK);
 			}
 		}
@@ -10462,11 +6208,11 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class ExpressionContext extends ParserRuleContext {
-		public LambdaExpressionContext lambdaExpression() {
-			return getRuleContext(LambdaExpressionContext.class,0);
-		}
 		public AssignmentExpressionContext assignmentExpression() {
 			return getRuleContext(AssignmentExpressionContext.class,0);
+		}
+		public ConditionalExpressionContext conditionalExpression() {
+			return getRuleContext(ConditionalExpressionContext.class,0);
 		}
 		public ExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -10489,318 +6235,25 @@ public class ClypsParser extends Parser {
 
 	public final ExpressionContext expression() throws RecognitionException {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
-		enterRule(_localctx, 274, RULE_expression);
+		enterRule(_localctx, 178, RULE_expression);
 		try {
-			setState(1557);
+			setState(853);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,158,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,75,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1555);
-				lambdaExpression();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1556);
+				setState(851);
 				assignmentExpression();
 				}
 				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class LambdaExpressionContext extends ParserRuleContext {
-		public LambdaParametersContext lambdaParameters() {
-			return getRuleContext(LambdaParametersContext.class,0);
-		}
-		public TerminalNode ARROW() { return getToken(ClypsParser.ARROW, 0); }
-		public LambdaBodyContext lambdaBody() {
-			return getRuleContext(LambdaBodyContext.class,0);
-		}
-		public LambdaExpressionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_lambdaExpression; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterLambdaExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitLambdaExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitLambdaExpression(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final LambdaExpressionContext lambdaExpression() throws RecognitionException {
-		LambdaExpressionContext _localctx = new LambdaExpressionContext(_ctx, getState());
-		enterRule(_localctx, 276, RULE_lambdaExpression);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1559);
-			lambdaParameters();
-			setState(1560);
-			match(ARROW);
-			setState(1561);
-			lambdaBody();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class LambdaParametersContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ClypsParser.Identifier, 0); }
-		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
-		public FormalParameterListContext formalParameterList() {
-			return getRuleContext(FormalParameterListContext.class,0);
-		}
-		public InferredFormalParameterListContext inferredFormalParameterList() {
-			return getRuleContext(InferredFormalParameterListContext.class,0);
-		}
-		public LambdaParametersContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_lambdaParameters; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterLambdaParameters(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitLambdaParameters(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitLambdaParameters(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final LambdaParametersContext lambdaParameters() throws RecognitionException {
-		LambdaParametersContext _localctx = new LambdaParametersContext(_ctx, getState());
-		enterRule(_localctx, 278, RULE_lambdaParameters);
-		int _la;
-		try {
-			setState(1573);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,160,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1563);
-				match(Identifier);
-				}
-				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1564);
-				match(LPAREN);
-				setState(1566);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << BOOLEAN) | (1L << BYTE) | (1L << CHAR) | (1L << DOUBLE) | (1L << FINAL) | (1L << FLOAT) | (1L << INT) | (1L << LONG) | (1L << SHORT))) != 0) || _la==AT) {
-					{
-					setState(1565);
-					formalParameterList();
-					}
-				}
-
-				setState(1568);
-				match(RPAREN);
+				setState(852);
+				conditionalExpression();
 				}
 				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1569);
-				match(LPAREN);
-				setState(1570);
-				inferredFormalParameterList();
-				setState(1571);
-				match(RPAREN);
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class InferredFormalParameterListContext extends ParserRuleContext {
-		public List<TerminalNode> Identifier() { return getTokens(ClypsParser.Identifier); }
-		public TerminalNode Identifier(int i) {
-			return getToken(ClypsParser.Identifier, i);
-		}
-		public List<TerminalNode> COMMA() { return getTokens(ClypsParser.COMMA); }
-		public TerminalNode COMMA(int i) {
-			return getToken(ClypsParser.COMMA, i);
-		}
-		public InferredFormalParameterListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_inferredFormalParameterList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterInferredFormalParameterList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitInferredFormalParameterList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitInferredFormalParameterList(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final InferredFormalParameterListContext inferredFormalParameterList() throws RecognitionException {
-		InferredFormalParameterListContext _localctx = new InferredFormalParameterListContext(_ctx, getState());
-		enterRule(_localctx, 280, RULE_inferredFormalParameterList);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1575);
-			match(Identifier);
-			setState(1580);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==COMMA) {
-				{
-				{
-				setState(1576);
-				match(COMMA);
-				setState(1577);
-				match(Identifier);
-				}
-				}
-				setState(1582);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class LambdaBodyContext extends ParserRuleContext {
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
-		}
-		public BlockContext block() {
-			return getRuleContext(BlockContext.class,0);
-		}
-		public LambdaBodyContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_lambdaBody; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterLambdaBody(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitLambdaBody(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitLambdaBody(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final LambdaBodyContext lambdaBody() throws RecognitionException {
-		LambdaBodyContext _localctx = new LambdaBodyContext(_ctx, getState());
-		enterRule(_localctx, 282, RULE_lambdaBody);
-		try {
-			setState(1585);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case BOOLEAN:
-			case BYTE:
-			case CHAR:
-			case DOUBLE:
-			case FLOAT:
-			case INT:
-			case LONG:
-			case NEW:
-			case SHORT:
-			case SUPER:
-			case THIS:
-			case VOID:
-			case IntegerLiteral:
-			case FloatingPointLiteral:
-			case BooleanLiteral:
-			case CharacterLiteral:
-			case StringLiteral:
-			case NullLiteral:
-			case LPAREN:
-			case BANG:
-			case TILDE:
-			case INC:
-			case DEC:
-			case ADD:
-			case SUB:
-			case Identifier:
-			case AT:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1583);
-				expression();
-				}
-				break;
-			case LBRACE:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1584);
-				block();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -10815,9 +6268,6 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class AssignmentExpressionContext extends ParserRuleContext {
-		public ConditionalExpressionContext conditionalExpression() {
-			return getRuleContext(ConditionalExpressionContext.class,0);
-		}
 		public AssignmentContext assignment() {
 			return getRuleContext(AssignmentContext.class,0);
 		}
@@ -10842,25 +6292,12 @@ public class ClypsParser extends Parser {
 
 	public final AssignmentExpressionContext assignmentExpression() throws RecognitionException {
 		AssignmentExpressionContext _localctx = new AssignmentExpressionContext(_ctx, getState());
-		enterRule(_localctx, 284, RULE_assignmentExpression);
+		enterRule(_localctx, 180, RULE_assignmentExpression);
 		try {
-			setState(1589);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,163,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1587);
-				conditionalExpression();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1588);
-				assignment();
-				}
-				break;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(855);
+			assignment();
 			}
 		}
 		catch (RecognitionException re) {
@@ -10881,8 +6318,8 @@ public class ClypsParser extends Parser {
 		public AssignmentOperatorContext assignmentOperator() {
 			return getRuleContext(AssignmentOperatorContext.class,0);
 		}
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public AdditiveExpressionContext additiveExpression() {
+			return getRuleContext(AdditiveExpressionContext.class,0);
 		}
 		public AssignmentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -10905,16 +6342,29 @@ public class ClypsParser extends Parser {
 
 	public final AssignmentContext assignment() throws RecognitionException {
 		AssignmentContext _localctx = new AssignmentContext(_ctx, getState());
-		enterRule(_localctx, 286, RULE_assignment);
+		enterRule(_localctx, 182, RULE_assignment);
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1591);
-			leftHandSide();
-			setState(1592);
-			assignmentOperator();
-			setState(1593);
-			expression();
+			setState(862);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,76,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(857);
+				leftHandSide();
+				setState(858);
+				assignmentOperator();
+				setState(859);
+				additiveExpression(0);
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(861);
+				additiveExpression(0);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -10931,9 +6381,6 @@ public class ClypsParser extends Parser {
 	public static class LeftHandSideContext extends ParserRuleContext {
 		public ExpressionNameContext expressionName() {
 			return getRuleContext(ExpressionNameContext.class,0);
-		}
-		public FieldAccessContext fieldAccess() {
-			return getRuleContext(FieldAccessContext.class,0);
 		}
 		public ArrayAccessContext arrayAccess() {
 			return getRuleContext(ArrayAccessContext.class,0);
@@ -10959,29 +6406,22 @@ public class ClypsParser extends Parser {
 
 	public final LeftHandSideContext leftHandSide() throws RecognitionException {
 		LeftHandSideContext _localctx = new LeftHandSideContext(_ctx, getState());
-		enterRule(_localctx, 288, RULE_leftHandSide);
+		enterRule(_localctx, 184, RULE_leftHandSide);
 		try {
-			setState(1598);
+			setState(866);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,164,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,77,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1595);
+				setState(864);
 				expressionName();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1596);
-				fieldAccess();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1597);
+				setState(865);
 				arrayAccess();
 				}
 				break;
@@ -11005,12 +6445,6 @@ public class ClypsParser extends Parser {
 		public TerminalNode MOD_ASSIGN() { return getToken(ClypsParser.MOD_ASSIGN, 0); }
 		public TerminalNode ADD_ASSIGN() { return getToken(ClypsParser.ADD_ASSIGN, 0); }
 		public TerminalNode SUB_ASSIGN() { return getToken(ClypsParser.SUB_ASSIGN, 0); }
-		public TerminalNode LSHIFT_ASSIGN() { return getToken(ClypsParser.LSHIFT_ASSIGN, 0); }
-		public TerminalNode RSHIFT_ASSIGN() { return getToken(ClypsParser.RSHIFT_ASSIGN, 0); }
-		public TerminalNode URSHIFT_ASSIGN() { return getToken(ClypsParser.URSHIFT_ASSIGN, 0); }
-		public TerminalNode AND_ASSIGN() { return getToken(ClypsParser.AND_ASSIGN, 0); }
-		public TerminalNode XOR_ASSIGN() { return getToken(ClypsParser.XOR_ASSIGN, 0); }
-		public TerminalNode OR_ASSIGN() { return getToken(ClypsParser.OR_ASSIGN, 0); }
 		public AssignmentOperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -11032,14 +6466,14 @@ public class ClypsParser extends Parser {
 
 	public final AssignmentOperatorContext assignmentOperator() throws RecognitionException {
 		AssignmentOperatorContext _localctx = new AssignmentOperatorContext(_ctx, getState());
-		enterRule(_localctx, 290, RULE_assignmentOperator);
+		enterRule(_localctx, 186, RULE_assignmentOperator);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1600);
+			setState(868);
 			_la = _input.LA(1);
-			if ( !(((((_la - 70)) & ~0x3f) == 0 && ((1L << (_la - 70)) & ((1L << (ASSIGN - 70)) | (1L << (ADD_ASSIGN - 70)) | (1L << (SUB_ASSIGN - 70)) | (1L << (MUL_ASSIGN - 70)) | (1L << (DIV_ASSIGN - 70)) | (1L << (AND_ASSIGN - 70)) | (1L << (OR_ASSIGN - 70)) | (1L << (XOR_ASSIGN - 70)) | (1L << (MOD_ASSIGN - 70)) | (1L << (LSHIFT_ASSIGN - 70)) | (1L << (RSHIFT_ASSIGN - 70)) | (1L << (URSHIFT_ASSIGN - 70)))) != 0)) ) {
+			if ( !(((((_la - 42)) & ~0x3f) == 0 && ((1L << (_la - 42)) & ((1L << (ASSIGN - 42)) | (1L << (ADD_ASSIGN - 42)) | (1L << (SUB_ASSIGN - 42)) | (1L << (MUL_ASSIGN - 42)) | (1L << (DIV_ASSIGN - 42)) | (1L << (MOD_ASSIGN - 42)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -11064,14 +6498,6 @@ public class ClypsParser extends Parser {
 		public ConditionalOrExpressionContext conditionalOrExpression() {
 			return getRuleContext(ConditionalOrExpressionContext.class,0);
 		}
-		public TerminalNode QUESTION() { return getToken(ClypsParser.QUESTION, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
-		}
-		public TerminalNode COLON() { return getToken(ClypsParser.COLON, 0); }
-		public ConditionalExpressionContext conditionalExpression() {
-			return getRuleContext(ConditionalExpressionContext.class,0);
-		}
 		public ConditionalExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -11093,33 +6519,12 @@ public class ClypsParser extends Parser {
 
 	public final ConditionalExpressionContext conditionalExpression() throws RecognitionException {
 		ConditionalExpressionContext _localctx = new ConditionalExpressionContext(_ctx, getState());
-		enterRule(_localctx, 292, RULE_conditionalExpression);
+		enterRule(_localctx, 188, RULE_conditionalExpression);
 		try {
-			setState(1609);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,165,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1602);
-				conditionalOrExpression(0);
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1603);
-				conditionalOrExpression(0);
-				setState(1604);
-				match(QUESTION);
-				setState(1605);
-				expression();
-				setState(1606);
-				match(COLON);
-				setState(1607);
-				conditionalExpression();
-				}
-				break;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(870);
+			conditionalOrExpression(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -11169,20 +6574,20 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		ConditionalOrExpressionContext _localctx = new ConditionalOrExpressionContext(_ctx, _parentState);
 		ConditionalOrExpressionContext _prevctx = _localctx;
-		int _startState = 294;
-		enterRecursionRule(_localctx, 294, RULE_conditionalOrExpression, _p);
+		int _startState = 190;
+		enterRecursionRule(_localctx, 190, RULE_conditionalOrExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1612);
+			setState(873);
 			conditionalAndExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1619);
+			setState(880);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,166,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,78,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -11191,18 +6596,18 @@ public class ClypsParser extends Parser {
 					{
 					_localctx = new ConditionalOrExpressionContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_conditionalOrExpression);
-					setState(1614);
+					setState(875);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(1615);
+					setState(876);
 					match(OR);
-					setState(1616);
+					setState(877);
 					conditionalAndExpression(0);
 					}
 					} 
 				}
-				setState(1621);
+				setState(882);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,166,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,78,_ctx);
 			}
 			}
 		}
@@ -11253,20 +6658,20 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		ConditionalAndExpressionContext _localctx = new ConditionalAndExpressionContext(_ctx, _parentState);
 		ConditionalAndExpressionContext _prevctx = _localctx;
-		int _startState = 296;
-		enterRecursionRule(_localctx, 296, RULE_conditionalAndExpression, _p);
+		int _startState = 192;
+		enterRecursionRule(_localctx, 192, RULE_conditionalAndExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1623);
+			setState(884);
 			inclusiveOrExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1630);
+			setState(891);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,167,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,79,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -11275,18 +6680,18 @@ public class ClypsParser extends Parser {
 					{
 					_localctx = new ConditionalAndExpressionContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_conditionalAndExpression);
-					setState(1625);
+					setState(886);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(1626);
+					setState(887);
 					match(AND);
-					setState(1627);
+					setState(888);
 					inclusiveOrExpression(0);
 					}
 					} 
 				}
-				setState(1632);
+				setState(893);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,167,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,79,_ctx);
 			}
 			}
 		}
@@ -11337,20 +6742,20 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		InclusiveOrExpressionContext _localctx = new InclusiveOrExpressionContext(_ctx, _parentState);
 		InclusiveOrExpressionContext _prevctx = _localctx;
-		int _startState = 298;
-		enterRecursionRule(_localctx, 298, RULE_inclusiveOrExpression, _p);
+		int _startState = 194;
+		enterRecursionRule(_localctx, 194, RULE_inclusiveOrExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1634);
+			setState(895);
 			exclusiveOrExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1641);
+			setState(902);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,168,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,80,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -11359,18 +6764,18 @@ public class ClypsParser extends Parser {
 					{
 					_localctx = new InclusiveOrExpressionContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_inclusiveOrExpression);
-					setState(1636);
+					setState(897);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(1637);
+					setState(898);
 					match(BITOR);
-					setState(1638);
+					setState(899);
 					exclusiveOrExpression(0);
 					}
 					} 
 				}
-				setState(1643);
+				setState(904);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,168,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,80,_ctx);
 			}
 			}
 		}
@@ -11421,20 +6826,20 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		ExclusiveOrExpressionContext _localctx = new ExclusiveOrExpressionContext(_ctx, _parentState);
 		ExclusiveOrExpressionContext _prevctx = _localctx;
-		int _startState = 300;
-		enterRecursionRule(_localctx, 300, RULE_exclusiveOrExpression, _p);
+		int _startState = 196;
+		enterRecursionRule(_localctx, 196, RULE_exclusiveOrExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1645);
+			setState(906);
 			andExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1652);
+			setState(913);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,169,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,81,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -11443,18 +6848,18 @@ public class ClypsParser extends Parser {
 					{
 					_localctx = new ExclusiveOrExpressionContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_exclusiveOrExpression);
-					setState(1647);
+					setState(908);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(1648);
+					setState(909);
 					match(CARET);
-					setState(1649);
+					setState(910);
 					andExpression(0);
 					}
 					} 
 				}
-				setState(1654);
+				setState(915);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,169,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,81,_ctx);
 			}
 			}
 		}
@@ -11505,20 +6910,20 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		AndExpressionContext _localctx = new AndExpressionContext(_ctx, _parentState);
 		AndExpressionContext _prevctx = _localctx;
-		int _startState = 302;
-		enterRecursionRule(_localctx, 302, RULE_andExpression, _p);
+		int _startState = 198;
+		enterRecursionRule(_localctx, 198, RULE_andExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1656);
+			setState(917);
 			equalityExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1663);
+			setState(924);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,170,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,82,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -11527,18 +6932,18 @@ public class ClypsParser extends Parser {
 					{
 					_localctx = new AndExpressionContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_andExpression);
-					setState(1658);
+					setState(919);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(1659);
+					setState(920);
 					match(BITAND);
-					setState(1660);
+					setState(921);
 					equalityExpression(0);
 					}
 					} 
 				}
-				setState(1665);
+				setState(926);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,170,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,82,_ctx);
 			}
 			}
 		}
@@ -11590,37 +6995,37 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		EqualityExpressionContext _localctx = new EqualityExpressionContext(_ctx, _parentState);
 		EqualityExpressionContext _prevctx = _localctx;
-		int _startState = 304;
-		enterRecursionRule(_localctx, 304, RULE_equalityExpression, _p);
+		int _startState = 200;
+		enterRecursionRule(_localctx, 200, RULE_equalityExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1667);
+			setState(928);
 			relationalExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1677);
+			setState(938);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,172,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,84,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(1675);
+					setState(936);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,171,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,83,_ctx) ) {
 					case 1:
 						{
 						_localctx = new EqualityExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_equalityExpression);
-						setState(1669);
+						setState(930);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(1670);
+						setState(931);
 						match(EQUAL);
-						setState(1671);
+						setState(932);
 						relationalExpression(0);
 						}
 						break;
@@ -11628,20 +7033,20 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new EqualityExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_equalityExpression);
-						setState(1672);
+						setState(933);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(1673);
+						setState(934);
 						match(NOTEQUAL);
-						setState(1674);
+						setState(935);
 						relationalExpression(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(1679);
+				setState(940);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,172,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,84,_ctx);
 			}
 			}
 		}
@@ -11667,7 +7072,6 @@ public class ClypsParser extends Parser {
 		public TerminalNode GT() { return getToken(ClypsParser.GT, 0); }
 		public TerminalNode LE() { return getToken(ClypsParser.LE, 0); }
 		public TerminalNode GE() { return getToken(ClypsParser.GE, 0); }
-		public TerminalNode INSTANCEOF() { return getToken(ClypsParser.INSTANCEOF, 0); }
 		public ReferenceTypeContext referenceType() {
 			return getRuleContext(ReferenceTypeContext.class,0);
 		}
@@ -11699,37 +7103,37 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		RelationalExpressionContext _localctx = new RelationalExpressionContext(_ctx, _parentState);
 		RelationalExpressionContext _prevctx = _localctx;
-		int _startState = 306;
-		enterRecursionRule(_localctx, 306, RULE_relationalExpression, _p);
+		int _startState = 202;
+		enterRecursionRule(_localctx, 202, RULE_relationalExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1681);
+			setState(942);
 			shiftExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1700);
+			setState(961);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,174,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,86,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(1698);
+					setState(959);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,173,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,85,_ctx) ) {
 					case 1:
 						{
 						_localctx = new RelationalExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_relationalExpression);
-						setState(1683);
+						setState(944);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(1684);
+						setState(945);
 						match(LT);
-						setState(1685);
+						setState(946);
 						shiftExpression(0);
 						}
 						break;
@@ -11737,11 +7141,11 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new RelationalExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_relationalExpression);
-						setState(1686);
+						setState(947);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(1687);
+						setState(948);
 						match(GT);
-						setState(1688);
+						setState(949);
 						shiftExpression(0);
 						}
 						break;
@@ -11749,11 +7153,11 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new RelationalExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_relationalExpression);
-						setState(1689);
+						setState(950);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(1690);
+						setState(951);
 						match(LE);
-						setState(1691);
+						setState(952);
 						shiftExpression(0);
 						}
 						break;
@@ -11761,11 +7165,11 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new RelationalExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_relationalExpression);
-						setState(1692);
+						setState(953);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(1693);
+						setState(954);
 						match(GE);
-						setState(1694);
+						setState(955);
 						shiftExpression(0);
 						}
 						break;
@@ -11773,20 +7177,20 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new RelationalExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_relationalExpression);
-						setState(1695);
+						setState(956);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(1696);
-						match(INSTANCEOF);
-						setState(1697);
+						setState(957);
+						match(T__3);
+						setState(958);
 						referenceType();
 						}
 						break;
 					}
 					} 
 				}
-				setState(1702);
+				setState(963);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,174,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,86,_ctx);
 			}
 			}
 		}
@@ -11802,8 +7206,8 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class ShiftExpressionContext extends ParserRuleContext {
-		public AdditiveExpressionContext additiveExpression() {
-			return getRuleContext(AdditiveExpressionContext.class,0);
+		public UnaryExpressionNotPlusMinusContext unaryExpressionNotPlusMinus() {
+			return getRuleContext(UnaryExpressionNotPlusMinusContext.class,0);
 		}
 		public ShiftExpressionContext shiftExpression() {
 			return getRuleContext(ShiftExpressionContext.class,0);
@@ -11811,6 +7215,9 @@ public class ClypsParser extends Parser {
 		public List<TerminalNode> LT() { return getTokens(ClypsParser.LT); }
 		public TerminalNode LT(int i) {
 			return getToken(ClypsParser.LT, i);
+		}
+		public AdditiveExpressionContext additiveExpression() {
+			return getRuleContext(AdditiveExpressionContext.class,0);
 		}
 		public List<TerminalNode> GT() { return getTokens(ClypsParser.GT); }
 		public TerminalNode GT(int i) {
@@ -11844,39 +7251,39 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		ShiftExpressionContext _localctx = new ShiftExpressionContext(_ctx, _parentState);
 		ShiftExpressionContext _prevctx = _localctx;
-		int _startState = 308;
-		enterRecursionRule(_localctx, 308, RULE_shiftExpression, _p);
+		int _startState = 204;
+		enterRecursionRule(_localctx, 204, RULE_shiftExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1704);
-			additiveExpression(0);
+			setState(965);
+			unaryExpressionNotPlusMinus();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1721);
+			setState(982);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,176,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,88,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(1719);
+					setState(980);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,175,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,87,_ctx) ) {
 					case 1:
 						{
 						_localctx = new ShiftExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_shiftExpression);
-						setState(1706);
+						setState(967);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(1707);
+						setState(968);
 						match(LT);
-						setState(1708);
+						setState(969);
 						match(LT);
-						setState(1709);
+						setState(970);
 						additiveExpression(0);
 						}
 						break;
@@ -11884,13 +7291,13 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new ShiftExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_shiftExpression);
-						setState(1710);
+						setState(971);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(1711);
+						setState(972);
 						match(GT);
-						setState(1712);
+						setState(973);
 						match(GT);
-						setState(1713);
+						setState(974);
 						additiveExpression(0);
 						}
 						break;
@@ -11898,24 +7305,24 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new ShiftExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_shiftExpression);
-						setState(1714);
+						setState(975);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(1715);
+						setState(976);
 						match(GT);
-						setState(1716);
+						setState(977);
 						match(GT);
-						setState(1717);
+						setState(978);
 						match(GT);
-						setState(1718);
+						setState(979);
 						additiveExpression(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(1723);
+				setState(984);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,176,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,88,_ctx);
 			}
 			}
 		}
@@ -11967,37 +7374,37 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		AdditiveExpressionContext _localctx = new AdditiveExpressionContext(_ctx, _parentState);
 		AdditiveExpressionContext _prevctx = _localctx;
-		int _startState = 310;
-		enterRecursionRule(_localctx, 310, RULE_additiveExpression, _p);
+		int _startState = 206;
+		enterRecursionRule(_localctx, 206, RULE_additiveExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1725);
+			setState(986);
 			multiplicativeExpression(0);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1735);
+			setState(996);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,178,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,90,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(1733);
+					setState(994);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,177,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,89,_ctx) ) {
 					case 1:
 						{
 						_localctx = new AdditiveExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_additiveExpression);
-						setState(1727);
+						setState(988);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(1728);
+						setState(989);
 						match(ADD);
-						setState(1729);
+						setState(990);
 						multiplicativeExpression(0);
 						}
 						break;
@@ -12005,20 +7412,20 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new AdditiveExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_additiveExpression);
-						setState(1730);
+						setState(991);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(1731);
+						setState(992);
 						match(SUB);
-						setState(1732);
+						setState(993);
 						multiplicativeExpression(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(1737);
+				setState(998);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,178,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,90,_ctx);
 			}
 			}
 		}
@@ -12071,37 +7478,37 @@ public class ClypsParser extends Parser {
 		int _parentState = getState();
 		MultiplicativeExpressionContext _localctx = new MultiplicativeExpressionContext(_ctx, _parentState);
 		MultiplicativeExpressionContext _prevctx = _localctx;
-		int _startState = 312;
-		enterRecursionRule(_localctx, 312, RULE_multiplicativeExpression, _p);
+		int _startState = 208;
+		enterRecursionRule(_localctx, 208, RULE_multiplicativeExpression, _p);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(1739);
+			setState(1000);
 			unaryExpression();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(1752);
+			setState(1013);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,180,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,92,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(1750);
+					setState(1011);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,179,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,91,_ctx) ) {
 					case 1:
 						{
 						_localctx = new MultiplicativeExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_multiplicativeExpression);
-						setState(1741);
+						setState(1002);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(1742);
+						setState(1003);
 						match(MUL);
-						setState(1743);
+						setState(1004);
 						unaryExpression();
 						}
 						break;
@@ -12109,11 +7516,11 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new MultiplicativeExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_multiplicativeExpression);
-						setState(1744);
+						setState(1005);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(1745);
+						setState(1006);
 						match(DIV);
-						setState(1746);
+						setState(1007);
 						unaryExpression();
 						}
 						break;
@@ -12121,20 +7528,20 @@ public class ClypsParser extends Parser {
 						{
 						_localctx = new MultiplicativeExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_multiplicativeExpression);
-						setState(1747);
+						setState(1008);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(1748);
+						setState(1009);
 						match(MOD);
-						setState(1749);
+						setState(1010);
 						unaryExpression();
 						}
 						break;
 					}
 					} 
 				}
-				setState(1754);
+				setState(1015);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,180,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,92,_ctx);
 			}
 			}
 		}
@@ -12150,12 +7557,6 @@ public class ClypsParser extends Parser {
 	}
 
 	public static class UnaryExpressionContext extends ParserRuleContext {
-		public PreIncrementExpressionContext preIncrementExpression() {
-			return getRuleContext(PreIncrementExpressionContext.class,0);
-		}
-		public PreDecrementExpressionContext preDecrementExpression() {
-			return getRuleContext(PreDecrementExpressionContext.class,0);
-		}
 		public TerminalNode ADD() { return getToken(ClypsParser.ADD, 0); }
 		public UnaryExpressionContext unaryExpression() {
 			return getRuleContext(UnaryExpressionContext.class,0);
@@ -12185,168 +7586,41 @@ public class ClypsParser extends Parser {
 
 	public final UnaryExpressionContext unaryExpression() throws RecognitionException {
 		UnaryExpressionContext _localctx = new UnaryExpressionContext(_ctx, getState());
-		enterRule(_localctx, 314, RULE_unaryExpression);
+		enterRule(_localctx, 210, RULE_unaryExpression);
 		try {
-			setState(1762);
+			setState(1022);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case INC:
+			switch ( getInterpreter().adaptivePredict(_input,93,_ctx) ) {
+			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1755);
-				preIncrementExpression();
 				}
 				break;
-			case DEC:
+			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1756);
-				preDecrementExpression();
+				setState(1017);
+				match(ADD);
+				setState(1018);
+				unaryExpression();
 				}
 				break;
-			case ADD:
+			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1757);
-				match(ADD);
-				setState(1758);
+				setState(1019);
+				match(SUB);
+				setState(1020);
 				unaryExpression();
 				}
 				break;
-			case SUB:
+			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1759);
-				match(SUB);
-				setState(1760);
-				unaryExpression();
-				}
-				break;
-			case BOOLEAN:
-			case BYTE:
-			case CHAR:
-			case DOUBLE:
-			case FLOAT:
-			case INT:
-			case LONG:
-			case NEW:
-			case SHORT:
-			case SUPER:
-			case THIS:
-			case VOID:
-			case IntegerLiteral:
-			case FloatingPointLiteral:
-			case BooleanLiteral:
-			case CharacterLiteral:
-			case StringLiteral:
-			case NullLiteral:
-			case LPAREN:
-			case BANG:
-			case TILDE:
-			case Identifier:
-			case AT:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(1761);
+				setState(1021);
 				unaryExpressionNotPlusMinus();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class PreIncrementExpressionContext extends ParserRuleContext {
-		public TerminalNode INC() { return getToken(ClypsParser.INC, 0); }
-		public UnaryExpressionContext unaryExpression() {
-			return getRuleContext(UnaryExpressionContext.class,0);
-		}
-		public PreIncrementExpressionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_preIncrementExpression; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterPreIncrementExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitPreIncrementExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitPreIncrementExpression(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final PreIncrementExpressionContext preIncrementExpression() throws RecognitionException {
-		PreIncrementExpressionContext _localctx = new PreIncrementExpressionContext(_ctx, getState());
-		enterRule(_localctx, 316, RULE_preIncrementExpression);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1764);
-			match(INC);
-			setState(1765);
-			unaryExpression();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class PreDecrementExpressionContext extends ParserRuleContext {
-		public TerminalNode DEC() { return getToken(ClypsParser.DEC, 0); }
-		public UnaryExpressionContext unaryExpression() {
-			return getRuleContext(UnaryExpressionContext.class,0);
-		}
-		public PreDecrementExpressionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_preDecrementExpression; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterPreDecrementExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitPreDecrementExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitPreDecrementExpression(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final PreDecrementExpressionContext preDecrementExpression() throws RecognitionException {
-		PreDecrementExpressionContext _localctx = new PreDecrementExpressionContext(_ctx, getState());
-		enterRule(_localctx, 318, RULE_preDecrementExpression);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1767);
-			match(DEC);
-			setState(1768);
-			unaryExpression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -12369,9 +7643,6 @@ public class ClypsParser extends Parser {
 			return getRuleContext(UnaryExpressionContext.class,0);
 		}
 		public TerminalNode BANG() { return getToken(ClypsParser.BANG, 0); }
-		public CastExpressionContext castExpression() {
-			return getRuleContext(CastExpressionContext.class,0);
-		}
 		public UnaryExpressionNotPlusMinusContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -12393,43 +7664,56 @@ public class ClypsParser extends Parser {
 
 	public final UnaryExpressionNotPlusMinusContext unaryExpressionNotPlusMinus() throws RecognitionException {
 		UnaryExpressionNotPlusMinusContext _localctx = new UnaryExpressionNotPlusMinusContext(_ctx, getState());
-		enterRule(_localctx, 320, RULE_unaryExpressionNotPlusMinus);
+		enterRule(_localctx, 212, RULE_unaryExpressionNotPlusMinus);
 		try {
-			setState(1776);
+			setState(1029);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,182,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case T__2:
+			case BOOLEAN:
+			case BYTE:
+			case CHAR:
+			case DOUBLE:
+			case FLOAT:
+			case INT:
+			case LONG:
+			case NEW:
+			case SHORT:
+			case VOID:
+			case IntegerLiteral:
+			case FloatingPointLiteral:
+			case BooleanLiteral:
+			case CharacterLiteral:
+			case StringLiteral:
+			case NullLiteral:
+			case LPAREN:
+			case Identifier:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1770);
+				setState(1024);
 				postfixExpression();
 				}
 				break;
-			case 2:
+			case TILDE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1771);
+				setState(1025);
 				match(TILDE);
-				setState(1772);
+				setState(1026);
 				unaryExpression();
 				}
 				break;
-			case 3:
+			case BANG:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1773);
+				setState(1027);
 				match(BANG);
-				setState(1774);
+				setState(1028);
 				unaryExpression();
 				}
 				break;
-			case 4:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(1775);
-				castExpression();
-				}
-				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -12449,18 +7733,6 @@ public class ClypsParser extends Parser {
 		}
 		public ExpressionNameContext expressionName() {
 			return getRuleContext(ExpressionNameContext.class,0);
-		}
-		public List<PostIncrementExpression_lf_postfixExpressionContext> postIncrementExpression_lf_postfixExpression() {
-			return getRuleContexts(PostIncrementExpression_lf_postfixExpressionContext.class);
-		}
-		public PostIncrementExpression_lf_postfixExpressionContext postIncrementExpression_lf_postfixExpression(int i) {
-			return getRuleContext(PostIncrementExpression_lf_postfixExpressionContext.class,i);
-		}
-		public List<PostDecrementExpression_lf_postfixExpressionContext> postDecrementExpression_lf_postfixExpression() {
-			return getRuleContexts(PostDecrementExpression_lf_postfixExpressionContext.class);
-		}
-		public PostDecrementExpression_lf_postfixExpressionContext postDecrementExpression_lf_postfixExpression(int i) {
-			return getRuleContext(PostDecrementExpression_lf_postfixExpressionContext.class,i);
 		}
 		public PostfixExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -12483,56 +7755,25 @@ public class ClypsParser extends Parser {
 
 	public final PostfixExpressionContext postfixExpression() throws RecognitionException {
 		PostfixExpressionContext _localctx = new PostfixExpressionContext(_ctx, getState());
-		enterRule(_localctx, 322, RULE_postfixExpression);
+		enterRule(_localctx, 214, RULE_postfixExpression);
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1780);
+			setState(1033);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,183,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,95,_ctx) ) {
 			case 1:
 				{
-				setState(1778);
+				setState(1031);
 				primary();
 				}
 				break;
 			case 2:
 				{
-				setState(1779);
+				setState(1032);
 				expressionName();
 				}
 				break;
-			}
-			setState(1786);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,185,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					setState(1784);
-					_errHandler.sync(this);
-					switch (_input.LA(1)) {
-					case INC:
-						{
-						setState(1782);
-						postIncrementExpression_lf_postfixExpression();
-						}
-						break;
-					case DEC:
-						{
-						setState(1783);
-						postDecrementExpression_lf_postfixExpression();
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					} 
-				}
-				setState(1788);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,185,_ctx);
 			}
 			}
 		}
@@ -12573,55 +7814,13 @@ public class ClypsParser extends Parser {
 
 	public final PostIncrementExpressionContext postIncrementExpression() throws RecognitionException {
 		PostIncrementExpressionContext _localctx = new PostIncrementExpressionContext(_ctx, getState());
-		enterRule(_localctx, 324, RULE_postIncrementExpression);
+		enterRule(_localctx, 216, RULE_postIncrementExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1789);
+			setState(1035);
 			postfixExpression();
-			setState(1790);
-			match(INC);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class PostIncrementExpression_lf_postfixExpressionContext extends ParserRuleContext {
-		public TerminalNode INC() { return getToken(ClypsParser.INC, 0); }
-		public PostIncrementExpression_lf_postfixExpressionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_postIncrementExpression_lf_postfixExpression; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterPostIncrementExpression_lf_postfixExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitPostIncrementExpression_lf_postfixExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitPostIncrementExpression_lf_postfixExpression(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final PostIncrementExpression_lf_postfixExpressionContext postIncrementExpression_lf_postfixExpression() throws RecognitionException {
-		PostIncrementExpression_lf_postfixExpressionContext _localctx = new PostIncrementExpression_lf_postfixExpressionContext(_ctx, getState());
-		enterRule(_localctx, 326, RULE_postIncrementExpression_lf_postfixExpression);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1792);
+			setState(1036);
 			match(INC);
 			}
 		}
@@ -12662,187 +7861,14 @@ public class ClypsParser extends Parser {
 
 	public final PostDecrementExpressionContext postDecrementExpression() throws RecognitionException {
 		PostDecrementExpressionContext _localctx = new PostDecrementExpressionContext(_ctx, getState());
-		enterRule(_localctx, 328, RULE_postDecrementExpression);
+		enterRule(_localctx, 218, RULE_postDecrementExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1794);
+			setState(1038);
 			postfixExpression();
-			setState(1795);
+			setState(1039);
 			match(DEC);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class PostDecrementExpression_lf_postfixExpressionContext extends ParserRuleContext {
-		public TerminalNode DEC() { return getToken(ClypsParser.DEC, 0); }
-		public PostDecrementExpression_lf_postfixExpressionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_postDecrementExpression_lf_postfixExpression; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterPostDecrementExpression_lf_postfixExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitPostDecrementExpression_lf_postfixExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitPostDecrementExpression_lf_postfixExpression(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final PostDecrementExpression_lf_postfixExpressionContext postDecrementExpression_lf_postfixExpression() throws RecognitionException {
-		PostDecrementExpression_lf_postfixExpressionContext _localctx = new PostDecrementExpression_lf_postfixExpressionContext(_ctx, getState());
-		enterRule(_localctx, 330, RULE_postDecrementExpression_lf_postfixExpression);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(1797);
-			match(DEC);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class CastExpressionContext extends ParserRuleContext {
-		public TerminalNode LPAREN() { return getToken(ClypsParser.LPAREN, 0); }
-		public PrimitiveTypeContext primitiveType() {
-			return getRuleContext(PrimitiveTypeContext.class,0);
-		}
-		public TerminalNode RPAREN() { return getToken(ClypsParser.RPAREN, 0); }
-		public UnaryExpressionContext unaryExpression() {
-			return getRuleContext(UnaryExpressionContext.class,0);
-		}
-		public ReferenceTypeContext referenceType() {
-			return getRuleContext(ReferenceTypeContext.class,0);
-		}
-		public UnaryExpressionNotPlusMinusContext unaryExpressionNotPlusMinus() {
-			return getRuleContext(UnaryExpressionNotPlusMinusContext.class,0);
-		}
-		public List<AdditionalBoundContext> additionalBound() {
-			return getRuleContexts(AdditionalBoundContext.class);
-		}
-		public AdditionalBoundContext additionalBound(int i) {
-			return getRuleContext(AdditionalBoundContext.class,i);
-		}
-		public LambdaExpressionContext lambdaExpression() {
-			return getRuleContext(LambdaExpressionContext.class,0);
-		}
-		public CastExpressionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_castExpression; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).enterCastExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ClypsListener ) ((ClypsListener)listener).exitCastExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ClypsVisitor ) return ((ClypsVisitor<? extends T>)visitor).visitCastExpression(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final CastExpressionContext castExpression() throws RecognitionException {
-		CastExpressionContext _localctx = new CastExpressionContext(_ctx, getState());
-		enterRule(_localctx, 332, RULE_castExpression);
-		int _la;
-		try {
-			setState(1826);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,188,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(1799);
-				match(LPAREN);
-				setState(1800);
-				primitiveType();
-				setState(1801);
-				match(RPAREN);
-				setState(1802);
-				unaryExpression();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(1804);
-				match(LPAREN);
-				setState(1805);
-				referenceType();
-				setState(1809);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==BITAND) {
-					{
-					{
-					setState(1806);
-					additionalBound();
-					}
-					}
-					setState(1811);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(1812);
-				match(RPAREN);
-				setState(1813);
-				unaryExpressionNotPlusMinus();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(1815);
-				match(LPAREN);
-				setState(1816);
-				referenceType();
-				setState(1820);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==BITAND) {
-					{
-					{
-					setState(1817);
-					additionalBound();
-					}
-					}
-					setState(1822);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(1823);
-				match(RPAREN);
-				setState(1824);
-				lambdaExpression();
-				}
-				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -12858,110 +7884,101 @@ public class ClypsParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 26:
-			return packageOrTypeName_sempred((PackageOrTypeNameContext)_localctx, predIndex);
-		case 29:
-			return ambiguousName_sempred((AmbiguousNameContext)_localctx, predIndex);
-		case 147:
+		case 95:
 			return conditionalOrExpression_sempred((ConditionalOrExpressionContext)_localctx, predIndex);
-		case 148:
+		case 96:
 			return conditionalAndExpression_sempred((ConditionalAndExpressionContext)_localctx, predIndex);
-		case 149:
+		case 97:
 			return inclusiveOrExpression_sempred((InclusiveOrExpressionContext)_localctx, predIndex);
-		case 150:
+		case 98:
 			return exclusiveOrExpression_sempred((ExclusiveOrExpressionContext)_localctx, predIndex);
-		case 151:
+		case 99:
 			return andExpression_sempred((AndExpressionContext)_localctx, predIndex);
-		case 152:
+		case 100:
 			return equalityExpression_sempred((EqualityExpressionContext)_localctx, predIndex);
-		case 153:
+		case 101:
 			return relationalExpression_sempred((RelationalExpressionContext)_localctx, predIndex);
-		case 154:
+		case 102:
 			return shiftExpression_sempred((ShiftExpressionContext)_localctx, predIndex);
-		case 155:
+		case 103:
 			return additiveExpression_sempred((AdditiveExpressionContext)_localctx, predIndex);
-		case 156:
+		case 104:
 			return multiplicativeExpression_sempred((MultiplicativeExpressionContext)_localctx, predIndex);
 		}
 		return true;
 	}
-	private boolean packageOrTypeName_sempred(PackageOrTypeNameContext _localctx, int predIndex) {
+	private boolean conditionalOrExpression_sempred(ConditionalOrExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
-	private boolean ambiguousName_sempred(AmbiguousNameContext _localctx, int predIndex) {
+	private boolean conditionalAndExpression_sempred(ConditionalAndExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 1:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
-	private boolean conditionalOrExpression_sempred(ConditionalOrExpressionContext _localctx, int predIndex) {
+	private boolean inclusiveOrExpression_sempred(InclusiveOrExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 2:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
-	private boolean conditionalAndExpression_sempred(ConditionalAndExpressionContext _localctx, int predIndex) {
+	private boolean exclusiveOrExpression_sempred(ExclusiveOrExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 3:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
-	private boolean inclusiveOrExpression_sempred(InclusiveOrExpressionContext _localctx, int predIndex) {
+	private boolean andExpression_sempred(AndExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 4:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
-	private boolean exclusiveOrExpression_sempred(ExclusiveOrExpressionContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 5:
-			return precpred(_ctx, 1);
-		}
-		return true;
-	}
-	private boolean andExpression_sempred(AndExpressionContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 6:
-			return precpred(_ctx, 1);
-		}
-		return true;
-	}
 	private boolean equalityExpression_sempred(EqualityExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 7:
+		case 5:
 			return precpred(_ctx, 2);
-		case 8:
+		case 6:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
 	private boolean relationalExpression_sempred(RelationalExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 9:
+		case 7:
 			return precpred(_ctx, 5);
-		case 10:
+		case 8:
 			return precpred(_ctx, 4);
-		case 11:
+		case 9:
 			return precpred(_ctx, 3);
-		case 12:
+		case 10:
 			return precpred(_ctx, 2);
-		case 13:
+		case 11:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
 	private boolean shiftExpression_sempred(ShiftExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 14:
+		case 12:
 			return precpred(_ctx, 3);
+		case 13:
+			return precpred(_ctx, 2);
+		case 14:
+			return precpred(_ctx, 1);
+		}
+		return true;
+	}
+	private boolean additiveExpression_sempred(AdditiveExpressionContext _localctx, int predIndex) {
+		switch (predIndex) {
 		case 15:
 			return precpred(_ctx, 2);
 		case 16:
@@ -12969,29 +7986,20 @@ public class ClypsParser extends Parser {
 		}
 		return true;
 	}
-	private boolean additiveExpression_sempred(AdditiveExpressionContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 17:
-			return precpred(_ctx, 2);
-		case 18:
-			return precpred(_ctx, 1);
-		}
-		return true;
-	}
 	private boolean multiplicativeExpression_sempred(MultiplicativeExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 19:
+		case 17:
 			return precpred(_ctx, 3);
-		case 20:
+		case 18:
 			return precpred(_ctx, 2);
-		case 21:
+		case 19:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3q\u0727\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3U\u0414\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -13003,725 +8011,368 @@ public class ClypsParser extends Parser {
 		"\tI\4J\tJ\4K\tK\4L\tL\4M\tM\4N\tN\4O\tO\4P\tP\4Q\tQ\4R\tR\4S\tS\4T\tT"+
 		"\4U\tU\4V\tV\4W\tW\4X\tX\4Y\tY\4Z\tZ\4[\t[\4\\\t\\\4]\t]\4^\t^\4_\t_\4"+
 		"`\t`\4a\ta\4b\tb\4c\tc\4d\td\4e\te\4f\tf\4g\tg\4h\th\4i\ti\4j\tj\4k\t"+
-		"k\4l\tl\4m\tm\4n\tn\4o\to\4p\tp\4q\tq\4r\tr\4s\ts\4t\tt\4u\tu\4v\tv\4"+
-		"w\tw\4x\tx\4y\ty\4z\tz\4{\t{\4|\t|\4}\t}\4~\t~\4\177\t\177\4\u0080\t\u0080"+
-		"\4\u0081\t\u0081\4\u0082\t\u0082\4\u0083\t\u0083\4\u0084\t\u0084\4\u0085"+
-		"\t\u0085\4\u0086\t\u0086\4\u0087\t\u0087\4\u0088\t\u0088\4\u0089\t\u0089"+
-		"\4\u008a\t\u008a\4\u008b\t\u008b\4\u008c\t\u008c\4\u008d\t\u008d\4\u008e"+
-		"\t\u008e\4\u008f\t\u008f\4\u0090\t\u0090\4\u0091\t\u0091\4\u0092\t\u0092"+
-		"\4\u0093\t\u0093\4\u0094\t\u0094\4\u0095\t\u0095\4\u0096\t\u0096\4\u0097"+
-		"\t\u0097\4\u0098\t\u0098\4\u0099\t\u0099\4\u009a\t\u009a\4\u009b\t\u009b"+
-		"\4\u009c\t\u009c\4\u009d\t\u009d\4\u009e\t\u009e\4\u009f\t\u009f\4\u00a0"+
-		"\t\u00a0\4\u00a1\t\u00a1\4\u00a2\t\u00a2\4\u00a3\t\u00a3\4\u00a4\t\u00a4"+
-		"\4\u00a5\t\u00a5\4\u00a6\t\u00a6\4\u00a7\t\u00a7\4\u00a8\t\u00a8\3\2\3"+
-		"\2\3\3\7\3\u0154\n\3\f\3\16\3\u0157\13\3\3\3\3\3\7\3\u015b\n\3\f\3\16"+
-		"\3\u015e\13\3\3\3\5\3\u0161\n\3\3\4\3\4\5\4\u0165\n\4\3\5\3\5\3\6\3\6"+
-		"\3\7\3\7\3\7\5\7\u016e\n\7\3\b\3\b\5\b\u0172\n\b\3\b\3\b\7\b\u0176\n\b"+
-		"\f\b\16\b\u0179\13\b\3\t\7\t\u017c\n\t\f\t\16\t\u017f\13\t\3\t\3\t\5\t"+
-		"\u0183\n\t\3\t\3\t\3\t\7\t\u0188\n\t\f\t\16\t\u018b\13\t\3\t\3\t\5\t\u018f"+
-		"\n\t\5\t\u0191\n\t\3\n\3\n\7\n\u0195\n\n\f\n\16\n\u0198\13\n\3\n\3\n\5"+
-		"\n\u019c\n\n\3\13\7\13\u019f\n\13\f\13\16\13\u01a2\13\13\3\13\3\13\5\13"+
-		"\u01a6\n\13\3\f\3\f\3\r\3\r\3\16\3\16\3\17\7\17\u01af\n\17\f\17\16\17"+
-		"\u01b2\13\17\3\17\3\17\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\5"+
-		"\20\u01bf\n\20\3\21\7\21\u01c2\n\21\f\21\16\21\u01c5\13\21\3\21\3\21\3"+
-		"\21\7\21\u01ca\n\21\f\21\16\21\u01cd\13\21\3\21\3\21\7\21\u01d1\n\21\f"+
-		"\21\16\21\u01d4\13\21\3\22\7\22\u01d7\n\22\f\22\16\22\u01da\13\22\3\22"+
-		"\3\22\5\22\u01de\n\22\3\23\3\23\3\24\3\24\3\24\3\24\3\24\7\24\u01e7\n"+
-		"\24\f\24\16\24\u01ea\13\24\5\24\u01ec\n\24\3\25\3\25\3\25\3\26\3\26\3"+
-		"\26\3\26\3\27\3\27\3\27\7\27\u01f8\n\27\f\27\16\27\u01fb\13\27\3\30\3"+
-		"\30\5\30\u01ff\n\30\3\31\7\31\u0202\n\31\f\31\16\31\u0205\13\31\3\31\3"+
-		"\31\5\31\u0209\n\31\3\32\3\32\3\32\3\32\5\32\u020f\n\32\3\33\3\33\3\33"+
-		"\3\33\3\33\5\33\u0216\n\33\3\34\3\34\3\34\3\34\3\34\3\34\7\34\u021e\n"+
-		"\34\f\34\16\34\u0221\13\34\3\35\3\35\3\35\3\35\3\35\5\35\u0228\n\35\3"+
-		"\36\3\36\3\37\3\37\3\37\3\37\3\37\3\37\7\37\u0232\n\37\f\37\16\37\u0235"+
-		"\13\37\3 \3 \3!\3!\3!\3!\3\"\3\"\3\"\3\"\3#\3#\3#\7#\u0244\n#\f#\16#\u0247"+
-		"\13#\3$\3$\7$\u024b\n$\f$\16$\u024e\13$\3$\3$\3%\3%\3%\5%\u0255\n%\3&"+
-		"\3&\3&\3&\5&\u025b\n&\3\'\3\'\3\'\3\'\3\'\3(\3(\3(\7(\u0265\n(\f(\16("+
-		"\u0268\13(\3)\3)\3)\5)\u026d\n)\3*\3*\5*\u0271\n*\3+\3+\5+\u0275\n+\3"+
-		",\3,\5,\u0279\n,\3-\3-\5-\u027d\n-\3.\3.\5.\u0281\n.\3/\3/\5/\u0285\n"+
-		"/\3/\3/\7/\u0289\n/\f/\16/\u028c\13/\3\60\3\60\5\60\u0290\n\60\3\60\3"+
-		"\60\3\60\7\60\u0295\n\60\f\60\16\60\u0298\13\60\3\60\3\60\5\60\u029c\n"+
-		"\60\5\60\u029e\n\60\3\61\3\61\7\61\u02a2\n\61\f\61\16\61\u02a5\13\61\3"+
-		"\61\3\61\5\61\u02a9\n\61\3\62\3\62\5\62\u02ad\n\62\3\63\3\63\3\64\3\64"+
-		"\3\65\3\65\3\66\3\66\3\66\3\66\3\66\3\66\5\66\u02bb\n\66\3\67\3\67\3\67"+
-		"\38\38\38\58\u02c3\n8\38\38\78\u02c7\n8\f8\168\u02ca\138\38\38\38\58\u02cf"+
-		"\n8\58\u02d1\n8\39\39\59\u02d5\n9\3:\3:\3:\5:\u02da\n:\3:\3:\5:\u02de"+
-		"\n:\3;\3;\3;\3;\3;\3;\5;\u02e6\n;\3<\3<\3<\7<\u02eb\n<\f<\16<\u02ee\13"+
-		"<\3<\3<\3<\7<\u02f3\n<\f<\16<\u02f6\13<\5<\u02f8\n<\3=\7=\u02fb\n=\f="+
-		"\16=\u02fe\13=\3=\3=\3=\3>\3>\5>\u0305\n>\3?\7?\u0308\n?\f?\16?\u030b"+
-		"\13?\3?\3?\7?\u030f\n?\f?\16?\u0312\13?\3?\3?\3?\3?\5?\u0318\n?\3@\7@"+
-		"\u031b\n@\f@\16@\u031e\13@\3@\3@\3@\5@\u0323\n@\3@\3@\3A\3A\3A\3B\3B\3"+
-		"B\7B\u032d\nB\fB\16B\u0330\13B\3C\3C\5C\u0334\nC\3D\3D\5D\u0338\nD\3E"+
-		"\3E\3F\3F\3F\3G\3G\3H\3H\3H\3H\5H\u0345\nH\3H\3H\3I\3I\3I\7I\u034c\nI"+
-		"\fI\16I\u034f\13I\3J\3J\3J\3J\3K\3K\3K\5K\u0358\nK\3L\3L\5L\u035c\nL\3"+
-		"L\5L\u035f\nL\3L\3L\3M\3M\3M\7M\u0366\nM\fM\16M\u0369\13M\3N\3N\5N\u036d"+
-		"\nN\3N\5N\u0370\nN\3N\3N\3O\3O\3O\7O\u0377\nO\fO\16O\u037a\13O\3P\3P\5"+
-		"P\u037e\nP\3P\3P\3Q\6Q\u0383\nQ\rQ\16Q\u0384\3R\3R\3R\5R\u038a\nR\3S\3"+
-		"S\3S\3T\7T\u0390\nT\fT\16T\u0393\13T\3T\3T\3T\3U\3U\3U\3U\3U\3U\3U\3U"+
-		"\5U\u03a0\nU\3V\3V\3V\3V\3V\3V\3W\3W\5W\u03aa\nW\3W\7W\u03ad\nW\fW\16"+
-		"W\u03b0\13W\3X\3X\3X\3X\5X\u03b6\nX\3Y\3Y\3Y\5Y\u03bb\nY\3Y\6Y\u03be\n"+
-		"Y\rY\16Y\u03bf\3Y\3Y\3Y\3Z\3Z\3Z\3[\3[\3[\3[\3[\5[\u03cd\n[\3\\\3\\\3"+
-		"\\\3\\\5\\\u03d3\n\\\3]\3]\3]\3]\3^\3^\3^\3^\3_\3_\3_\3`\3`\3`\3`\3`\3"+
-		"`\5`\u03e6\n`\3a\3a\3a\3a\3a\3a\3b\3b\3b\3b\3b\3b\3b\3b\3c\3c\3c\3c\3"+
-		"c\3c\3c\3c\3d\3d\3d\3d\3d\3d\3e\3e\3e\3e\3e\3e\3f\3f\3f\3f\3f\3f\3f\3"+
-		"f\3g\3g\5g\u0414\ng\3h\3h\5h\u0418\nh\3i\3i\3i\5i\u041d\ni\3i\3i\5i\u0421"+
-		"\ni\3i\3i\5i\u0425\ni\3i\3i\3i\3j\3j\3j\5j\u042d\nj\3j\3j\5j\u0431\nj"+
-		"\3j\3j\5j\u0435\nj\3j\3j\3j\3k\3k\5k\u043c\nk\3l\3l\3m\3m\3m\7m\u0443"+
-		"\nm\fm\16m\u0446\13m\3n\3n\3n\7n\u044b\nn\fn\16n\u044e\13n\3n\3n\3n\3"+
-		"n\3n\3n\3n\3o\3o\3o\7o\u045a\no\fo\16o\u045d\13o\3o\3o\3o\3o\3o\3o\3o"+
-		"\3p\3p\5p\u0468\np\3p\3p\3q\3q\5q\u046e\nq\3q\7q\u0471\nq\fq\16q\u0474"+
-		"\13q\3r\3r\3r\3r\7r\u047a\nr\fr\16r\u047d\13r\3r\3r\3r\3r\3r\3r\3r\3r"+
-		"\3r\3r\3r\3r\3r\3r\3r\3r\3r\3r\3r\5r\u0492\nr\3s\3s\3t\3t\3t\3t\7t\u049a"+
-		"\nt\ft\16t\u049d\13t\3t\3t\3t\3t\3t\3t\3t\3t\3t\3t\3t\3t\3t\3t\3t\3t\3"+
-		"t\3t\5t\u04b1\nt\3u\3u\3u\3u\5u\u04b7\nu\3v\3v\3w\3w\3w\5w\u04be\nw\3"+
-		"x\3x\3x\3x\7x\u04c4\nx\fx\16x\u04c7\13x\3x\3x\3x\3x\3x\3x\7x\u04cf\nx"+
-		"\fx\16x\u04d2\13x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3x\3"+
-		"x\3x\5x\u04e7\nx\3y\3y\3z\3z\3z\3z\7z\u04ef\nz\fz\16z\u04f2\13z\3z\3z"+
-		"\3z\3z\3z\3z\7z\u04fa\nz\fz\16z\u04fd\13z\3z\3z\3z\3z\3z\3z\3z\3z\3z\3"+
-		"z\3z\3z\3z\3z\3z\3z\3z\3z\5z\u0511\nz\3{\3{\3{\3{\3{\3{\3{\3{\3{\3{\3"+
-		"{\3{\3{\5{\u0520\n{\3|\3|\3|\3}\3}\3}\3}\3}\3}\3}\3}\3}\5}\u052e\n}\3"+
-		"~\3~\3~\3~\3~\3~\3~\3~\3~\3~\5~\u053a\n~\3~\3~\3~\3~\3~\7~\u0541\n~\f"+
-		"~\16~\u0544\13~\3\177\3\177\3\177\3\177\3\177\3\177\3\177\3\177\3\177"+
-		"\3\177\7\177\u0550\n\177\f\177\16\177\u0553\13\177\3\u0080\3\u0080\3\u0080"+
-		"\3\u0080\3\u0080\3\u0080\3\u0080\3\u0080\3\u0080\3\u0080\5\u0080\u055f"+
-		"\n\u0080\3\u0080\3\u0080\3\u0080\3\u0080\3\u0080\7\u0080\u0566\n\u0080"+
-		"\f\u0080\16\u0080\u0569\13\u0080\3\u0081\3\u0081\3\u0081\5\u0081\u056e"+
-		"\n\u0081\3\u0081\3\u0081\3\u0082\3\u0082\5\u0082\u0574\n\u0082\3\u0082"+
-		"\3\u0082\3\u0082\5\u0082\u0579\n\u0082\3\u0082\3\u0082\3\u0083\3\u0083"+
-		"\3\u0083\5\u0083\u0580\n\u0083\3\u0083\3\u0083\3\u0084\3\u0084\3\u0084"+
-		"\7\u0084\u0587\n\u0084\f\u0084\16\u0084\u058a\13\u0084\3\u0085\3\u0085"+
-		"\3\u0085\5\u0085\u058f\n\u0085\3\u0085\3\u0085\3\u0085\3\u0085\3\u0085"+
-		"\5\u0085\u0596\n\u0085\3\u0085\3\u0085\3\u0085\3\u0085\3\u0085\5\u0085"+
-		"\u059d\n\u0085\3\u0085\3\u0085\3\u0085\3\u0085\3\u0085\5\u0085\u05a4\n"+
-		"\u0085\3\u0085\3\u0085\3\u0085\3\u0085\3\u0085\3\u0085\5\u0085\u05ac\n"+
-		"\u0085\3\u0085\3\u0085\3\u0085\3\u0085\3\u0085\5\u0085\u05b3\n\u0085\3"+
-		"\u0085\3\u0085\3\u0085\3\u0085\3\u0085\3\u0085\5\u0085\u05bb\n\u0085\3"+
-		"\u0086\3\u0086\5\u0086\u05bf\n\u0086\3\u0086\3\u0086\3\u0087\3\u0087\3"+
-		"\u0087\5\u0087\u05c6\n\u0087\3\u0087\3\u0087\3\u0087\3\u0087\3\u0087\5"+
-		"\u0087\u05cd\n\u0087\3\u0087\3\u0087\3\u0087\3\u0087\3\u0087\5\u0087\u05d4"+
-		"\n\u0087\3\u0087\3\u0087\3\u0087\3\u0087\3\u0087\3\u0087\5\u0087\u05dc"+
-		"\n\u0087\3\u0087\3\u0087\3\u0087\3\u0087\3\u0087\5\u0087\u05e3\n\u0087"+
-		"\3\u0087\3\u0087\3\u0087\3\u0087\3\u0087\3\u0087\5\u0087\u05eb\n\u0087"+
-		"\3\u0088\3\u0088\3\u0088\3\u0088\5\u0088\u05f1\n\u0088\3\u0088\3\u0088"+
-		"\3\u0088\3\u0088\5\u0088\u05f7\n\u0088\3\u0088\3\u0088\3\u0088\3\u0088"+
-		"\3\u0088\3\u0088\3\u0088\3\u0088\3\u0088\3\u0088\5\u0088\u0603\n\u0088"+
-		"\3\u0089\3\u0089\7\u0089\u0607\n\u0089\f\u0089\16\u0089\u060a\13\u0089"+
-		"\3\u008a\7\u008a\u060d\n\u008a\f\u008a\16\u008a\u0610\13\u008a\3\u008a"+
-		"\3\u008a\3\u008a\3\u008a\3\u008b\3\u008b\5\u008b\u0618\n\u008b\3\u008c"+
-		"\3\u008c\3\u008c\3\u008c\3\u008d\3\u008d\3\u008d\5\u008d\u0621\n\u008d"+
-		"\3\u008d\3\u008d\3\u008d\3\u008d\3\u008d\5\u008d\u0628\n\u008d\3\u008e"+
-		"\3\u008e\3\u008e\7\u008e\u062d\n\u008e\f\u008e\16\u008e\u0630\13\u008e"+
-		"\3\u008f\3\u008f\5\u008f\u0634\n\u008f\3\u0090\3\u0090\5\u0090\u0638\n"+
-		"\u0090\3\u0091\3\u0091\3\u0091\3\u0091\3\u0092\3\u0092\3\u0092\5\u0092"+
-		"\u0641\n\u0092\3\u0093\3\u0093\3\u0094\3\u0094\3\u0094\3\u0094\3\u0094"+
-		"\3\u0094\3\u0094\5\u0094\u064c\n\u0094\3\u0095\3\u0095\3\u0095\3\u0095"+
-		"\3\u0095\3\u0095\7\u0095\u0654\n\u0095\f\u0095\16\u0095\u0657\13\u0095"+
-		"\3\u0096\3\u0096\3\u0096\3\u0096\3\u0096\3\u0096\7\u0096\u065f\n\u0096"+
-		"\f\u0096\16\u0096\u0662\13\u0096\3\u0097\3\u0097\3\u0097\3\u0097\3\u0097"+
-		"\3\u0097\7\u0097\u066a\n\u0097\f\u0097\16\u0097\u066d\13\u0097\3\u0098"+
-		"\3\u0098\3\u0098\3\u0098\3\u0098\3\u0098\7\u0098\u0675\n\u0098\f\u0098"+
-		"\16\u0098\u0678\13\u0098\3\u0099\3\u0099\3\u0099\3\u0099\3\u0099\3\u0099"+
-		"\7\u0099\u0680\n\u0099\f\u0099\16\u0099\u0683\13\u0099\3\u009a\3\u009a"+
-		"\3\u009a\3\u009a\3\u009a\3\u009a\3\u009a\3\u009a\3\u009a\7\u009a\u068e"+
-		"\n\u009a\f\u009a\16\u009a\u0691\13\u009a\3\u009b\3\u009b\3\u009b\3\u009b"+
-		"\3\u009b\3\u009b\3\u009b\3\u009b\3\u009b\3\u009b\3\u009b\3\u009b\3\u009b"+
-		"\3\u009b\3\u009b\3\u009b\3\u009b\3\u009b\7\u009b\u06a5\n\u009b\f\u009b"+
-		"\16\u009b\u06a8\13\u009b\3\u009c\3\u009c\3\u009c\3\u009c\3\u009c\3\u009c"+
-		"\3\u009c\3\u009c\3\u009c\3\u009c\3\u009c\3\u009c\3\u009c\3\u009c\3\u009c"+
-		"\3\u009c\7\u009c\u06ba\n\u009c\f\u009c\16\u009c\u06bd\13\u009c\3\u009d"+
-		"\3\u009d\3\u009d\3\u009d\3\u009d\3\u009d\3\u009d\3\u009d\3\u009d\7\u009d"+
-		"\u06c8\n\u009d\f\u009d\16\u009d\u06cb\13\u009d\3\u009e\3\u009e\3\u009e"+
-		"\3\u009e\3\u009e\3\u009e\3\u009e\3\u009e\3\u009e\3\u009e\3\u009e\3\u009e"+
-		"\7\u009e\u06d9\n\u009e\f\u009e\16\u009e\u06dc\13\u009e\3\u009f\3\u009f"+
-		"\3\u009f\3\u009f\3\u009f\3\u009f\3\u009f\5\u009f\u06e5\n\u009f\3\u00a0"+
-		"\3\u00a0\3\u00a0\3\u00a1\3\u00a1\3\u00a1\3\u00a2\3\u00a2\3\u00a2\3\u00a2"+
-		"\3\u00a2\3\u00a2\5\u00a2\u06f3\n\u00a2\3\u00a3\3\u00a3\5\u00a3\u06f7\n"+
-		"\u00a3\3\u00a3\3\u00a3\7\u00a3\u06fb\n\u00a3\f\u00a3\16\u00a3\u06fe\13"+
-		"\u00a3\3\u00a4\3\u00a4\3\u00a4\3\u00a5\3\u00a5\3\u00a6\3\u00a6\3\u00a6"+
-		"\3\u00a7\3\u00a7\3\u00a8\3\u00a8\3\u00a8\3\u00a8\3\u00a8\3\u00a8\3\u00a8"+
-		"\3\u00a8\7\u00a8\u0712\n\u00a8\f\u00a8\16\u00a8\u0715\13\u00a8\3\u00a8"+
-		"\3\u00a8\3\u00a8\3\u00a8\3\u00a8\3\u00a8\7\u00a8\u071d\n\u00a8\f\u00a8"+
-		"\16\u00a8\u0720\13\u00a8\3\u00a8\3\u00a8\3\u00a8\5\u00a8\u0725\n\u00a8"+
-		"\3\u00a8\2\16\66<\u0128\u012a\u012c\u012e\u0130\u0132\u0134\u0136\u0138"+
-		"\u013a\u00a9\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64"+
-		"\668:<>@BDFHJLNPRTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\u0084\u0086\u0088"+
-		"\u008a\u008c\u008e\u0090\u0092\u0094\u0096\u0098\u009a\u009c\u009e\u00a0"+
-		"\u00a2\u00a4\u00a6\u00a8\u00aa\u00ac\u00ae\u00b0\u00b2\u00b4\u00b6\u00b8"+
-		"\u00ba\u00bc\u00be\u00c0\u00c2\u00c4\u00c6\u00c8\u00ca\u00cc\u00ce\u00d0"+
-		"\u00d2\u00d4\u00d6\u00d8\u00da\u00dc\u00de\u00e0\u00e2\u00e4\u00e6\u00e8"+
-		"\u00ea\u00ec\u00ee\u00f0\u00f2\u00f4\u00f6\u00f8\u00fa\u00fc\u00fe\u0100"+
-		"\u0102\u0104\u0106\u0108\u010a\u010c\u010e\u0110\u0112\u0114\u0116\u0118"+
-		"\u011a\u011c\u011e\u0120\u0122\u0124\u0126\u0128\u012a\u012c\u012e\u0130"+
-		"\u0132\u0134\u0136\u0138\u013a\u013c\u013e\u0140\u0142\u0144\u0146\u0148"+
-		"\u014a\u014c\u014e\2\6\3\29>\7\2\13\13\16\16!!##++\4\2\24\24\32\32\4\2"+
-		"HHak\2\u078f\2\u0150\3\2\2\2\4\u0160\3\2\2\2\6\u0164\3\2\2\2\b\u0166\3"+
-		"\2\2\2\n\u0168\3\2\2\2\f\u016d\3\2\2\2\16\u0171\3\2\2\2\20\u0190\3\2\2"+
-		"\2\22\u0192\3\2\2\2\24\u01a0\3\2\2\2\26\u01a7\3\2\2\2\30\u01a9\3\2\2\2"+
-		"\32\u01ab\3\2\2\2\34\u01b0\3\2\2\2\36\u01be\3\2\2\2 \u01c3\3\2\2\2\"\u01d8"+
-		"\3\2\2\2$\u01df\3\2\2\2&\u01eb\3\2\2\2(\u01ed\3\2\2\2*\u01f0\3\2\2\2,"+
-		"\u01f4\3\2\2\2.\u01fe\3\2\2\2\60\u0203\3\2\2\2\62\u020e\3\2\2\2\64\u0215"+
-		"\3\2\2\2\66\u0217\3\2\2\28\u0227\3\2\2\2:\u0229\3\2\2\2<\u022b\3\2\2\2"+
-		">\u0236\3\2\2\2@\u0238\3\2\2\2B\u023c\3\2\2\2D\u0240\3\2\2\2F\u0248\3"+
-		"\2\2\2H\u0254\3\2\2\2J\u025a\3\2\2\2L\u025c\3\2\2\2N\u0261\3\2\2\2P\u0269"+
-		"\3\2\2\2R\u026e\3\2\2\2T\u0274\3\2\2\2V\u0278\3\2\2\2X\u027c\3\2\2\2Z"+
-		"\u0280\3\2\2\2\\\u0284\3\2\2\2^\u029d\3\2\2\2`\u029f\3\2\2\2b\u02aa\3"+
-		"\2\2\2d\u02ae\3\2\2\2f\u02b0\3\2\2\2h\u02b2\3\2\2\2j\u02ba\3\2\2\2l\u02bc"+
-		"\3\2\2\2n\u02d0\3\2\2\2p\u02d4\3\2\2\2r\u02d6\3\2\2\2t\u02e5\3\2\2\2v"+
-		"\u02f7\3\2\2\2x\u02fc\3\2\2\2z\u0304\3\2\2\2|\u0317\3\2\2\2~\u031c\3\2"+
-		"\2\2\u0080\u0326\3\2\2\2\u0082\u0329\3\2\2\2\u0084\u0333\3\2\2\2\u0086"+
-		"\u0337\3\2\2\2\u0088\u0339\3\2\2\2\u008a\u033b\3\2\2\2\u008c\u033e\3\2"+
-		"\2\2\u008e\u0340\3\2\2\2\u0090\u0348\3\2\2\2\u0092\u0350\3\2\2\2\u0094"+
-		"\u0357\3\2\2\2\u0096\u0359\3\2\2\2\u0098\u0362\3\2\2\2\u009a\u036a\3\2"+
-		"\2\2\u009c\u0373\3\2\2\2\u009e\u037b\3\2\2\2\u00a0\u0382\3\2\2\2\u00a2"+
-		"\u0389\3\2\2\2\u00a4\u038b\3\2\2\2\u00a6\u0391\3\2\2\2\u00a8\u039f\3\2"+
-		"\2\2\u00aa\u03a1\3\2\2\2\u00ac\u03a7\3\2\2\2\u00ae\u03b5\3\2\2\2\u00b0"+
-		"\u03b7\3\2\2\2\u00b2\u03c4\3\2\2\2\u00b4\u03cc\3\2\2\2\u00b6\u03d2\3\2"+
-		"\2\2\u00b8\u03d4\3\2\2\2\u00ba\u03d8\3\2\2\2\u00bc\u03dc\3\2\2\2\u00be"+
-		"\u03e5\3\2\2\2\u00c0\u03e7\3\2\2\2\u00c2\u03ed\3\2\2\2\u00c4\u03f5\3\2"+
-		"\2\2\u00c6\u03fd\3\2\2\2\u00c8\u0403\3\2\2\2\u00ca\u0409\3\2\2\2\u00cc"+
-		"\u0413\3\2\2\2\u00ce\u0417\3\2\2\2\u00d0\u0419\3\2\2\2\u00d2\u0429\3\2"+
-		"\2\2\u00d4\u043b\3\2\2\2\u00d6\u043d\3\2\2\2\u00d8\u043f\3\2\2\2\u00da"+
-		"\u0447\3\2\2\2\u00dc\u0456\3\2\2\2\u00de\u0465\3\2\2\2\u00e0\u046d\3\2"+
-		"\2\2\u00e2\u0491\3\2\2\2\u00e4\u0493\3\2\2\2\u00e6\u04b0\3\2\2\2\u00e8"+
-		"\u04b6\3\2\2\2\u00ea\u04b8\3\2\2\2\u00ec\u04bd\3\2\2\2\u00ee\u04e6\3\2"+
-		"\2\2\u00f0\u04e8\3\2\2\2\u00f2\u0510\3\2\2\2\u00f4\u051f\3\2\2\2\u00f6"+
-		"\u0521\3\2\2\2\u00f8\u052d\3\2\2\2\u00fa\u0539\3\2\2\2\u00fc\u0545\3\2"+
-		"\2\2\u00fe\u055e\3\2\2\2\u0100\u056a\3\2\2\2\u0102\u0571\3\2\2\2\u0104"+
-		"\u057c\3\2\2\2\u0106\u0583\3\2\2\2\u0108\u05ba\3\2\2\2\u010a\u05bc\3\2"+
-		"\2\2\u010c\u05ea\3\2\2\2\u010e\u0602\3\2\2\2\u0110\u0604\3\2\2\2\u0112"+
-		"\u060e\3\2\2\2\u0114\u0617\3\2\2\2\u0116\u0619\3\2\2\2\u0118\u0627\3\2"+
-		"\2\2\u011a\u0629\3\2\2\2\u011c\u0633\3\2\2\2\u011e\u0637\3\2\2\2\u0120"+
-		"\u0639\3\2\2\2\u0122\u0640\3\2\2\2\u0124\u0642\3\2\2\2\u0126\u064b\3\2"+
-		"\2\2\u0128\u064d\3\2\2\2\u012a\u0658\3\2\2\2\u012c\u0663\3\2\2\2\u012e"+
-		"\u066e\3\2\2\2\u0130\u0679\3\2\2\2\u0132\u0684\3\2\2\2\u0134\u0692\3\2"+
-		"\2\2\u0136\u06a9\3\2\2\2\u0138\u06be\3\2\2\2\u013a\u06cc\3\2\2\2\u013c"+
-		"\u06e4\3\2\2\2\u013e\u06e6\3\2\2\2\u0140\u06e9\3\2\2\2\u0142\u06f2\3\2"+
-		"\2\2\u0144\u06f6\3\2\2\2\u0146\u06ff\3\2\2\2\u0148\u0702\3\2\2\2\u014a"+
-		"\u0704\3\2\2\2\u014c\u0707\3\2\2\2\u014e\u0724\3\2\2\2\u0150\u0151\t\2"+
-		"\2\2\u0151\3\3\2\2\2\u0152\u0154\5\u008cG\2\u0153\u0152\3\2\2\2\u0154"+
-		"\u0157\3\2\2\2\u0155\u0153\3\2\2\2\u0155\u0156\3\2\2\2\u0156\u0158\3\2"+
-		"\2\2\u0157\u0155\3\2\2\2\u0158\u0161\5\6\4\2\u0159\u015b\5\u008cG\2\u015a"+
-		"\u0159\3\2\2\2\u015b\u015e\3\2\2\2\u015c\u015a\3\2\2\2\u015c\u015d\3\2"+
-		"\2\2\u015d\u015f\3\2\2\2\u015e\u015c\3\2\2\2\u015f\u0161\7\t\2\2\u0160"+
-		"\u0155\3\2\2\2\u0160\u015c\3\2\2\2\u0161\5\3\2\2\2\u0162\u0165\5\b\5\2"+
-		"\u0163\u0165\5\n\6\2\u0164\u0162\3\2\2\2\u0164\u0163\3\2\2\2\u0165\7\3"+
-		"\2\2\2\u0166\u0167\t\3\2\2\u0167\t\3\2\2\2\u0168\u0169\t\4\2\2\u0169\13"+
-		"\3\2\2\2\u016a\u016e\5\16\b\2\u016b\u016e\5\34\17\2\u016c\u016e\5\36\20"+
-		"\2\u016d\u016a\3\2\2\2\u016d\u016b\3\2\2\2\u016d\u016c\3\2\2\2\u016e\r"+
-		"\3\2\2\2\u016f\u0172\5\24\13\2\u0170\u0172\5\32\16\2\u0171\u016f\3\2\2"+
-		"\2\u0171\u0170\3\2\2\2\u0172\u0177\3\2\2\2\u0173\u0176\5\22\n\2\u0174"+
-		"\u0176\5\30\r\2\u0175\u0173\3\2\2\2\u0175\u0174\3\2\2\2\u0176\u0179\3"+
-		"\2\2\2\u0177\u0175\3\2\2\2\u0177\u0178\3\2\2\2\u0178\17\3\2\2\2\u0179"+
-		"\u0177\3\2\2\2\u017a\u017c\5\u008cG\2\u017b\u017a\3\2\2\2\u017c\u017f"+
-		"\3\2\2\2\u017d\u017b\3\2\2\2\u017d\u017e\3\2\2\2\u017e\u0180\3\2\2\2\u017f"+
-		"\u017d\3\2\2\2\u0180\u0182\7l\2\2\u0181\u0183\5*\26\2\u0182\u0181\3\2"+
-		"\2\2\u0182\u0183\3\2\2\2\u0183\u0191\3\2\2\2\u0184\u0185\5\16\b\2\u0185"+
-		"\u0189\7G\2\2\u0186\u0188\5\u008cG\2\u0187\u0186\3\2\2\2\u0188\u018b\3"+
-		"\2\2\2\u0189\u0187\3\2\2\2\u0189\u018a\3\2\2\2\u018a\u018c\3\2\2\2\u018b"+
-		"\u0189\3\2\2\2\u018c\u018e\7l\2\2\u018d\u018f\5*\26\2\u018e\u018d\3\2"+
-		"\2\2\u018e\u018f\3\2\2\2\u018f\u0191\3\2\2\2\u0190\u017d\3\2\2\2\u0190"+
-		"\u0184\3\2\2\2\u0191\21\3\2\2\2\u0192\u0196\7G\2\2\u0193\u0195\5\u008c"+
-		"G\2\u0194\u0193\3\2\2\2\u0195\u0198\3\2\2\2\u0196\u0194\3\2\2\2\u0196"+
-		"\u0197\3\2\2\2\u0197\u0199\3\2\2\2\u0198\u0196\3\2\2\2\u0199\u019b\7l"+
-		"\2\2\u019a\u019c\5*\26\2\u019b\u019a\3\2\2\2\u019b\u019c\3\2\2\2\u019c"+
-		"\23\3\2\2\2\u019d\u019f\5\u008cG\2\u019e\u019d\3\2\2\2\u019f\u01a2\3\2"+
-		"\2\2\u01a0\u019e\3\2\2\2\u01a0\u01a1\3\2\2\2\u01a1\u01a3\3\2\2\2\u01a2"+
-		"\u01a0\3\2\2\2\u01a3\u01a5\7l\2\2\u01a4\u01a6\5*\26\2\u01a5\u01a4\3\2"+
-		"\2\2\u01a5\u01a6\3\2\2\2\u01a6\25\3\2\2\2\u01a7\u01a8\5\20\t\2\u01a8\27"+
-		"\3\2\2\2\u01a9\u01aa\5\22\n\2\u01aa\31\3\2\2\2\u01ab\u01ac\5\24\13\2\u01ac"+
-		"\33\3\2\2\2\u01ad\u01af\5\u008cG\2\u01ae\u01ad\3\2\2\2\u01af\u01b2\3\2"+
-		"\2\2\u01b0\u01ae\3\2\2\2\u01b0\u01b1\3\2\2\2\u01b1\u01b3\3\2\2\2\u01b2"+
-		"\u01b0\3\2\2\2\u01b3\u01b4\7l\2\2\u01b4\35\3\2\2\2\u01b5\u01b6\5\4\3\2"+
-		"\u01b6\u01b7\5 \21\2\u01b7\u01bf\3\2\2\2\u01b8\u01b9\5\16\b\2\u01b9\u01ba"+
-		"\5 \21\2\u01ba\u01bf\3\2\2\2\u01bb\u01bc\5\34\17\2\u01bc\u01bd\5 \21\2"+
-		"\u01bd\u01bf\3\2\2\2\u01be\u01b5\3\2\2\2\u01be\u01b8\3\2\2\2\u01be\u01bb"+
-		"\3\2\2\2\u01bf\37\3\2\2\2\u01c0\u01c2\5\u008cG\2\u01c1\u01c0\3\2\2\2\u01c2"+
-		"\u01c5\3\2\2\2\u01c3\u01c1\3\2\2\2\u01c3\u01c4\3\2\2\2\u01c4\u01c6\3\2"+
-		"\2\2\u01c5\u01c3\3\2\2\2\u01c6\u01c7\7C\2\2\u01c7\u01d2\7D\2\2\u01c8\u01ca"+
-		"\5\u008cG\2\u01c9\u01c8\3\2\2\2\u01ca\u01cd\3\2\2\2\u01cb\u01c9\3\2\2"+
-		"\2\u01cb\u01cc\3\2\2\2\u01cc\u01ce\3\2\2\2\u01cd\u01cb\3\2\2\2\u01ce\u01cf"+
-		"\7C\2\2\u01cf\u01d1\7D\2\2\u01d0\u01cb\3\2\2\2\u01d1\u01d4\3\2\2\2\u01d2"+
-		"\u01d0\3\2\2\2\u01d2\u01d3\3\2\2\2\u01d3!\3\2\2\2\u01d4\u01d2\3\2\2\2"+
-		"\u01d5\u01d7\5$\23\2\u01d6\u01d5\3\2\2\2\u01d7\u01da\3\2\2\2\u01d8\u01d6"+
-		"\3\2\2\2\u01d8\u01d9\3\2\2\2\u01d9\u01db\3\2\2\2\u01da\u01d8\3\2\2\2\u01db"+
-		"\u01dd\7l\2\2\u01dc\u01de\5&\24\2\u01dd\u01dc\3\2\2\2\u01dd\u01de\3\2"+
-		"\2\2\u01de#\3\2\2\2\u01df\u01e0\5\u008cG\2\u01e0%\3\2\2\2\u01e1\u01e2"+
-		"\7\27\2\2\u01e2\u01ec\5\34\17\2\u01e3\u01e4\7\27\2\2\u01e4\u01e8\5\16"+
-		"\b\2\u01e5\u01e7\5(\25\2\u01e6\u01e5\3\2\2\2\u01e7\u01ea\3\2\2\2\u01e8"+
-		"\u01e6\3\2\2\2\u01e8\u01e9\3\2\2\2\u01e9\u01ec\3\2\2\2\u01ea\u01e8\3\2"+
-		"\2\2\u01eb\u01e1\3\2\2\2\u01eb\u01e3\3\2\2\2\u01ec\'\3\2\2\2\u01ed\u01ee"+
-		"\7[\2\2\u01ee\u01ef\5\26\f\2\u01ef)\3\2\2\2\u01f0\u01f1\7J\2\2\u01f1\u01f2"+
-		"\5,\27\2\u01f2\u01f3\7I\2\2\u01f3+\3\2\2\2\u01f4\u01f9\5.\30\2\u01f5\u01f6"+
-		"\7F\2\2\u01f6\u01f8\5.\30\2\u01f7\u01f5\3\2\2\2\u01f8\u01fb\3\2\2\2\u01f9"+
-		"\u01f7\3\2\2\2\u01f9\u01fa\3\2\2\2\u01fa-\3\2\2\2\u01fb\u01f9\3\2\2\2"+
-		"\u01fc\u01ff\5\f\7\2\u01fd\u01ff\5\60\31\2\u01fe\u01fc\3\2\2\2\u01fe\u01fd"+
-		"\3\2\2\2\u01ff/\3\2\2\2\u0200\u0202\5\u008cG\2\u0201\u0200\3\2\2\2\u0202"+
-		"\u0205\3\2\2\2\u0203\u0201\3\2\2\2\u0203\u0204\3\2\2\2\u0204\u0206\3\2"+
-		"\2\2\u0205\u0203\3\2\2\2\u0206\u0208\7M\2\2\u0207\u0209\5\62\32\2\u0208"+
-		"\u0207\3\2\2\2\u0208\u0209\3\2\2\2\u0209\61\3\2\2\2\u020a\u020b\7\27\2"+
-		"\2\u020b\u020f\5\f\7\2\u020c\u020d\7.\2\2\u020d\u020f\5\f\7\2\u020e\u020a"+
-		"\3\2\2\2\u020e\u020c\3\2\2\2\u020f\63\3\2\2\2\u0210\u0216\7l\2\2\u0211"+
-		"\u0212\5\66\34\2\u0212\u0213\7G\2\2\u0213\u0214\7l\2\2\u0214\u0216\3\2"+
-		"\2\2\u0215\u0210\3\2\2\2\u0215\u0211\3\2\2\2\u0216\65\3\2\2\2\u0217\u0218"+
-		"\b\34\1\2\u0218\u0219\7l\2\2\u0219\u021f\3\2\2\2\u021a\u021b\f\3\2\2\u021b"+
-		"\u021c\7G\2\2\u021c\u021e\7l\2\2\u021d\u021a\3\2\2\2\u021e\u0221\3\2\2"+
-		"\2\u021f\u021d\3\2\2\2\u021f\u0220\3\2\2\2\u0220\67\3\2\2\2\u0221\u021f"+
-		"\3\2\2\2\u0222\u0228\7l\2\2\u0223\u0224\5<\37\2\u0224\u0225\7G\2\2\u0225"+
-		"\u0226\7l\2\2\u0226\u0228\3\2\2\2\u0227\u0222\3\2\2\2\u0227\u0223\3\2"+
-		"\2\2\u02289\3\2\2\2\u0229\u022a\7l\2\2\u022a;\3\2\2\2\u022b\u022c\b\37"+
-		"\1\2\u022c\u022d\7l\2\2\u022d\u0233\3\2\2\2\u022e\u022f\f\3\2\2\u022f"+
-		"\u0230\7G\2\2\u0230\u0232\7l\2\2\u0231\u022e\3\2\2\2\u0232\u0235\3\2\2"+
-		"\2\u0233\u0231\3\2\2\2\u0233\u0234\3\2\2\2\u0234=\3\2\2\2\u0235\u0233"+
-		"\3\2\2\2\u0236\u0237\5@!\2\u0237?\3\2\2\2\u0238\u0239\7\17\2\2\u0239\u023a"+
-		"\7l\2\2\u023a\u023b\5F$\2\u023bA\3\2\2\2\u023c\u023d\7J\2\2\u023d\u023e"+
-		"\5D#\2\u023e\u023f\7I\2\2\u023fC\3\2\2\2\u0240\u0245\5\"\22\2\u0241\u0242"+
-		"\7F\2\2\u0242\u0244\5\"\22\2\u0243\u0241\3\2\2\2\u0244\u0247\3\2\2\2\u0245"+
-		"\u0243\3\2\2\2\u0245\u0246\3\2\2\2\u0246E\3\2\2\2\u0247\u0245\3\2\2\2"+
-		"\u0248\u024c\7A\2\2\u0249\u024b\5H%\2\u024a\u0249\3\2\2\2\u024b\u024e"+
-		"\3\2\2\2\u024c\u024a\3\2\2\2\u024c\u024d\3\2\2\2\u024d\u024f\3\2\2\2\u024e"+
-		"\u024c\3\2\2\2\u024f\u0250\7B\2\2\u0250G\3\2\2\2\u0251\u0255\5J&\2\u0252"+
-		"\u0255\5\u0088E\2\u0253\u0255\5\u008aF\2\u0254\u0251\3\2\2\2\u0254\u0252"+
-		"\3\2\2\2\u0254\u0253\3\2\2\2\u0255I\3\2\2\2\u0256\u025b\5L\'\2\u0257\u025b"+
-		"\5l\67\2\u0258\u025b\5> \2\u0259\u025b\7E\2\2\u025a\u0256\3\2\2\2\u025a"+
-		"\u0257\3\2\2\2\u025a\u0258\3\2\2\2\u025a\u0259\3\2\2\2\u025bK\3\2\2\2"+
-		"\u025c\u025d\7\3\2\2\u025d\u025e\7?\2\2\u025e\u025f\7@\2\2\u025f\u0260"+
-		"\5\u0086D\2\u0260M\3\2\2\2\u0261\u0266\5P)\2\u0262\u0263\7F\2\2\u0263"+
-		"\u0265\5P)\2\u0264\u0262\3\2\2\2\u0265\u0268\3\2\2\2\u0266\u0264\3\2\2"+
-		"\2\u0266\u0267\3\2\2\2\u0267O\3\2\2\2\u0268\u0266\3\2\2\2\u0269\u026c"+
-		"\5R*\2\u026a\u026b\7H\2\2\u026b\u026d\5T+\2\u026c\u026a\3\2\2\2\u026c"+
-		"\u026d\3\2\2\2\u026dQ\3\2\2\2\u026e\u0270\7l\2\2\u026f\u0271\5 \21\2\u0270"+
-		"\u026f\3\2\2\2\u0270\u0271\3\2\2\2\u0271S\3\2\2\2\u0272\u0275\5\u0114"+
-		"\u008b\2\u0273\u0275\5\u009aN\2\u0274\u0272\3\2\2\2\u0274\u0273\3\2\2"+
-		"\2\u0275U\3\2\2\2\u0276\u0279\5X-\2\u0277\u0279\5Z.\2\u0278\u0276\3\2"+
-		"\2\2\u0278\u0277\3\2\2\2\u0279W\3\2\2\2\u027a\u027d\5\6\4\2\u027b\u027d"+
-		"\7\t\2\2\u027c\u027a\3\2\2\2\u027c\u027b\3\2\2\2\u027dY\3\2\2\2\u027e"+
-		"\u0281\5h\65\2\u027f\u0281\5j\66\2\u0280\u027e\3\2\2\2\u0280\u027f\3\2"+
-		"\2\2\u0281[\3\2\2\2\u0282\u0285\5b\62\2\u0283\u0285\5f\64\2\u0284\u0282"+
-		"\3\2\2\2\u0284\u0283\3\2\2\2\u0285\u028a\3\2\2\2\u0286\u0289\5`\61\2\u0287"+
-		"\u0289\5d\63\2\u0288\u0286\3\2\2\2\u0288\u0287\3\2\2\2\u0289\u028c\3\2"+
-		"\2\2\u028a\u0288\3\2\2\2\u028a\u028b\3\2\2\2\u028b]\3\2\2\2\u028c\u028a"+
-		"\3\2\2\2\u028d\u028f\7l\2\2\u028e\u0290\5*\26\2\u028f\u028e\3\2\2\2\u028f"+
-		"\u0290\3\2\2\2\u0290\u029e\3\2\2\2\u0291\u0292\5\\/\2\u0292\u0296\7G\2"+
-		"\2\u0293\u0295\5\u008cG\2\u0294\u0293\3\2\2\2\u0295\u0298\3\2\2\2\u0296"+
-		"\u0294\3\2\2\2\u0296\u0297\3\2\2\2\u0297\u0299\3\2\2\2\u0298\u0296\3\2"+
-		"\2\2\u0299\u029b\7l\2\2\u029a\u029c\5*\26\2\u029b\u029a\3\2\2\2\u029b"+
-		"\u029c\3\2\2\2\u029c\u029e\3\2\2\2\u029d\u028d\3\2\2\2\u029d\u0291\3\2"+
-		"\2\2\u029e_\3\2\2\2\u029f\u02a3\7G\2\2\u02a0\u02a2\5\u008cG\2\u02a1\u02a0"+
-		"\3\2\2\2\u02a2\u02a5\3\2\2\2\u02a3\u02a1\3\2\2\2\u02a3\u02a4\3\2\2\2\u02a4"+
-		"\u02a6\3\2\2\2\u02a5\u02a3\3\2\2\2\u02a6\u02a8\7l\2\2\u02a7\u02a9\5*\26"+
-		"\2\u02a8\u02a7\3\2\2\2\u02a8\u02a9\3\2\2\2\u02a9a\3\2\2\2\u02aa\u02ac"+
-		"\7l\2\2\u02ab\u02ad\5*\26\2\u02ac\u02ab\3\2\2\2\u02ac\u02ad\3\2\2\2\u02ad"+
-		"c\3\2\2\2\u02ae\u02af\5`\61\2\u02afe\3\2\2\2\u02b0\u02b1\5b\62\2\u02b1"+
-		"g\3\2\2\2\u02b2\u02b3\7\4\2\2\u02b3i\3\2\2\2\u02b4\u02b5\5X-\2\u02b5\u02b6"+
-		"\5 \21\2\u02b6\u02bb\3\2\2\2\u02b7\u02b8\5h\65\2\u02b8\u02b9\5 \21\2\u02b9"+
-		"\u02bb\3\2\2\2\u02ba\u02b4\3\2\2\2\u02ba\u02b7\3\2\2\2\u02bbk\3\2\2\2"+
-		"\u02bc\u02bd\5n8\2\u02bd\u02be\5\u0086D\2\u02bem\3\2\2\2\u02bf\u02c0\5"+
-		"p9\2\u02c0\u02c2\5r:\2\u02c1\u02c3\5\u0080A\2\u02c2\u02c1\3\2\2\2\u02c2"+
-		"\u02c3\3\2\2\2\u02c3\u02d1\3\2\2\2\u02c4\u02c8\5B\"\2\u02c5\u02c7\5\u008c"+
-		"G\2\u02c6\u02c5\3\2\2\2\u02c7\u02ca\3\2\2\2\u02c8\u02c6\3\2\2\2\u02c8"+
-		"\u02c9\3\2\2\2\u02c9\u02cb\3\2\2\2\u02ca\u02c8\3\2\2\2\u02cb\u02cc\5p"+
-		"9\2\u02cc\u02ce\5r:\2\u02cd\u02cf\5\u0080A\2\u02ce\u02cd\3\2\2\2\u02ce"+
-		"\u02cf\3\2\2\2\u02cf\u02d1\3\2\2\2\u02d0\u02bf\3\2\2\2\u02d0\u02c4\3\2"+
-		"\2\2\u02d1o\3\2\2\2\u02d2\u02d5\5V,\2\u02d3\u02d5\7\66\2\2\u02d4\u02d2"+
-		"\3\2\2\2\u02d4\u02d3\3\2\2\2\u02d5q\3\2\2\2\u02d6\u02d7\7l\2\2\u02d7\u02d9"+
-		"\7?\2\2\u02d8\u02da\5t;\2\u02d9\u02d8\3\2\2\2\u02d9\u02da\3\2\2\2\u02da"+
-		"\u02db\3\2\2\2\u02db\u02dd\7@\2\2\u02dc\u02de\5 \21\2\u02dd\u02dc\3\2"+
-		"\2\2\u02dd\u02de\3\2\2\2\u02des\3\2\2\2\u02df\u02e6\5~@\2\u02e0\u02e1"+
-		"\5v<\2\u02e1\u02e2\7F\2\2\u02e2\u02e3\5|?\2\u02e3\u02e6\3\2\2\2\u02e4"+
-		"\u02e6\5|?\2\u02e5\u02df\3\2\2\2\u02e5\u02e0\3\2\2\2\u02e5\u02e4\3\2\2"+
-		"\2\u02e6u\3\2\2\2\u02e7\u02ec\5x=\2\u02e8\u02e9\7F\2\2\u02e9\u02eb\5x"+
-		"=\2\u02ea\u02e8\3\2\2\2\u02eb\u02ee\3\2\2\2\u02ec\u02ea\3\2\2\2\u02ec"+
-		"\u02ed\3\2\2\2\u02ed\u02f8\3\2\2\2\u02ee\u02ec\3\2\2\2\u02ef\u02f4\5~"+
-		"@\2\u02f0\u02f1\7F\2\2\u02f1\u02f3\5x=\2\u02f2\u02f0\3\2\2\2\u02f3\u02f6"+
-		"\3\2\2\2\u02f4\u02f2\3\2\2\2\u02f4\u02f5\3\2\2\2\u02f5\u02f8\3\2\2\2\u02f6"+
-		"\u02f4\3\2\2\2\u02f7\u02e7\3\2\2\2\u02f7\u02ef\3\2\2\2\u02f8w\3\2\2\2"+
-		"\u02f9\u02fb\5z>\2\u02fa\u02f9\3\2\2\2\u02fb\u02fe\3\2\2\2\u02fc\u02fa"+
-		"\3\2\2\2\u02fc\u02fd\3\2\2\2\u02fd\u02ff\3\2\2\2\u02fe\u02fc\3\2\2\2\u02ff"+
-		"\u0300\5V,\2\u0300\u0301\5R*\2\u0301y\3\2\2\2\u0302\u0305\5\u008cG\2\u0303"+
-		"\u0305\7\30\2\2\u0304\u0302\3\2\2\2\u0304\u0303\3\2\2\2\u0305{\3\2\2\2"+
-		"\u0306\u0308\5z>\2\u0307\u0306\3\2\2\2\u0308\u030b\3\2\2\2\u0309\u0307"+
-		"\3\2\2\2\u0309\u030a\3\2\2\2\u030a\u030c\3\2\2\2\u030b\u0309\3\2\2\2\u030c"+
-		"\u0310\5V,\2\u030d\u030f\5\u008cG\2\u030e\u030d\3\2\2\2\u030f\u0312\3"+
-		"\2\2\2\u0310\u030e\3\2\2\2\u0310\u0311\3\2\2\2\u0311\u0313\3\2\2\2\u0312"+
-		"\u0310\3\2\2\2\u0313\u0314\7n\2\2\u0314\u0315\5R*\2\u0315\u0318\3\2\2"+
-		"\2\u0316\u0318\5x=\2\u0317\u0309\3\2\2\2\u0317\u0316\3\2\2\2\u0318}\3"+
-		"\2\2\2\u0319\u031b\5\u008cG\2\u031a\u0319\3\2\2\2\u031b\u031e\3\2\2\2"+
-		"\u031c\u031a\3\2\2\2\u031c\u031d\3\2\2\2\u031d\u031f\3\2\2\2\u031e\u031c"+
-		"\3\2\2\2\u031f\u0322\5V,\2\u0320\u0321\7l\2\2\u0321\u0323\7G\2\2\u0322"+
-		"\u0320\3\2\2\2\u0322\u0323\3\2\2\2\u0323\u0324\3\2\2\2\u0324\u0325\7\61"+
-		"\2\2\u0325\177\3\2\2\2\u0326\u0327\7\63\2\2\u0327\u0328\5\u0082B\2\u0328"+
-		"\u0081\3\2\2\2\u0329\u032e\5\u0084C\2\u032a\u032b\7F\2\2\u032b\u032d\5"+
-		"\u0084C\2\u032c\u032a\3\2\2\2\u032d\u0330\3\2\2\2\u032e\u032c\3\2\2\2"+
-		"\u032e\u032f\3\2\2\2\u032f\u0083\3\2\2\2\u0330\u032e\3\2\2\2\u0331\u0334"+
-		"\5\20\t\2\u0332\u0334\5\34\17\2\u0333\u0331\3\2\2\2\u0333\u0332\3\2\2"+
-		"\2\u0334\u0085\3\2\2\2\u0335\u0338\5\u009eP\2\u0336\u0338\7E\2\2\u0337"+
-		"\u0335\3\2\2\2\u0337\u0336\3\2\2\2\u0338\u0087\3\2\2\2\u0339\u033a\5\u009e"+
-		"P\2\u033a\u0089\3\2\2\2\u033b\u033c\7,\2\2\u033c\u033d\5\u009eP\2\u033d"+
-		"\u008b\3\2\2\2\u033e\u033f\5\u008eH\2\u033f\u008d\3\2\2\2\u0340\u0341"+
-		"\7m\2\2\u0341\u0342\5\64\33\2\u0342\u0344\7?\2\2\u0343\u0345\5\u0090I"+
-		"\2\u0344\u0343\3\2\2\2\u0344\u0345\3\2\2\2\u0345\u0346\3\2\2\2\u0346\u0347"+
-		"\7@\2\2\u0347\u008f\3\2\2\2\u0348\u034d\5\u0092J\2\u0349\u034a\7F\2\2"+
-		"\u034a\u034c\5\u0092J\2\u034b\u0349\3\2\2\2\u034c\u034f\3\2\2\2\u034d"+
-		"\u034b\3\2\2\2\u034d\u034e\3\2\2\2\u034e\u0091\3\2\2\2\u034f\u034d\3\2"+
-		"\2\2\u0350\u0351\7l\2\2\u0351\u0352\7H\2\2\u0352\u0353\5\u0094K\2\u0353"+
-		"\u0093\3\2\2\2\u0354\u0358\5\u0126\u0094\2\u0355\u0358\5\u0096L\2\u0356"+
-		"\u0358\5\u008cG\2\u0357\u0354\3\2\2\2\u0357\u0355\3\2\2\2\u0357\u0356"+
-		"\3\2\2\2\u0358\u0095\3\2\2\2\u0359\u035b\7A\2\2\u035a\u035c\5\u0098M\2"+
-		"\u035b\u035a\3\2\2\2\u035b\u035c\3\2\2\2\u035c\u035e\3\2\2\2\u035d\u035f"+
-		"\7F\2\2\u035e\u035d\3\2\2\2\u035e\u035f\3\2\2\2\u035f\u0360\3\2\2\2\u0360"+
-		"\u0361\7B\2\2\u0361\u0097\3\2\2\2\u0362\u0367\5\u0094K\2\u0363\u0364\7"+
-		"F\2\2\u0364\u0366\5\u0094K\2\u0365\u0363\3\2\2\2\u0366\u0369\3\2\2\2\u0367"+
-		"\u0365\3\2\2\2\u0367\u0368\3\2\2\2\u0368\u0099\3\2\2\2\u0369\u0367\3\2"+
-		"\2\2\u036a\u036c\7A\2\2\u036b\u036d\5\u009cO\2\u036c\u036b\3\2\2\2\u036c"+
-		"\u036d\3\2\2\2\u036d\u036f\3\2\2\2\u036e\u0370\7F\2\2\u036f\u036e\3\2"+
-		"\2\2\u036f\u0370\3\2\2\2\u0370\u0371\3\2\2\2\u0371\u0372\7B\2\2\u0372"+
-		"\u009b\3\2\2\2\u0373\u0378\5T+\2\u0374\u0375\7F\2\2\u0375\u0377\5T+\2"+
-		"\u0376\u0374\3\2\2\2\u0377\u037a\3\2\2\2\u0378\u0376\3\2\2\2\u0378\u0379"+
-		"\3\2\2\2\u0379\u009d\3\2\2\2\u037a\u0378\3\2\2\2\u037b\u037d\7A\2\2\u037c"+
-		"\u037e\5\u00a0Q\2\u037d\u037c\3\2\2\2\u037d\u037e\3\2\2\2\u037e\u037f"+
-		"\3\2\2\2\u037f\u0380\7B\2\2\u0380\u009f\3\2\2\2\u0381\u0383\5\u00a2R\2"+
-		"\u0382\u0381\3\2\2\2\u0383\u0384\3\2\2\2\u0384\u0382\3\2\2\2\u0384\u0385"+
-		"\3\2\2\2\u0385\u00a1\3\2\2\2\u0386\u038a\5\u00a4S\2\u0387\u038a\5> \2"+
-		"\u0388\u038a\5\u00a8U\2\u0389\u0386\3\2\2\2\u0389\u0387\3\2\2\2\u0389"+
-		"\u0388\3\2\2\2\u038a\u00a3\3\2\2\2\u038b\u038c\5\u00a6T\2\u038c\u038d"+
-		"\7E\2\2\u038d\u00a5\3\2\2\2\u038e\u0390\5z>\2\u038f\u038e\3\2\2\2\u0390"+
-		"\u0393\3\2\2\2\u0391\u038f\3\2\2\2\u0391\u0392\3\2\2\2\u0392\u0394\3\2"+
-		"\2\2\u0393\u0391\3\2\2\2\u0394\u0395\5V,\2\u0395\u0396\5N(\2\u0396\u00a7"+
-		"\3\2\2\2\u0397\u03a0\5\u00b6\\\2\u0398\u03a0\5\u00b8]\2\u0399\u03a0\5"+
-		"\u00c0a\2\u039a\u03a0\5\u00c2b\2\u039b\u03a0\5\u00c6d\2\u039c\u03a0\5"+
-		"\u00ccg\2\u039d\u03a0\5\u00aaV\2\u039e\u03a0\5\u00b0Y\2\u039f\u0397\3"+
-		"\2\2\2\u039f\u0398\3\2\2\2\u039f\u0399\3\2\2\2\u039f\u039a\3\2\2\2\u039f"+
-		"\u039b\3\2\2\2\u039f\u039c\3\2\2\2\u039f\u039d\3\2\2\2\u039f\u039e\3\2"+
-		"\2\2\u03a0\u00a9\3\2\2\2\u03a1\u03a2\7\5\2\2\u03a2\u03a3\7?\2\2\u03a3"+
-		"\u03a4\5\u00acW\2\u03a4\u03a5\7@\2\2\u03a5\u03a6\7E\2\2\u03a6\u00ab\3"+
-		"\2\2\2\u03a7\u03a9\7=\2\2\u03a8\u03aa\7W\2\2\u03a9\u03a8\3\2\2\2\u03a9"+
-		"\u03aa\3\2\2\2\u03aa\u03ae\3\2\2\2\u03ab\u03ad\5\u00aeX\2\u03ac\u03ab"+
-		"\3\2\2\2\u03ad\u03b0\3\2\2\2\u03ae\u03ac\3\2\2\2\u03ae\u03af\3\2\2\2\u03af"+
-		"\u00ad\3\2\2\2\u03b0\u03ae\3\2\2\2\u03b1\u03b2\7W\2\2\u03b2\u03b6\7l\2"+
-		"\2\u03b3\u03b4\7W\2\2\u03b4\u03b6\7=\2\2\u03b5\u03b1\3\2\2\2\u03b5\u03b3"+
-		"\3\2\2\2\u03b6\u00af\3\2\2\2\u03b7\u03b8\7\6\2\2\u03b8\u03ba\7?\2\2\u03b9"+
-		"\u03bb\7=\2\2\u03ba\u03b9\3\2\2\2\u03ba\u03bb\3\2\2\2\u03bb\u03bd\3\2"+
-		"\2\2\u03bc\u03be\5\u00b2Z\2\u03bd\u03bc\3\2\2\2\u03be\u03bf\3\2\2\2\u03bf"+
-		"\u03bd\3\2\2\2\u03bf\u03c0\3\2\2\2\u03c0\u03c1\3\2\2\2\u03c1\u03c2\7@"+
-		"\2\2\u03c2\u03c3\7E\2\2\u03c3\u00b1\3\2\2\2\u03c4\u03c5\7N\2\2\u03c5\u03c6"+
-		"\7l\2\2\u03c6\u00b3\3\2\2\2\u03c7\u03cd\5\u00b6\\\2\u03c8\u03cd\5\u00ba"+
-		"^\2\u03c9\u03cd\5\u00c4c\2\u03ca\u03cd\5\u00c8e\2\u03cb\u03cd\5\u00ce"+
-		"h\2\u03cc\u03c7\3\2\2\2\u03cc\u03c8\3\2\2\2\u03cc\u03c9\3\2\2\2\u03cc"+
-		"\u03ca\3\2\2\2\u03cc\u03cb\3\2\2\2\u03cd\u00b5\3\2\2\2\u03ce\u03d3\5\u009e"+
-		"P\2\u03cf\u03d3\5\u00bc_\2\u03d0\u03d3\5\u00caf\2\u03d1\u03d3\5\u00de"+
-		"p\2\u03d2\u03ce\3\2\2\2\u03d2\u03cf\3\2\2\2\u03d2\u03d0\3\2\2\2\u03d2"+
-		"\u03d1\3\2\2\2\u03d3\u00b7\3\2\2\2\u03d4\u03d5\7l\2\2\u03d5\u03d6\7N\2"+
-		"\2\u03d6\u03d7\5\u00a8U\2\u03d7\u00b9\3\2\2\2\u03d8\u03d9\7l\2\2\u03d9"+
-		"\u03da\7N\2\2\u03da\u03db\5\u00b4[\2\u03db\u00bb\3\2\2\2\u03dc\u03dd\5"+
-		"\u00be`\2\u03dd\u03de\7E\2\2\u03de\u00bd\3\2\2\2\u03df\u03e6\5\u0120\u0091"+
-		"\2\u03e0\u03e6\5\u013e\u00a0\2\u03e1\u03e6\5\u0140\u00a1\2\u03e2\u03e6"+
-		"\5\u0146\u00a4\2\u03e3\u03e6\5\u014a\u00a6\2\u03e4\u03e6\5\u0100\u0081"+
-		"\2\u03e5\u03df\3\2\2\2\u03e5\u03e0\3\2\2\2\u03e5\u03e1\3\2\2\2\u03e5\u03e2"+
-		"\3\2\2\2\u03e5\u03e3\3\2\2\2\u03e5\u03e4\3\2\2\2\u03e6\u00bf\3\2\2\2\u03e7"+
-		"\u03e8\7\34\2\2\u03e8\u03e9\7?\2\2\u03e9\u03ea\5\u0114\u008b\2\u03ea\u03eb"+
-		"\7@\2\2\u03eb\u03ec\5\u00a8U\2\u03ec\u00c1\3\2\2\2\u03ed\u03ee\7\34\2"+
-		"\2\u03ee\u03ef\7?\2\2\u03ef\u03f0\5\u0114\u008b\2\u03f0\u03f1\7@\2\2\u03f1"+
-		"\u03f2\5\u00b4[\2\u03f2\u03f3\7\25\2\2\u03f3\u03f4\5\u00a8U\2\u03f4\u00c3"+
-		"\3\2\2\2\u03f5\u03f6\7\34\2\2\u03f6\u03f7\7?\2\2\u03f7\u03f8\5\u0114\u008b"+
-		"\2\u03f8\u03f9\7@\2\2\u03f9\u03fa\5\u00b4[\2\u03fa\u03fb\7\25\2\2\u03fb"+
-		"\u03fc\5\u00b4[\2\u03fc\u00c5\3\2\2\2\u03fd\u03fe\78\2\2\u03fe\u03ff\7"+
-		"?\2\2\u03ff\u0400\5\u0114\u008b\2\u0400\u0401\7@\2\2\u0401\u0402\5\u00a8"+
-		"U\2\u0402\u00c7\3\2\2\2\u0403\u0404\78\2\2\u0404\u0405\7?\2\2\u0405\u0406"+
-		"\5\u0114\u008b\2\u0406\u0407\7@\2\2\u0407\u0408\5\u00b4[\2\u0408\u00c9"+
-		"\3\2\2\2\u0409\u040a\7\23\2\2\u040a\u040b\5\u00a8U\2\u040b\u040c\78\2"+
-		"\2\u040c\u040d\7?\2\2\u040d\u040e\5\u0114\u008b\2\u040e\u040f\7@\2\2\u040f"+
-		"\u0410\7E\2\2\u0410\u00cb\3\2\2\2\u0411\u0414\5\u00d0i\2\u0412\u0414\5"+
-		"\u00dan\2\u0413\u0411\3\2\2\2\u0413\u0412\3\2\2\2\u0414\u00cd\3\2\2\2"+
-		"\u0415\u0418\5\u00d2j\2\u0416\u0418\5\u00dco\2\u0417\u0415\3\2\2\2\u0417"+
-		"\u0416\3\2\2\2\u0418\u00cf\3\2\2\2\u0419\u041a\7\33\2\2\u041a\u041c\7"+
-		"?\2\2\u041b\u041d\5\u00d4k\2\u041c\u041b\3\2\2\2\u041c\u041d\3\2\2\2\u041d"+
-		"\u041e\3\2\2\2\u041e\u0420\7E\2\2\u041f\u0421\5\u0114\u008b\2\u0420\u041f"+
-		"\3\2\2\2\u0420\u0421\3\2\2\2\u0421\u0422\3\2\2\2\u0422\u0424\7E\2\2\u0423"+
-		"\u0425\5\u00d6l\2\u0424\u0423\3\2\2\2\u0424\u0425\3\2\2\2\u0425\u0426"+
-		"\3\2\2\2\u0426\u0427\7@\2\2\u0427\u0428\5\u00a8U\2\u0428\u00d1\3\2\2\2"+
-		"\u0429\u042a\7\33\2\2\u042a\u042c\7?\2\2\u042b\u042d\5\u00d4k\2\u042c"+
-		"\u042b\3\2\2\2\u042c\u042d\3\2\2\2\u042d\u042e\3\2\2\2\u042e\u0430\7E"+
-		"\2\2\u042f\u0431\5\u0114\u008b\2\u0430\u042f\3\2\2\2\u0430\u0431\3\2\2"+
-		"\2\u0431\u0432\3\2\2\2\u0432\u0434\7E\2\2\u0433\u0435\5\u00d6l\2\u0434"+
-		"\u0433\3\2\2\2\u0434\u0435\3\2\2\2\u0435\u0436\3\2\2\2\u0436\u0437\7@"+
-		"\2\2\u0437\u0438\5\u00b4[\2\u0438\u00d3\3\2\2\2\u0439\u043c\5\u00d8m\2"+
-		"\u043a\u043c\5\u00a6T\2\u043b\u0439\3\2\2\2\u043b\u043a\3\2\2\2\u043c"+
-		"\u00d5\3\2\2\2\u043d\u043e\5\u00d8m\2\u043e\u00d7\3\2\2\2\u043f\u0444"+
-		"\5\u00be`\2\u0440\u0441\7F\2\2\u0441\u0443\5\u00be`\2\u0442\u0440\3\2"+
-		"\2\2\u0443\u0446\3\2\2\2\u0444\u0442\3\2\2\2\u0444\u0445\3\2\2\2\u0445"+
-		"\u00d9\3\2\2\2\u0446\u0444\3\2\2\2\u0447\u0448\7\33\2\2\u0448\u044c\7"+
-		"?\2\2\u0449\u044b\5z>\2\u044a\u0449\3\2\2\2\u044b\u044e\3\2\2\2\u044c"+
-		"\u044a\3\2\2\2\u044c\u044d\3\2\2\2\u044d\u044f\3\2\2\2\u044e\u044c\3\2"+
-		"\2\2\u044f\u0450\5V,\2\u0450\u0451\5R*\2\u0451\u0452\7N\2\2\u0452\u0453"+
-		"\5\u0114\u008b\2\u0453\u0454\7@\2\2\u0454\u0455\5\u00a8U\2\u0455\u00db"+
-		"\3\2\2\2\u0456\u0457\7\33\2\2\u0457\u045b\7?\2\2\u0458\u045a\5z>\2\u0459"+
-		"\u0458\3\2\2\2\u045a\u045d\3\2\2\2\u045b\u0459\3\2\2\2\u045b\u045c\3\2"+
-		"\2\2\u045c\u045e\3\2\2\2\u045d\u045b\3\2\2\2\u045e\u045f\5V,\2\u045f\u0460"+
-		"\5R*\2\u0460\u0461\7N\2\2\u0461\u0462\5\u0114\u008b\2\u0462\u0463\7@\2"+
-		"\2\u0463\u0464\5\u00b4[\2\u0464\u00dd\3\2\2\2\u0465\u0467\7*\2\2\u0466"+
-		"\u0468\5\u0114\u008b\2\u0467\u0466\3\2\2\2\u0467\u0468\3\2\2\2\u0468\u0469"+
-		"\3\2\2\2\u0469\u046a\7E\2\2\u046a\u00df\3\2\2\2\u046b\u046e\5\u00eex\2"+
-		"\u046c\u046e\5\u010e\u0088\2\u046d\u046b\3\2\2\2\u046d\u046c\3\2\2\2\u046e"+
-		"\u0472\3\2\2\2\u046f\u0471\5\u00e8u\2\u0470\u046f\3\2\2\2\u0471\u0474"+
-		"\3\2\2\2\u0472\u0470\3\2\2\2\u0472\u0473\3\2\2\2\u0473\u00e1\3\2\2\2\u0474"+
-		"\u0472\3\2\2\2\u0475\u0492\5\2\2\2\u0476\u047b\5\64\33\2\u0477\u0478\7"+
-		"C\2\2\u0478\u047a\7D\2\2\u0479\u0477\3\2\2\2\u047a\u047d\3\2\2\2\u047b"+
-		"\u0479\3\2\2\2\u047b\u047c\3\2\2\2\u047c\u047e\3\2\2\2\u047d\u047b\3\2"+
-		"\2\2\u047e\u047f\7G\2\2\u047f\u0480\7\17\2\2\u0480\u0492\3\2\2\2\u0481"+
-		"\u0482\7\66\2\2\u0482\u0483\7G\2\2\u0483\u0492\7\17\2\2\u0484\u0492\7"+
-		"\61\2\2\u0485\u0486\5\64\33\2\u0486\u0487\7G\2\2\u0487\u0488\7\61\2\2"+
-		"\u0488\u0492\3\2\2\2\u0489\u048a\7?\2\2\u048a\u048b\5\u0114\u008b\2\u048b"+
-		"\u048c\7@\2\2\u048c\u0492\3\2\2\2\u048d\u0492\5\u00f4{\2\u048e\u0492\5"+
-		"\u00fa~\2\u048f\u0492\5\u0100\u0081\2\u0490\u0492\5\u0108\u0085\2\u0491"+
-		"\u0475\3\2\2\2\u0491\u0476\3\2\2\2\u0491\u0481\3\2\2\2\u0491\u0484\3\2"+
-		"\2\2\u0491\u0485\3\2\2\2\u0491\u0489\3\2\2\2\u0491\u048d\3\2\2\2\u0491"+
-		"\u048e\3\2\2\2\u0491\u048f\3\2\2\2\u0491\u0490\3\2\2\2\u0492\u00e3\3\2"+
-		"\2\2\u0493\u0494\3\2\2\2\u0494\u00e5\3\2\2\2\u0495\u04b1\5\2\2\2\u0496"+
-		"\u049b\5\64\33\2\u0497\u0498\7C\2\2\u0498\u049a\7D\2\2\u0499\u0497\3\2"+
-		"\2\2\u049a\u049d\3\2\2\2\u049b\u0499\3\2\2\2\u049b\u049c\3\2\2\2\u049c"+
-		"\u049e\3\2\2\2\u049d\u049b\3\2\2\2\u049e\u049f\7G\2\2\u049f\u04a0\7\17"+
-		"\2\2\u04a0\u04b1\3\2\2\2\u04a1\u04a2\7\66\2\2\u04a2\u04a3\7G\2\2\u04a3"+
-		"\u04b1\7\17\2\2\u04a4\u04b1\7\61\2\2\u04a5\u04a6\5\64\33\2\u04a6\u04a7"+
-		"\7G\2\2\u04a7\u04a8\7\61\2\2\u04a8\u04b1\3\2\2\2\u04a9\u04aa\7?\2\2\u04aa"+
-		"\u04ab\5\u0114\u008b\2\u04ab\u04ac\7@\2\2\u04ac\u04b1\3\2\2\2\u04ad\u04b1"+
-		"\5\u00f4{\2\u04ae\u04b1\5\u0100\u0081\2\u04af\u04b1\5\u0108\u0085\2\u04b0"+
-		"\u0495\3\2\2\2\u04b0\u0496\3\2\2\2\u04b0\u04a1\3\2\2\2\u04b0\u04a4\3\2"+
-		"\2\2\u04b0\u04a5\3\2\2\2\u04b0\u04a9\3\2\2\2\u04b0\u04ad\3\2\2\2\u04b0"+
-		"\u04ae\3\2\2\2\u04b0\u04af\3\2\2\2\u04b1\u00e7\3\2\2\2\u04b2\u04b7\5\u00f6"+
-		"|\2\u04b3\u04b7\5\u00fc\177\2\u04b4\u04b7\5\u0102\u0082\2\u04b5\u04b7"+
-		"\5\u010a\u0086\2\u04b6\u04b2\3\2\2\2\u04b6\u04b3\3\2\2\2\u04b6\u04b4\3"+
-		"\2\2\2\u04b6\u04b5\3\2\2\2\u04b7\u00e9\3\2\2\2\u04b8\u04b9\3\2\2\2\u04b9"+
-		"\u00eb\3\2\2\2\u04ba\u04be\5\u00f6|\2\u04bb\u04be\5\u0102\u0082\2\u04bc"+
-		"\u04be\5\u010a\u0086\2\u04bd\u04ba\3\2\2\2\u04bd\u04bb\3\2\2\2\u04bd\u04bc"+
-		"\3\2\2\2\u04be\u00ed\3\2\2\2\u04bf\u04e7\5\2\2\2\u04c0\u04c5\5\64\33\2"+
-		"\u04c1\u04c2\7C\2\2\u04c2\u04c4\7D\2\2\u04c3\u04c1\3\2\2\2\u04c4\u04c7"+
-		"\3\2\2\2\u04c5\u04c3\3\2\2\2\u04c5\u04c6\3\2\2\2\u04c6\u04c8\3\2\2\2\u04c7"+
-		"\u04c5\3\2\2\2\u04c8\u04c9\7G\2\2\u04c9\u04ca\7\17\2\2\u04ca\u04e7\3\2"+
-		"\2\2\u04cb\u04d0\5X-\2\u04cc\u04cd\7C\2\2\u04cd\u04cf\7D\2\2\u04ce\u04cc"+
-		"\3\2\2\2\u04cf\u04d2\3\2\2\2\u04d0\u04ce\3\2\2\2\u04d0\u04d1\3\2\2\2\u04d1"+
-		"\u04d3\3\2\2\2\u04d2\u04d0\3\2\2\2\u04d3\u04d4\7G\2\2\u04d4\u04d5\7\17"+
-		"\2\2\u04d5\u04e7\3\2\2\2\u04d6\u04d7\7\66\2\2\u04d7\u04d8\7G\2\2\u04d8"+
-		"\u04e7\7\17\2\2\u04d9\u04e7\7\61\2\2\u04da\u04db\5\64\33\2\u04db\u04dc"+
-		"\7G\2\2\u04dc\u04dd\7\61\2\2\u04dd\u04e7\3\2\2\2\u04de\u04df\7?\2\2\u04df"+
-		"\u04e0\5\u0114\u008b\2\u04e0\u04e1\7@\2\2\u04e1\u04e7\3\2\2\2\u04e2\u04e7"+
-		"\5\u00f8}\2\u04e3\u04e7\5\u00fe\u0080\2\u04e4\u04e7\5\u0104\u0083\2\u04e5"+
-		"\u04e7\5\u010c\u0087\2\u04e6\u04bf\3\2\2\2\u04e6\u04c0\3\2\2\2\u04e6\u04cb"+
-		"\3\2\2\2\u04e6\u04d6\3\2\2\2\u04e6\u04d9\3\2\2\2\u04e6\u04da\3\2\2\2\u04e6"+
-		"\u04de\3\2\2\2\u04e6\u04e2\3\2\2\2\u04e6\u04e3\3\2\2\2\u04e6\u04e4\3\2"+
-		"\2\2\u04e6\u04e5\3\2\2\2\u04e7\u00ef\3\2\2\2\u04e8\u04e9\3\2\2\2\u04e9"+
-		"\u00f1\3\2\2\2\u04ea\u0511\5\2\2\2\u04eb\u04f0\5\64\33\2\u04ec\u04ed\7"+
-		"C\2\2\u04ed\u04ef\7D\2\2\u04ee\u04ec\3\2\2\2\u04ef\u04f2\3\2\2\2\u04f0"+
-		"\u04ee\3\2\2\2\u04f0\u04f1\3\2\2\2\u04f1\u04f3\3\2\2\2\u04f2\u04f0\3\2"+
-		"\2\2\u04f3\u04f4\7G\2\2\u04f4\u04f5\7\17\2\2\u04f5\u0511\3\2\2\2\u04f6"+
-		"\u04fb\5X-\2\u04f7\u04f8\7C\2\2\u04f8\u04fa\7D\2\2\u04f9\u04f7\3\2\2\2"+
-		"\u04fa\u04fd\3\2\2\2\u04fb\u04f9\3\2\2\2\u04fb\u04fc\3\2\2\2\u04fc\u04fe"+
-		"\3\2\2\2\u04fd\u04fb\3\2\2\2\u04fe\u04ff\7G\2\2\u04ff\u0500\7\17\2\2\u0500"+
-		"\u0511\3\2\2\2\u0501\u0502\7\66\2\2\u0502\u0503\7G\2\2\u0503\u0511\7\17"+
-		"\2\2\u0504\u0511\7\61\2\2\u0505\u0506\5\64\33\2\u0506\u0507\7G\2\2\u0507"+
-		"\u0508\7\61\2\2\u0508\u0511\3\2\2\2\u0509\u050a\7?\2\2\u050a\u050b\5\u0114"+
-		"\u008b\2\u050b\u050c\7@\2\2\u050c\u0511\3\2\2\2\u050d\u0511\5\u00f8}\2"+
-		"\u050e\u0511\5\u0104\u0083\2\u050f\u0511\5\u010c\u0087\2\u0510\u04ea\3"+
-		"\2\2\2\u0510\u04eb\3\2\2\2\u0510\u04f6\3\2\2\2\u0510\u0501\3\2\2\2\u0510"+
-		"\u0504\3\2\2\2\u0510\u0505\3\2\2\2\u0510\u0509\3\2\2\2\u0510\u050d\3\2"+
-		"\2\2\u0510\u050e\3\2\2\2\u0510\u050f\3\2\2\2\u0511\u00f3\3\2\2\2\u0512"+
-		"\u0513\5\u00e0q\2\u0513\u0514\7G\2\2\u0514\u0515\7l\2\2\u0515\u0520\3"+
-		"\2\2\2\u0516\u0517\7.\2\2\u0517\u0518\7G\2\2\u0518\u0520\7l\2\2\u0519"+
-		"\u051a\5\64\33\2\u051a\u051b\7G\2\2\u051b\u051c\7.\2\2\u051c\u051d\7G"+
-		"\2\2\u051d\u051e\7l\2\2\u051e\u0520\3\2\2\2\u051f\u0512\3\2\2\2\u051f"+
-		"\u0516\3\2\2\2\u051f\u0519\3\2\2\2\u0520\u00f5\3\2\2\2\u0521\u0522\7G"+
-		"\2\2\u0522\u0523\7l\2\2\u0523\u00f7\3\2\2\2\u0524\u0525\7.\2\2\u0525\u0526"+
-		"\7G\2\2\u0526\u052e\7l\2\2\u0527\u0528\5\64\33\2\u0528\u0529\7G\2\2\u0529"+
-		"\u052a\7.\2\2\u052a\u052b\7G\2\2\u052b\u052c\7l\2\2\u052c\u052e\3\2\2"+
-		"\2\u052d\u0524\3\2\2\2\u052d\u0527\3\2\2\2\u052e\u00f9\3\2\2\2\u052f\u0530"+
-		"\58\35\2\u0530\u0531\7C\2\2\u0531\u0532\5\u0114\u008b\2\u0532\u0533\7"+
-		"D\2\2\u0533\u053a\3\2\2\2\u0534\u0535\5\u00e6t\2\u0535\u0536\7C\2\2\u0536"+
-		"\u0537\5\u0114\u008b\2\u0537\u0538\7D\2\2\u0538\u053a\3\2\2\2\u0539\u052f"+
-		"\3\2\2\2\u0539\u0534\3\2\2\2\u053a\u0542\3\2\2\2\u053b\u053c\5\u00e4s"+
-		"\2\u053c\u053d\7C\2\2\u053d\u053e\5\u0114\u008b\2\u053e\u053f\7D\2\2\u053f"+
-		"\u0541\3\2\2\2\u0540\u053b\3\2\2\2\u0541\u0544\3\2\2\2\u0542\u0540\3\2"+
-		"\2\2\u0542\u0543\3\2\2\2\u0543\u00fb\3\2\2\2\u0544\u0542\3\2\2\2\u0545"+
-		"\u0546\5\u00ecw\2\u0546\u0547\7C\2\2\u0547\u0548\5\u0114\u008b\2\u0548"+
-		"\u0549\7D\2\2\u0549\u0551\3\2\2\2\u054a\u054b\5\u00eav\2\u054b\u054c\7"+
-		"C\2\2\u054c\u054d\5\u0114\u008b\2\u054d\u054e\7D\2\2\u054e\u0550\3\2\2"+
-		"\2\u054f\u054a\3\2\2\2\u0550\u0553\3\2\2\2\u0551\u054f\3\2\2\2\u0551\u0552"+
-		"\3\2\2\2\u0552\u00fd\3\2\2\2\u0553\u0551\3\2\2\2\u0554\u0555\58\35\2\u0555"+
-		"\u0556\7C\2\2\u0556\u0557\5\u0114\u008b\2\u0557\u0558\7D\2\2\u0558\u055f"+
-		"\3\2\2\2\u0559\u055a\5\u00f2z\2\u055a\u055b\7C\2\2\u055b\u055c\5\u0114"+
-		"\u008b\2\u055c\u055d\7D\2\2\u055d\u055f\3\2\2\2\u055e\u0554\3\2\2\2\u055e"+
-		"\u0559\3\2\2\2\u055f\u0567\3\2\2\2\u0560\u0561\5\u00f0y\2\u0561\u0562"+
-		"\7C\2\2\u0562\u0563\5\u0114\u008b\2\u0563\u0564\7D\2\2\u0564\u0566\3\2"+
-		"\2\2\u0565\u0560\3\2\2\2\u0566\u0569\3\2\2\2\u0567\u0565\3\2\2\2\u0567"+
-		"\u0568\3\2\2\2\u0568\u00ff\3\2\2\2\u0569\u0567\3\2\2\2\u056a\u056b\5:"+
-		"\36\2\u056b\u056d\7?\2\2\u056c\u056e\5\u0106\u0084\2\u056d\u056c\3\2\2"+
-		"\2\u056d\u056e\3\2\2\2\u056e\u056f\3\2\2\2\u056f\u0570\7@\2\2\u0570\u0101"+
-		"\3\2\2\2\u0571\u0573\7G\2\2\u0572\u0574\5*\26\2\u0573\u0572\3\2\2\2\u0573"+
-		"\u0574\3\2\2\2\u0574\u0575\3\2\2\2\u0575\u0576\7l\2\2\u0576\u0578\7?\2"+
-		"\2\u0577\u0579\5\u0106\u0084\2\u0578\u0577\3\2\2\2\u0578\u0579\3\2\2\2"+
-		"\u0579\u057a\3\2\2\2\u057a\u057b\7@\2\2\u057b\u0103\3\2\2\2\u057c\u057d"+
-		"\5:\36\2\u057d\u057f\7?\2\2\u057e\u0580\5\u0106\u0084\2\u057f\u057e\3"+
-		"\2\2\2\u057f\u0580\3\2\2\2\u0580\u0581\3\2\2\2\u0581\u0582\7@\2\2\u0582"+
-		"\u0105\3\2\2\2\u0583\u0588\5\u0114\u008b\2\u0584\u0585\7F\2\2\u0585\u0587"+
-		"\5\u0114\u008b\2\u0586\u0584\3\2\2\2\u0587\u058a\3\2\2\2\u0588\u0586\3"+
-		"\2\2\2\u0588\u0589\3\2\2\2\u0589\u0107\3\2\2\2\u058a\u0588\3\2\2\2\u058b"+
-		"\u058c\58\35\2\u058c\u058e\7`\2\2\u058d\u058f\5*\26\2\u058e\u058d\3\2"+
-		"\2\2\u058e\u058f\3\2\2\2\u058f\u0590\3\2\2\2\u0590\u0591\7l\2\2\u0591"+
-		"\u05bb\3\2\2\2\u0592\u0593\5\f\7\2\u0593\u0595\7`\2\2\u0594\u0596\5*\26"+
-		"\2\u0595\u0594\3\2\2\2\u0595\u0596\3\2\2\2\u0596\u0597\3\2\2\2\u0597\u0598"+
-		"\7l\2\2\u0598\u05bb\3\2\2\2\u0599\u059a\5\u00e0q\2\u059a\u059c\7`\2\2"+
-		"\u059b\u059d\5*\26\2\u059c\u059b\3\2\2\2\u059c\u059d\3\2\2\2\u059d\u059e"+
-		"\3\2\2\2\u059e\u059f\7l\2\2\u059f\u05bb\3\2\2\2\u05a0\u05a1\7.\2\2\u05a1"+
-		"\u05a3\7`\2\2\u05a2\u05a4\5*\26\2\u05a3\u05a2\3\2\2\2\u05a3\u05a4\3\2"+
-		"\2\2\u05a4\u05a5\3\2\2\2\u05a5\u05bb\7l\2\2\u05a6\u05a7\5\64\33\2\u05a7"+
-		"\u05a8\7G\2\2\u05a8\u05a9\7.\2\2\u05a9\u05ab\7`\2\2\u05aa\u05ac\5*\26"+
-		"\2\u05ab\u05aa\3\2\2\2\u05ab\u05ac\3\2\2\2\u05ac\u05ad\3\2\2\2\u05ad\u05ae"+
-		"\7l\2\2\u05ae\u05bb\3\2\2\2\u05af\u05b0\5\20\t\2\u05b0\u05b2\7`\2\2\u05b1"+
-		"\u05b3\5*\26\2\u05b2\u05b1\3\2\2\2\u05b2\u05b3\3\2\2\2\u05b3\u05b4\3\2"+
-		"\2\2\u05b4\u05b5\7%\2\2\u05b5\u05bb\3\2\2\2\u05b6\u05b7\5\36\20\2\u05b7"+
-		"\u05b8\7`\2\2\u05b8\u05b9\7%\2\2\u05b9\u05bb\3\2\2\2\u05ba\u058b\3\2\2"+
-		"\2\u05ba\u0592\3\2\2\2\u05ba\u0599\3\2\2\2\u05ba\u05a0\3\2\2\2\u05ba\u05a6"+
-		"\3\2\2\2\u05ba\u05af\3\2\2\2\u05ba\u05b6\3\2\2\2\u05bb\u0109\3\2\2\2\u05bc"+
-		"\u05be\7`\2\2\u05bd\u05bf\5*\26\2\u05be\u05bd\3\2\2\2\u05be\u05bf\3\2"+
-		"\2\2\u05bf\u05c0\3\2\2\2\u05c0\u05c1\7l\2\2\u05c1\u010b\3\2\2\2\u05c2"+
-		"\u05c3\58\35\2\u05c3\u05c5\7`\2\2\u05c4\u05c6\5*\26\2\u05c5\u05c4\3\2"+
-		"\2\2\u05c5\u05c6\3\2\2\2\u05c6\u05c7\3\2\2\2\u05c7\u05c8\7l\2\2\u05c8"+
-		"\u05eb\3\2\2\2\u05c9\u05ca\5\f\7\2\u05ca\u05cc\7`\2\2\u05cb\u05cd\5*\26"+
-		"\2\u05cc\u05cb\3\2\2\2\u05cc\u05cd\3\2\2\2\u05cd\u05ce\3\2\2\2\u05ce\u05cf"+
-		"\7l\2\2\u05cf\u05eb\3\2\2\2\u05d0\u05d1\7.\2\2\u05d1\u05d3\7`\2\2\u05d2"+
-		"\u05d4\5*\26\2\u05d3\u05d2\3\2\2\2\u05d3\u05d4\3\2\2\2\u05d4\u05d5\3\2"+
-		"\2\2\u05d5\u05eb\7l\2\2\u05d6\u05d7\5\64\33\2\u05d7\u05d8\7G\2\2\u05d8"+
-		"\u05d9\7.\2\2\u05d9\u05db\7`\2\2\u05da\u05dc\5*\26\2\u05db\u05da\3\2\2"+
-		"\2\u05db\u05dc\3\2\2\2\u05dc\u05dd\3\2\2\2\u05dd\u05de\7l\2\2\u05de\u05eb"+
-		"\3\2\2\2\u05df\u05e0\5\20\t\2\u05e0\u05e2\7`\2\2\u05e1\u05e3\5*\26\2\u05e2"+
-		"\u05e1\3\2\2\2\u05e2\u05e3\3\2\2\2\u05e3\u05e4\3\2\2\2\u05e4\u05e5\7%"+
-		"\2\2\u05e5\u05eb\3\2\2\2\u05e6\u05e7\5\36\20\2\u05e7\u05e8\7`\2\2\u05e8"+
-		"\u05e9\7%\2\2\u05e9\u05eb\3\2\2\2\u05ea\u05c2\3\2\2\2\u05ea\u05c9\3\2"+
-		"\2\2\u05ea\u05d0\3\2\2\2\u05ea\u05d6\3\2\2\2\u05ea\u05df\3\2\2\2\u05ea"+
-		"\u05e6\3\2\2\2\u05eb\u010d\3\2\2\2\u05ec\u05ed\7%\2\2\u05ed\u05ee\5\4"+
-		"\3\2\u05ee\u05f0\5\u0110\u0089\2\u05ef\u05f1\5 \21\2\u05f0\u05ef\3\2\2"+
-		"\2\u05f0\u05f1\3\2\2\2\u05f1\u0603\3\2\2\2\u05f2\u05f3\7%\2\2\u05f3\u05f4"+
-		"\5\16\b\2\u05f4\u05f6\5\u0110\u0089\2\u05f5\u05f7\5 \21\2\u05f6\u05f5"+
-		"\3\2\2\2\u05f6\u05f7\3\2\2\2\u05f7\u0603\3\2\2\2\u05f8\u05f9\7%\2\2\u05f9"+
-		"\u05fa\5\4\3\2\u05fa\u05fb\5 \21\2\u05fb\u05fc\5\u009aN\2\u05fc\u0603"+
-		"\3\2\2\2\u05fd\u05fe\7%\2\2\u05fe\u05ff\5\16\b\2\u05ff\u0600\5 \21\2\u0600"+
-		"\u0601\5\u009aN\2\u0601\u0603\3\2\2\2\u0602\u05ec\3\2\2\2\u0602\u05f2"+
-		"\3\2\2\2\u0602\u05f8\3\2\2\2\u0602\u05fd\3\2\2\2\u0603\u010f\3\2\2\2\u0604"+
-		"\u0608\5\u0112\u008a\2\u0605\u0607\5\u0112\u008a\2\u0606\u0605\3\2\2\2"+
-		"\u0607\u060a\3\2\2\2\u0608\u0606\3\2\2\2\u0608\u0609\3\2\2\2\u0609\u0111"+
-		"\3\2\2\2\u060a\u0608\3\2\2\2\u060b\u060d\5\u008cG\2\u060c\u060b\3\2\2"+
-		"\2\u060d\u0610\3\2\2\2\u060e\u060c\3\2\2\2\u060e\u060f\3\2\2\2\u060f\u0611"+
-		"\3\2\2\2\u0610\u060e\3\2\2\2\u0611\u0612\7C\2\2\u0612\u0613\5\u0114\u008b"+
-		"\2\u0613\u0614\7D\2\2\u0614\u0113\3\2\2\2\u0615\u0618\5\u0116\u008c\2"+
-		"\u0616\u0618\5\u011e\u0090\2\u0617\u0615\3\2\2\2\u0617\u0616\3\2\2\2\u0618"+
-		"\u0115\3\2\2\2\u0619\u061a\5\u0118\u008d\2\u061a\u061b\7_\2\2\u061b\u061c"+
-		"\5\u011c\u008f\2\u061c\u0117\3\2\2\2\u061d\u0628\7l\2\2\u061e\u0620\7"+
-		"?\2\2\u061f\u0621\5t;\2\u0620\u061f\3\2\2\2\u0620\u0621\3\2\2\2\u0621"+
-		"\u0622\3\2\2\2\u0622\u0628\7@\2\2\u0623\u0624\7?\2\2\u0624\u0625\5\u011a"+
-		"\u008e\2\u0625\u0626\7@\2\2\u0626\u0628\3\2\2\2\u0627\u061d\3\2\2\2\u0627"+
-		"\u061e\3\2\2\2\u0627\u0623\3\2\2\2\u0628\u0119\3\2\2\2\u0629\u062e\7l"+
-		"\2\2\u062a\u062b\7F\2\2\u062b\u062d\7l\2\2\u062c\u062a\3\2\2\2\u062d\u0630"+
-		"\3\2\2\2\u062e\u062c\3\2\2\2\u062e\u062f\3\2\2\2\u062f\u011b\3\2\2\2\u0630"+
-		"\u062e\3\2\2\2\u0631\u0634\5\u0114\u008b\2\u0632\u0634\5\u009eP\2\u0633"+
-		"\u0631\3\2\2\2\u0633\u0632\3\2\2\2\u0634\u011d\3\2\2\2\u0635\u0638\5\u0126"+
-		"\u0094\2\u0636\u0638\5\u0120\u0091\2\u0637\u0635\3\2\2\2\u0637\u0636\3"+
-		"\2\2\2\u0638\u011f\3\2\2\2\u0639\u063a\5\u0122\u0092\2\u063a\u063b\5\u0124"+
-		"\u0093\2\u063b\u063c\5\u0114\u008b\2\u063c\u0121\3\2\2\2\u063d\u0641\5"+
-		"8\35\2\u063e\u0641\5\u00f4{\2\u063f\u0641\5\u00fa~\2\u0640\u063d\3\2\2"+
-		"\2\u0640\u063e\3\2\2\2\u0640\u063f\3\2\2\2\u0641\u0123\3\2\2\2\u0642\u0643"+
-		"\t\5\2\2\u0643\u0125\3\2\2\2\u0644\u064c\5\u0128\u0095\2\u0645\u0646\5"+
-		"\u0128\u0095\2\u0646\u0647\7M\2\2\u0647\u0648\5\u0114\u008b\2\u0648\u0649"+
-		"\7N\2\2\u0649\u064a\5\u0126\u0094\2\u064a\u064c\3\2\2\2\u064b\u0644\3"+
-		"\2\2\2\u064b\u0645\3\2\2\2\u064c\u0127\3\2\2\2\u064d\u064e\b\u0095\1\2"+
-		"\u064e\u064f\5\u012a\u0096\2\u064f\u0655\3\2\2\2\u0650\u0651\f\3\2\2\u0651"+
-		"\u0652\7T\2\2\u0652\u0654\5\u012a\u0096\2\u0653\u0650\3\2\2\2\u0654\u0657"+
-		"\3\2\2\2\u0655\u0653\3\2\2\2\u0655\u0656\3\2\2\2\u0656\u0129\3\2\2\2\u0657"+
-		"\u0655\3\2\2\2\u0658\u0659\b\u0096\1\2\u0659\u065a\5\u012c\u0097\2\u065a"+
-		"\u0660\3\2\2\2\u065b\u065c\f\3\2\2\u065c\u065d\7S\2\2\u065d\u065f\5\u012c"+
-		"\u0097\2\u065e\u065b\3\2\2\2\u065f\u0662\3\2\2\2\u0660\u065e\3\2\2\2\u0660"+
-		"\u0661\3\2\2\2\u0661\u012b\3\2\2\2\u0662\u0660\3\2\2\2\u0663\u0664\b\u0097"+
-		"\1\2\u0664\u0665\5\u012e\u0098\2\u0665\u066b\3\2\2\2\u0666\u0667\f\3\2"+
-		"\2\u0667\u0668\7\\\2\2\u0668\u066a\5\u012e\u0098\2\u0669\u0666\3\2\2\2"+
-		"\u066a\u066d\3\2\2\2\u066b\u0669\3\2\2\2\u066b\u066c\3\2\2\2\u066c\u012d"+
-		"\3\2\2\2\u066d\u066b\3\2\2\2\u066e\u066f\b\u0098\1\2\u066f\u0670\5\u0130"+
-		"\u0099\2\u0670\u0676\3\2\2\2\u0671\u0672\f\3\2\2\u0672\u0673\7]\2\2\u0673"+
-		"\u0675\5\u0130\u0099\2\u0674\u0671\3\2\2\2\u0675\u0678\3\2\2\2\u0676\u0674"+
-		"\3\2\2\2\u0676\u0677\3\2\2\2\u0677\u012f\3\2\2\2\u0678\u0676\3\2\2\2\u0679"+
-		"\u067a\b\u0099\1\2\u067a\u067b\5\u0132\u009a\2\u067b\u0681\3\2\2\2\u067c"+
-		"\u067d\f\3\2\2\u067d\u067e\7[\2\2\u067e\u0680\5\u0132\u009a\2\u067f\u067c"+
-		"\3\2\2\2\u0680\u0683\3\2\2\2\u0681\u067f\3\2\2\2\u0681\u0682\3\2\2\2\u0682"+
-		"\u0131\3\2\2\2\u0683\u0681\3\2\2\2\u0684\u0685\b\u009a\1\2\u0685\u0686"+
-		"\5\u0134\u009b\2\u0686\u068f\3\2\2\2\u0687\u0688\f\4\2\2\u0688\u0689\7"+
-		"O\2\2\u0689\u068e\5\u0134\u009b\2\u068a\u068b\f\3\2\2\u068b\u068c\7R\2"+
-		"\2\u068c\u068e\5\u0134\u009b\2\u068d\u0687\3\2\2\2\u068d\u068a\3\2\2\2"+
-		"\u068e\u0691\3\2\2\2\u068f\u068d\3\2\2\2\u068f\u0690\3\2\2\2\u0690\u0133"+
-		"\3\2\2\2\u0691\u068f\3\2\2\2\u0692\u0693\b\u009b\1\2\u0693\u0694\5\u0136"+
-		"\u009c\2\u0694\u06a6\3\2\2\2\u0695\u0696\f\7\2\2\u0696\u0697\7J\2\2\u0697"+
-		"\u06a5\5\u0136\u009c\2\u0698\u0699\f\6\2\2\u0699\u069a\7I\2\2\u069a\u06a5"+
-		"\5\u0136\u009c\2\u069b\u069c\f\5\2\2\u069c\u069d\7P\2\2\u069d\u06a5\5"+
-		"\u0136\u009c\2\u069e\u069f\f\4\2\2\u069f\u06a0\7Q\2\2\u06a0\u06a5\5\u0136"+
-		"\u009c\2\u06a1\u06a2\f\3\2\2\u06a2\u06a3\7 \2\2\u06a3\u06a5\5\f\7\2\u06a4"+
-		"\u0695\3\2\2\2\u06a4\u0698\3\2\2\2\u06a4\u069b\3\2\2\2\u06a4\u069e\3\2"+
-		"\2\2\u06a4\u06a1\3\2\2\2\u06a5\u06a8\3\2\2\2\u06a6\u06a4\3\2\2\2\u06a6"+
-		"\u06a7\3\2\2\2\u06a7\u0135\3\2\2\2\u06a8\u06a6\3\2\2\2\u06a9\u06aa\b\u009c"+
-		"\1\2\u06aa\u06ab\5\u0138\u009d\2\u06ab\u06bb\3\2\2\2\u06ac\u06ad\f\5\2"+
-		"\2\u06ad\u06ae\7J\2\2\u06ae\u06af\7J\2\2\u06af\u06ba\5\u0138\u009d\2\u06b0"+
-		"\u06b1\f\4\2\2\u06b1\u06b2\7I\2\2\u06b2\u06b3\7I\2\2\u06b3\u06ba\5\u0138"+
-		"\u009d\2\u06b4\u06b5\f\3\2\2\u06b5\u06b6\7I\2\2\u06b6\u06b7\7I\2\2\u06b7"+
-		"\u06b8\7I\2\2\u06b8\u06ba\5\u0138\u009d\2\u06b9\u06ac\3\2\2\2\u06b9\u06b0"+
-		"\3\2\2\2\u06b9\u06b4\3\2\2\2\u06ba\u06bd\3\2\2\2\u06bb\u06b9\3\2\2\2\u06bb"+
-		"\u06bc\3\2\2\2\u06bc\u0137\3\2\2\2\u06bd\u06bb\3\2\2\2\u06be\u06bf\b\u009d"+
-		"\1\2\u06bf\u06c0\5\u013a\u009e\2\u06c0\u06c9\3\2\2\2\u06c1\u06c2\f\4\2"+
-		"\2\u06c2\u06c3\7W\2\2\u06c3\u06c8\5\u013a\u009e\2\u06c4\u06c5\f\3\2\2"+
-		"\u06c5\u06c6\7X\2\2\u06c6\u06c8\5\u013a\u009e\2\u06c7\u06c1\3\2\2\2\u06c7"+
-		"\u06c4\3\2\2\2\u06c8\u06cb\3\2\2\2\u06c9\u06c7\3\2\2\2\u06c9\u06ca\3\2"+
-		"\2\2\u06ca\u0139\3\2\2\2\u06cb\u06c9\3\2\2\2\u06cc\u06cd\b\u009e\1\2\u06cd"+
-		"\u06ce\5\u013c\u009f\2\u06ce\u06da\3\2\2\2\u06cf\u06d0\f\5\2\2\u06d0\u06d1"+
-		"\7Y\2\2\u06d1\u06d9\5\u013c\u009f\2\u06d2\u06d3\f\4\2\2\u06d3\u06d4\7"+
-		"Z\2\2\u06d4\u06d9\5\u013c\u009f\2\u06d5\u06d6\f\3\2\2\u06d6\u06d7\7^\2"+
-		"\2\u06d7\u06d9\5\u013c\u009f\2\u06d8\u06cf\3\2\2\2\u06d8\u06d2\3\2\2\2"+
-		"\u06d8\u06d5\3\2\2\2\u06d9\u06dc\3\2\2\2\u06da\u06d8\3\2\2\2\u06da\u06db"+
-		"\3\2\2\2\u06db\u013b\3\2\2\2\u06dc\u06da\3\2\2\2\u06dd\u06e5\5\u013e\u00a0"+
-		"\2\u06de\u06e5\5\u0140\u00a1\2\u06df\u06e0\7W\2\2\u06e0\u06e5\5\u013c"+
-		"\u009f\2\u06e1\u06e2\7X\2\2\u06e2\u06e5\5\u013c\u009f\2\u06e3\u06e5\5"+
-		"\u0142\u00a2\2\u06e4\u06dd\3\2\2\2\u06e4\u06de\3\2\2\2\u06e4\u06df\3\2"+
-		"\2\2\u06e4\u06e1\3\2\2\2\u06e4\u06e3\3\2\2\2\u06e5\u013d\3\2\2\2\u06e6"+
-		"\u06e7\7U\2\2\u06e7\u06e8\5\u013c\u009f\2\u06e8\u013f\3\2\2\2\u06e9\u06ea"+
-		"\7V\2\2\u06ea\u06eb\5\u013c\u009f\2\u06eb\u0141\3\2\2\2\u06ec\u06f3\5"+
-		"\u0144\u00a3\2\u06ed\u06ee\7L\2\2\u06ee\u06f3\5\u013c\u009f\2\u06ef\u06f0"+
-		"\7K\2\2\u06f0\u06f3\5\u013c\u009f\2\u06f1\u06f3\5\u014e\u00a8\2\u06f2"+
-		"\u06ec\3\2\2\2\u06f2\u06ed\3\2\2\2\u06f2\u06ef\3\2\2\2\u06f2\u06f1\3\2"+
-		"\2\2\u06f3\u0143\3\2\2\2\u06f4\u06f7\5\u00e0q\2\u06f5\u06f7\58\35\2\u06f6"+
-		"\u06f4\3\2\2\2\u06f6\u06f5\3\2\2\2\u06f7\u06fc\3\2\2\2\u06f8\u06fb\5\u0148"+
-		"\u00a5\2\u06f9\u06fb\5\u014c\u00a7\2\u06fa\u06f8\3\2\2\2\u06fa\u06f9\3"+
-		"\2\2\2\u06fb\u06fe\3\2\2\2\u06fc\u06fa\3\2\2\2\u06fc\u06fd\3\2\2\2\u06fd"+
-		"\u0145\3\2\2\2\u06fe\u06fc\3\2\2\2\u06ff\u0700\5\u0144\u00a3\2\u0700\u0701"+
-		"\7U\2\2\u0701\u0147\3\2\2\2\u0702\u0703\7U\2\2\u0703\u0149\3\2\2\2\u0704"+
-		"\u0705\5\u0144\u00a3\2\u0705\u0706\7V\2\2\u0706\u014b\3\2\2\2\u0707\u0708"+
-		"\7V\2\2\u0708\u014d\3\2\2\2\u0709\u070a\7?\2\2\u070a\u070b\5\4\3\2\u070b"+
-		"\u070c\7@\2\2\u070c\u070d\5\u013c\u009f\2\u070d\u0725\3\2\2\2\u070e\u070f"+
-		"\7?\2\2\u070f\u0713\5\f\7\2\u0710\u0712\5(\25\2\u0711\u0710\3\2\2\2\u0712"+
-		"\u0715\3\2\2\2\u0713\u0711\3\2\2\2\u0713\u0714\3\2\2\2\u0714\u0716\3\2"+
-		"\2\2\u0715\u0713\3\2\2\2\u0716\u0717\7@\2\2\u0717\u0718\5\u0142\u00a2"+
-		"\2\u0718\u0725\3\2\2\2\u0719\u071a\7?\2\2\u071a\u071e\5\f\7\2\u071b\u071d"+
-		"\5(\25\2\u071c\u071b\3\2\2\2\u071d\u0720\3\2\2\2\u071e\u071c\3\2\2\2\u071e"+
-		"\u071f\3\2\2\2\u071f\u0721\3\2\2\2\u0720\u071e\3\2\2\2\u0721\u0722\7@"+
-		"\2\2\u0722\u0723\5\u0116\u008c\2\u0723\u0725\3\2\2\2\u0724\u0709\3\2\2"+
-		"\2\u0724\u070e\3\2\2\2\u0724\u0719\3\2\2\2\u0725\u014f\3\2\2\2\u00bf\u0155"+
-		"\u015c\u0160\u0164\u016d\u0171\u0175\u0177\u017d\u0182\u0189\u018e\u0190"+
-		"\u0196\u019b\u01a0\u01a5\u01b0\u01be\u01c3\u01cb\u01d2\u01d8\u01dd\u01e8"+
-		"\u01eb\u01f9\u01fe\u0203\u0208\u020e\u0215\u021f\u0227\u0233\u0245\u024c"+
-		"\u0254\u025a\u0266\u026c\u0270\u0274\u0278\u027c\u0280\u0284\u0288\u028a"+
-		"\u028f\u0296\u029b\u029d\u02a3\u02a8\u02ac\u02ba\u02c2\u02c8\u02ce\u02d0"+
-		"\u02d4\u02d9\u02dd\u02e5\u02ec\u02f4\u02f7\u02fc\u0304\u0309\u0310\u0317"+
-		"\u031c\u0322\u032e\u0333\u0337\u0344\u034d\u0357\u035b\u035e\u0367\u036c"+
-		"\u036f\u0378\u037d\u0384\u0389\u0391\u039f\u03a9\u03ae\u03b5\u03ba\u03bf"+
-		"\u03cc\u03d2\u03e5\u0413\u0417\u041c\u0420\u0424\u042c\u0430\u0434\u043b"+
-		"\u0444\u044c\u045b\u0467\u046d\u0472\u047b\u0491\u049b\u04b0\u04b6\u04bd"+
-		"\u04c5\u04d0\u04e6\u04f0\u04fb\u0510\u051f\u052d\u0539\u0542\u0551\u055e"+
-		"\u0567\u056d\u0573\u0578\u057f\u0588\u058e\u0595\u059c\u05a3\u05ab\u05b2"+
-		"\u05ba\u05be\u05c5\u05cc\u05d3\u05db\u05e2\u05ea\u05f0\u05f6\u0602\u0608"+
-		"\u060e\u0617\u0620\u0627\u062e\u0633\u0637\u0640\u064b\u0655\u0660\u066b"+
-		"\u0676\u0681\u068d\u068f\u06a4\u06a6\u06b9\u06bb\u06c7\u06c9\u06d8\u06da"+
-		"\u06e4\u06f2\u06f6\u06fa\u06fc\u0713\u071e\u0724";
+		"k\4l\tl\4m\tm\4n\tn\4o\to\3\2\3\2\3\3\3\3\5\3\u00e3\n\3\3\4\3\4\5\4\u00e7"+
+		"\n\4\3\5\3\5\3\6\3\6\3\7\3\7\5\7\u00ef\n\7\3\b\3\b\3\t\3\t\3\t\3\t\3\t"+
+		"\3\t\5\t\u00f9\n\t\3\n\3\n\3\n\3\n\7\n\u00ff\n\n\f\n\16\n\u0102\13\n\3"+
+		"\13\3\13\3\f\3\f\3\r\3\r\3\r\3\r\3\16\3\16\5\16\u010e\n\16\3\16\3\16\3"+
+		"\17\7\17\u0113\n\17\f\17\16\17\u0116\13\17\3\20\3\20\5\20\u011a\n\20\3"+
+		"\21\3\21\3\21\3\21\3\21\3\22\3\22\3\22\7\22\u0124\n\22\f\22\16\22\u0127"+
+		"\13\22\3\23\3\23\3\23\5\23\u012c\n\23\3\24\3\24\5\24\u0130\n\24\3\25\3"+
+		"\25\5\25\u0134\n\25\3\26\3\26\5\26\u0138\n\26\3\27\3\27\5\27\u013c\n\27"+
+		"\3\30\3\30\5\30\u0140\n\30\3\31\3\31\3\32\3\32\3\32\3\32\3\32\3\32\5\32"+
+		"\u014a\n\32\3\33\3\33\3\33\3\34\3\34\3\34\3\35\3\35\5\35\u0154\n\35\3"+
+		"\36\3\36\3\36\5\36\u0159\n\36\3\36\3\36\5\36\u015d\n\36\3\37\3\37\3\37"+
+		"\3\37\3\37\3\37\5\37\u0165\n\37\3 \3 \3 \7 \u016a\n \f \16 \u016d\13 "+
+		"\3 \3 \3 \7 \u0172\n \f \16 \u0175\13 \5 \u0177\n \3!\7!\u017a\n!\f!\16"+
+		"!\u017d\13!\3!\3!\3!\3\"\3\"\3#\7#\u0185\n#\f#\16#\u0188\13#\3#\3#\3#"+
+		"\3#\3#\5#\u018f\n#\3$\3$\3$\5$\u0194\n$\3$\3$\3%\3%\3&\3&\5&\u019c\n&"+
+		"\3&\5&\u019f\n&\3&\3&\3\'\3\'\3\'\7\'\u01a6\n\'\f\'\16\'\u01a9\13\'\3"+
+		"(\3(\5(\u01ad\n(\3(\3(\3)\6)\u01b2\n)\r)\16)\u01b3\3*\3*\5*\u01b8\n*\3"+
+		"+\3+\3+\3,\7,\u01be\n,\f,\16,\u01c1\13,\3,\3,\3,\3-\3-\3-\3-\3-\3-\3-"+
+		"\3-\5-\u01ce\n-\3.\3.\3.\3.\3.\3.\3/\3/\7/\u01d8\n/\f/\16/\u01db\13/\3"+
+		"/\3/\7/\u01df\n/\f/\16/\u01e2\13/\5/\u01e4\n/\3\60\3\60\3\60\3\60\5\60"+
+		"\u01ea\n\60\3\61\3\61\3\61\5\61\u01ef\n\61\3\61\6\61\u01f2\n\61\r\61\16"+
+		"\61\u01f3\3\61\3\61\3\61\3\62\3\62\3\62\3\63\3\63\3\63\3\63\3\63\5\63"+
+		"\u0201\n\63\3\64\3\64\3\64\3\64\5\64\u0207\n\64\3\65\3\65\3\65\3\65\3"+
+		"\66\3\66\3\66\3\66\3\67\3\67\3\67\38\38\38\38\58\u0218\n8\39\39\39\39"+
+		"\39\39\3:\3:\3:\3:\3:\3:\3:\3:\3;\3;\3;\3;\3;\3;\3;\3;\3<\3<\3<\3<\3<"+
+		"\3<\3=\3=\3=\3=\3=\3=\3>\3>\3>\3>\3>\3>\3>\3>\3?\3?\5?\u0246\n?\3@\3@"+
+		"\5@\u024a\n@\3A\3A\3A\5A\u024f\nA\3A\3A\5A\u0253\nA\3A\3A\5A\u0257\nA"+
+		"\3A\3A\3A\3B\3B\3B\5B\u025f\nB\3B\3B\5B\u0263\nB\3B\3B\5B\u0267\nB\3B"+
+		"\3B\3B\3C\3C\5C\u026e\nC\3D\3D\3E\3E\3E\7E\u0275\nE\fE\16E\u0278\13E\3"+
+		"F\3F\3F\7F\u027d\nF\fF\16F\u0280\13F\3F\3F\3F\3F\3F\3F\3F\3G\3G\3G\7G"+
+		"\u028c\nG\fG\16G\u028f\13G\3G\3G\3G\3G\3G\3G\3G\3H\3H\5H\u029a\nH\3H\3"+
+		"H\3I\3I\5I\u02a0\nI\3I\7I\u02a3\nI\fI\16I\u02a6\13I\3J\3J\3K\3K\3K\3K"+
+		"\3K\3K\3K\3K\3K\3K\5K\u02b4\nK\3L\3L\3M\3M\3N\3N\3O\3O\3O\3O\7O\u02c0"+
+		"\nO\fO\16O\u02c3\13O\3O\3O\3O\3O\3O\3O\3O\3O\3O\3O\3O\3O\3O\5O\u02d2\n"+
+		"O\3P\3P\3Q\3Q\3Q\3Q\7Q\u02da\nQ\fQ\16Q\u02dd\13Q\3Q\3Q\3Q\3Q\3Q\3Q\3Q"+
+		"\3Q\3Q\3Q\3Q\3Q\5Q\u02eb\nQ\3R\3R\3R\3R\3R\3R\3R\3R\3R\3R\5R\u02f7\nR"+
+		"\3R\3R\3R\3R\3R\7R\u02fe\nR\fR\16R\u0301\13R\3S\3S\3S\3S\3S\3S\3S\3S\3"+
+		"S\3S\7S\u030d\nS\fS\16S\u0310\13S\3T\3T\3T\3T\3T\3T\3T\3T\3T\3T\5T\u031c"+
+		"\nT\3T\3T\3T\3T\3T\7T\u0323\nT\fT\16T\u0326\13T\3U\3U\3U\5U\u032b\nU\3"+
+		"U\3U\3V\3V\3V\5V\u0332\nV\3V\3V\3W\3W\3W\7W\u0339\nW\fW\16W\u033c\13W"+
+		"\3X\3X\3X\3X\5X\u0342\nX\3X\3X\3X\3X\3X\5X\u0349\nX\3Y\3Y\7Y\u034d\nY"+
+		"\fY\16Y\u0350\13Y\3Z\3Z\3Z\3Z\3[\3[\5[\u0358\n[\3\\\3\\\3]\3]\3]\3]\3"+
+		"]\5]\u0361\n]\3^\3^\5^\u0365\n^\3_\3_\3`\3`\3a\3a\3a\3a\3a\3a\7a\u0371"+
+		"\na\fa\16a\u0374\13a\3b\3b\3b\3b\3b\3b\7b\u037c\nb\fb\16b\u037f\13b\3"+
+		"c\3c\3c\3c\3c\3c\7c\u0387\nc\fc\16c\u038a\13c\3d\3d\3d\3d\3d\3d\7d\u0392"+
+		"\nd\fd\16d\u0395\13d\3e\3e\3e\3e\3e\3e\7e\u039d\ne\fe\16e\u03a0\13e\3"+
+		"f\3f\3f\3f\3f\3f\3f\3f\3f\7f\u03ab\nf\ff\16f\u03ae\13f\3g\3g\3g\3g\3g"+
+		"\3g\3g\3g\3g\3g\3g\3g\3g\3g\3g\3g\3g\3g\7g\u03c2\ng\fg\16g\u03c5\13g\3"+
+		"h\3h\3h\3h\3h\3h\3h\3h\3h\3h\3h\3h\3h\3h\3h\3h\7h\u03d7\nh\fh\16h\u03da"+
+		"\13h\3i\3i\3i\3i\3i\3i\3i\3i\3i\7i\u03e5\ni\fi\16i\u03e8\13i\3j\3j\3j"+
+		"\3j\3j\3j\3j\3j\3j\3j\3j\3j\7j\u03f6\nj\fj\16j\u03f9\13j\3k\3k\3k\3k\3"+
+		"k\3k\5k\u0401\nk\3l\3l\3l\3l\3l\5l\u0408\nl\3m\3m\5m\u040c\nm\3n\3n\3"+
+		"n\3o\3o\3o\3o\2\f\u00c0\u00c2\u00c4\u00c6\u00c8\u00ca\u00cc\u00ce\u00d0"+
+		"\u00d2p\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:"+
+		"<>@BDFHJLNPRTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\u0084\u0086\u0088\u008a"+
+		"\u008c\u008e\u0090\u0092\u0094\u0096\u0098\u009a\u009c\u009e\u00a0\u00a2"+
+		"\u00a4\u00a6\u00a8\u00aa\u00ac\u00ae\u00b0\u00b2\u00b4\u00b6\u00b8\u00ba"+
+		"\u00bc\u00be\u00c0\u00c2\u00c4\u00c6\u00c8\u00ca\u00cc\u00ce\u00d0\u00d2"+
+		"\u00d4\u00d6\u00d8\u00da\u00dc\2\6\3\2\35\"\5\2\t\n\24\25\32\32\4\2\16"+
+		"\16\21\21\5\2,,EHLL\2\u0427\2\u00de\3\2\2\2\4\u00e2\3\2\2\2\6\u00e6\3"+
+		"\2\2\2\b\u00e8\3\2\2\2\n\u00ea\3\2\2\2\f\u00ee\3\2\2\2\16\u00f0\3\2\2"+
+		"\2\20\u00f8\3\2\2\2\22\u00fa\3\2\2\2\24\u0103\3\2\2\2\26\u0105\3\2\2\2"+
+		"\30\u0107\3\2\2\2\32\u010b\3\2\2\2\34\u0114\3\2\2\2\36\u0119\3\2\2\2 "+
+		"\u011b\3\2\2\2\"\u0120\3\2\2\2$\u0128\3\2\2\2&\u012d\3\2\2\2(\u0133\3"+
+		"\2\2\2*\u0137\3\2\2\2,\u013b\3\2\2\2.\u013f\3\2\2\2\60\u0141\3\2\2\2\62"+
+		"\u0149\3\2\2\2\64\u014b\3\2\2\2\66\u014e\3\2\2\28\u0153\3\2\2\2:\u0155"+
+		"\3\2\2\2<\u0164\3\2\2\2>\u0176\3\2\2\2@\u017b\3\2\2\2B\u0181\3\2\2\2D"+
+		"\u018e\3\2\2\2F\u0190\3\2\2\2H\u0197\3\2\2\2J\u0199\3\2\2\2L\u01a2\3\2"+
+		"\2\2N\u01aa\3\2\2\2P\u01b1\3\2\2\2R\u01b7\3\2\2\2T\u01b9\3\2\2\2V\u01bf"+
+		"\3\2\2\2X\u01cd\3\2\2\2Z\u01cf\3\2\2\2\\\u01e3\3\2\2\2^\u01e9\3\2\2\2"+
+		"`\u01eb\3\2\2\2b\u01f8\3\2\2\2d\u0200\3\2\2\2f\u0206\3\2\2\2h\u0208\3"+
+		"\2\2\2j\u020c\3\2\2\2l\u0210\3\2\2\2n\u0217\3\2\2\2p\u0219\3\2\2\2r\u021f"+
+		"\3\2\2\2t\u0227\3\2\2\2v\u022f\3\2\2\2x\u0235\3\2\2\2z\u023b\3\2\2\2|"+
+		"\u0245\3\2\2\2~\u0249\3\2\2\2\u0080\u024b\3\2\2\2\u0082\u025b\3\2\2\2"+
+		"\u0084\u026d\3\2\2\2\u0086\u026f\3\2\2\2\u0088\u0271\3\2\2\2\u008a\u0279"+
+		"\3\2\2\2\u008c\u0288\3\2\2\2\u008e\u0297\3\2\2\2\u0090\u029f\3\2\2\2\u0092"+
+		"\u02a7\3\2\2\2\u0094\u02b3\3\2\2\2\u0096\u02b5\3\2\2\2\u0098\u02b7\3\2"+
+		"\2\2\u009a\u02b9\3\2\2\2\u009c\u02d1\3\2\2\2\u009e\u02d3\3\2\2\2\u00a0"+
+		"\u02ea\3\2\2\2\u00a2\u02f6\3\2\2\2\u00a4\u0302\3\2\2\2\u00a6\u031b\3\2"+
+		"\2\2\u00a8\u0327\3\2\2\2\u00aa\u032e\3\2\2\2\u00ac\u0335\3\2\2\2\u00ae"+
+		"\u0348\3\2\2\2\u00b0\u034a\3\2\2\2\u00b2\u0351\3\2\2\2\u00b4\u0357\3\2"+
+		"\2\2\u00b6\u0359\3\2\2\2\u00b8\u0360\3\2\2\2\u00ba\u0364\3\2\2\2\u00bc"+
+		"\u0366\3\2\2\2\u00be\u0368\3\2\2\2\u00c0\u036a\3\2\2\2\u00c2\u0375\3\2"+
+		"\2\2\u00c4\u0380\3\2\2\2\u00c6\u038b\3\2\2\2\u00c8\u0396\3\2\2\2\u00ca"+
+		"\u03a1\3\2\2\2\u00cc\u03af\3\2\2\2\u00ce\u03c6\3\2\2\2\u00d0\u03db\3\2"+
+		"\2\2\u00d2\u03e9\3\2\2\2\u00d4\u0400\3\2\2\2\u00d6\u0407\3\2\2\2\u00d8"+
+		"\u040b\3\2\2\2\u00da\u040d\3\2\2\2\u00dc\u0410\3\2\2\2\u00de\u00df\t\2"+
+		"\2\2\u00df\3\3\2\2\2\u00e0\u00e3\5\6\4\2\u00e1\u00e3\7\7\2\2\u00e2\u00e0"+
+		"\3\2\2\2\u00e2\u00e1\3\2\2\2\u00e3\5\3\2\2\2\u00e4\u00e7\5\b\5\2\u00e5"+
+		"\u00e7\5\n\6\2\u00e6\u00e4\3\2\2\2\u00e6\u00e5\3\2\2\2\u00e7\7\3\2\2\2"+
+		"\u00e8\u00e9\t\3\2\2\u00e9\t\3\2\2\2\u00ea\u00eb\t\4\2\2\u00eb\13\3\2"+
+		"\2\2\u00ec\u00ef\5\16\b\2\u00ed\u00ef\5\20\t\2\u00ee\u00ec\3\2\2\2\u00ee"+
+		"\u00ed\3\2\2\2\u00ef\r\3\2\2\2\u00f0\u00f1\7P\2\2\u00f1\17\3\2\2\2\u00f2"+
+		"\u00f3\5\4\3\2\u00f3\u00f4\5\22\n\2\u00f4\u00f9\3\2\2\2\u00f5\u00f6\5"+
+		"\16\b\2\u00f6\u00f7\5\22\n\2\u00f7\u00f9\3\2\2\2\u00f8\u00f2\3\2\2\2\u00f8"+
+		"\u00f5\3\2\2\2\u00f9\21\3\2\2\2\u00fa\u00fb\7\'\2\2\u00fb\u0100\7(\2\2"+
+		"\u00fc\u00fd\7\'\2\2\u00fd\u00ff\7(\2\2\u00fe\u00fc\3\2\2\2\u00ff\u0102"+
+		"\3\2\2\2\u0100\u00fe\3\2\2\2\u0100\u0101\3\2\2\2\u0101\23\3\2\2\2\u0102"+
+		"\u0100\3\2\2\2\u0103\u0104\7P\2\2\u0104\25\3\2\2\2\u0105\u0106\7P\2\2"+
+		"\u0106\27\3\2\2\2\u0107\u0108\7\13\2\2\u0108\u0109\7P\2\2\u0109\u010a"+
+		"\5\32\16\2\u010a\31\3\2\2\2\u010b\u010d\7%\2\2\u010c\u010e\5\34\17\2\u010d"+
+		"\u010c\3\2\2\2\u010d\u010e\3\2\2\2\u010e\u010f\3\2\2\2\u010f\u0110\7&"+
+		"\2\2\u0110\33\3\2\2\2\u0111\u0113\5\36\20\2\u0112\u0111\3\2\2\2\u0113"+
+		"\u0116\3\2\2\2\u0114\u0112\3\2\2\2\u0114\u0115\3\2\2\2\u0115\35\3\2\2"+
+		"\2\u0116\u0114\3\2\2\2\u0117\u011a\5 \21\2\u0118\u011a\5\64\33\2\u0119"+
+		"\u0117\3\2\2\2\u0119\u0118\3\2\2\2\u011a\37\3\2\2\2\u011b\u011c\7\3\2"+
+		"\2\u011c\u011d\7#\2\2\u011d\u011e\7$\2\2\u011e\u011f\5H%\2\u011f!\3\2"+
+		"\2\2\u0120\u0125\5$\23\2\u0121\u0122\7*\2\2\u0122\u0124\5$\23\2\u0123"+
+		"\u0121\3\2\2\2\u0124\u0127\3\2\2\2\u0125\u0123\3\2\2\2\u0125\u0126\3\2"+
+		"\2\2\u0126#\3\2\2\2\u0127\u0125\3\2\2\2\u0128\u012b\5&\24\2\u0129\u012a"+
+		"\7,\2\2\u012a\u012c\5(\25\2\u012b\u0129\3\2\2\2\u012b\u012c\3\2\2\2\u012c"+
+		"%\3\2\2\2\u012d\u012f\7P\2\2\u012e\u0130\5\22\n\2\u012f\u012e\3\2\2\2"+
+		"\u012f\u0130\3\2\2\2\u0130\'\3\2\2\2\u0131\u0134\5\u00b4[\2\u0132\u0134"+
+		"\5J&\2\u0133\u0131\3\2\2\2\u0133\u0132\3\2\2\2\u0134)\3\2\2\2\u0135\u0138"+
+		"\5,\27\2\u0136\u0138\5.\30\2\u0137\u0135\3\2\2\2\u0137\u0136\3\2\2\2\u0138"+
+		"+\3\2\2\2\u0139\u013c\5\6\4\2\u013a\u013c\7\7\2\2\u013b\u0139\3\2\2\2"+
+		"\u013b\u013a\3\2\2\2\u013c-\3\2\2\2\u013d\u0140\5\60\31\2\u013e\u0140"+
+		"\5\62\32\2\u013f\u013d\3\2\2\2\u013f\u013e\3\2\2\2\u0140/\3\2\2\2\u0141"+
+		"\u0142\7\4\2\2\u0142\61\3\2\2\2\u0143\u0144\5,\27\2\u0144\u0145\5\22\n"+
+		"\2\u0145\u014a\3\2\2\2\u0146\u0147\5\60\31\2\u0147\u0148\5\22\n\2\u0148"+
+		"\u014a\3\2\2\2\u0149\u0143\3\2\2\2\u0149\u0146\3\2\2\2\u014a\63\3\2\2"+
+		"\2\u014b\u014c\5\66\34\2\u014c\u014d\5H%\2\u014d\65\3\2\2\2\u014e\u014f"+
+		"\58\35\2\u014f\u0150\5:\36\2\u0150\67\3\2\2\2\u0151\u0154\5*\26\2\u0152"+
+		"\u0154\7\33\2\2\u0153\u0151\3\2\2\2\u0153\u0152\3\2\2\2\u01549\3\2\2\2"+
+		"\u0155\u0156\7P\2\2\u0156\u0158\7#\2\2\u0157\u0159\5<\37\2\u0158\u0157"+
+		"\3\2\2\2\u0158\u0159\3\2\2\2\u0159\u015a\3\2\2\2\u015a\u015c\7$\2\2\u015b"+
+		"\u015d\5\22\n\2\u015c\u015b\3\2\2\2\u015c\u015d\3\2\2\2\u015d;\3\2\2\2"+
+		"\u015e\u0165\5F$\2\u015f\u0160\5> \2\u0160\u0161\7*\2\2\u0161\u0162\5"+
+		"D#\2\u0162\u0165\3\2\2\2\u0163\u0165\5D#\2\u0164\u015e\3\2\2\2\u0164\u015f"+
+		"\3\2\2\2\u0164\u0163\3\2\2\2\u0165=\3\2\2\2\u0166\u016b\5@!\2\u0167\u0168"+
+		"\7*\2\2\u0168\u016a\5@!\2\u0169\u0167\3\2\2\2\u016a\u016d\3\2\2\2\u016b"+
+		"\u0169\3\2\2\2\u016b\u016c\3\2\2\2\u016c\u0177\3\2\2\2\u016d\u016b\3\2"+
+		"\2\2\u016e\u0173\5F$\2\u016f\u0170\7*\2\2\u0170\u0172\5@!\2\u0171\u016f"+
+		"\3\2\2\2\u0172\u0175\3\2\2\2\u0173\u0171\3\2\2\2\u0173\u0174\3\2\2\2\u0174"+
+		"\u0177\3\2\2\2\u0175\u0173\3\2\2\2\u0176\u0166\3\2\2\2\u0176\u016e\3\2"+
+		"\2\2\u0177?\3\2\2\2\u0178\u017a\5B\"\2\u0179\u0178\3\2\2\2\u017a\u017d"+
+		"\3\2\2\2\u017b\u0179\3\2\2\2\u017b\u017c\3\2\2\2\u017c\u017e\3\2\2\2\u017d"+
+		"\u017b\3\2\2\2\u017e\u017f\5*\26\2\u017f\u0180\5&\24\2\u0180A\3\2\2\2"+
+		"\u0181\u0182\7\20\2\2\u0182C\3\2\2\2\u0183\u0185\5B\"\2\u0184\u0183\3"+
+		"\2\2\2\u0185\u0188\3\2\2\2\u0186\u0184\3\2\2\2\u0186\u0187\3\2\2\2\u0187"+
+		"\u0189\3\2\2\2\u0188\u0186\3\2\2\2\u0189\u018a\5*\26\2\u018a\u018b\7R"+
+		"\2\2\u018b\u018c\5&\24\2\u018c\u018f\3\2\2\2\u018d\u018f\5@!\2\u018e\u0186"+
+		"\3\2\2\2\u018e\u018d\3\2\2\2\u018fE\3\2\2\2\u0190\u0193\5*\26\2\u0191"+
+		"\u0192\7P\2\2\u0192\u0194\7+\2\2\u0193\u0191\3\2\2\2\u0193\u0194\3\2\2"+
+		"\2\u0194\u0195\3\2\2\2\u0195\u0196\7\5\2\2\u0196G\3\2\2\2\u0197\u0198"+
+		"\5N(\2\u0198I\3\2\2\2\u0199\u019b\7%\2\2\u019a\u019c\5L\'\2\u019b\u019a"+
+		"\3\2\2\2\u019b\u019c\3\2\2\2\u019c\u019e\3\2\2\2\u019d\u019f\7*\2\2\u019e"+
+		"\u019d\3\2\2\2\u019e\u019f\3\2\2\2\u019f\u01a0\3\2\2\2\u01a0\u01a1\7&"+
+		"\2\2\u01a1K\3\2\2\2\u01a2\u01a7\5(\25\2\u01a3\u01a4\7*\2\2\u01a4\u01a6"+
+		"\5(\25\2\u01a5\u01a3\3\2\2\2\u01a6\u01a9\3\2\2\2\u01a7\u01a5\3\2\2\2\u01a7"+
+		"\u01a8\3\2\2\2\u01a8M\3\2\2\2\u01a9\u01a7\3\2\2\2\u01aa\u01ac\7%\2\2\u01ab"+
+		"\u01ad\5P)\2\u01ac\u01ab\3\2\2\2\u01ac\u01ad\3\2\2\2\u01ad\u01ae\3\2\2"+
+		"\2\u01ae\u01af\7&\2\2\u01afO\3\2\2\2\u01b0\u01b2\5R*\2\u01b1\u01b0\3\2"+
+		"\2\2\u01b2\u01b3\3\2\2\2\u01b3\u01b1\3\2\2\2\u01b3\u01b4\3\2\2\2\u01b4"+
+		"Q\3\2\2\2\u01b5\u01b8\5T+\2\u01b6\u01b8\5X-\2\u01b7\u01b5\3\2\2\2\u01b7"+
+		"\u01b6\3\2\2\2\u01b8S\3\2\2\2\u01b9\u01ba\5V,\2\u01ba\u01bb\7)\2\2\u01bb"+
+		"U\3\2\2\2\u01bc\u01be\5B\"\2\u01bd\u01bc\3\2\2\2\u01be\u01c1\3\2\2\2\u01bf"+
+		"\u01bd\3\2\2\2\u01bf\u01c0\3\2\2\2\u01c0\u01c2\3\2\2\2\u01c1\u01bf\3\2"+
+		"\2\2\u01c2\u01c3\5*\26\2\u01c3\u01c4\5\"\22\2\u01c4W\3\2\2\2\u01c5\u01ce"+
+		"\5f\64\2\u01c6\u01ce\5h\65\2\u01c7\u01ce\5p9\2\u01c8\u01ce\5r:\2\u01c9"+
+		"\u01ce\5v<\2\u01ca\u01ce\5|?\2\u01cb\u01ce\5Z.\2\u01cc\u01ce\5`\61\2\u01cd"+
+		"\u01c5\3\2\2\2\u01cd\u01c6\3\2\2\2\u01cd\u01c7\3\2\2\2\u01cd\u01c8\3\2"+
+		"\2\2\u01cd\u01c9\3\2\2\2\u01cd\u01ca\3\2\2\2\u01cd\u01cb\3\2\2\2\u01cd"+
+		"\u01cc\3\2\2\2\u01ceY\3\2\2\2\u01cf\u01d0\7\27\2\2\u01d0\u01d1\7#\2\2"+
+		"\u01d1\u01d2\5\\/\2\u01d2\u01d3\7$\2\2\u01d3\u01d4\7)\2\2\u01d4[\3\2\2"+
+		"\2\u01d5\u01d9\7!\2\2\u01d6\u01d8\5^\60\2\u01d7\u01d6\3\2\2\2\u01d8\u01db"+
+		"\3\2\2\2\u01d9\u01d7\3\2\2\2\u01d9\u01da\3\2\2\2\u01da\u01e4\3\2\2\2\u01db"+
+		"\u01d9\3\2\2\2\u01dc\u01e0\7P\2\2\u01dd\u01df\5^\60\2\u01de\u01dd\3\2"+
+		"\2\2\u01df\u01e2\3\2\2\2\u01e0\u01de\3\2\2\2\u01e0\u01e1\3\2\2\2\u01e1"+
+		"\u01e4\3\2\2\2\u01e2\u01e0\3\2\2\2\u01e3\u01d5\3\2\2\2\u01e3\u01dc\3\2"+
+		"\2\2\u01e4]\3\2\2\2\u01e5\u01e6\7;\2\2\u01e6\u01ea\7P\2\2\u01e7\u01e8"+
+		"\7;\2\2\u01e8\u01ea\7!\2\2\u01e9\u01e5\3\2\2\2\u01e9\u01e7\3\2\2\2\u01ea"+
+		"_\3\2\2\2\u01eb\u01ec\7\31\2\2\u01ec\u01ee\7#\2\2\u01ed\u01ef\7!\2\2\u01ee"+
+		"\u01ed\3\2\2\2\u01ee\u01ef\3\2\2\2\u01ef\u01f1\3\2\2\2\u01f0\u01f2\5b"+
+		"\62\2\u01f1\u01f0\3\2\2\2\u01f2\u01f3\3\2\2\2\u01f3\u01f1\3\2\2\2\u01f3"+
+		"\u01f4\3\2\2\2\u01f4\u01f5\3\2\2\2\u01f5\u01f6\7$\2\2\u01f6\u01f7\7)\2"+
+		"\2\u01f7a\3\2\2\2\u01f8\u01f9\7\62\2\2\u01f9\u01fa\7P\2\2\u01fac\3\2\2"+
+		"\2\u01fb\u0201\5f\64\2\u01fc\u0201\5j\66\2\u01fd\u0201\5t;\2\u01fe\u0201"+
+		"\5x=\2\u01ff\u0201\5~@\2\u0200\u01fb\3\2\2\2\u0200\u01fc\3\2\2\2\u0200"+
+		"\u01fd\3\2\2\2\u0200\u01fe\3\2\2\2\u0200\u01ff\3\2\2\2\u0201e\3\2\2\2"+
+		"\u0202\u0207\5N(\2\u0203\u0207\5l\67\2\u0204\u0207\5z>\2\u0205\u0207\5"+
+		"\u008eH\2\u0206\u0202\3\2\2\2\u0206\u0203\3\2\2\2\u0206\u0204\3\2\2\2"+
+		"\u0206\u0205\3\2\2\2\u0207g\3\2\2\2\u0208\u0209\7P\2\2\u0209\u020a\7\62"+
+		"\2\2\u020a\u020b\5X-\2\u020bi\3\2\2\2\u020c\u020d\7P\2\2\u020d\u020e\7"+
+		"\62\2\2\u020e\u020f\5d\63\2\u020fk\3\2\2\2\u0210\u0211\5n8\2\u0211\u0212"+
+		"\7)\2\2\u0212m\3\2\2\2\u0213\u0218\5\u00b8]\2\u0214\u0218\5\u00dan\2\u0215"+
+		"\u0218\5\u00dco\2\u0216\u0218\5\u00a8U\2\u0217\u0213\3\2\2\2\u0217\u0214"+
+		"\3\2\2\2\u0217\u0215\3\2\2\2\u0217\u0216\3\2\2\2\u0218o\3\2\2\2\u0219"+
+		"\u021a\7\23\2\2\u021a\u021b\7#\2\2\u021b\u021c\5\u00be`\2\u021c\u021d"+
+		"\7$\2\2\u021d\u021e\5X-\2\u021eq\3\2\2\2\u021f\u0220\7\23\2\2\u0220\u0221"+
+		"\7#\2\2\u0221\u0222\5\u00be`\2\u0222\u0223\7$\2\2\u0223\u0224\5d\63\2"+
+		"\u0224\u0225\7\17\2\2\u0225\u0226\5X-\2\u0226s\3\2\2\2\u0227\u0228\7\23"+
+		"\2\2\u0228\u0229\7#\2\2\u0229\u022a\5\u00be`\2\u022a\u022b\7$\2\2\u022b"+
+		"\u022c\5d\63\2\u022c\u022d\7\17\2\2\u022d\u022e\5d\63\2\u022eu\3\2\2\2"+
+		"\u022f\u0230\7\34\2\2\u0230\u0231\7#\2\2\u0231\u0232\5\u00be`\2\u0232"+
+		"\u0233\7$\2\2\u0233\u0234\5X-\2\u0234w\3\2\2\2\u0235\u0236\7\34\2\2\u0236"+
+		"\u0237\7#\2\2\u0237\u0238\5\u00be`\2\u0238\u0239\7$\2\2\u0239\u023a\5"+
+		"d\63\2\u023ay\3\2\2\2\u023b\u023c\7\r\2\2\u023c\u023d\5X-\2\u023d\u023e"+
+		"\7\34\2\2\u023e\u023f\7#\2\2\u023f\u0240\5\u00be`\2\u0240\u0241\7$\2\2"+
+		"\u0241\u0242\7)\2\2\u0242{\3\2\2\2\u0243\u0246\5\u0080A\2\u0244\u0246"+
+		"\5\u008aF\2\u0245\u0243\3\2\2\2\u0245\u0244\3\2\2\2\u0246}\3\2\2\2\u0247"+
+		"\u024a\5\u0082B\2\u0248\u024a\5\u008cG\2\u0249\u0247\3\2\2\2\u0249\u0248"+
+		"\3\2\2\2\u024a\177\3\2\2\2\u024b\u024c\7\22\2\2\u024c\u024e\7#\2\2\u024d"+
+		"\u024f\5\u0084C\2\u024e\u024d\3\2\2\2\u024e\u024f\3\2\2\2\u024f\u0250"+
+		"\3\2\2\2\u0250\u0252\7)\2\2\u0251\u0253\5\u00be`\2\u0252\u0251\3\2\2\2"+
+		"\u0252\u0253\3\2\2\2\u0253\u0254\3\2\2\2\u0254\u0256\7)\2\2\u0255\u0257"+
+		"\5\u0086D\2\u0256\u0255\3\2\2\2\u0256\u0257\3\2\2\2\u0257\u0258\3\2\2"+
+		"\2\u0258\u0259\7$\2\2\u0259\u025a\5X-\2\u025a\u0081\3\2\2\2\u025b\u025c"+
+		"\7\22\2\2\u025c\u025e\7#\2\2\u025d\u025f\5\u0084C\2\u025e\u025d\3\2\2"+
+		"\2\u025e\u025f\3\2\2\2\u025f\u0260\3\2\2\2\u0260\u0262\7)\2\2\u0261\u0263"+
+		"\5\u00be`\2\u0262\u0261\3\2\2\2\u0262\u0263\3\2\2\2\u0263\u0264\3\2\2"+
+		"\2\u0264\u0266\7)\2\2\u0265\u0267\5\u0086D\2\u0266\u0265\3\2\2\2\u0266"+
+		"\u0267\3\2\2\2\u0267\u0268\3\2\2\2\u0268\u0269\7$\2\2\u0269\u026a\5d\63"+
+		"\2\u026a\u0083\3\2\2\2\u026b\u026e\5\u0088E\2\u026c\u026e\5V,\2\u026d"+
+		"\u026b\3\2\2\2\u026d\u026c\3\2\2\2\u026e\u0085\3\2\2\2\u026f\u0270\5\u0088"+
+		"E\2\u0270\u0087\3\2\2\2\u0271\u0276\5n8\2\u0272\u0273\7*\2\2\u0273\u0275"+
+		"\5n8\2\u0274\u0272\3\2\2\2\u0275\u0278\3\2\2\2\u0276\u0274\3\2\2\2\u0276"+
+		"\u0277\3\2\2\2\u0277\u0089\3\2\2\2\u0278\u0276\3\2\2\2\u0279\u027a\7\22"+
+		"\2\2\u027a\u027e\7#\2\2\u027b\u027d\5B\"\2\u027c\u027b\3\2\2\2\u027d\u0280"+
+		"\3\2\2\2\u027e\u027c\3\2\2\2\u027e\u027f\3\2\2\2\u027f\u0281\3\2\2\2\u0280"+
+		"\u027e\3\2\2\2\u0281\u0282\5*\26\2\u0282\u0283\5&\24\2\u0283\u0284\7\62"+
+		"\2\2\u0284\u0285\5\u00b4[\2\u0285\u0286\7$\2\2\u0286\u0287\5X-\2\u0287"+
+		"\u008b\3\2\2\2\u0288\u0289\7\22\2\2\u0289\u028d\7#\2\2\u028a\u028c\5B"+
+		"\"\2\u028b\u028a\3\2\2\2\u028c\u028f\3\2\2\2\u028d\u028b\3\2\2\2\u028d"+
+		"\u028e\3\2\2\2\u028e\u0290\3\2\2\2\u028f\u028d\3\2\2\2\u0290\u0291\5*"+
+		"\26\2\u0291\u0292\5&\24\2\u0292\u0293\7\62\2\2\u0293\u0294\5\u00b4[\2"+
+		"\u0294\u0295\7$\2\2\u0295\u0296\5d\63\2\u0296\u008d\3\2\2\2\u0297\u0299"+
+		"\7\30\2\2\u0298\u029a\5\u00b4[\2\u0299\u0298\3\2\2\2\u0299\u029a\3\2\2"+
+		"\2\u029a\u029b\3\2\2\2\u029b\u029c\7)\2\2\u029c\u008f\3\2\2\2\u029d\u02a0"+
+		"\5\u009cO\2\u029e\u02a0\5\u00aeX\2\u029f\u029d\3\2\2\2\u029f\u029e\3\2"+
+		"\2\2\u02a0\u02a4\3\2\2\2\u02a1\u02a3\5\u0096L\2\u02a2\u02a1\3\2\2\2\u02a3"+
+		"\u02a6\3\2\2\2\u02a4\u02a2\3\2\2\2\u02a4\u02a5\3\2\2\2\u02a5\u0091\3\2"+
+		"\2\2\u02a6\u02a4\3\2\2\2\u02a7\u02a8\3\2\2\2\u02a8\u0093\3\2\2\2\u02a9"+
+		"\u02b4\5\2\2\2\u02aa\u02ab\7\33\2\2\u02ab\u02ac\7+\2\2\u02ac\u02b4\7\13"+
+		"\2\2\u02ad\u02b4\7\5\2\2\u02ae\u02af\7#\2\2\u02af\u02b0\5\u00b4[\2\u02b0"+
+		"\u02b1\7$\2\2\u02b1\u02b4\3\2\2\2\u02b2\u02b4\5\u00a8U\2\u02b3\u02a9\3"+
+		"\2\2\2\u02b3\u02aa\3\2\2\2\u02b3\u02ad\3\2\2\2\u02b3\u02ae\3\2\2\2\u02b3"+
+		"\u02b2\3\2\2\2\u02b4\u0095\3\2\2\2\u02b5\u02b6\5\u00a4S\2\u02b6\u0097"+
+		"\3\2\2\2\u02b7\u02b8\3\2\2\2\u02b8\u0099\3\2\2\2\u02b9\u02ba\3\2\2\2\u02ba"+
+		"\u009b\3\2\2\2\u02bb\u02d2\5\2\2\2\u02bc\u02c1\5,\27\2\u02bd\u02be\7\'"+
+		"\2\2\u02be\u02c0\7(\2\2\u02bf\u02bd\3\2\2\2\u02c0\u02c3\3\2\2\2\u02c1"+
+		"\u02bf\3\2\2\2\u02c1\u02c2\3\2\2\2\u02c2\u02c4\3\2\2\2\u02c3\u02c1\3\2"+
+		"\2\2\u02c4\u02c5\7+\2\2\u02c5\u02c6\7\13\2\2\u02c6\u02d2\3\2\2\2\u02c7"+
+		"\u02c8\7\33\2\2\u02c8\u02c9\7+\2\2\u02c9\u02d2\7\13\2\2\u02ca\u02d2\7"+
+		"\5\2\2\u02cb\u02cc\7#\2\2\u02cc\u02cd\5\u00b4[\2\u02cd\u02ce\7$\2\2\u02ce"+
+		"\u02d2\3\2\2\2\u02cf\u02d2\5\u00a6T\2\u02d0\u02d2\5\u00aaV\2\u02d1\u02bb"+
+		"\3\2\2\2\u02d1\u02bc\3\2\2\2\u02d1\u02c7\3\2\2\2\u02d1\u02ca\3\2\2\2\u02d1"+
+		"\u02cb\3\2\2\2\u02d1\u02cf\3\2\2\2\u02d1\u02d0\3\2\2\2\u02d2\u009d\3\2"+
+		"\2\2\u02d3\u02d4\3\2\2\2\u02d4\u009f\3\2\2\2\u02d5\u02eb\5\2\2\2\u02d6"+
+		"\u02db\5,\27\2\u02d7\u02d8\7\'\2\2\u02d8\u02da\7(\2\2\u02d9\u02d7\3\2"+
+		"\2\2\u02da\u02dd\3\2\2\2\u02db\u02d9\3\2\2\2\u02db\u02dc\3\2\2\2\u02dc"+
+		"\u02de\3\2\2\2\u02dd\u02db\3\2\2\2\u02de\u02df\7+\2\2\u02df\u02e0\7\13"+
+		"\2\2\u02e0\u02eb\3\2\2\2\u02e1\u02e2\7\33\2\2\u02e2\u02e3\7+\2\2\u02e3"+
+		"\u02eb\7\13\2\2\u02e4\u02eb\7\5\2\2\u02e5\u02e6\7#\2\2\u02e6\u02e7\5\u00b4"+
+		"[\2\u02e7\u02e8\7$\2\2\u02e8\u02eb\3\2\2\2\u02e9\u02eb\5\u00aaV\2\u02ea"+
+		"\u02d5\3\2\2\2\u02ea\u02d6\3\2\2\2\u02ea\u02e1\3\2\2\2\u02ea\u02e4\3\2"+
+		"\2\2\u02ea\u02e5\3\2\2\2\u02ea\u02e9\3\2\2\2\u02eb\u00a1\3\2\2\2\u02ec"+
+		"\u02ed\5\24\13\2\u02ed\u02ee\7\'\2\2\u02ee\u02ef\5\u00b4[\2\u02ef\u02f0"+
+		"\7(\2\2\u02f0\u02f7\3\2\2\2\u02f1\u02f2\5\u0094K\2\u02f2\u02f3\7\'\2\2"+
+		"\u02f3\u02f4\5\u00b4[\2\u02f4\u02f5\7(\2\2\u02f5\u02f7\3\2\2\2\u02f6\u02ec"+
+		"\3\2\2\2\u02f6\u02f1\3\2\2\2\u02f7\u02ff\3\2\2\2\u02f8\u02f9\5\u0092J"+
+		"\2\u02f9\u02fa\7\'\2\2\u02fa\u02fb\5\u00b4[\2\u02fb\u02fc\7(\2\2\u02fc"+
+		"\u02fe\3\2\2\2\u02fd\u02f8\3\2\2\2\u02fe\u0301\3\2\2\2\u02ff\u02fd\3\2"+
+		"\2\2\u02ff\u0300\3\2\2\2\u0300\u00a3\3\2\2\2\u0301\u02ff\3\2\2\2\u0302"+
+		"\u0303\5\u009aN\2\u0303\u0304\7\'\2\2\u0304\u0305\5\u00b4[\2\u0305\u0306"+
+		"\7(\2\2\u0306\u030e\3\2\2\2\u0307\u0308\5\u0098M\2\u0308\u0309\7\'\2\2"+
+		"\u0309\u030a\5\u00b4[\2\u030a\u030b\7(\2\2\u030b\u030d\3\2\2\2\u030c\u0307"+
+		"\3\2\2\2\u030d\u0310\3\2\2\2\u030e\u030c\3\2\2\2\u030e\u030f\3\2\2\2\u030f"+
+		"\u00a5\3\2\2\2\u0310\u030e\3\2\2\2\u0311\u0312\5\24\13\2\u0312\u0313\7"+
+		"\'\2\2\u0313\u0314\5\u00b4[\2\u0314\u0315\7(\2\2\u0315\u031c\3\2\2\2\u0316"+
+		"\u0317\5\u00a0Q\2\u0317\u0318\7\'\2\2\u0318\u0319\5\u00b4[\2\u0319\u031a"+
+		"\7(\2\2\u031a\u031c\3\2\2\2\u031b\u0311\3\2\2\2\u031b\u0316\3\2\2\2\u031c"+
+		"\u0324\3\2\2\2\u031d\u031e\5\u009eP\2\u031e\u031f\7\'\2\2\u031f\u0320"+
+		"\5\u00b4[\2\u0320\u0321\7(\2\2\u0321\u0323\3\2\2\2\u0322\u031d\3\2\2\2"+
+		"\u0323\u0326\3\2\2\2\u0324\u0322\3\2\2\2\u0324\u0325\3\2\2\2\u0325\u00a7"+
+		"\3\2\2\2\u0326\u0324\3\2\2\2\u0327\u0328\5\26\f\2\u0328\u032a\7#\2\2\u0329"+
+		"\u032b\5\u00acW\2\u032a\u0329\3\2\2\2\u032a\u032b\3\2\2\2\u032b\u032c"+
+		"\3\2\2\2\u032c\u032d\7$\2\2\u032d\u00a9\3\2\2\2\u032e\u032f\5\26\f\2\u032f"+
+		"\u0331\7#\2\2\u0330\u0332\5\u00acW\2\u0331\u0330\3\2\2\2\u0331\u0332\3"+
+		"\2\2\2\u0332\u0333\3\2\2\2\u0333\u0334\7$\2\2\u0334\u00ab\3\2\2\2\u0335"+
+		"\u033a\5\u00b6\\\2\u0336\u0337\7*\2\2\u0337\u0339\5\u00b6\\\2\u0338\u0336"+
+		"\3\2\2\2\u0339\u033c\3\2\2\2\u033a\u0338\3\2\2\2\u033a\u033b\3\2\2\2\u033b"+
+		"\u00ad\3\2\2\2\u033c\u033a\3\2\2\2\u033d\u033e\7\26\2\2\u033e\u033f\5"+
+		"\4\3\2\u033f\u0341\5\u00b0Y\2\u0340\u0342\5\22\n\2\u0341\u0340\3\2\2\2"+
+		"\u0341\u0342\3\2\2\2\u0342\u0349\3\2\2\2\u0343\u0344\7\26\2\2\u0344\u0345"+
+		"\5\4\3\2\u0345\u0346\5\22\n\2\u0346\u0347\5J&\2\u0347\u0349\3\2\2\2\u0348"+
+		"\u033d\3\2\2\2\u0348\u0343\3\2\2\2\u0349\u00af\3\2\2\2\u034a\u034e\5\u00b2"+
+		"Z\2\u034b\u034d\5\u00b2Z\2\u034c\u034b\3\2\2\2\u034d\u0350\3\2\2\2\u034e"+
+		"\u034c\3\2\2\2\u034e\u034f\3\2\2\2\u034f\u00b1\3\2\2\2\u0350\u034e\3\2"+
+		"\2\2\u0351\u0352\7\'\2\2\u0352\u0353\5\u00b4[\2\u0353\u0354\7(\2\2\u0354"+
+		"\u00b3\3\2\2\2\u0355\u0358\5\u00b6\\\2\u0356\u0358\5\u00be`\2\u0357\u0355"+
+		"\3\2\2\2\u0357\u0356\3\2\2\2\u0358\u00b5\3\2\2\2\u0359\u035a\5\u00b8]"+
+		"\2\u035a\u00b7\3\2\2\2\u035b\u035c\5\u00ba^\2\u035c\u035d\5\u00bc_\2\u035d"+
+		"\u035e\5\u00d0i\2\u035e\u0361\3\2\2\2\u035f\u0361\5\u00d0i\2\u0360\u035b"+
+		"\3\2\2\2\u0360\u035f\3\2\2\2\u0361\u00b9\3\2\2\2\u0362\u0365\5\24\13\2"+
+		"\u0363\u0365\5\u00a2R\2\u0364\u0362\3\2\2\2\u0364\u0363\3\2\2\2\u0365"+
+		"\u00bb\3\2\2\2\u0366\u0367\t\5\2\2\u0367\u00bd\3\2\2\2\u0368\u0369\5\u00c0"+
+		"a\2\u0369\u00bf\3\2\2\2\u036a\u036b\ba\1\2\u036b\u036c\5\u00c2b\2\u036c"+
+		"\u0372\3\2\2\2\u036d\u036e\f\3\2\2\u036e\u036f\78\2\2\u036f\u0371\5\u00c2"+
+		"b\2\u0370\u036d\3\2\2\2\u0371\u0374\3\2\2\2\u0372\u0370\3\2\2\2\u0372"+
+		"\u0373\3\2\2\2\u0373\u00c1\3\2\2\2\u0374\u0372\3\2\2\2\u0375\u0376\bb"+
+		"\1\2\u0376\u0377\5\u00c4c\2\u0377\u037d\3\2\2\2\u0378\u0379\f\3\2\2\u0379"+
+		"\u037a\7\67\2\2\u037a\u037c\5\u00c4c\2\u037b\u0378\3\2\2\2\u037c\u037f"+
+		"\3\2\2\2\u037d\u037b\3\2\2\2\u037d\u037e\3\2\2\2\u037e\u00c3\3\2\2\2\u037f"+
+		"\u037d\3\2\2\2\u0380\u0381\bc\1\2\u0381\u0382\5\u00c6d\2\u0382\u0388\3"+
+		"\2\2\2\u0383\u0384\f\3\2\2\u0384\u0385\7@\2\2\u0385\u0387\5\u00c6d\2\u0386"+
+		"\u0383\3\2\2\2\u0387\u038a\3\2\2\2\u0388\u0386\3\2\2\2\u0388\u0389\3\2"+
+		"\2\2\u0389\u00c5\3\2\2\2\u038a\u0388\3\2\2\2\u038b\u038c\bd\1\2\u038c"+
+		"\u038d\5\u00c8e\2\u038d\u0393\3\2\2\2\u038e\u038f\f\3\2\2\u038f\u0390"+
+		"\7A\2\2\u0390\u0392\5\u00c8e\2\u0391\u038e\3\2\2\2\u0392\u0395\3\2\2\2"+
+		"\u0393\u0391\3\2\2\2\u0393\u0394\3\2\2\2\u0394\u00c7\3\2\2\2\u0395\u0393"+
+		"\3\2\2\2\u0396\u0397\be\1\2\u0397\u0398\5\u00caf\2\u0398\u039e\3\2\2\2"+
+		"\u0399\u039a\f\3\2\2\u039a\u039b\7?\2\2\u039b\u039d\5\u00caf\2\u039c\u0399"+
+		"\3\2\2\2\u039d\u03a0\3\2\2\2\u039e\u039c\3\2\2\2\u039e\u039f\3\2\2\2\u039f"+
+		"\u00c9\3\2\2\2\u03a0\u039e\3\2\2\2\u03a1\u03a2\bf\1\2\u03a2\u03a3\5\u00cc"+
+		"g\2\u03a3\u03ac\3\2\2\2\u03a4\u03a5\f\4\2\2\u03a5\u03a6\7\63\2\2\u03a6"+
+		"\u03ab\5\u00ccg\2\u03a7\u03a8\f\3\2\2\u03a8\u03a9\7\66\2\2\u03a9\u03ab"+
+		"\5\u00ccg\2\u03aa\u03a4\3\2\2\2\u03aa\u03a7\3\2\2\2\u03ab\u03ae\3\2\2"+
+		"\2\u03ac\u03aa\3\2\2\2\u03ac\u03ad\3\2\2\2\u03ad\u00cb\3\2\2\2\u03ae\u03ac"+
+		"\3\2\2\2\u03af\u03b0\bg\1\2\u03b0\u03b1\5\u00ceh\2\u03b1\u03c3\3\2\2\2"+
+		"\u03b2\u03b3\f\7\2\2\u03b3\u03b4\7.\2\2\u03b4\u03c2\5\u00ceh\2\u03b5\u03b6"+
+		"\f\6\2\2\u03b6\u03b7\7-\2\2\u03b7\u03c2\5\u00ceh\2\u03b8\u03b9\f\5\2\2"+
+		"\u03b9\u03ba\7\64\2\2\u03ba\u03c2\5\u00ceh\2\u03bb\u03bc\f\4\2\2\u03bc"+
+		"\u03bd\7\65\2\2\u03bd\u03c2\5\u00ceh\2\u03be\u03bf\f\3\2\2\u03bf\u03c0"+
+		"\7\6\2\2\u03c0\u03c2\5\f\7\2\u03c1\u03b2\3\2\2\2\u03c1\u03b5\3\2\2\2\u03c1"+
+		"\u03b8\3\2\2\2\u03c1\u03bb\3\2\2\2\u03c1\u03be\3\2\2\2\u03c2\u03c5\3\2"+
+		"\2\2\u03c3\u03c1\3\2\2\2\u03c3\u03c4\3\2\2\2\u03c4\u00cd\3\2\2\2\u03c5"+
+		"\u03c3\3\2\2\2\u03c6\u03c7\bh\1\2\u03c7\u03c8\5\u00d6l\2\u03c8\u03d8\3"+
+		"\2\2\2\u03c9\u03ca\f\5\2\2\u03ca\u03cb\7.\2\2\u03cb\u03cc\7.\2\2\u03cc"+
+		"\u03d7\5\u00d0i\2\u03cd\u03ce\f\4\2\2\u03ce\u03cf\7-\2\2\u03cf\u03d0\7"+
+		"-\2\2\u03d0\u03d7\5\u00d0i\2\u03d1\u03d2\f\3\2\2\u03d2\u03d3\7-\2\2\u03d3"+
+		"\u03d4\7-\2\2\u03d4\u03d5\7-\2\2\u03d5\u03d7\5\u00d0i\2\u03d6\u03c9\3"+
+		"\2\2\2\u03d6\u03cd\3\2\2\2\u03d6\u03d1\3\2\2\2\u03d7\u03da\3\2\2\2\u03d8"+
+		"\u03d6\3\2\2\2\u03d8\u03d9\3\2\2\2\u03d9\u00cf\3\2\2\2\u03da\u03d8\3\2"+
+		"\2\2\u03db\u03dc\bi\1\2\u03dc\u03dd\5\u00d2j\2\u03dd\u03e6\3\2\2\2\u03de"+
+		"\u03df\f\4\2\2\u03df\u03e0\7;\2\2\u03e0\u03e5\5\u00d2j\2\u03e1\u03e2\f"+
+		"\3\2\2\u03e2\u03e3\7<\2\2\u03e3\u03e5\5\u00d2j\2\u03e4\u03de\3\2\2\2\u03e4"+
+		"\u03e1\3\2\2\2\u03e5\u03e8\3\2\2\2\u03e6\u03e4\3\2\2\2\u03e6\u03e7\3\2"+
+		"\2\2\u03e7\u00d1\3\2\2\2\u03e8\u03e6\3\2\2\2\u03e9\u03ea\bj\1\2\u03ea"+
+		"\u03eb\5\u00d4k\2\u03eb\u03f7\3\2\2\2\u03ec\u03ed\f\5\2\2\u03ed\u03ee"+
+		"\7=\2\2\u03ee\u03f6\5\u00d4k\2\u03ef\u03f0\f\4\2\2\u03f0\u03f1\7>\2\2"+
+		"\u03f1\u03f6\5\u00d4k\2\u03f2\u03f3\f\3\2\2\u03f3\u03f4\7B\2\2\u03f4\u03f6"+
+		"\5\u00d4k\2\u03f5\u03ec\3\2\2\2\u03f5\u03ef\3\2\2\2\u03f5\u03f2\3\2\2"+
+		"\2\u03f6\u03f9\3\2\2\2\u03f7\u03f5\3\2\2\2\u03f7\u03f8\3\2\2\2\u03f8\u00d3"+
+		"\3\2\2\2\u03f9\u03f7\3\2\2\2\u03fa\u0401\3\2\2\2\u03fb\u03fc\7;\2\2\u03fc"+
+		"\u0401\5\u00d4k\2\u03fd\u03fe\7<\2\2\u03fe\u0401\5\u00d4k\2\u03ff\u0401"+
+		"\5\u00d6l\2\u0400\u03fa\3\2\2\2\u0400\u03fb\3\2\2\2\u0400\u03fd\3\2\2"+
+		"\2\u0400\u03ff\3\2\2\2\u0401\u00d5\3\2\2\2\u0402\u0408\5\u00d8m\2\u0403"+
+		"\u0404\7\60\2\2\u0404\u0408\5\u00d4k\2\u0405\u0406\7/\2\2\u0406\u0408"+
+		"\5\u00d4k\2\u0407\u0402\3\2\2\2\u0407\u0403\3\2\2\2\u0407\u0405\3\2\2"+
+		"\2\u0408\u00d7\3\2\2\2\u0409\u040c\5\u0090I\2\u040a\u040c\5\24\13\2\u040b"+
+		"\u0409\3\2\2\2\u040b\u040a\3\2\2\2\u040c\u00d9\3\2\2\2\u040d\u040e\5\u00d8"+
+		"m\2\u040e\u040f\79\2\2\u040f\u00db\3\2\2\2\u0410\u0411\5\u00d8m\2\u0411"+
+		"\u0412\7:\2\2\u0412\u00dd\3\2\2\2b\u00e2\u00e6\u00ee\u00f8\u0100\u010d"+
+		"\u0114\u0119\u0125\u012b\u012f\u0133\u0137\u013b\u013f\u0149\u0153\u0158"+
+		"\u015c\u0164\u016b\u0173\u0176\u017b\u0186\u018e\u0193\u019b\u019e\u01a7"+
+		"\u01ac\u01b3\u01b7\u01bf\u01cd\u01d9\u01e0\u01e3\u01e9\u01ee\u01f3\u0200"+
+		"\u0206\u0217\u0245\u0249\u024e\u0252\u0256\u025e\u0262\u0266\u026d\u0276"+
+		"\u027e\u028d\u0299\u029f\u02a4\u02b3\u02c1\u02d1\u02db\u02ea\u02f6\u02ff"+
+		"\u030e\u031b\u0324\u032a\u0331\u033a\u0341\u0348\u034e\u0357\u0360\u0364"+
+		"\u0372\u037d\u0388\u0393\u039e\u03aa\u03ac\u03c1\u03c3\u03d6\u03d8\u03e4"+
+		"\u03e6\u03f5\u03f7\u0400\u0407\u040b";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

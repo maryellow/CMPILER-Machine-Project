@@ -1,6 +1,9 @@
 //https://www.geeksforgeeks.org/java-swing-create-a-simple-text-editor/
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.DiagnosticErrorListener;
+import org.antlr.v4.runtime.TokenStream;
+import org.antlr.v4.runtime.atn.PredictionMode;
 
 import java.awt.*;
 import javax.swing.*;
@@ -231,8 +234,13 @@ class editor extends JFrame implements ActionListener {
                 InputStream stream = new ByteArrayInputStream(t.getText().getBytes(StandardCharsets.UTF_8));
                 ClypsLexer lexer = new ClypsLexer(CharStreams.fromStream(stream, StandardCharsets.UTF_8));
                 ClypsParser parser = new ClypsParser(new CommonTokenStream(lexer));
+                parser.removeErrorListeners();
+                parser.addErrorListener(new ClypseCustomErrorListener());
+//                parser.addErrorListener(new DiagnosticErrorListener());
+//                parser.getInterpreter()
+//                        .setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
                 parser.addParseListener(new ClypsCustomListener());
-                parser.classDeclaration();
+                parser.normalClassDeclaration();
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }

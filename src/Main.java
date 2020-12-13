@@ -12,7 +12,7 @@ public class Main {
             ClypsLexer lexer = new ClypsLexer(input);
             ClypsParser parser = new ClypsParser(new CommonTokenStream(lexer));
             parser.addParseListener(new ClypsCustomListener());
-            parser.classDeclaration();
+            parser.normalClassDeclaration();
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
