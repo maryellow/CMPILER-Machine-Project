@@ -410,11 +410,13 @@ conditionalExpression
 conditionalOrExpression
 	:	conditionalAndExpression
 	|	conditionalOrExpression '||' conditionalAndExpression
+	|   conditionalOrExpression '||'('|')* conditionalAndExpression {notifyErrorListeners("Too Many '|' Symbols");}
 	;
 
 conditionalAndExpression
 	:	inclusiveOrExpression
 	|	conditionalAndExpression '&&' inclusiveOrExpression
+	|   conditionalAndExpression '&&'('&')* inclusiveOrExpression   {notifyErrorListeners("Too Many '&' Symbols");}
 	;
 
 inclusiveOrExpression
