@@ -227,16 +227,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitUnannPrimitiveType(ClypsParser.UnannPrimitiveTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#unannReferenceType}.
-	 * @param ctx the parse tree
-	 */
-	void enterUnannReferenceType(ClypsParser.UnannReferenceTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#unannReferenceType}.
-	 * @param ctx the parse tree
-	 */
-	void exitUnannReferenceType(ClypsParser.UnannReferenceTypeContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#unannTypeVariable}.
 	 * @param ctx the parse tree
 	 */
@@ -497,16 +487,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitScanExtra(ClypsParser.ScanExtraContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#statementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterStatementNoShortIf(ClypsParser.StatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#statementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitStatementNoShortIf(ClypsParser.StatementNoShortIfContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#statementWithoutTrailingSubstatement}.
 	 * @param ctx the parse tree
 	 */
@@ -516,26 +496,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStatementWithoutTrailingSubstatement(ClypsParser.StatementWithoutTrailingSubstatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#labeledStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterLabeledStatement(ClypsParser.LabeledStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#labeledStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitLabeledStatement(ClypsParser.LabeledStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#labeledStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterLabeledStatementNoShortIf(ClypsParser.LabeledStatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#labeledStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitLabeledStatementNoShortIf(ClypsParser.LabeledStatementNoShortIfContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#expressionStatement}.
 	 * @param ctx the parse tree
@@ -577,16 +537,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitIfThenElseStatement(ClypsParser.IfThenElseStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#ifThenElseStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterIfThenElseStatementNoShortIf(ClypsParser.IfThenElseStatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#ifThenElseStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitIfThenElseStatementNoShortIf(ClypsParser.IfThenElseStatementNoShortIfContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#whileStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -596,16 +546,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitWhileStatement(ClypsParser.WhileStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#whileStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterWhileStatementNoShortIf(ClypsParser.WhileStatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#whileStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitWhileStatementNoShortIf(ClypsParser.WhileStatementNoShortIfContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#doStatement}.
 	 * @param ctx the parse tree
@@ -626,36 +566,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitForStatement(ClypsParser.ForStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#forStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterForStatementNoShortIf(ClypsParser.ForStatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#forStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitForStatementNoShortIf(ClypsParser.ForStatementNoShortIfContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#basicForStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterBasicForStatement(ClypsParser.BasicForStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#basicForStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitBasicForStatement(ClypsParser.BasicForStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#basicForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterBasicForStatementNoShortIf(ClypsParser.BasicForStatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#basicForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitBasicForStatementNoShortIf(ClypsParser.BasicForStatementNoShortIfContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#forInit}.
 	 * @param ctx the parse tree
@@ -687,26 +597,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitStatementExpressionList(ClypsParser.StatementExpressionListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enhancedForStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnhancedForStatement(ClypsParser.EnhancedForStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enhancedForStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnhancedForStatement(ClypsParser.EnhancedForStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#enhancedForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnhancedForStatementNoShortIf(ClypsParser.EnhancedForStatementNoShortIfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#enhancedForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnhancedForStatementNoShortIf(ClypsParser.EnhancedForStatementNoShortIfContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#returnStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -727,16 +617,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitPrimary(ClypsParser.PrimaryContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_arrayAccess}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrimaryNoNewArray_lf_arrayAccess(ClypsParser.PrimaryNoNewArray_lf_arrayAccessContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_arrayAccess}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrimaryNoNewArray_lf_arrayAccess(ClypsParser.PrimaryNoNewArray_lf_arrayAccessContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_arrayAccess}.
 	 * @param ctx the parse tree
 	 */
@@ -747,36 +627,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitPrimaryNoNewArray_lfno_arrayAccess(ClypsParser.PrimaryNoNewArray_lfno_arrayAccessContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrimaryNoNewArray_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrimaryNoNewArray_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primaryContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary}.
 	 * @param ctx the parse tree
 	 */
@@ -786,16 +636,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrimaryNoNewArray_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primaryContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
@@ -817,16 +657,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitArrayAccess(ClypsParser.ArrayAccessContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrayAccess_lf_primary(ClypsParser.ArrayAccess_lf_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrayAccess_lf_primary(ClypsParser.ArrayAccess_lf_primaryContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ClypsParser#arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
 	 */
@@ -846,16 +676,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMethodInvocation(ClypsParser.MethodInvocationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#methodInvocation_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterMethodInvocation_lfno_primary(ClypsParser.MethodInvocation_lfno_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#methodInvocation_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitMethodInvocation_lfno_primary(ClypsParser.MethodInvocation_lfno_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#argumentList}.
 	 * @param ctx the parse tree

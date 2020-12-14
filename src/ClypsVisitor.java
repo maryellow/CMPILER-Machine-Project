@@ -142,12 +142,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUnannPrimitiveType(ClypsParser.UnannPrimitiveTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#unannReferenceType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitUnannReferenceType(ClypsParser.UnannReferenceTypeContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#unannTypeVariable}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -304,29 +298,11 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitScanExtra(ClypsParser.ScanExtraContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#statementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStatementNoShortIf(ClypsParser.StatementNoShortIfContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#statementWithoutTrailingSubstatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitStatementWithoutTrailingSubstatement(ClypsParser.StatementWithoutTrailingSubstatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#labeledStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLabeledStatement(ClypsParser.LabeledStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#labeledStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLabeledStatementNoShortIf(ClypsParser.LabeledStatementNoShortIfContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#expressionStatement}.
 	 * @param ctx the parse tree
@@ -352,23 +328,11 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfThenElseStatement(ClypsParser.IfThenElseStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#ifThenElseStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIfThenElseStatementNoShortIf(ClypsParser.IfThenElseStatementNoShortIfContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#whileStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitWhileStatement(ClypsParser.WhileStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#whileStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitWhileStatementNoShortIf(ClypsParser.WhileStatementNoShortIfContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#doStatement}.
 	 * @param ctx the parse tree
@@ -381,24 +345,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitForStatement(ClypsParser.ForStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#forStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitForStatementNoShortIf(ClypsParser.ForStatementNoShortIfContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#basicForStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBasicForStatement(ClypsParser.BasicForStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#basicForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBasicForStatementNoShortIf(ClypsParser.BasicForStatementNoShortIfContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#forInit}.
 	 * @param ctx the parse tree
@@ -418,18 +364,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatementExpressionList(ClypsParser.StatementExpressionListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enhancedForStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnhancedForStatement(ClypsParser.EnhancedForStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#enhancedForStatementNoShortIf}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnhancedForStatementNoShortIf(ClypsParser.EnhancedForStatementNoShortIfContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#returnStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -442,47 +376,17 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrimary(ClypsParser.PrimaryContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_arrayAccess}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrimaryNoNewArray_lf_arrayAccess(ClypsParser.PrimaryNoNewArray_lf_arrayAccessContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_arrayAccess}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPrimaryNoNewArray_lfno_arrayAccess(ClypsParser.PrimaryNoNewArray_lfno_arrayAccessContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrimaryNoNewArray_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primaryContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(ClypsParser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPrimaryNoNewArray_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primaryContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
@@ -496,12 +400,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitArrayAccess(ClypsParser.ArrayAccessContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#arrayAccess_lf_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArrayAccess_lf_primary(ClypsParser.ArrayAccess_lf_primaryContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ClypsParser#arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -513,12 +411,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMethodInvocation(ClypsParser.MethodInvocationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#methodInvocation_lfno_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMethodInvocation_lfno_primary(ClypsParser.MethodInvocation_lfno_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#argumentList}.
 	 * @param ctx the parse tree

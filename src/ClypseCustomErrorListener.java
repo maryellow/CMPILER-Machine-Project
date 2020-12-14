@@ -16,23 +16,35 @@ public class ClypseCustomErrorListener extends BaseErrorListener {
     {
         String temp = msg.split("'")[0];
         String newMsg="";
-        String error="'"+msg.split("'")[1]+"'";
+        String endMsg="";
+        String error="";
 
-        if(temp.contains("missing"))
-            newMsg="missing ";
-        else if(temp.contains("extraneous input"))
+        if(temp.contains("missing")) {
+            newMsg = "There is a missing symbol: ";
+            error =  "'"+msg.split("missing ")[1]+"'";
+        }
+        else if(temp.contains("extraneous input")){
             newMsg="extra character/s ";
-        else if(temp.contains("mismatched input"))
-            newMsg="unexpected symbol ";
-        else if(temp.contains("no viable alternative"))
-            newMsg="change symbol ";
-        else if(temp.contains("cannot find symbol"))
-            newMsg="missing symbol ";
+            error="'"+msg.split("'")[1]+"'";
+        }
+        else if(temp.contains("mismatched input")) {
+            newMsg = "unexpected symbol ";
+            error = "'" +msg.split("'")[1]+"'";
+            endMsg = " expecting these symbols: '" + msg.split("expecting")[1]+"'";
+        }
+        else if(temp.contains("no viable alternative")){
+            newMsg="missing/invalid characters detected in: ";
+            error="'"+msg.split("'")[1]/*.substring(msg.split("'")[1].length()-1)*/+"'";
+        }
+        else if(temp.contains("cannot find symbol")) {
+            newMsg = "symbol not found ";
+            error = "'" + msg.split("'")[1] + "'";
+        }
         else{
             newMsg=msg;
             error="";
         }
 
-        System.err.println("Syntax Error on Line "+line+" [Char: "+charPositionInLine+"]: "+ newMsg +error);
+        System.err.println("Syntax Error on Line "+line+" [Char: "+charPositionInLine+"]: "+ newMsg +error + endMsg);
     }
 }

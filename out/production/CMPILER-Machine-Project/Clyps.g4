@@ -106,7 +106,7 @@ variableDeclaratorList
 	;
 
 variableDeclarator
-	:	variableDeclaratorId ('=' variableInitializer)?
+	:	variableDeclaratorId '=' variableInitializer
 	;
 
 variableDeclaratorId
@@ -120,17 +120,12 @@ variableInitializer
 
 unannType
 	:	unannPrimitiveType
-	|	unannReferenceType
+	|	unannTypeVariable
 	;
 
 unannPrimitiveType
 	:	numericType
 	|	'boolean'
-	;
-
-unannReferenceType
-	:	unannTypeVariable
-	|	unannArrayType
 	;
 
 unannTypeVariable
@@ -228,17 +223,20 @@ localVariableDeclarationStatement
 
 localVariableDeclaration
 	:	variableModifier* unannType variableDeclaratorList
+	|   arrayCreationExpression
 	;
 
 statement
 	:	statementWithoutTrailingSubstatement
-	|	labeledStatement
 	|	ifThenStatement
 	|	ifThenElseStatement
 	|	whileStatement
 	|	forStatement
 	|   printStatement
 	|   scanStatement
+	|	expressionStatement
+    |	doStatement
+    |	returnStatement
 	;
 
 printStatement
@@ -246,13 +244,13 @@ printStatement
     ;
 
 printBlock
-    :   StringLiteral printExtra*
-    |   Identifier printExtra*
+    :   StringLiteral ('+' printExtra)*
+    |   Identifier ('+' printExtra)*
     ;
 
 printExtra
-    :   '+' Identifier
-    |   '+' StringLiteral
+    :   Identifier
+    |   StringLiteral
     ;
 
 scanStatement
@@ -263,27 +261,11 @@ scanExtra
     :   ':' Identifier
     ;
 
-statementNoShortIf
-	:	statementWithoutTrailingSubstatement
-	|	labeledStatementNoShortIf
-	|	ifThenElseStatementNoShortIf
-	|	whileStatementNoShortIf
-	|	forStatementNoShortIf
-	;
-
 statementWithoutTrailingSubstatement
 	:	block
 	|	expressionStatement
 	|	doStatement
 	|	returnStatement
-	;
-
-labeledStatement
-	:	Identifier ':' statement
-	;
-
-labeledStatementNoShortIf
-	:	Identifier ':' statementNoShortIf
 	;
 
 expressionStatement
@@ -298,45 +280,23 @@ statementExpression
 	;
 
 ifThenStatement
-	:	'if' '(' conditionalExpression ')' statement
+	:	'if' '(' conditionalExpression ')' block
 	;
 
 ifThenElseStatement
-	:	'if' '(' conditionalExpression ')' statementNoShortIf 'else' statement
-	;
-
-ifThenElseStatementNoShortIf
-	:	'if' '(' conditionalExpression ')' statementNoShortIf 'else' statementNoShortIf
+	:	'if' '(' conditionalExpression ')' block 'else' block
 	;
 
 whileStatement
-	:	'while' '(' conditionalExpression ')' statement
-	;
-
-whileStatementNoShortIf
-	:	'while' '(' conditionalExpression ')' statementNoShortIf
+	:	'while' '(' conditionalExpression ')' block
 	;
 
 doStatement
-	:	'do' statement 'while' '(' conditionalExpression ')' ';'
+	:	'do' block 'while' '(' conditionalExpression ')' ';'
 	;
 
 forStatement
-	:	basicForStatement
-	|	enhancedForStatement
-	;
-
-forStatementNoShortIf
-	:	basicForStatementNoShortIf
-	|	enhancedForStatementNoShortIf
-	;
-
-basicForStatement
-	:	'for' '(' forInit? ';' conditionalExpression? ';' forUpdate? ')' statement
-	;
-
-basicForStatementNoShortIf
-	:	'for' '(' forInit? ';' conditionalExpression? ';' forUpdate? ')' statementNoShortIf
+	:	'for' '(' forInit ';' conditionalExpression ';' forUpdate ')' block
 	;
 
 forInit
@@ -352,16 +312,8 @@ statementExpressionList
 	:	statementExpression (',' statementExpression)*
 	;
 
-enhancedForStatement
-	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statement
-	;
-
-enhancedForStatementNoShortIf
-	:	'for' '(' variableModifier* unannType variableDeclaratorId ':' expression ')' statementNoShortIf
-	;
-
 returnStatement
-	:	'return' expression? ';'
+	:	'return' expression ';'
 	;
 
 /*
@@ -369,88 +321,39 @@ returnStatement
  */
 
 primary
-	:	(	primaryNoNewArray_lfno_primary
-		|	arrayCreationExpression
-		)
-		(	primaryNoNewArray_lf_primary
-		)*
-	;
-
-primaryNoNewArray_lf_arrayAccess
-	:
+	:	primaryNoNewArray_lfno_primary
 	;
 
 primaryNoNewArray_lfno_arrayAccess
 	:	literal
-	|	'void' '.' 'class'
-	|	'this'
 	|	'(' expression ')'
 	|	methodInvocation
 	;
 
-primaryNoNewArray_lf_primary
-	:	arrayAccess_lf_primary
-	;
-
-primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary
-	:
-	;
-
-primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary
-    :
-	;
-
 primaryNoNewArray_lfno_primary
 	:	literal
-	|	unannPrimitiveType ('[' ']')* '.' 'class'
-	|	'void' '.' 'class'
-	|	'this'
 	|	'(' expression ')'
 	|	arrayAccess_lfno_primary
-	|	methodInvocation_lfno_primary
-	;
-
-primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary
-	:
 	;
 
 primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
 	:	literal
-	|	unannPrimitiveType ('[' ']')* '.' 'class'
-	|	'void' '.' 'class'
-	|	'this'
 	|	'(' expression ')'
-	|	methodInvocation_lfno_primary
 	;
 
 arrayAccess
 	:	(	expressionName '[' expression ']'
 		|	primaryNoNewArray_lfno_arrayAccess '[' expression ']'
 		)
-		(	primaryNoNewArray_lf_arrayAccess '[' expression ']'
-		)*
-	;
-
-arrayAccess_lf_primary
-	:	(	primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary '[' expression ']'
-		)
-		(	primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary '[' expression ']'
-		)*
 	;
 
 arrayAccess_lfno_primary
 	:	(	expressionName '[' expression ']'
 		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
 		)
-		(	primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary '[' expression ']'
-		)*
 	;
 
 methodInvocation
-	:	methodName '(' argumentList? ')'
-	;
-
-methodInvocation_lfno_primary
 	:	methodName '(' argumentList? ')'
 	;
 
@@ -459,8 +362,8 @@ argumentList
 	;
 
 arrayCreationExpression
-	:	'new' primitiveType dimExprs dims?
-	|	'new' primitiveType dims arrayInitializer
+	:	unannArrayType Identifier '=' 'new' primitiveType dimExprs dims?
+	|	unannArrayType Identifier '=' 'new' primitiveType dims arrayInitializer
 	;
 
 dimExprs
@@ -468,7 +371,8 @@ dimExprs
 	;
 
 dimExpr
-	:	'[' expression ']'
+	:	'[' StringLiteral ']'
+	|   ArrayNum
 	;
 
 expression
@@ -530,7 +434,8 @@ andExpression
 
 equalityExpression
 	:	relationalExpression
-	|	equalityExpression '==' relationalExpression
+	|	equalityExpression '=' relationalExpression {notifyErrorListeners("Too Many '+' Symbols");}
+	|   equalityExpression '==' relationalExpression
 	|	equalityExpression '!=' relationalExpression
 	;
 
@@ -540,20 +445,19 @@ relationalExpression
 	|	relationalExpression '>' shiftExpression
 	|	relationalExpression '<=' shiftExpression
 	|	relationalExpression '>=' shiftExpression
-	|	relationalExpression 'instanceof' referenceType
 	;
 
 shiftExpression
 	:	unaryExpressionNotPlusMinus
-	|	shiftExpression '<' '<' additiveExpression
-	|	shiftExpression '>' '>' additiveExpression
-	|	shiftExpression '>' '>' '>' additiveExpression
+	|	shiftExpression '<' '<' unaryExpressionNotPlusMinus
+	|	shiftExpression '>' '>' unaryExpressionNotPlusMinus
+	|	shiftExpression '>' '>' '>' unaryExpressionNotPlusMinus
 	;
 
 additiveExpression
 	:	multiplicativeExpression
 	|	additiveExpression '+' multiplicativeExpression
-//	|   additiveExpression '++'('+')* multiplicativeExpression {notifyErrorListeners("Too Many '+' Symbols");}
+	|   additiveExpression '++'('+')* multiplicativeExpression {notifyErrorListeners("Too Many '+' Symbols");}
 	|	additiveExpression '-' multiplicativeExpression
 	;
 
@@ -565,8 +469,7 @@ multiplicativeExpression
 	;
 
 unaryExpression
-	:
-	|	'+' unaryExpression
+	:   '+' unaryExpression
 	|	'-' unaryExpression
 	|	unaryExpressionNotPlusMinus
 	;
@@ -590,6 +493,8 @@ postIncrementExpression
 postDecrementExpression
 	:	postfixExpression '--'
 	;
+
+
 
 BOOLEAN : 'boolean';
 BREAK : 'break';
@@ -615,6 +520,15 @@ VOID : 'void';
 WHILE : 'while';
 
 // §3.10.1 Integer Literals
+
+ArrayNum
+    :   ArrayLiteral
+    ;
+
+fragment
+ArrayLiteral
+    :   '[' '1'..'9' ('0'..'9')* ']'
+    ;
 
 IntegerLiteral
 	:	DecimalIntegerLiteral
@@ -1629,3 +1543,5 @@ COMMENT
 LINE_COMMENT
     :   '//' ~[\r\n]* -> skip
     ;
+
+ErrorCharacter : . ;

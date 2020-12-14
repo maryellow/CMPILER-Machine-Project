@@ -229,7 +229,6 @@ class editor extends JFrame implements ActionListener {
             System.out.println(t.getText());
         }else if(s.equals("Run")){
             console.setText("");
-            System.out.println("Run");
             try {
                 InputStream stream = new ByteArrayInputStream(t.getText().getBytes(StandardCharsets.UTF_8));
                 ClypsLexer lexer = new ClypsLexer(CharStreams.fromStream(stream, StandardCharsets.UTF_8));
