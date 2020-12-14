@@ -25,7 +25,7 @@ public class ClypseCustomErrorListener extends BaseErrorListener {
         }
         else if(temp.contains("extraneous input")){
             newMsg="extra character/s ";
-            error="'"+msg.split("'")[1]+"'";
+            error="'"+msg.split("expecting ")[1]+"'";
         }
         else if(temp.contains("mismatched input")) {
             newMsg = "unexpected symbol ";
