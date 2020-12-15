@@ -100,8 +100,6 @@ class editor extends JFrame implements ActionListener {
         mb.add(m1);
         mb.add(m2);
 
-
-
         console = new JTextArea();
         console.setEditable(false);
         PrintStream printStream = new PrintStream(new CustomOutputStream(console));

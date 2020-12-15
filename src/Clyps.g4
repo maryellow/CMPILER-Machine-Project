@@ -228,15 +228,17 @@ localVariableDeclaration
 
 statement
 	:	statementWithoutTrailingSubstatement
-	|	ifThenStatement
+	|   ifThenStatement
 	|	ifThenElseStatement
 	|	whileStatement
 	|	forStatement
 	|   printStatement
 	|   scanStatement
-	|	expressionStatement
     |	doStatement
     |	returnStatement
+    |	postIncrementExpression ';'
+    |	postDecrementExpression ';'
+    |	methodInvocation ';'
 	;
 
 printStatement
@@ -254,22 +256,20 @@ printExtra
     ;
 
 scanStatement
-    :   'scan' '(' StringLiteral? scanExtra+ ')' ';'
+    :   'scan' '(' scanBlock ')' ';'
+    ;
+
+scanBlock
+    :   StringLiteral (':' scanExtra)+
+    |   Identifier (':' scanExtra)*
     ;
 
 scanExtra
-    :   ':' Identifier
+    :   Identifier
     ;
 
 statementWithoutTrailingSubstatement
 	:	block
-	|	expressionStatement
-	|	doStatement
-	|	returnStatement
-	;
-
-expressionStatement
-	:	statementExpression ';'
 	;
 
 statementExpression
@@ -436,7 +436,7 @@ andExpression
 
 equalityExpression
 	:	relationalExpression
-	|	equalityExpression '=' relationalExpression {notifyErrorListeners("Too Many '+' Symbols");}
+	|	equalityExpression '=' relationalExpression {notifyErrorListeners("Missing 1 '=' Symbol");}
 	|   equalityExpression '==' relationalExpression
 	|	equalityExpression '!=' relationalExpression
 	;

@@ -292,6 +292,12 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitScanStatement(ClypsParser.ScanStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ClypsParser#scanBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScanBlock(ClypsParser.ScanBlockContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ClypsParser#scanExtra}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -303,12 +309,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStatementWithoutTrailingSubstatement(ClypsParser.StatementWithoutTrailingSubstatementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#expressionStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpressionStatement(ClypsParser.ExpressionStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#statementExpression}.
 	 * @param ctx the parse tree

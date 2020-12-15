@@ -35,6 +35,7 @@ public class ClypseCustomErrorListener extends BaseErrorListener {
         else if(temp.contains("no viable alternative")){
             newMsg="missing/invalid characters detected in: ";
             error="'"+msg.split("'")[1]/*.substring(msg.split("'")[1].length()-1)*/+"'";
+            endMsg=" on/around the '"+msg.split("'")[1].substring(msg.split("'")[1].length()-1)+"' character";
         }
         else if(temp.contains("cannot find symbol")) {
             newMsg = "symbol not found ";

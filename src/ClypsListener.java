@@ -477,6 +477,16 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitScanStatement(ClypsParser.ScanStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ClypsParser#scanBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterScanBlock(ClypsParser.ScanBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#scanBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitScanBlock(ClypsParser.ScanBlockContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ClypsParser#scanExtra}.
 	 * @param ctx the parse tree
 	 */
@@ -496,16 +506,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStatementWithoutTrailingSubstatement(ClypsParser.StatementWithoutTrailingSubstatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#expressionStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpressionStatement(ClypsParser.ExpressionStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#expressionStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpressionStatement(ClypsParser.ExpressionStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#statementExpression}.
 	 * @param ctx the parse tree
