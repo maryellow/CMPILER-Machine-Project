@@ -767,6 +767,16 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitAssignmentOperator(ClypsParser.AssignmentOperatorContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ClypsParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr(ClypsParser.ExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr(ClypsParser.ExprContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ClypsParser#conditionalExpression}.
 	 * @param ctx the parse tree
 	 */

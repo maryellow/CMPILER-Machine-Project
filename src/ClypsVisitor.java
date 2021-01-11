@@ -466,6 +466,12 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssignmentOperator(ClypsParser.AssignmentOperatorContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ClypsParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr(ClypsParser.ExprContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ClypsParser#conditionalExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

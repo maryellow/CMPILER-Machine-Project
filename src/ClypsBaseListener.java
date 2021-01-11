@@ -927,6 +927,18 @@ public class ClypsBaseListener implements ClypsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterExpr(ClypsParser.ExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpr(ClypsParser.ExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterConditionalExpression(ClypsParser.ConditionalExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}

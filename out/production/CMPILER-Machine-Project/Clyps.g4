@@ -253,7 +253,6 @@ printBlock
 printExtra
     :   Identifier
     |   StringLiteral
-    |   StringLiteral StringLiteral  {notifyErrorListeners("Wrong Input format. Please add '+' in between keywords");}
     ;
 
 scanStatement
@@ -270,7 +269,7 @@ scanExtra
     ;
 
 statementWithoutTrailingSubstatement
-	:	block   {notifyErrorListeners("Additional { } Detected");}
+	:	block
 	;
 
 statementExpression
@@ -403,6 +402,13 @@ assignmentOperator
 	|	'+='
 	|	'-='
 	;
+
+expr
+    :   left=expr op=('||'|'&&'|'=='|'!='|'<'|'>'|'<='|'>='|'!') right=expr
+    |   '(' expr ')'
+    |   atom=INT | atom=BOOLEAN
+    ;
+
 
 conditionalExpression
 	:	conditionalOrExpression

@@ -403,6 +403,13 @@ assignmentOperator
 	|	'-='
 	;
 
+expr
+    :   left=expr op=('||'|'&&'|'=='|'!='|'<'|'>'|'<='|'>='|'!') right=expr
+    |   '(' expr ')'
+    |   atom=INT | atom=BOOLEAN
+    ;
+
+
 conditionalExpression
 	:	conditionalOrExpression
 	;

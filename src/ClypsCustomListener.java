@@ -61,10 +61,10 @@ public class ClypsCustomListener extends ClypsBaseListener{
 
     @Override
     public void exitPrintStatement(ClypsParser.PrintStatementContext ctx) {
-        if(ctx.printBlock().Identifier()!=null)
-            System.out.println("Map: " + this.mapVar.get(ctx.printBlock().Identifier().getText()).getValue());
-        if(ctx.printBlock().StringLiteral()!=null)
-            System.out.println("Map: " + ctx.printBlock().StringLiteral().getText());
+//        if(ctx.printBlock().Identifier()!=null)
+//            System.out.println("Map: " + this.mapVar.get(ctx.printBlock().Identifier().getText()).getValue());
+//        if(ctx.printBlock().StringLiteral()!=null)
+//            System.out.println("Map: " + ctx.printBlock().StringLiteral().getText());
     }
 
 }
