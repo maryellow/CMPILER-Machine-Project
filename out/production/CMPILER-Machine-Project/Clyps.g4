@@ -115,6 +115,7 @@ variableDeclaratorId
 
 variableInitializer
 	:	expression
+	|   expression expression   {notifyErrorListeners("Missing Operator");}
 	|	arrayInitializer
 	;
 
@@ -172,6 +173,7 @@ formalParameter
 
 variableModifier
 	:	'final'
+	|   Identifier  {notifyErrorListeners("Wrong Modifier");}
 	;
 
 lastFormalParameter
@@ -214,7 +216,12 @@ blockStatements
 
 blockStatement
 	:	localVariableDeclarationStatement
+	|   variableDeclarationStatement
 	|	statement
+	;
+
+variableDeclarationStatement
+	:	variableDeclarator ';'
 	;
 
 localVariableDeclarationStatement
@@ -223,6 +230,7 @@ localVariableDeclarationStatement
 
 localVariableDeclaration
 	:	variableModifier* unannType variableDeclaratorList
+	|   unannType unannType variableDeclaratorList  {notifyErrorListeners("Explicit Use of Keyword");}
 	|   arrayCreationExpression
 	;
 
@@ -246,13 +254,21 @@ printStatement
     ;
 
 printBlock
-    :   StringLiteral ('+' printExtra)*
-    |   Identifier ('+' printExtra)*
+    :   printBlock '+' printExtra
+    |   printExtra
+    |   IntegerLiteral  {notifyErrorListeners("Missing double quotes");}
+    |   ('!'|'@'|'#'|'$'|'%'|'^'|'&'|'*'|':'|'.')
     ;
 
 printExtra
     :   Identifier
     |   StringLiteral
+    |   Identifier '+' {notifyErrorListeners("Too Many '+' Symbols");}
+    |   StringLiteral '+' {notifyErrorListeners("Too Many '+' Symbols");}
+    |   Identifier Identifier+  {notifyErrorListeners("Missing double quotes");}
+    |   Identifier StringLiteral+  {notifyErrorListeners("Missing double quotes");}
+    |   StringLiteral StringLiteral+    {notifyErrorListeners("Missing double quotes");}
+    |   StringLiteral Identifier+    {notifyErrorListeners("Missing double quotes");}
     ;
 
 scanStatement
@@ -273,9 +289,9 @@ statementWithoutTrailingSubstatement
 	;
 
 statementExpression
-	:	assignment
-	|	postIncrementExpression
+	:	postIncrementExpression
 	|	postDecrementExpression
+	|   assignment
 	|	methodInvocation
 	;
 
@@ -355,10 +371,12 @@ arrayAccess_lfno_primary
 
 methodInvocation
 	:	methodName '(' argumentList? ')'
+	|   methodName ('('')')+ '(' argumentList? ')' ('('')')* {notifyErrorListeners("Redundant Parenthesis");}
 	;
 
 argumentList
 	:	assignmentExpression (',' assignmentExpression)*
+	|   assignmentExpression assignmentExpression    {notifyErrorListeners("Missing ,");}
 	;
 
 arrayCreationExpression
@@ -468,13 +486,17 @@ additiveExpression
 	|	additiveExpression '+' multiplicativeExpression
 	|   additiveExpression '++'('+')* multiplicativeExpression {notifyErrorListeners("Too Many '+' Symbols");}
 	|	additiveExpression '-' multiplicativeExpression
+	|   additiveExpression '--'('-')* multiplicativeExpression {notifyErrorListeners("Too Many '-' Symbols");}
 	;
 
 multiplicativeExpression
 	:	unaryExpression
 	|	multiplicativeExpression '*' unaryExpression
+	|   multiplicativeExpression '**'('*')* unaryExpression {notifyErrorListeners("Too Many '*' Symbols");}
 	|	multiplicativeExpression '/' unaryExpression
+	|   multiplicativeExpression '//'('/')* unaryExpression {notifyErrorListeners("Too Many '/' Symbols");}
 	|	multiplicativeExpression '%' unaryExpression
+	|   multiplicativeExpression '%%'('%')* unaryExpression {notifyErrorListeners("Too Many '%' Symbols");}
 	;
 
 unaryExpression
@@ -490,9 +512,9 @@ unaryExpressionNotPlusMinus
 	;
 
 postfixExpression
-	:	(	primary
-		|	expressionName
-		)
+	:	primary
+	|	expressionName
+	|   ('>'| '<'| '+'| '-'| '*'| '/'| '='| '&'| '|'|':')+  {notifyErrorListeners("Invalid Expression");}
 	;
 
 postIncrementExpression

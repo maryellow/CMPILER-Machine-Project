@@ -407,6 +407,16 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitBlockStatement(ClypsParser.BlockStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ClypsParser#variableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarationStatement(ClypsParser.VariableDeclarationStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#variableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarationStatement(ClypsParser.VariableDeclarationStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ClypsParser#localVariableDeclarationStatement}.
 	 * @param ctx the parse tree
 	 */
