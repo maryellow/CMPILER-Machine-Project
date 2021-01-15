@@ -230,6 +230,7 @@ localVariableDeclarationStatement
 
 localVariableDeclaration
 	:	variableModifier* unannType variableDeclaratorList
+	|   variableModifier* unannType variableDeclaratorId
 	|   unannType unannType variableDeclaratorList  {notifyErrorListeners("Explicit Use of Keyword");}
 	|   arrayCreationExpression
 	;
@@ -276,12 +277,13 @@ scanStatement
     ;
 
 scanBlock
-    :   StringLiteral (':' scanExtra)+
-    |   Identifier (':' scanExtra)*
+    :   StringLiteral (',' scanExtra)+
+    |   Identifier (',' scanExtra)*
     ;
 
 scanExtra
     :   Identifier
+    |   Identifier ','  {notifyErrorListeners("Extra , Detected");}
     ;
 
 statementWithoutTrailingSubstatement
@@ -316,8 +318,9 @@ forStatement
 	;
 
 forInit
-	:	statementExpressionList
-	|	localVariableDeclaration
+	:	unannType variableDeclaratorList
+    |   unannType unannType variableDeclaratorList  {notifyErrorListeners("Explicit Use of Keyword");}
+    |   unannType variableDeclaratorId  {notifyErrorListeners("Missing Value at initialization");}
 	;
 
 forUpdate
@@ -330,6 +333,7 @@ statementExpressionList
 
 returnStatement
 	:	'return' expression ';'
+	|   'return' ('int'|'float'|'String'|'boolean')* ';'    {notifyErrorListeners("Cannot return variable type");}
 	;
 
 /*
@@ -514,6 +518,7 @@ unaryExpressionNotPlusMinus
 postfixExpression
 	:	primary
 	|	expressionName
+	|   primary ('('')')+   {notifyErrorListeners("Redundant Parenthesis");}
 	|   ('>'| '<'| '+'| '-'| '*'| '/'| '='| '&'| '|'|':')+  {notifyErrorListeners("Invalid Expression");}
 	;
 
