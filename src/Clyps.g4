@@ -252,8 +252,7 @@ statement
 
 printStatement
     :   'print' '(' printBlock ')' ';'
-    |   'print' '(' (Identifier|StringLiteral)* (IntegerLiteral|'!'|':')* ')' {notifyErrorListeners("Missing double quotes");} ';'
-    //|   'print' '(' printBlock (IntegerLiteral|'!'|'@'|'#'|'$'|'%'|'^'|'&'|'*'|':'|'.')* ')' ';'  {notifyErrorListeners("Missing double quotes");}
+    |   'print' '(' (Identifier|StringLiteral)* (IntegerLiteral|'!'|'@'|'#'|'$'|'%'|'^'|'&'|'*'|':'|'.')* ')' {notifyErrorListeners("Missing double quotes");} ';'
     ;
 
 printBlock
