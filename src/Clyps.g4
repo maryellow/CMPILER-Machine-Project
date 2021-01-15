@@ -231,7 +231,7 @@ localVariableDeclarationStatement
 localVariableDeclaration
 	:	variableModifier* unannType variableDeclaratorList
 	|   variableModifier* unannType variableDeclaratorId
-	|   unannType unannType variableDeclaratorList  {notifyErrorListeners("Explicit Use of Keyword");}
+	|   unannType unannType '=' variableInitializer  {notifyErrorListeners("Explicit Use of Keyword");}
 	|   arrayCreationExpression
 	;
 
@@ -252,13 +252,13 @@ statement
 
 printStatement
     :   'print' '(' printBlock ')' ';'
+    |   'print' '(' (Identifier|StringLiteral)* (IntegerLiteral|'!'|':')* ')' {notifyErrorListeners("Missing double quotes");} ';'
+    //|   'print' '(' printBlock (IntegerLiteral|'!'|'@'|'#'|'$'|'%'|'^'|'&'|'*'|':'|'.')* ')' ';'  {notifyErrorListeners("Missing double quotes");}
     ;
 
 printBlock
     :   printBlock '+' printExtra
     |   printExtra
-    |   IntegerLiteral  {notifyErrorListeners("Missing double quotes");}
-    |   ('!'|'@'|'#'|'$'|'%'|'^'|'&'|'*'|':'|'.')
     ;
 
 printExtra
@@ -266,6 +266,8 @@ printExtra
     |   StringLiteral
     |   Identifier '+' {notifyErrorListeners("Too Many '+' Symbols");}
     |   StringLiteral '+' {notifyErrorListeners("Too Many '+' Symbols");}
+    |   IntegerLiteral '+' {notifyErrorListeners("Too Many '+' Symbols");}
+    |   IntegerLiteral IntegerLiteral+  {notifyErrorListeners("Missing double quotes");}
     |   Identifier Identifier+  {notifyErrorListeners("Missing double quotes");}
     |   Identifier StringLiteral+  {notifyErrorListeners("Missing double quotes");}
     |   StringLiteral StringLiteral+    {notifyErrorListeners("Missing double quotes");}
