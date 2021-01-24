@@ -1,9 +1,11 @@
+import antlr.ClypsBaseListener;
+import antlr.ClypsParser;
+
 import java.util.AbstractMap;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClypsCustomListener extends ClypsBaseListener{
+public class ClypsCustomListener extends ClypsBaseListener {
     Map<String, Map.Entry<String, String>> mapVar = new HashMap<String, Map.Entry<String, String>>();
 
     private String tempType;

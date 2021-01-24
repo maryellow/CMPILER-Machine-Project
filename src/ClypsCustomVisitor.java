@@ -1,4 +1,6 @@
-public class ClypsCustomVisitor extends ClypsBaseVisitor<Boolean>{
+import antlr.ClypsBaseVisitor;
+
+public class ClypsCustomVisitor extends ClypsBaseVisitor<Boolean> {
 //    @Override
 //    public Boolean visitExpr(ClypsParser.ExprContext ctx) {
 ////        int intLeft, intRight;

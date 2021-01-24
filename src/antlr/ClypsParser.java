@@ -1,12 +1,9 @@
-// Generated from C:/Users/jeffc/Desktop/CMPILER-Machine-Project/src\Clyps.g4 by ANTLR 4.9
+package antlr;// Generated from C:/Users/jeffc/Desktop/CMPILER-Machine-Project/src\Clyps.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class ClypsParser extends Parser {
@@ -159,7 +156,7 @@ public class ClypsParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Clyps.g4"; }
+	public String getGrammarFileName() { return "antlr/Clyps.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

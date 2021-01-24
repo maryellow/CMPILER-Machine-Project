@@ -1,9 +1,8 @@
 //https://www.geeksforgeeks.org/java-swing-create-a-simple-text-editor/
+import antlr.ClypsLexer;
+import antlr.ClypsParser;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.DiagnosticErrorListener;
-import org.antlr.v4.runtime.TokenStream;
-import org.antlr.v4.runtime.atn.PredictionMode;
 
 import java.awt.*;
 import javax.swing.*;
