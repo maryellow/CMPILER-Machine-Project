@@ -6,49 +6,58 @@ import items.ClypsValue;
 
 import java.util.HashMap;
 
-public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
+public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValueLevel> {
 
-    private Scope scope;
-    private HashMap<String,Function> functionMap;
+    private int level;
+    //private HashMap<String,Function> functionMap;
 
-    public ClypsCustomVisitor(Scope scope, HashMap<String,Function> functionMap){
-        this.scope=scope;
-        this.functionMap=functionMap;
+    public ClypsCustomVisitor(int level){
+        this.level=level;
+        //this.functionMap=functionMap;
     }
 
-    @Override public ClypsValue visitLocalVariableDeclarationStatement(ClypsParser.LocalVariableDeclarationStatementContext ctx) {
+    @Override public ClypsValueLevel visitLocalVariableDeclarationStatement(ClypsParser.LocalVariableDeclarationStatementContext ctx) {
         System.out.println("NEW VAR");
-        System.out.println(ctx.getText());
-        System.out.println(ctx.getChild(0).getChild(0).getText());
-        System.out.println(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText());
-        System.out.println(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText());
-        ClypsValue value = new ClypsValue(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText(), ctx.getChild(0).getChild(0).getText());
+//        System.out.println(ctx.getText());
+//        System.out.println(ctx.getChild(0).getChild(0).getText());
+//        System.out.println(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText());
+//        System.out.println(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText());
+        if (SymbolTableManager.getInstance().lookup(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText(),0)==null){
+            System.out.println("VAR NOT FOUND");
+            ClypsValue value = new ClypsValue(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText(), ctx.getChild(0).getChild(0).getText());
+            ClypsValueLevel valueL = new ClypsValueLevel(this.level,value);
 
-        SymbolTableManager.getInstance().getParentScope().registerVar(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText(),value);
+            SymbolTableManager.getInstance().registerVar(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText(),valueL);
+        }else {
+            //System.out.println("DUPLICATE VAR");
+            editor.addCustomError("DUPLICATE VAR DETECTED",ctx.start.getLine());
+            //System.out.println(editor.errors.get(editor.errors.size()-1));
+        }
 
-        System.out.println("IS IT FOUND?");
+
+        //System.out.println("IS IT FOUND?");
 //        System.out.println(SymbolTableManager.getInstance().getParentScope().lookup(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText()).getValue());
 //        System.out.println(SymbolTableManager.getInstance().getParentScope().lookup(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText()).getPrimitiveType());
 
-        SymbolTableManager.getInstance().getParentScope().printAllVars();
+        //SymbolTableManager.getInstance().printAllVars();
 
         return visitChildren(ctx);
     }
 
     @Override
-    public ClypsValue visitIfThenStatement(ClypsParser.IfThenStatementContext ctx) {
+    public ClypsValueLevel visitIfThenStatement(ClypsParser.IfThenStatementContext ctx) {
 
 
         return visitChildren(ctx);
     }
 
     @Override
-    public ClypsValue visitBlock(ClypsParser.BlockContext ctx) {
+    public ClypsValueLevel visitBlock(ClypsParser.BlockContext ctx) {
 
         return visitChildren(ctx);
     }
 
-    @Override public ClypsValue visitMethodDeclaration(ClypsParser.MethodDeclarationContext ctx) {
+    @Override public ClypsValueLevel visitMethodDeclaration(ClypsParser.MethodDeclarationContext ctx) {
         System.out.println("ENTER FUNCTION");
         System.out.println(ctx.getText());
         System.out.println(ctx.methodHeader().result().getText());

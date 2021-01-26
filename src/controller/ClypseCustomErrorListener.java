@@ -45,14 +45,9 @@ public class ClypseCustomErrorListener extends BaseErrorListener {
             newMsg=msg;
             error="";
         }
-        String err = "Syntax Error on Line "+line+" [Char: "+charPositionInLine+"]: "+ newMsg +error + endMsg;
-        if (!err.contains("<EOF>"))
-            editor.addError(err);
+        String dis = "Syntax Error on Line "+line+" [Char: "+charPositionInLine+"]: "+ newMsg +error + endMsg;
 
-
-
-
-
+        editor.addError(dis);
         //System.err.println("Syntax Error on Line "+line+" [Char: "+charPositionInLine+"]: "+ newMsg +error + endMsg);
     }
 }

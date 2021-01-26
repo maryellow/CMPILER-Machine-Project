@@ -7,6 +7,7 @@ import controller.editor;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Locale;
 
 public class ClypsValue {
     public enum PrimitiveType{
@@ -21,21 +22,21 @@ public class ClypsValue {
     }
 
     private Object value;
-    private PrimitiveType type = PrimitiveType.NOT_YET_IDENTIFIED;
+    private PrimitiveType type;
     private boolean finalFlag = false;
 
     public ClypsValue(Object value, String primitiveType){
         this.value = value;
         PrimitiveType ty;
-        System.out.println("Type: "+primitiveType);
-        switch (primitiveType){
+        System.out.println("Type: "+primitiveType.toLowerCase(Locale.ROOT));
+        switch (primitiveType.toLowerCase(Locale.ROOT)){
             case "int":
                 ty = PrimitiveType.INT;
                 break;
             case "char":
                 ty = PrimitiveType.CHAR;
                 break;
-            case "String":
+            case "string":
                 ty = PrimitiveType.STRING;
                 break;
             case "float":
@@ -53,7 +54,10 @@ public class ClypsValue {
         //|| TypeChecking.checkValueType(value,ty)
         if (value != null ){
             System.out.println("IN");
+
             this.type = ty;
+            System.out.println(ty);
+            System.out.println(this.type);
             tryEvaluate(value.toString());
         }else{
             System.out.println("ERROR");

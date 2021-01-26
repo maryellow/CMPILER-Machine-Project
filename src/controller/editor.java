@@ -239,6 +239,7 @@ public class editor extends JFrame implements ActionListener {
 
     private static void reset(){
         errors.clear();
+        SymbolTableManager.reset();
     }
 
     private static boolean build(){
@@ -247,8 +248,6 @@ public class editor extends JFrame implements ActionListener {
                 System.err.println(error);
             }
             return false;
-        }else{
-            System.err.println("No errors detected.");
         }
 
         return true;
@@ -283,20 +282,37 @@ public class editor extends JFrame implements ActionListener {
                 InputStream stream = new ByteArrayInputStream(code.getBytes(StandardCharsets.UTF_8));
                 ClypsLexer lexer = new ClypsLexer(CharStreams.fromStream(stream, StandardCharsets.UTF_8));
                 ClypsParser parser = new ClypsParser(new CommonTokenStream(lexer));
-                ParseTree tree = parser.normalClassDeclaration();
+
+                //lexer.removeErrorListeners();
                 parser.removeErrorListeners();
                 parser.addErrorListener(new ClypseCustomErrorListener());
                 parser.addParseListener(new ClypsCustomListener());
-                parser.normalClassDeclaration();
+                ParseTree tree = parser.normalClassDeclaration();
+                //parser.normalClassDeclaration();
+                ClypsCustomVisitor visit = new ClypsCustomVisitor(SymbolTableManager.getInstance().getCurrentLevel());
+                visit.visit(tree);
 
-                if (build()){
-                    System.err.println("No errors detected.");
-
-                    ClypsCustomVisitor visit = new ClypsCustomVisitor(SymbolTableManager.getInstance().getParentScope(),SymbolTableManager.getInstance().getFunctions());
-                    visit.visit(tree);
-                }else {
-                    System.err.println("Error Detected.");
+                if (!errors.isEmpty()) {
+                    for (String error : errors) {
+                        System.err.println(error);
+                    }
                 }
+
+//                if (!errors.isEmpty()){
+//                    for(String error:errors){
+//                        System.err.println(error);
+//                    }
+//                    //System.err.println("No errors detected.");
+//                    reset();
+////                    ClypsCustomVisitor visit = new ClypsCustomVisitor(SymbolTableManager.getInstance().getCurrentLevel());
+////                    visit.visit(tree);
+//
+//                    if (build()) {
+//                        System.err.println("No errors detected....");
+//                    }else {
+//                        System.err.println("Error Detected.");
+//                    }
+//                }
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -309,7 +325,7 @@ public class editor extends JFrame implements ActionListener {
     }
 
     static void addCustomError(String error, int line){
-        errors.add("Error on Line "+line+": "+error);
+        errors.add("Semantic Error on Line "+line+": "+error);
     }
 
     public static void main(String args[])
