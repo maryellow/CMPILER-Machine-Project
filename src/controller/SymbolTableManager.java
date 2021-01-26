@@ -57,6 +57,7 @@ public class SymbolTableManager {
 
     private void reAssign(String identifier, ClypsValueLevel value) {
         if (this.symbolTable.containsKey(identifier)) {
+            value.setType(symbolTable.get(identifier).getPrimitiveType());
             this.symbolTable.put(identifier, value);
         } else if (this.currentLevel != 0) {
             value.setLevel(value.getLevel() - 1);
@@ -79,7 +80,17 @@ public class SymbolTableManager {
         if (this.currentLevel >= level) {
             return this.symbolTable.get(varName);
         } else {
-            editor.addCustomError("Variable does not exist in scope.", 0);
+            //editor.addCustomError("Variable does not exist in scope.", 0);
+            return null;
+        }
+
+    }
+
+    public Function functionLookup(String functionName) {
+        if (this.functionMap.get(functionName)!=null) {
+            return this.functionMap.get(functionName);
+        } else {
+            //editor.addCustomError("Function does not exist.", 0);
             return null;
         }
 

@@ -19,6 +19,7 @@ public class Function {
     private ArrayList<ICommand> commandList;
     private int level;
     private ArrayList<String> parameters;
+    private FunctionType functionType;
 
     public void addCommand(ICommand command) {
         this.commandList.add(command);

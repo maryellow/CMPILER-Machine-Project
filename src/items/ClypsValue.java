@@ -12,7 +12,7 @@ import java.util.Locale;
 public class ClypsValue {
     public enum PrimitiveType{
         NOT_YET_IDENTIFIED,
-        BOOL,
+        BOOLEAN,
         INT,
         CHAR,
         FLOAT,
@@ -43,7 +43,7 @@ public class ClypsValue {
                 ty = PrimitiveType.FLOAT;
                 break;
             case "boolean":
-                ty = PrimitiveType.BOOL;
+                ty = PrimitiveType.BOOLEAN;
                 break;
             case "double":
                 ty = PrimitiveType.DOUBLE;
@@ -70,6 +70,10 @@ public class ClypsValue {
         tryEvaluate(value);
     }
 
+    public void setType(PrimitiveType primitiveType){
+        this.type=primitiveType;
+    }
+
     public Object getValue(){
         return this.value;
     }
@@ -89,14 +93,14 @@ public class ClypsValue {
     private void tryEvaluate(String value){
         System.out.println(value);
 
-        this.value = new Expression(value).eval();
+        this.value = new Expression(value).eval().toPlainString();
 
-        System.out.println("EVAL: "+this.value.toString());
+        System.out.println("EVAL: "+this.value);
     }
 
     public static boolean checkValueType(Object value, ClypsValue.PrimitiveType primitiveType) {
         switch (primitiveType){
-            case BOOL:
+            case BOOLEAN:
                 return value instanceof Boolean;
             case CHAR:
                 return value instanceof Character;
@@ -117,7 +121,7 @@ public class ClypsValue {
 
     public static Object attemptTypeCast(String value, ClypsValue.PrimitiveType primitiveType) {
         switch (primitiveType) {
-            case BOOL:
+            case BOOLEAN:
                 return Boolean.valueOf(value);
             case CHAR:
                 return Character.valueOf(value.charAt(0));
