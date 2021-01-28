@@ -13,43 +13,59 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
 
     @Override public ClypsValue visitLocalVariableDeclarationStatement(ClypsParser.LocalVariableDeclarationStatementContext ctx) {
         System.out.println("NEW VAR");
-//        System.out.println(ctx.getText());
-//        System.out.println(ctx.getChild(0).getChild(0).getText());
-//        System.out.println(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText());
-//        System.out.println(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText());
-        if (SymbolTableManager.searchVariableInLocalIterative(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText(),SymbolTableManager.getInstance().getActiveLocalScope())==null&&
-                SymbolTableManager.searchVariableInLocalIterative(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText(),SymbolTableManager.getInstance().getActiveLocalScope().getParent())==null){
+
+
+
+        System.out.println(ctx.getText());
+        System.out.println("----");
+        String type = ctx.localVariableDeclaration().unannType(0).getText();
+        String name = ctx.localVariableDeclaration().variableDeclaratorList().variableDeclarator().get(0).variableDeclaratorId().getText();
+        String value = ctx.localVariableDeclaration().variableDeclaratorList().variableDeclarator().get(0).variableInitializer().getText();
+        System.out.println(ctx.localVariableDeclaration().unannType(0).getText());
+        System.out.println(ctx.localVariableDeclaration().variableDeclaratorList().variableDeclarator().get(0).variableDeclaratorId().getText());
+        System.out.println(ctx.localVariableDeclaration().variableDeclaratorList().variableDeclarator().get(0).variableInitializer().getText());
+        if (SymbolTableManager.searchVariableInLocalIterative(name,SymbolTableManager.getInstance().getActiveLocalScope())==null&&
+                SymbolTableManager.searchVariableInLocalIterative(name,SymbolTableManager.getInstance().getActiveLocalScope().getParent())==null){
             System.out.println("VAR NOT FOUND");
-            boolean test1 = ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText().contains("\"");
-            boolean test2 = ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText().contains("'");
+            boolean test1 = value.contains("\"");
+            boolean test2 = value.contains("'");
 
             System.out.println(test2);
-            System.out.println(ctx.getChild(0).getChild(0).getText());
-            System.out.println(ClypsValue.translateType(ctx.getChild(0).getChild(0).getText()));
-            if (ClypsValue.translateType(ctx.getChild(0).getChild(0).getText())!= ClypsValue.PrimitiveType.STRING&&!test1&&!test2){
-                boolean test = new Expression(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText()).isBoolean();
-                if (!test&&ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText().contains("true")||ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText().contains("false"))
+            System.out.println(type);
+            System.out.println(ClypsValue.translateType(type));
+            if (ClypsValue.translateType(type)!= ClypsValue.PrimitiveType.STRING&&!test1&&!test2){
+                boolean test = new Expression(value).isBoolean();
+                if (!test&&value.contains("true")||value.contains("false"))
                     test=true;
                 System.out.println("====");
                 System.out.println(test);
-                System.out.println(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText());
-                if (ClypsValue.translateType(ctx.getChild(0).getChild(0).getText())== ClypsValue.PrimitiveType.BOOLEAN&&test){
+                System.out.println(value);
+                if (ClypsValue.translateType(type)== ClypsValue.PrimitiveType.BOOLEAN&&test){
                     System.out.println("IS BOOLEAN");
-                    SymbolTableManager.getInstance().getActiveLocalScope().addInitializedVariableFromKeywords(ctx.getChild(0).getChild(0).getText(),ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText(),ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText());
-                } else if (ClypsValue.translateType(ctx.getChild(0).getChild(0).getText())!= ClypsValue.PrimitiveType.BOOLEAN&&(test||ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText().contains("true")||ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText().contains("false"))){
+                    SymbolTableManager.getInstance().getActiveLocalScope().addInitializedVariableFromKeywords(type,name,value);
+
+                } else if (ClypsValue.translateType(type)!= ClypsValue.PrimitiveType.BOOLEAN&&(test||value.contains("true")||value.contains("false"))){
                     System.out.println("NOT BOOLEAN");
                     editor.addCustomError("TYPE MISMATCH",ctx.start.getLine());
-                }else if (ClypsValue.translateType(ctx.getChild(0).getChild(0).getText())!= ClypsValue.PrimitiveType.BOOLEAN&&!test){
+                }else if (ClypsValue.translateType(type)!= ClypsValue.PrimitiveType.BOOLEAN&&!test){
                     System.out.println("IS DECIMAL");
-                    SymbolTableManager.getInstance().getActiveLocalScope().addInitializedVariableFromKeywords(ctx.getChild(0).getChild(0).getText(),ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText(),ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText());
+                    SymbolTableManager.getInstance().getActiveLocalScope().addInitializedVariableFromKeywords(type,name,value);
 
                 }
-            }else if (ClypsValue.translateType(ctx.getChild(0).getChild(0).getText())== ClypsValue.PrimitiveType.STRING&&test1){
-                SymbolTableManager.getInstance().getActiveLocalScope().addEmptyVariableFromKeywords(ctx.getChild(0).getChild(0).getText(),ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText());
-                SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText()).setSCValue(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText());
-            }else if(ClypsValue.translateType(ctx.getChild(0).getChild(0).getText())== ClypsValue.PrimitiveType.CHAR&&test2){
-                SymbolTableManager.getInstance().getActiveLocalScope().addEmptyVariableFromKeywords(ctx.getChild(0).getChild(0).getText(),ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText());
-                SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(ctx.getChild(0).getChild(1).getChild(0).getChild(0).getText()).setSCValue(ctx.getChild(0).getChild(1).getChild(0).getChild(2).getText());
+                if (!ctx.localVariableDeclaration().variableModifier().isEmpty()){
+                    if (ctx.localVariableDeclaration().variableModifier().get(0).getText().contains("final")){
+                        SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(name).markFinal();
+                    }
+                }
+            }else if ((ClypsValue.translateType(type)== ClypsValue.PrimitiveType.STRING&&test1)||
+                    (ClypsValue.translateType(type)== ClypsValue.PrimitiveType.CHAR&&test2)){
+                SymbolTableManager.getInstance().getActiveLocalScope().addEmptyVariableFromKeywords(type,name);
+                SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(name).setSCValue(value);
+                if (!ctx.localVariableDeclaration().variableModifier().isEmpty()){
+                    if (ctx.localVariableDeclaration().variableModifier().get(0).getText().contains("final")){
+                        SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(name).markFinal();
+                    }
+                }
 
             }else {
                 editor.addCustomError("TYPE MISMATCH",ctx.start.getLine());
@@ -68,17 +84,68 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
     @Override
     public ClypsValue visitVariableDeclarationStatement(ClypsParser.VariableDeclarationStatementContext ctx) {
         //System.out.println(ctx.variableDeclarator().variableDeclaratorId().Identifier());
-        if (SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText())!=null){
-            System.out.println("REASSIGN");
-            SymbolTableManager.getInstance().getActiveLocalScope().setDeclaredVariable(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText(),ctx.variableDeclarator().variableInitializer().getText());
+        if (!SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText()).isFinal()){
+            if (SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText())!=null){
+                System.out.println("REASSIGN");
+                SymbolTableManager.getInstance().getActiveLocalScope().setDeclaredVariable(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText(),ctx.variableDeclarator().variableInitializer().getText());
+            }else {
+                //System.out.println("DUPLICATE VAR");
+                editor.addCustomError("VAR DOES NOT EXIST",ctx.start.getLine());
+                //System.out.println(editor.errors.get(editor.errors.size()-1));
+            }
         }else {
-            //System.out.println("DUPLICATE VAR");
-            editor.addCustomError("VAR DOES NOT EXIST",ctx.start.getLine());
-            //System.out.println(editor.errors.get(editor.errors.size()-1));
+            editor.addCustomError("CANNOT CHANGE CONSTANT VARIABLE",ctx.start.getLine());
         }
+
         System.out.println("PRINT ALL VARS");
         SymbolTableManager.getInstance().getActiveLocalScope().printAllVars();
         System.out.println("PRINT ALL VARS");
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public ClypsValue visitVariableNoInit(ClypsParser.VariableNoInitContext ctx) {
+        String type = ctx.unannType().getText();
+        String name = ctx.variableDeclaratorId().Identifier().getText();
+
+        if (SymbolTableManager.searchVariableInLocalIterative(name,SymbolTableManager.getInstance().getActiveLocalScope())==null&&
+                SymbolTableManager.searchVariableInLocalIterative(name,SymbolTableManager.getInstance().getActiveLocalScope().getParent())==null){
+            System.out.println("VAR NOT FOUND");
+
+            System.out.println(ClypsValue.translateType(type));
+            if (ClypsValue.translateType(type)!= ClypsValue.PrimitiveType.STRING){
+                if (ClypsValue.translateType(type)== ClypsValue.PrimitiveType.BOOLEAN){
+                    System.out.println("IS BOOLEAN");
+                    SymbolTableManager.getInstance().getActiveLocalScope().addEmptyVariableFromKeywords(type,name);
+                }else if (ClypsValue.translateType(type)!= ClypsValue.PrimitiveType.BOOLEAN){
+                    System.out.println("IS DECIMAL");
+                    SymbolTableManager.getInstance().getActiveLocalScope().addEmptyVariableFromKeywords(type,name);
+                }
+                if (!ctx.variableModifier().isEmpty()){
+                    if (ctx.variableModifier().get(0).getText().contains("final")){
+                        editor.addCustomError("CONSTANT VARIABLE NEEDS TO BE INITIALIZED",ctx.start.getLine());
+                    }
+                }
+            }else if ((ClypsValue.translateType(type)== ClypsValue.PrimitiveType.STRING)||
+                    (ClypsValue.translateType(type)== ClypsValue.PrimitiveType.CHAR)){
+                SymbolTableManager.getInstance().getActiveLocalScope().addEmptyVariableFromKeywords(type,name);
+                if (!ctx.variableModifier().isEmpty()){
+                    if (ctx.variableModifier().get(0).getText().contains("final")){
+                        editor.addCustomError("CONSTANT VARIABLE NEEDS TO BE INITIALIZED",ctx.start.getLine());
+                    }
+                }
+            }else {
+                editor.addCustomError("TYPE MISMATCH",ctx.start.getLine());
+            }
+
+        }else {
+            editor.addCustomError("DUPLICATE VAR DETECTED",ctx.start.getLine());
+        }
+
+        System.out.println("PRINT ALL VARS");
+        SymbolTableManager.getInstance().getActiveLocalScope().printAllVars();
+        System.out.println("PRINT ALL VARS");
+
         return visitChildren(ctx);
     }
 

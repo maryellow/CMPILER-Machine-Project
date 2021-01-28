@@ -77,8 +77,9 @@ public class Scope {
     }
     
     public void addEmptyVariableFromKeywords(String primitiveTypeString, String identifierString) {
-
+        ClypsValue.PrimitiveType type=ClypsValue.translateType(primitiveTypeString);
         ClypsValue clypsValue = ClypsValue.createEmptyVariableFromKeywords(primitiveTypeString);
+        clypsValue.setType(type);
         this.localVariables.put(identifierString, clypsValue);
     }
     
@@ -110,12 +111,18 @@ public class Scope {
     public void printAllVars() {
         if (parentScope!=null){
             parentScope.localVariables.entrySet().forEach(entry -> {
-                System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType());
+                if (entry.getValue().isFinal())
+                    System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType()+" FINAL");
+                else
+                    System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType());
             });
         }
 
         this.localVariables.entrySet().forEach(entry -> {
-            System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType());
+            if (entry.getValue().isFinal())
+                System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType()+" FINAL");
+            else
+                System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType());
         });
     }
 

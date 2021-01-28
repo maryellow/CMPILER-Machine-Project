@@ -508,6 +508,18 @@ public class ClypsBaseListener implements ClypsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterVariableNoInit(ClypsParser.VariableNoInitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariableNoInit(ClypsParser.VariableNoInitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLocalVariableDeclarationStatement(ClypsParser.LocalVariableDeclarationStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}

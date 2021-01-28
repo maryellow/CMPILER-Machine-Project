@@ -215,6 +215,7 @@ blockStatements
 blockStatement
 	:	localVariableDeclarationStatement
 	|   variableDeclarationStatement
+	|   variableNoInit
 	|	statement
 	;
 
@@ -222,13 +223,16 @@ variableDeclarationStatement
 	:	variableDeclarator ';'
 	;
 
+variableNoInit
+    :   variableModifier* unannType variableDeclaratorId ';'
+    ;
+
 localVariableDeclarationStatement
 	:	localVariableDeclaration ';'
 	;
 
 localVariableDeclaration
 	:	variableModifier* unannType variableDeclaratorList
-	|   variableModifier* unannType variableDeclaratorId
 	|   unannType unannType '=' variableInitializer  {notifyErrorListeners("Explicit Use of Keyword");}
 	|   arrayCreationExpression
 	;

@@ -257,6 +257,12 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableDeclarationStatement(ClypsParser.VariableDeclarationStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ClypsParser#variableNoInit}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableNoInit(ClypsParser.VariableNoInitContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ClypsParser#localVariableDeclarationStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
