@@ -1,4 +1,5 @@
-package antlr;// Generated from C:/Users/jeffc/Desktop/CMPILER-Machine-Project/src\Clyps.g4 by ANTLR 4.9
+// Generated from C:/Users/jeffc/Desktop/CMPILER-Machine-Project/src/antlr\Clyps.g4 by ANTLR 4.9.1
+package antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -351,6 +352,12 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitForStatement(ClypsParser.ForStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ClypsParser#forMiddle}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForMiddle(ClypsParser.ForMiddleContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#forInit}.
 	 * @param ctx the parse tree

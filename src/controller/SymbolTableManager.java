@@ -4,12 +4,18 @@ import items.ClypsValue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Stack;
 
 public class SymbolTableManager {
-    private int currentLevel;
     private HashMap<String, Function> functionMap;
-    private HashMap<String, ClypsValueLevel> symbolTable;
+    private Scope activeScope = null;
+
     private static SymbolTableManager sharedInstance = null;
+
+    private SymbolTableManager() {
+        this.functionMap = new HashMap<>();
+    }
 
     public static SymbolTableManager getInstance() {
         return sharedInstance;
@@ -23,88 +29,91 @@ public class SymbolTableManager {
         sharedInstance = null;
     }
 
-    private SymbolTableManager() {
-        this.functionMap = new HashMap<>();
-        this.symbolTable = new HashMap<>();
-        this.currentLevel = 0;
+    public Scope openLocalScope() {
+        if(SymbolTableManager.getInstance().activeScope == null) {
+            System.out.println("INIT PARENT SCOPE");
+            SymbolTableManager.getInstance().activeScope = new Scope();
+        }
+        else {
+            System.out.println("ADDING SCOPE CHILD");
+            Scope childLocalScope = new Scope();
+            childLocalScope.setParent(SymbolTableManager.getInstance().activeScope);
+            SymbolTableManager.getInstance().activeScope.addChild(childLocalScope);
+            SymbolTableManager.getInstance().activeScope = childLocalScope;
+        }
+
+        return this.activeScope;
     }
 
-    void addLevel() {
-        this.currentLevel++;
+    public Scope getActiveLocalScope() {
+        return this.activeScope;
     }
 
-    void decreaseLevel() {
-        this.currentLevel--;
-    }
-
-    int getCurrentLevel() {
-        return this.currentLevel;
-    }
-
-    public void registerVar(String expr, ClypsValueLevel value) {
-        this.symbolTable.put(expr, value);
-    }
-
-    public void assign(String var, ClypsValueLevel data) {
-        if (resolve(var) != null) {
-            // There is already such a variable, re-assign it
-            this.reAssign(var, data);
-        } else {
-            // A newly declared variable
-            this.symbolTable.put(var, data);
+    public void closeLocalScope() {
+        if(this.activeScope.getParent() != null && this.activeScope.getParent() instanceof Scope) {
+            this.activeScope = (Scope) this.activeScope.getParent();
+        }
+        else if(this.activeScope.getParent() == null) {
+            System.out.println(": " + "Cannot change parent. Current active local scope no longer has a parent.");
+        }
+        else {
+            System.out.println(": " + "Cannot change parent. Current active local scope's parent is now a class scope.");
         }
     }
 
-    private void reAssign(String identifier, ClypsValueLevel value) {
-        if (this.symbolTable.containsKey(identifier)) {
-            value.setType(symbolTable.get(identifier).getPrimitiveType());
-            this.symbolTable.put(identifier, value);
-        } else if (this.currentLevel != 0) {
-            value.setLevel(value.getLevel() - 1);
-            reAssign(identifier, value);
-        }
-    }
+    public static ClypsValue searchVariableInLocalIterative(String identifier, Scope localScope) {
 
-    public ClypsValueLevel resolve(String var) {
-        ClypsValueLevel data = this.symbolTable.get(var);
-        if (data != null) {
-            return data;
-        } else if (this.currentLevel != 0) {
-            return resolve(var);
-        } else {
-            return null;
-        }
-    }
-
-    public ClypsValueLevel lookup(String varName, int level) {
-        if (this.currentLevel >= level) {
-            return this.symbolTable.get(varName);
-        } else {
-            //editor.addCustomError("Variable does not exist in scope.", 0);
+        if(localScope == null) {
             return null;
         }
 
+        Stack<Scope> stack = new Stack<Scope>();
+
+        stack.push(localScope);
+
+        List<Scope> discoveredScopes = new ArrayList<Scope>();
+        Scope scope;
+
+        while(!stack.isEmpty()) {
+            scope = stack.pop();
+
+            if(scope.containsVariable(identifier)) {
+                return scope.searchVariableIncludingLocal(identifier);
+            }
+
+            if(!discoveredScopes.contains(scope)) {
+                discoveredScopes.add(scope);
+
+                for(int i = 0; i < scope.getChildCount(); i++) {
+                    Scope childScope = scope.getChildAt(i);
+                    stack.push(childScope);
+                }
+            }
+        }
+
+        System.out.println(": " + identifier + " not found in any local scope!");
+        return null;
     }
 
     public Function functionLookup(String functionName) {
         if (this.functionMap.get(functionName)!=null) {
             return this.functionMap.get(functionName);
         } else {
-            //editor.addCustomError("Function does not exist.", 0);
+            editor.addCustomError("Function does not exist.", 0);
             return null;
         }
 
     }
 
-    public void printAllVars() {
-        this.symbolTable.entrySet().forEach(entry -> {
-            System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType()+ " " + entry.getValue().getLevel());
-        });
-    }
+//    public void printAllVars() {
+//        this.symbolTable.entrySet().forEach(entry -> {
+//            System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType());
+//        });
+//    }
 
     public static void reset() {
-        sharedInstance.symbolTable.clear();
         sharedInstance.functionMap.clear();
+        sharedInstance.activeScope=null;
     }
 
     public void addFunction(String name, Function function) {

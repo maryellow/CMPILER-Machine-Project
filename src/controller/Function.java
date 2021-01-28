@@ -2,6 +2,7 @@ package controller;
 
 import antlr.ClypsParser;
 import commands.ICommand;
+import items.ClypsValue;
 
 import java.util.ArrayList;
 
@@ -26,21 +27,21 @@ public class Function {
         //Console.log("Command added to " +this.functionName);
     }
 
-    public ClypsValueLevel invoke(ArrayList<ClypsParser.ExpressionContext> params, int level){
-        SymbolTableManager.getInstance().addLevel();
-        ClypsCustomVisitor visitor = new ClypsCustomVisitor(level);
-        for (int i =0;i<params.size();i++){
-            ClypsValueLevel value = visitor.visit(params.get(i));
-            SymbolTableManager.getInstance().registerVar(params.get(i).getText(),value);
-        }
-        ClypsCustomVisitor visitorNext = new ClypsCustomVisitor(level);
-
-        //ClypsValueLevel ret = new ClypsValueLevel();
-
-        //temp
-        return null;
-
-    }
+//    public ClypsValue invoke(ArrayList<ClypsParser.ExpressionContext> params, int level){
+//        SymbolTableManager.getInstance().addLevel();
+//        ClypsCustomVisitor visitor = new ClypsCustomVisitor(level);
+//        for (int i =0;i<params.size();i++){
+//            ClypsValue value = visitor.visit(params.get(i));
+//            SymbolTableManager.getInstance().registerVar(params.get(i).getText(),value);
+//        }
+//        ClypsCustomVisitor visitorNext = new ClypsCustomVisitor(level);
+//
+//        //ClypsValue ret = new ClypsValue();
+//
+//        //temp
+//        return null;
+//
+//    }
 
 
 }

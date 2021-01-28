@@ -289,7 +289,7 @@ public class editor extends JFrame implements ActionListener {
                 parser.addParseListener(new ClypsCustomListener());
                 ParseTree tree = parser.normalClassDeclaration();
                 //parser.normalClassDeclaration();
-                ClypsCustomVisitor visit = new ClypsCustomVisitor(SymbolTableManager.getInstance().getCurrentLevel());
+                ClypsCustomVisitor visit = new ClypsCustomVisitor();
                 visit.visit(tree);
 
                 if (!errors.isEmpty()) {

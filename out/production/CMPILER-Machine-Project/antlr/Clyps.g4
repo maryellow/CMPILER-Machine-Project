@@ -92,9 +92,7 @@ classBodyDeclaration
 	;
 
 classMemberDeclaration
-	:	mainDeclaration
-	|	methodDeclaration
-//	|	';'
+	:	mainDeclaration (methodDeclaration)*
 	;
 
 mainDeclaration
@@ -315,8 +313,15 @@ doStatement
 	;
 
 forStatement
-	:	'for' '(' forInit ';' conditionalExpression ';' forUpdate ')' block
+	:	'for' forInit forMiddle assignmentExpression block
+	|   'for' forInit assignmentExpression block   {notifyErrorListeners("Expecting 'up to' or 'down to'");}
 	;
+
+forMiddle
+    :   'up to'
+    |   'down to'
+    |   {notifyErrorListeners("Expecting 'up to' or 'down to'");}
+    ;
 
 forInit
 	:	unannType variableDeclaratorList
