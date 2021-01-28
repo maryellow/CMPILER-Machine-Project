@@ -71,4 +71,15 @@ public class ClypsCustomListener extends ClypsBaseListener {
 //            System.out.println("Map: " + ctx.printBlock().StringLiteral().getText());
     }
 
+//    @Override
+//    public void enterBlock(ClypsParser.BlockContext ctx) {
+//        System.out.println("ENTER BLOCK");
+//        System.out.println(ctx.getParent().getText());
+//    }
+//
+//    @Override
+//    public void exitBlock(ClypsParser.BlockContext ctx) {
+//
+//    }
+
 }
