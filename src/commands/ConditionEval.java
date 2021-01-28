@@ -1,77 +1,66 @@
 package commands;
 
 import antlr.ClypsParser;
-import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.tree.ErrorNode;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.antlr.v4.runtime.tree.TerminalNode;
+import com.udojava.evalex.Expression;
 
-import java.beans.Expression;
 import java.math.BigDecimal;
 
-public class ConditionEval implements ICommand, ParseTreeListener {
 
-    private ClypsParser.ExpressionContext expression;
-    private String newExp;
-    private BigDecimal resultVal;
-    private String result = "";
+public class ConditionEval{
 
-    private boolean isNumber;
-    private boolean hasException = false;
+    public static boolean evaluateCondition(ClypsParser.ExpressionContext expression){
 
-    public ConditionEval(ClypsParser.ExpressionContext expressionCtx){
-        this.expression  = expressionCtx;
-    }
-
-
-    @Override
-    public void execute() {
-        this.newExp = this.expression.getText();
-
-        ParseTreeWalker treeWalker = new ParseTreeWalker();
-        treeWalker.walk(this, this.expression);
-
-        isNumber = !this.result.contains("\"") && this.result.contains("\'");
-
-        if(!isNumber){
-            if(this.result.contains("==") || this.result.contains("!=")){
-
-                String[] strings = {"", ""};
-
-                if(this.result.contains("=="))
-                    strings = this.result.split("==");
-                if(this.result.contains("!="))
-                    strings = this.result.split("!=");
-
-
-                String equality = "STREQ("+strings[0]+", " + strings[1] + ")";
-
-                if(this.result.contains("!="))
-                    equality = "not(" + equality + ")";
-            }
+        if(expression.getText().contains("(true)")){
+            return true;
         }
-    }
-
-    @Override
-    public void visitTerminal(TerminalNode terminalNode) {
-
-    }
-
-    @Override
-    public void visitErrorNode(ErrorNode errorNode) {
-
-    }
-
-    @Override
-    public void enterEveryRule(ParserRuleContext parserRuleContext) {
-        if(parserRuleContext instanceof ClypsParser.ExpressionContext){
+        else if(expression.getText().contains("(false)")){
+            return false;
         }
 
+        CommEval evaluate = new CommEval(expression);
+        evaluate.execute();
+
+        int result = evaluate.getResult().intValue();
+
+        return (result == 1);
     }
 
-    @Override
-    public void exitEveryRule(ParserRuleContext parserRuleContext) {
+    public static boolean evaluateCondition(String condition){
 
+        if(condition.contains("(true)"))
+            return true;
+        else if(condition.contains("(false)"))
+            return false;
+
+        if (condition.contains("!")) {
+            condition = condition.replaceAll("!", "not");
+            condition = condition.replaceAll("not=", "!=");
+        }
+
+        if(condition.contains("and"))
+            condition = condition.replaceAll("and", "&&");
+
+        if(condition.contains("or"))
+            condition = condition.replaceAll("or", "||");
+
+        Expression expression = new Expression(condition);
+        BigDecimal result = expression.eval();
+
+        return (1 == Integer.parseInt(result.toEngineeringString()));
     }
+    //For double checking
+//    public static boolean evaluateCondition(ClypsParser.ConditionalExpressionContext expression){
+//        if(expression.getText().contains(("(true)")))
+//            return true;
+//        else if(expression.getText().contains(("(false)")))
+//            return false;
+//
+//        CommEval evaluate = new CommEval(expression);
+//        evaluate.execute();
+//
+//        int result = evaluate.getResult().intValue();
+//
+//        return (result == 1);
+//    }
+
 }
