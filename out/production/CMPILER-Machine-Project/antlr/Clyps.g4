@@ -108,7 +108,8 @@ variableDeclarator
 	;
 
 variableDeclaratorId
-	:	Identifier dims?
+	:	Identifier '[' expression ']'
+	|   Identifier
 	;
 
 variableInitializer
@@ -217,6 +218,7 @@ blockStatement
 	|   variableDeclarationStatement
 	|   variableNoInit
 	|	statement
+	|   arrayCreationExpression
 	;
 
 variableDeclarationStatement
@@ -234,7 +236,6 @@ localVariableDeclarationStatement
 localVariableDeclaration
 	:	variableModifier* unannType variableDeclaratorList
 	|   unannType unannType '=' variableInitializer  {notifyErrorListeners("Explicit Use of Keyword");}
-	|   arrayCreationExpression
 	;
 
 statement
@@ -351,8 +352,11 @@ returnStatement
  */
 
 primary
-	:	primaryNoNewArray_lfno_primary
-	;
+	:	literal
+    |	'(' expression ')'
+    |	arrayCall
+    |   methodInvocation
+    ;
 
 primaryNoNewArray_lfno_arrayAccess
 	:	literal
@@ -360,16 +364,21 @@ primaryNoNewArray_lfno_arrayAccess
 	|	methodInvocation
 	;
 
-primaryNoNewArray_lfno_primary
-	:	literal
-	|	'(' expression ')'
-	|	arrayAccess_lfno_primary
-	;
+arrayCall
+    :   expressionName '[' expression ']'
+    ;
+//
+//primaryNoNewArray_lfno_primary
+//	:	literal
+//	|	'(' expression ')'
+//	|	expressionName '[' expression ']'
+//	|   methodInvocation
+//	;
 
-primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
-	:	literal
-	|	'(' expression ')'
-	;
+//primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary
+//	:	literal
+//	|	'(' expression ')'
+//	;
 
 arrayAccess
 	:	(	expressionName '[' expression ']'
@@ -377,11 +386,11 @@ arrayAccess
 		)
 	;
 
-arrayAccess_lfno_primary
-	:	(	expressionName '[' expression ']'
-		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
-		)
-	;
+//arrayAccess_lfno_primary
+//	:   expressionName '[' expression ']'
+//		|	primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary '[' expression ']'
+//		)
+//	;
 
 methodInvocation
 	:	methodName '(' argumentList? ')'
@@ -394,16 +403,13 @@ argumentList
 	;
 
 arrayCreationExpression
-	:	unannArrayType Identifier '=' 'new' primitiveType dimExprs dims?
-	|	unannArrayType Identifier '=' 'new' primitiveType dims arrayInitializer
-	;
-
-dimExprs
-	:	dimExpr dimExpr*
+	:	unannArrayType Identifier '=' 'new' primitiveType dimExpr ';'
+	//|	unannArrayType Identifier '=' 'new' primitiveType dims arrayInitializer
 	;
 
 dimExpr
-	:	'[' StringLiteral ']'
+	:	'[' expression ']'
+	|   '[' ']'    {notifyErrorListeners("Array Size Required");}
 	|   ArrayNum
 	;
 

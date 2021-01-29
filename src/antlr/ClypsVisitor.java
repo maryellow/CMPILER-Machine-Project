@@ -401,29 +401,17 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrimaryNoNewArray_lfno_arrayAccess(ClypsParser.PrimaryNoNewArray_lfno_arrayAccessContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary}.
+	 * Visit a parse tree produced by {@link ClypsParser#arrayCall}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryNoNewArray_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primaryContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
+	T visitArrayCall(ClypsParser.ArrayCallContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#arrayAccess}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitArrayAccess(ClypsParser.ArrayAccessContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArrayAccess_lfno_primary(ClypsParser.ArrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#methodInvocation}.
 	 * @param ctx the parse tree
@@ -442,12 +430,6 @@ public interface ClypsVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitArrayCreationExpression(ClypsParser.ArrayCreationExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ClypsParser#dimExprs}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDimExprs(ClypsParser.DimExprsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ClypsParser#dimExpr}.
 	 * @param ctx the parse tree

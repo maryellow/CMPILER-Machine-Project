@@ -3,6 +3,7 @@ package items;
 import ErrorCheckers.TypeChecking;
 import com.sun.org.apache.xalan.internal.xsltc.compiler.XPathParser;
 import com.udojava.evalex.*;
+import controller.ClypsArray;
 import controller.editor;
 
 import java.math.BigDecimal;
@@ -24,6 +25,10 @@ public class ClypsValue {
     private Object value;
     private PrimitiveType type= PrimitiveType.NOT_YET_IDENTIFIED;
     private boolean finalFlag = false;
+
+    public ClypsValue(){
+
+    }
 
     public ClypsValue(Object value, PrimitiveType primitiveType){
 //
@@ -52,6 +57,8 @@ public class ClypsValue {
 //                ty = PrimitiveType.NOT_YET_IDENTIFIED;
 //        }
 //        //|| TypeChecking.checkValueType(value,ty)
+        System.out.println(value);
+        System.out.println(primitiveType);
         if (value==null ||checkValueType(value,primitiveType)){
             System.out.println("IN");
             this.value = value;

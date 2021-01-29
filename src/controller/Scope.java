@@ -8,17 +8,20 @@ import java.util.HashMap;
 public class Scope {
     private Scope parentScope;
     private HashMap<String, ClypsValue> localVariables=null;
+    private HashMap<String, ClypsArray> localArrays=null;
     private ArrayList<Scope> scopeList=null;
 
     public Scope(){
         this.parentScope=null;
         this.localVariables = new HashMap<String, ClypsValue>();
+        this.localArrays = new HashMap<String, ClypsArray>();
         this.scopeList = new ArrayList<Scope>();
     }
 
     public Scope(Scope scope){
         this.parentScope=scope;
         this.localVariables = new HashMap<String, ClypsValue>();
+        this.localArrays = new HashMap<String, ClypsArray>();
         this.scopeList = new ArrayList<Scope>();
     }
 
@@ -61,8 +64,17 @@ public class Scope {
         }
     }
 
+    public ClypsArray searchArray(String identifier){
+        if(this.containsVariable(identifier)) {
+            return this.localArrays.get(identifier);
+        }
+        else {
+            return null;
+        }
+    }
+
     public boolean containsVariable(String identifier) {
-        if(this.localVariables!= null && this.localVariables.containsKey(identifier)) {
+        if((this.localVariables!= null && this.localVariables.containsKey(identifier))||(this.localArrays!=null&&this.localArrays.containsKey(identifier))) {
             return true;
         }
         else {
@@ -91,17 +103,11 @@ public class Scope {
         clypsValue.setType(type);
     }
 
-    public void addFinalEmptyVariableFromKeywords(String primitiveTypeString, String identifierString) {
-        ClypsValue clypsValue = ClypsValue.createEmptyVariableFromKeywords(primitiveTypeString);
-        clypsValue.markFinal();
-        this.localVariables.put(identifierString, clypsValue);
-    }
-
-    public void addFinalInitVariableFromKeyWords(String primitiveTypeString, String identifierString, String valueString) {
-        this.addEmptyVariableFromKeywords(primitiveTypeString, identifierString);
-        ClypsValue clypsValue = this.localVariables.get(identifierString);
-        clypsValue.setValue(valueString);
-        clypsValue.markFinal();
+    public void addArray(String primitiveTypeString, String identifierString, String size) {
+        ClypsValue.PrimitiveType type=ClypsValue.translateType(primitiveTypeString);
+        ClypsArray array = new ClypsArray(type);
+        array.initializeSize(Integer.parseInt(size));
+        this.localArrays.put(identifierString,array);
     }
 
     public void addClypsValue(String identifier, ClypsValue clypsValue) {
@@ -123,6 +129,44 @@ public class Scope {
                 System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType()+" FINAL");
             else
                 System.out.println(entry.getKey() + " " + entry.getValue().getValue() + " " + entry.getValue().getPrimitiveType());
+        });
+    }
+
+    public void printAllArrays() {
+        if (parentScope!=null){
+            parentScope.localArrays.entrySet().forEach(entry -> {
+                if (entry.getValue().isFinal())
+                    System.out.println(entry.getKey() + " " + entry.getValue().getSize() + " " + entry.getValue().getPrimitiveType()+" FINAL");
+                else
+                    System.out.println(entry.getKey() + " " + entry.getValue().getSize() + " " + entry.getValue().getPrimitiveType());
+            });
+        }
+
+        this.localArrays.entrySet().forEach(entry -> {
+            if (entry.getValue().isFinal())
+                System.out.println(entry.getKey() + " " + entry.getValue().getSize() + " " + entry.getValue().getPrimitiveType()+" FINAL");
+            else
+                System.out.println(entry.getKey() + " " + entry.getValue().getSize() + " " + entry.getValue().getPrimitiveType());
+        });
+    }
+
+    public void printArrayValues(){
+        if (parentScope!=null){
+            parentScope.localArrays.entrySet().forEach(entry -> {
+                for (int i = 0;i<entry.getValue().getSize();i++){
+                    System.out.println(entry.getKey() + " " +entry.getValue().getValueAt(i).getValue().toString());
+                }
+
+            });
+        }
+
+        this.localArrays.entrySet().forEach(entry -> {
+            for (int i = 0;i<entry.getValue().getSize();i++){
+                if (entry.getValue().getValueAt(i)!=null)
+                    System.out.println(entry.getKey() + " " +entry.getValue().getValueAt(i).getValue());
+                else
+                    System.out.println(entry.getKey() + " " +entry.getValue().getValueAt(i));
+            }
         });
     }
 
