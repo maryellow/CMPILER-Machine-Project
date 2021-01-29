@@ -109,14 +109,13 @@ public class ClypsValue {
         System.out.println(value);
         System.out.println(this.getPrimitiveType());
 
-        if (this.getPrimitiveType()!=PrimitiveType.STRING&&this.getPrimitiveType()!=PrimitiveType.CHAR)
+        if (this.getPrimitiveType()!=PrimitiveType.STRING&&this.getPrimitiveType()!=PrimitiveType.CHAR){
             try {
                 this.value = new Expression(value).eval().toPlainString();
             }catch (Expression.ExpressionException e){
                 //editor.addCustomError("DUPLICATE FUNCTION DETECTED",0);
             }
-
-        else
+        }else
             this.value=value;
 
 
