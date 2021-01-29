@@ -92,7 +92,7 @@ classBodyDeclaration
 	;
 
 classMemberDeclaration
-	:	mainDeclaration (methodDeclaration)*
+	:	(methodDeclaration)* mainDeclaration (methodDeclaration)*
 	;
 
 mainDeclaration

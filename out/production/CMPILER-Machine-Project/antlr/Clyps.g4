@@ -92,7 +92,7 @@ classBodyDeclaration
 	;
 
 classMemberDeclaration
-	:	mainDeclaration (methodDeclaration)*
+	:	(methodDeclaration)* mainDeclaration (methodDeclaration)*
 	;
 
 mainDeclaration
@@ -414,8 +414,8 @@ dimExpr
 	;
 
 expression
-	:   conditionalExpression
-	|   assignmentExpression
+	:   assignmentExpression
+	|   conditionalExpression
 	;
 
 assignmentExpression
