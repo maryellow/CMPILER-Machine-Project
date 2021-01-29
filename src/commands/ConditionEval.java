@@ -17,8 +17,11 @@ public class ConditionEval{
             return false;
         }
 
+        System.out.println(expression.getClass());
         CommEval evaluate = new CommEval(expression);
         evaluate.execute();
+
+
 
         int result = evaluate.getResult().intValue();
 
