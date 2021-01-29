@@ -1,25 +1,10 @@
 package commands;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import antlr.ClypsLexer;
 import antlr.ClypsParser;
-import controller.ClypsCustomListener;
-import controller.ClypsCustomVisitor;
-import controller.ClypseCustomErrorListener;
-import controller.Main;
 import execution.ExecutionManager;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.ErrorNode;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.TerminalNode;
+import org.antlr.v4.runtime.Parser;
 
 public class IFCommand implements ICommand{
 
@@ -104,14 +89,4 @@ public class IFCommand implements ICommand{
     }
 
     public boolean isReturned(){return returned;}
-
-    public boolean condition(){
-        if(ConditionEval.evaluateCondition(this.condExp))
-            return true;
-        else
-            return false;
-    }
-
-
-
 }
