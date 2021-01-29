@@ -9,6 +9,9 @@ import sun.awt.Symbol;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
 
@@ -26,7 +29,8 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         System.out.println(ctx.localVariableDeclaration().variableDeclaratorList().variableDeclarator().get(0).variableInitializer().getText());
 
         System.out.println("----");
-        String value = testingExpression(value1);
+        List<Integer> dummy = new ArrayList<>();
+        String value = testingExpression(value1,dummy);
 
 
 
@@ -92,9 +96,10 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         //System.out.println(ctx.variableDeclarator().variableDeclaratorId().Identifier());
         System.out.println("REASSINING PART");
         if(ctx.variableDeclarator().variableDeclaratorId().getText().contains("[")){
+            List<Integer> dummy = new ArrayList<>();
             System.out.println(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText());
-            int index = Integer.parseInt(testingExpression(ctx.variableDeclarator().variableDeclaratorId().expression().getText()));
-            String value = testingExpression(ctx.variableDeclarator().variableInitializer().getText());
+            int index = Integer.parseInt(testingExpression(ctx.variableDeclarator().variableDeclaratorId().expression().getText(),dummy));
+            String value = testingExpression(ctx.variableDeclarator().variableInitializer().getText(),dummy);
             if (SymbolTableManager.getInstance().getActiveLocalScope().searchArray(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText())!=null){
                 System.out.println("WE IN");
                 ClypsArray te = SymbolTableManager.getInstance().getActiveLocalScope().searchArray(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText());
@@ -122,17 +127,37 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
             System.out.println("END PRINT");
         }else {
             if (!SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText()).isFinal()){
-                if (SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText())!=null){
-                    System.out.println("REASSIGN");
-                    SymbolTableManager.getInstance().getActiveLocalScope().setDeclaredVariable(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText(),ctx.variableDeclarator().variableInitializer().getText());
+                    if (SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText())!=null){
+                        System.out.println("REASSIGN");
+                        String value;
+                        System.out.println(ctx.variableDeclarator().variableDeclaratorId().getText());
+                        List<Integer> dummy = new ArrayList<>();
+                        if (!ctx.variableDeclarator().variableInitializer().getText().contains("[")){
+                            System.out.println("not array");
+                            value = testingExpression(ctx.variableDeclarator().variableInitializer().getText(),dummy);
+                        }else {
+                            System.out.println("array");
+                            List<Integer> matchList = new ArrayList<Integer>();
+                            Pattern regex = Pattern.compile("\\[(.*?)\\]");
+                            System.out.println(ctx.variableDeclarator().variableInitializer().getText());
+                            Matcher regexMatcher = regex.matcher(ctx.variableDeclarator().variableInitializer().getText());
+
+                            while (regexMatcher.find()) {//Finds Matching Pattern in String
+                                matchList.add(Integer.parseInt(regexMatcher.group(1).trim()));//Fetching Group from String
+                            }
+                            value = testingExpression(ctx.variableDeclarator().variableInitializer().getText(),matchList);
+                        }
+                        SymbolTableManager.getInstance().getActiveLocalScope().setDeclaredVariable(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText(),value);
+                    }else {
+                        //System.out.println("DUPLICATE VAR");
+                        editor.addCustomError("VAR DOES NOT EXIST",ctx.start.getLine());
+                        //System.out.println(editor.errors.get(editor.errors.size()-1));
+                    }
                 }else {
-                    //System.out.println("DUPLICATE VAR");
-                    editor.addCustomError("VAR DOES NOT EXIST",ctx.start.getLine());
-                    //System.out.println(editor.errors.get(editor.errors.size()-1));
+                    editor.addCustomError("CANNOT CHANGE CONSTANT VARIABLE",ctx.start.getLine());
                 }
-            }else {
-                editor.addCustomError("CANNOT CHANGE CONSTANT VARIABLE",ctx.start.getLine());
-            }
+
+
         }
 
 
@@ -194,8 +219,9 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         String firstType = ctx.unannArrayType().getText();
         String name = ctx.Identifier().getText();
         String secondType = ctx.primitiveType().getText();
+        List<Integer> dummy = new ArrayList<>();
         String size1 = ctx.dimExpr().getText().replaceAll("\\[", "").replaceAll("\\]","");
-        String size2 =testingExpression(size1);
+        String size2 =testingExpression(size1,dummy);
         if (size2.matches("[^A-Za-z]+")){
             String size = new Expression(size2).eval().toPlainString();
             if (SymbolTableManager.searchVariableInLocalIterative(name,SymbolTableManager.getInstance().getActiveLocalScope())==null&&
@@ -221,8 +247,8 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         System.out.println("PRINT ALL ARRAYS");
         SymbolTableManager.getInstance().getActiveLocalScope().printAllArrays();
         System.out.println("PRINT ALL VALUES");
-//        SymbolTableManager.getInstance().getActiveLocalScope().printArrayValues();
-//        System.out.println("END PRINT");
+        SymbolTableManager.getInstance().getActiveLocalScope().printArrayValues();
+        System.out.println("END PRINT");
         return visitChildren(ctx);
     }
 
@@ -266,17 +292,29 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         return visitChildren(ctx);
     }
 
-    public String testingExpression(String value){
+    public String testingExpression(String value,List<Integer> index){
         String[] test = value.split("[^A-Za-z]+");
         ArrayList<String> store = new ArrayList<>();
 
         System.out.println("START VARS");
         for (int i =0;i<test.length;i++){
             System.out.println(test[i]);
+            System.out.println(index);
             if (SymbolTableManager.searchVariableInLocalIterative(test[i],SymbolTableManager.getInstance().getActiveLocalScope())!=null||
-                    SymbolTableManager.searchVariableInLocalIterative(test[i],SymbolTableManager.getInstance().getActiveLocalScope().getParent())!=null){
+                    SymbolTableManager.searchVariableInLocalIterative(test[i],SymbolTableManager.getInstance().getActiveLocalScope().getParent())!=null||
+                    SymbolTableManager.getInstance().getActiveLocalScope().searchArray(test[i])!=null){
                 System.out.println("VAR FOUND HERE");
-                store.add(SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(test[i]).getValue().toString());
+                if (index==null) {
+                    System.out.println("PROCESS REGULAR");
+                    store.add(SymbolTableManager.getInstance().getActiveLocalScope().searchVariableIncludingLocal(test[i]).getValue().toString());
+                }
+                else {
+                    System.out.println("PROCESS ARRAY");
+                    store.add(SymbolTableManager.getInstance().getActiveLocalScope().searchArray(test[i])
+                            .getValueAt(index.get(i))
+                            .getValue().toString());
+                }
+
 
             }
         }
@@ -288,6 +326,9 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
 
         for (int i=0;i<store.size();i++){
             value=value.replaceAll(test[i],store.get(i));
+            if (value.contains("[")){
+                value=value.replaceAll("\\[.*?\\]", "");
+            }
         }
 
         System.out.println("NEW CREATED VALUE");

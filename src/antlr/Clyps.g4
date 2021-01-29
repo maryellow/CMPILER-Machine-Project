@@ -365,7 +365,7 @@ primaryNoNewArray_lfno_arrayAccess
 	;
 
 arrayCall
-    :   expressionName '[' expression ']'
+    :   expressionName '[ 'expression']'
     ;
 //
 //primaryNoNewArray_lfno_primary
