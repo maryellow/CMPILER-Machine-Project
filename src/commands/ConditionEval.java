@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 public class ConditionEval{
 
-    public static boolean evaluateCondition(ClypsParser.ExpressionContext expression){
+    public static boolean evaluateCondition(ClypsParser.ConditionalExpressionContext expression){
 
         if(expression.getText().contains("(true)")){
             return true;

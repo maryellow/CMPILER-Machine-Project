@@ -4,6 +4,7 @@ import ErrorCheckers.TypeChecking;
 import antlr.ClypsBaseVisitor;
 import antlr.ClypsParser;
 import com.udojava.evalex.Expression;
+import commands.IFCommand;
 import items.ClypsValue;
 import sun.awt.Symbol;
 
