@@ -297,6 +297,9 @@ public class editor extends JFrame implements ActionListener {
                         System.err.println(error);
                     }
                 }
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
 //                if (!errors.isEmpty()){
 //                    for(String error:errors){
@@ -313,9 +316,7 @@ public class editor extends JFrame implements ActionListener {
 //                        System.err.println("Error Detected.");
 //                    }
 //                }
-            } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
 
 
     }
@@ -324,7 +325,7 @@ public class editor extends JFrame implements ActionListener {
         errors.add(error);
     }
 
-    static void addCustomError(String error, int line){
+    public static void addCustomError(String error, int line){
         errors.add("Semantic Error on Line "+line+": "+error);
     }
 

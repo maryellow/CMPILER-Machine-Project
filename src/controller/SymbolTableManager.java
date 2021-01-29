@@ -99,7 +99,7 @@ public class SymbolTableManager {
         if (this.functionMap.get(functionName)!=null) {
             return this.functionMap.get(functionName);
         } else {
-            editor.addCustomError("Function does not exist.", 0);
+            //editor.addCustomError("Function does not exist.", 0);
             return null;
         }
 

@@ -66,9 +66,11 @@ public class Scope {
 
     public ClypsArray searchArray(String identifier){
         if(this.containsVariable(identifier)) {
+            System.out.println("FOUND NAME");
             return this.localArrays.get(identifier);
         }
         else {
+            System.out.println("NO NAME FOUND");
             return null;
         }
     }

@@ -92,7 +92,7 @@ classBodyDeclaration
 	;
 
 classMemberDeclaration
-	:	mainDeclaration (methodDeclaration)*
+	:	(methodDeclaration)* mainDeclaration (methodDeclaration)*
 	;
 
 mainDeclaration
@@ -366,7 +366,7 @@ primaryNoNewArray_lfno_arrayAccess
 	;
 
 arrayCall
-    :   expressionName '[' expression ']'
+    :   expressionName '[ 'expression']'
     ;
 //
 //primaryNoNewArray_lfno_primary
