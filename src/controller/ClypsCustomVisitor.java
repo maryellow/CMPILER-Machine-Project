@@ -4,6 +4,7 @@ import ErrorCheckers.TypeChecking;
 import antlr.ClypsBaseVisitor;
 import antlr.ClypsParser;
 import com.udojava.evalex.Expression;
+import commands.IFCommand;
 import items.ClypsValue;
 import sun.awt.Symbol;
 
@@ -297,4 +298,20 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         return value;
     }
 
+    @Override
+    public ClypsValue visitConditionalExpression(ClypsParser.ConditionalExpressionContext ctx) {
+        System.out.println("ENTER IF CONDITION");
+        System.out.println(ctx.getText());
+
+        IFCommand command = new IFCommand(ctx);
+
+        System.out.println(command.checking());
+
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public ClypsValue visitPrintStatement(ClypsParser.PrintStatementContext ctx) {
+        return super.visitPrintStatement(ctx);
+    }
 }

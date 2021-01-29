@@ -274,6 +274,7 @@ printExtra
     |   Identifier StringLiteral+  {notifyErrorListeners("Missing double quotes");}
     |   StringLiteral StringLiteral+    {notifyErrorListeners("Missing double quotes");}
     |   StringLiteral Identifier+    {notifyErrorListeners("Missing double quotes");}
+    |
     ;
 
 scanStatement

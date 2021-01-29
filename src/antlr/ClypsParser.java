@@ -2981,6 +2981,8 @@ public class ClypsParser extends Parser {
 		public ReturnStatementContext returnStatement() {
 			return getRuleContext(ReturnStatementContext.class,0);
 		}
+		public List<StatementContext> statement(){return getRuleContexts(StatementContext.class);}
+		public ConditionalExpressionContext expression(int i){return getRuleContext(ConditionalExpressionContext.class, i);}
 		public PostIncrementExpressionContext postIncrementExpression() {
 			return getRuleContext(PostIncrementExpressionContext.class,0);
 		}
@@ -3175,6 +3177,7 @@ public class ClypsParser extends Parser {
 		public PrintStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
+		public PrintStatementContext expression(int i){return getRuleContext(PrintStatementContext.class, i);}
 		@Override public int getRuleIndex() { return RULE_printStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
