@@ -3,6 +3,7 @@ package items;
 import ErrorCheckers.TypeChecking;
 import com.sun.org.apache.xalan.internal.xsltc.compiler.XPathParser;
 import com.udojava.evalex.*;
+import controller.ClypsArray;
 import controller.editor;
 
 import java.math.BigDecimal;
@@ -24,6 +25,10 @@ public class ClypsValue {
     private Object value;
     private PrimitiveType type= PrimitiveType.NOT_YET_IDENTIFIED;
     private boolean finalFlag = false;
+
+    public ClypsValue(){
+
+    }
 
     public ClypsValue(Object value, PrimitiveType primitiveType){
 //
@@ -52,12 +57,15 @@ public class ClypsValue {
 //                ty = PrimitiveType.NOT_YET_IDENTIFIED;
 //        }
 //        //|| TypeChecking.checkValueType(value,ty)
+        System.out.println(value);
+        System.out.println(primitiveType);
         if (value==null ||checkValueType(value,primitiveType)){
             System.out.println("IN");
             this.value = value;
             this.type = primitiveType;
             if (this.type==PrimitiveType.INT||this.type==PrimitiveType.FLOAT||this.type==PrimitiveType.DOUBLE||this.type==PrimitiveType.BOOLEAN)
                 tryEvaluate(value.toString());
+
         }else{
             System.out.println("ERROR");
             editor.addError("Type Mismatch");
@@ -67,6 +75,14 @@ public class ClypsValue {
 
     public void setValue(String value){
         tryEvaluate(value);
+    }
+
+    public void setSCValue(String value){
+        if (value.contains("\""))
+            value=value.replaceAll("\"","");
+        else
+            value=value.replaceAll("'","");
+        this.value=value;
     }
 
     public void setType(PrimitiveType primitiveType){
@@ -91,8 +107,13 @@ public class ClypsValue {
 
     private void tryEvaluate(String value){
         System.out.println(value);
+        System.out.println(this.getPrimitiveType());
 
-        this.value = new Expression(value).eval().toPlainString();
+        if (this.getPrimitiveType()!=PrimitiveType.STRING&&this.getPrimitiveType()!=PrimitiveType.CHAR)
+            this.value = new Expression(value).eval().toPlainString();
+        else
+            this.value=value;
+
 
         System.out.println("EVAL: "+this.value);
     }
@@ -164,7 +185,7 @@ public class ClypsValue {
         else if(primitiveTypeString.contains(PrimitiveType.INT.toString().toLowerCase(Locale.ROOT))) {
             primitiveType = PrimitiveType.INT;
         }
-        else if(primitiveTypeString.contains(PrimitiveType.STRING.toString().toLowerCase(Locale.ROOT))) {
+        else if(primitiveTypeString.toLowerCase(Locale.ROOT).contains(PrimitiveType.STRING.toString().toLowerCase(Locale.ROOT))) {
             primitiveType = PrimitiveType.STRING;
         }
 
@@ -179,7 +200,7 @@ public class ClypsValue {
         if(primitiveTypeString.contains(PrimitiveType.BOOLEAN.toString())) {
             primitiveType = PrimitiveType.BOOLEAN;
         }
-        else if(primitiveTypeString.contains(PrimitiveType.CHAR.toString())) {
+        else if(primitiveTypeString.contains(PrimitiveType.CHAR.toString().toLowerCase(Locale.ROOT))) {
             primitiveType = PrimitiveType.CHAR;
         }
         else if(primitiveTypeString.contains(PrimitiveType.DOUBLE.toString())) {
@@ -191,7 +212,7 @@ public class ClypsValue {
         else if(primitiveTypeString.contains(PrimitiveType.INT.toString())) {
             primitiveType = PrimitiveType.INT;
         }
-        else if(primitiveTypeString.contains(PrimitiveType.STRING.toString())) {
+        else if(primitiveTypeString.toLowerCase(Locale.ROOT).contains(PrimitiveType.STRING.toString().toLowerCase(Locale.ROOT))) {
             primitiveType = PrimitiveType.STRING;
         }
 

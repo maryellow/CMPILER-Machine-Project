@@ -418,6 +418,16 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitVariableDeclarationStatement(ClypsParser.VariableDeclarationStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ClypsParser#variableNoInit}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableNoInit(ClypsParser.VariableNoInitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ClypsParser#variableNoInit}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableNoInit(ClypsParser.VariableNoInitContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ClypsParser#localVariableDeclarationStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -648,25 +658,15 @@ public interface ClypsListener extends ParseTreeListener {
 	 */
 	void exitPrimaryNoNewArray_lfno_arrayAccess(ClypsParser.PrimaryNoNewArray_lfno_arrayAccessContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary}.
+	 * Enter a parse tree produced by {@link ClypsParser#arrayCall}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryNoNewArray_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primaryContext ctx);
+	void enterArrayCall(ClypsParser.ArrayCallContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary}.
+	 * Exit a parse tree produced by {@link ClypsParser#arrayCall}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryNoNewArray_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primaryContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
+	void exitArrayCall(ClypsParser.ArrayCallContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#arrayAccess}.
 	 * @param ctx the parse tree
@@ -677,16 +677,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArrayAccess(ClypsParser.ArrayAccessContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrayAccess_lfno_primary(ClypsParser.ArrayAccess_lfno_primaryContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#arrayAccess_lfno_primary}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrayAccess_lfno_primary(ClypsParser.ArrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#methodInvocation}.
 	 * @param ctx the parse tree
@@ -717,16 +707,6 @@ public interface ClypsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArrayCreationExpression(ClypsParser.ArrayCreationExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ClypsParser#dimExprs}.
-	 * @param ctx the parse tree
-	 */
-	void enterDimExprs(ClypsParser.DimExprsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ClypsParser#dimExprs}.
-	 * @param ctx the parse tree
-	 */
-	void exitDimExprs(ClypsParser.DimExprsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ClypsParser#dimExpr}.
 	 * @param ctx the parse tree

@@ -508,6 +508,18 @@ public class ClypsBaseListener implements ClypsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterVariableNoInit(ClypsParser.VariableNoInitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariableNoInit(ClypsParser.VariableNoInitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLocalVariableDeclarationStatement(ClypsParser.LocalVariableDeclarationStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -784,25 +796,13 @@ public class ClypsBaseListener implements ClypsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrimaryNoNewArray_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primaryContext ctx) { }
+	@Override public void enterArrayCall(ClypsParser.ArrayCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrimaryNoNewArray_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primaryContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(ClypsParser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx) { }
+	@Override public void exitArrayCall(ClypsParser.ArrayCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -815,18 +815,6 @@ public class ClypsBaseListener implements ClypsListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitArrayAccess(ClypsParser.ArrayAccessContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArrayAccess_lfno_primary(ClypsParser.ArrayAccess_lfno_primaryContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArrayAccess_lfno_primary(ClypsParser.ArrayAccess_lfno_primaryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -863,18 +851,6 @@ public class ClypsBaseListener implements ClypsListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitArrayCreationExpression(ClypsParser.ArrayCreationExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDimExprs(ClypsParser.DimExprsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDimExprs(ClypsParser.DimExprsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
