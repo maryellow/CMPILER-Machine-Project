@@ -404,8 +404,8 @@ dimExpr
 	;
 
 expression
-	:   assignmentExpression
-	|   conditionalExpression
+	:   conditionalExpression
+	|   assignmentExpression
 	;
 
 assignmentExpression
