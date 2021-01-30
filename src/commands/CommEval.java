@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class CommEval implements ICommand, ParseTreeListener {
 
-    private ClypsParser.ExpressionContext expression;
+    private ClypsParser.ConditionalExpressionContext expression;
     private String newExp;
     private BigDecimal resultVal;
     private String result = "";
@@ -23,7 +23,7 @@ public class CommEval implements ICommand, ParseTreeListener {
     private boolean isNumber;
     private boolean hasException = false;
 
-    public CommEval(ClypsParser.ExpressionContext expressionCtx){
+    public CommEval(ClypsParser.ConditionalExpressionContext expressionCtx){
         this.expression  = expressionCtx;
     }
 
@@ -41,6 +41,7 @@ public class CommEval implements ICommand, ParseTreeListener {
         isNumber = !this.newExp.contains("\"") && this.newExp.contains("\'");
 
         if(!isNumber){
+            System.out.println("PING");
             // for true or false expressions
             if(this.newExp.contains("==") || this.newExp.contains("!=")){
 
@@ -50,6 +51,7 @@ public class CommEval implements ICommand, ParseTreeListener {
                     strings = this.newExp.split("==");
                 if(this.newExp.contains("!="))
                     strings = this.newExp.split("!=");
+
 
 
                 String equality = "STREQ("+strings[0]+", " + strings[1] + ")";
@@ -95,7 +97,15 @@ public class CommEval implements ICommand, ParseTreeListener {
 
                 this.resultVal = e.eval();
                 isNumber = true;
-            } else{
+            } else if(this.newExp.contains("<=") || this.newExp.contains(">=") || this.newExp.contains("<") || this.newExp.contains(">")){
+
+                Expression e  = new Expression(this.newExp);
+
+                this.resultVal = e.eval();
+                isNumber = true;
+
+            }
+            else{
                 this.result = StringUtils.removeQuotes(newExp);
             }
         } else{
@@ -143,8 +153,8 @@ public class CommEval implements ICommand, ParseTreeListener {
 
     @Override
     public void enterEveryRule(ParserRuleContext parserRuleContext) {
-        if(parserRuleContext instanceof ClypsParser.ExpressionContext){
-            ClypsParser.ExpressionContext condCtx = (ClypsParser.ExpressionContext) parserRuleContext;
+        if(parserRuleContext instanceof ClypsParser.ConditionalExpressionContext){
+            ClypsParser.ConditionalExpressionContext condCtx = (ClypsParser.ConditionalExpressionContext) parserRuleContext;
             if(CommEval.isFunctionCall(condCtx))
                 this.evaluateFunctionCall(condCtx);
             else if(CommEval.isVariableOrConst(condCtx))
@@ -158,7 +168,7 @@ public class CommEval implements ICommand, ParseTreeListener {
 
     }
 
-    public static boolean isFunctionCall(ClypsParser.ExpressionContext ctx){
+    public static boolean isFunctionCall(ClypsParser.ConditionalExpressionContext ctx){
         Pattern functionPattern = Pattern.compile("([a-zA-Z0-9]+)\\(([ ,.a-zA-Z0-9]*)\\)");
 
         if(functionPattern.matcher(ctx.getText()).matches())
@@ -167,7 +177,7 @@ public class CommEval implements ICommand, ParseTreeListener {
             return false;
     }
 
-    public static boolean isVariableOrConst(ClypsParser.ExpressionContext ctx){
+    public static boolean isVariableOrConst(ClypsParser.ConditionalExpressionContext ctx){
         //Have to check if valid to just go the first part or needed to be in the most inner level
 
         //placeholder
@@ -175,10 +185,10 @@ public class CommEval implements ICommand, ParseTreeListener {
 
     }
 
-    private void evaluateFunctionCall(ClypsParser.ExpressionContext ctx){
+    private void evaluateFunctionCall(ClypsParser.ConditionalExpressionContext ctx){
 
     }
-    private void evaluateVariable(ClypsParser.ExpressionContext ctx){
+    private void evaluateVariable(ClypsParser.ConditionalExpressionContext ctx){
 
     }
 

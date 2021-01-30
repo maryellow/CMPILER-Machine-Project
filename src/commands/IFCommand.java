@@ -10,12 +10,12 @@ public class IFCommand implements ICommand{
 
     private List<ICommand> posCommands;
     private List<ICommand> negCommands;
-    private ClypsParser.ExpressionContext condExp;
+    private ClypsParser.ConditionalExpressionContext condExp;
 
     private ArrayList<String> localVars = new ArrayList<>();
     private boolean returned;
 
-    public IFCommand(ClypsParser.ExpressionContext condExp) {
+    public IFCommand(ClypsParser.ConditionalExpressionContext condExp) {
         this.posCommands = new ArrayList<ICommand>();
         this.negCommands = new ArrayList<ICommand>();
         this.condExp = condExp;
@@ -89,4 +89,11 @@ public class IFCommand implements ICommand{
     }
 
     public boolean isReturned(){return returned;}
+
+    public boolean checking(){
+        if (ConditionEval.evaluateCondition(this.condExp))
+            return true;
+        else
+            return false;
+    }
 }
