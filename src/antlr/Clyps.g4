@@ -264,7 +264,7 @@ printBlock
     ;
 
 printExtra
-    :   Identifier
+    :   Identifier ('('expression')')?
     |   StringLiteral
     |   Identifier '+' {notifyErrorListeners("Too Many '+' Symbols");}
     |   StringLiteral '+' {notifyErrorListeners("Too Many '+' Symbols");}
