@@ -6,7 +6,7 @@ import items.ClypsValue;
 
 import java.util.ArrayList;
 
-public class Function {
+public class ClypsFunction {
     public enum FunctionType{
         BOOL_TYPE,
         INT_TYPE,

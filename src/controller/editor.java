@@ -1,6 +1,7 @@
 package controller;//https://www.geeksforgeeks.org/java-swing-create-a-simple-text-editor/
 import antlr.ClypsLexer;
 import antlr.ClypsParser;
+import execution.ExecutionManager;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -240,6 +241,7 @@ public class editor extends JFrame implements ActionListener {
     private static void reset(){
         errors.clear();
         SymbolTableManager.reset();
+        ExecutionManager.reset();
     }
 
     private static boolean build(){
@@ -277,18 +279,15 @@ public class editor extends JFrame implements ActionListener {
     }
 
     private static void perform(String code){
-
             try {
                 InputStream stream = new ByteArrayInputStream(code.getBytes(StandardCharsets.UTF_8));
                 ClypsLexer lexer = new ClypsLexer(CharStreams.fromStream(stream, StandardCharsets.UTF_8));
                 ClypsParser parser = new ClypsParser(new CommonTokenStream(lexer));
 
-                //lexer.removeErrorListeners();
                 parser.removeErrorListeners();
                 parser.addErrorListener(new ClypseCustomErrorListener());
                 parser.addParseListener(new ClypsCustomListener());
                 ParseTree tree = parser.normalClassDeclaration();
-                //parser.normalClassDeclaration();
                 ClypsCustomVisitor visit = new ClypsCustomVisitor();
                 visit.visit(tree);
 
@@ -296,29 +295,13 @@ public class editor extends JFrame implements ActionListener {
                     for (String error : errors) {
                         System.err.println(error);
                     }
+                }else {
+                    System.out.println("EXECUTING COMMANDS");
+                    ExecutionManager.getInstance().executeAllActions();
                 }
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-//                if (!errors.isEmpty()){
-//                    for(String error:errors){
-//                        System.err.println(error);
-//                    }
-//                    //System.err.println("No errors detected.");
-//                    reset();
-////                    ClypsCustomVisitor visit = new ClypsCustomVisitor(SymbolTableManager.getInstance().getCurrentLevel());
-////                    visit.visit(tree);
-//
-//                    if (build()) {
-//                        System.err.println("No errors detected....");
-//                    }else {
-//                        System.err.println("Error Detected.");
-//                    }
-//                }
-
-
-
     }
 
     public static void addError(String error){
@@ -334,5 +317,11 @@ public class editor extends JFrame implements ActionListener {
         editor e = new editor();
         errors=new ArrayList<>();
         SymbolTableManager.initialize();
+        ExecutionManager.initialize();
+    }
+
+    public static String getInput() {
+        JFrame f = new JFrame("Input");
+        return JOptionPane.showInputDialog(f, "Enter Input");
     }
 }

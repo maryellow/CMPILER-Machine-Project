@@ -15,27 +15,29 @@ public class PrintCommand implements ICommand, ParseTreeListener {
 
     public PrintCommand(ClypsParser.PrintStatementContext stateCtx){
 
-        this.expCtx = stateCtx.expression(0);
+        this.expCtx = stateCtx;
 
         //To be checked
 //        UndeclaredChecker undeclaredChecker = new UndeclaredChecker(expCtx);
 //        undeclaredChecker.verify();
 
-        printStatement = "";
+        //printStatement = "";
     }
 
     @Override
     public void execute() {
 
-        ParseTreeWalker treeWalk = new ParseTreeWalker();
-        treeWalk.walk(this, this.expCtx);
+        //ParseTreeWalker treeWalk = new ParseTreeWalker();
+        //treeWalk.walk(this, this.expCtx);
 
-        printStatement += "\n";
+       // printStatement += "\n";
+        System.out.println("PRINTING COMMAND");
+        System.out.println(expCtx.printBlock().getText());
 
-        System.out.println(this.printStatement);
+        //System.out.println(this.printStatement);
 
-        printStatement = "";
-        evalExp = false;
+       // printStatement = "";
+        //evalExp = false;
 
     }
 

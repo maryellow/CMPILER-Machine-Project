@@ -4,7 +4,10 @@ import ErrorCheckers.TypeChecking;
 import antlr.ClypsBaseVisitor;
 import antlr.ClypsParser;
 import com.udojava.evalex.Expression;
+import commands.ForCommand;
 import commands.IFCommand;
+import commands.PrintCommand;
+import execution.ExecutionManager;
 import items.ClypsValue;
 import sun.awt.Symbol;
 
@@ -303,7 +306,7 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         System.out.println(ctx.methodHeader().methodDeclarator().Identifier().getText());
 
         if (SymbolTableManager.getInstance().functionLookup(ctx.methodHeader().methodDeclarator().Identifier().getText()) == null) {
-            Function function = new Function();
+            ClypsFunction function = new ClypsFunction();
             SymbolTableManager.getInstance().addFunction(ctx.methodHeader().methodDeclarator().Identifier().getText(), function);
         } else {
             editor.addCustomError("DUPLICATE FUNCTION DETECTED", ctx.start.getLine());
@@ -311,6 +314,39 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
 
         System.out.println("PRINT ALL FUNCTION");
         SymbolTableManager.getInstance().printAllFunctions();
+
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public ClypsValue visitPrintStatement(ClypsParser.PrintStatementContext ctx) {
+        System.out.println("Added Print Command");
+
+        PrintCommand printCommand = new PrintCommand(ctx);
+
+        ExecutionManager.getInstance().addCommand(printCommand);
+
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public ClypsValue visitScanStatement(ClypsParser.ScanStatementContext ctx) {
+
+        //PLACEHOLDER ONLY
+        System.out.println("INPUT: "+editor.getInput());
+
+
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public ClypsValue visitForStatement(ClypsParser.ForStatementContext ctx) {
+        System.out.println("ENTER FOR COMMAND");
+
+        ForCommand forCommand = new ForCommand(ctx);
+        System.out.println(ctx.block().blockStatements().getChildCount());
+
+        ExecutionManager.getInstance().addCommand(forCommand);
 
         return visitChildren(ctx);
     }

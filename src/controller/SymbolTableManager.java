@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class SymbolTableManager {
-    private HashMap<String, Function> functionMap;
+    private HashMap<String, ClypsFunction> functionMap;
     private Scope activeScope = null;
 
     private static SymbolTableManager sharedInstance = null;
@@ -95,7 +95,7 @@ public class SymbolTableManager {
         return null;
     }
 
-    public Function functionLookup(String functionName) {
+    public ClypsFunction functionLookup(String functionName) {
         if (this.functionMap.get(functionName)!=null) {
             return this.functionMap.get(functionName);
         } else {
@@ -116,11 +116,11 @@ public class SymbolTableManager {
         sharedInstance.activeScope=null;
     }
 
-    public void addFunction(String name, Function function) {
+    public void addFunction(String name, ClypsFunction function) {
         this.functionMap.put(name, function);
     }
 
-    public HashMap<String, Function> getFunctions() {
+    public HashMap<String, ClypsFunction> getFunctions() {
         return functionMap;
     }
 
