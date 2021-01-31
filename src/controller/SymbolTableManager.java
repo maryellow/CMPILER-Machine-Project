@@ -51,13 +51,15 @@ public class SymbolTableManager {
 
     public void closeLocalScope() {
         if(this.activeScope.getParent() != null && this.activeScope.getParent() instanceof Scope) {
+
             this.activeScope = (Scope) this.activeScope.getParent();
+            this.activeScope.reset();
         }
         else if(this.activeScope.getParent() == null) {
-            System.out.println(": " + "Cannot change parent. Current active local scope no longer has a parent.");
+            //System.out.println(": " + "Cannot change parent. Current active local scope no longer has a parent.");
         }
         else {
-            System.out.println(": " + "Cannot change parent. Current active local scope's parent is now a class scope.");
+            //System.out.println(": " + "Cannot change parent. Current active local scope's parent is now a class scope.");
         }
     }
 
@@ -91,7 +93,7 @@ public class SymbolTableManager {
             }
         }
 
-        System.out.println(": " + identifier + " not found in any local scope!");
+        //System.out.println(": " + identifier + " not found in any local scope!");
         return null;
     }
 
