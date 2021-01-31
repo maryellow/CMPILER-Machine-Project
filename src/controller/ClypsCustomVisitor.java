@@ -324,7 +324,28 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
 
         PrintCommand printCommand = new PrintCommand(ctx);
 
-        ExecutionManager.getInstance().addCommand(printCommand);
+        StatementController statementControl = StatementController.getInstance();
+
+        System.out.println(statementControl.getActiveControlledCommand());
+
+        if(statementControl.isInConditionalCommand()) {
+            System.out.println("PRINT IN CONDITIONAL");
+            IConditionalCommand conditionalCommand = (IConditionalCommand) statementControl.getActiveControlledCommand();
+
+            if(statementControl.isInPositiveRule()) {
+                conditionalCommand.addPositiveCommand(printCommand);
+            }
+            else {
+                conditionalCommand.addNegativeCommand(printCommand);
+            }
+        } else if(statementControl.isInControlledCommand()) {
+            System.out.println("PRINT IN CONTROLLED");
+            IControlledCommand controlledCommand = (IControlledCommand) statementControl.getActiveControlledCommand();
+            controlledCommand.addCommand(printCommand);
+        } else {
+            System.out.println("PRINT IN OPEN ");
+            ExecutionManager.getInstance().addCommand(printCommand);
+        }
 
         return visitChildren(ctx);
     }
@@ -344,9 +365,15 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         System.out.println("ENTER FOR COMMAND");
 
         ForCommand forCommand = new ForCommand(ctx);
+        StatementController.getInstance().openControlledCommand(forCommand);
         System.out.println(ctx.block().blockStatements().getChildCount());
 
-        ExecutionManager.getInstance().addCommand(forCommand);
+        visitChildren(ctx);
+
+        StatementController.getInstance().compileControlledCommand();
+        //ExecutionManager.getInstance().addCommand(forCommand);
+
+        System.out.println("EXIT FOR COMMAND");
 
         return visitChildren(ctx);
     }

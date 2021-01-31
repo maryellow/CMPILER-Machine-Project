@@ -242,6 +242,7 @@ public class editor extends JFrame implements ActionListener {
         errors.clear();
         SymbolTableManager.reset();
         ExecutionManager.reset();
+        StatementController.reset();
     }
 
     private static boolean build(){
@@ -318,6 +319,7 @@ public class editor extends JFrame implements ActionListener {
         errors=new ArrayList<>();
         SymbolTableManager.initialize();
         ExecutionManager.initialize();
+        StatementController.initialize();
     }
 
     public static String getInput() {
