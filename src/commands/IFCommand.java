@@ -96,4 +96,8 @@ public class IFCommand implements ICommand{
         else
             return false;
     }
+
+    public void resetReturnFlag() {
+        returned = false;
+    }
 }

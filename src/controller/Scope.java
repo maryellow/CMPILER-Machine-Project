@@ -1,7 +1,5 @@
 package controller;
 
-import items.ClypsValue;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -173,6 +171,7 @@ public class Scope {
     }
 
     public void reset(){
+        this.localVariables.clear();
         this.localArrays.clear();
     }
 

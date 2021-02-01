@@ -2,7 +2,7 @@ package commands;
 
 import antlr.ClypsParser;
 import controller.SymbolTableManager;
-import items.ClypsValue;
+import controller.ClypsValue;
 
 public class IncDecCommand implements ICommand{
     private ClypsParser.IncDecStatementContext ctx;

@@ -1,7 +1,5 @@
 package controller;
 
-import items.ClypsValue;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +45,10 @@ public class SymbolTableManager {
 
     public Scope getActiveLocalScope() {
         return this.activeScope;
+    }
+
+    public void setActiveScope(Scope scope){
+        SymbolTableManager.getInstance().activeScope=scope;
     }
 
     public void closeLocalScope() {

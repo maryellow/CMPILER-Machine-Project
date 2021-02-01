@@ -3,11 +3,8 @@ package commands;
 import antlr.ClypsParser;
 import com.udojava.evalex.Expression;
 import controller.ClypsCustomVisitor;
-import controller.IControlledCommand;
-import controller.SymbolTableManager;
 import controller.editor;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 

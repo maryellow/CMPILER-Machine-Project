@@ -1,13 +1,7 @@
-package items;
+package controller;
 
-import ErrorCheckers.TypeChecking;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.XPathParser;
 import com.udojava.evalex.*;
-import controller.ClypsArray;
-import controller.editor;
 
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.Locale;
 
 public class ClypsValue {
@@ -149,19 +143,31 @@ public class ClypsValue {
         System.out.println(primitiveType);
         switch (primitiveType) {
             case BOOLEAN:
-                System.out.println("A - BOOLEAN");
-                System.out.println(Boolean.valueOf(value));
+//                System.out.println("A - BOOLEAN");
+//                System.out.println(Boolean.valueOf(value));
                 return Boolean.valueOf(value);
             case CHAR:
                 return Character.valueOf(value.charAt(0));
             case INT:
-                System.out.println("I - INTEGER");
-                System.out.println(Integer.valueOf(value));
-                return Integer.valueOf(value);
+                //System.out.println("I - INTEGER");
+                //System.out.println(Integer.valueOf(value));
+                try{
+                    return Integer.valueOf(value);
+                }catch (NumberFormatException e){
+                    return null;
+                }
             case FLOAT:
-                return Float.valueOf(value);
+                try{
+                    return Float.valueOf(value);
+                }catch (NumberFormatException e){
+                    return null;
+                }
             case DOUBLE:
-                return Double.valueOf(value);
+                try{
+                    return Double.valueOf(value);
+                }catch (NumberFormatException e){
+                    return null;
+                }
             case STRING:
                 return value;
             default:
@@ -192,6 +198,8 @@ public class ClypsValue {
         else if(primitiveTypeString.toLowerCase(Locale.ROOT).contains(PrimitiveType.STRING.toString().toLowerCase(Locale.ROOT))) {
             primitiveType = PrimitiveType.STRING;
         }
+
+        System.out.println("TRANS "+primitiveType);
 
         return primitiveType;
     }

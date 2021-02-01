@@ -152,7 +152,7 @@ result
 	;
 
 methodDeclarator
-	:	Identifier '(' formalParameterList? ')' dims?
+	:	Identifier '(' formalParameters? ')' dims?
 	;
 
 formalParameterList
@@ -163,7 +163,7 @@ formalParameterList
 
 formalParameters
 	:	formalParameter (',' formalParameter)*
-	|	receiverParameter (',' formalParameter)*
+	//|	receiverParameter (',' formalParameter)*
 	;
 
 formalParameter
