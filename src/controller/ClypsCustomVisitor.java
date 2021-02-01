@@ -5,6 +5,7 @@ import antlr.ClypsParser;
 import com.udojava.evalex.Expression;
 import commands.*;
 import execution.ExecutionManager;
+import execution.ExecutionThread;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -299,10 +300,6 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
 
         FunctionCallCommand functionCallCommand = new FunctionCallCommand(ctx);
 
-        if (functionCallCommand.dError){
-            editor.addCustomError("PARAMETER TYPE MISMATCH", ctx.start.getLine());
-        }
-
         StatementController statementControl = StatementController.getInstance();
 
         if (statementControl.isInConditionalCommand()) {
@@ -336,10 +333,10 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         if (SymbolTableManager.getInstance().functionLookup(ctx.methodHeader().methodDeclarator().Identifier().getText()) == null) {
             ClypsFunction function = new ClypsFunction();
             SymbolTableManager.getInstance().addFunction(ctx.methodHeader().methodDeclarator().Identifier().getText(), function);
-            ExecutionManager.getInstance().openFunctionExecution(function);
+
             Scope scope = new Scope();
             function.setParentScope(scope);
-
+            function.setReturnValue(function.identifyFunctionType(ctx.methodHeader().result().getText()));
             if (ctx.methodHeader().methodDeclarator().formalParameters()!=null){
                 //String[] params = ctx.methodHeader().methodDeclarator().formalParameters().formalParameter();
                 for (int i=0;i<ctx.methodHeader().methodDeclarator().formalParameters().formalParameter().size();i++){
@@ -353,11 +350,14 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
                     System.out.println(value.getValue());
                     System.out.println(value.getPrimitiveType());
                     function.addParameter(ctx.methodHeader().methodDeclarator().formalParameters().formalParameter().get(i).variableDeclaratorId().Identifier().getText(),value);
+
                 }
             }else {
                 System.out.println("EMPTY PARAMS");
 
             }
+
+            ExecutionManager.getInstance().openFunctionExecution(function);
 
             System.out.println("PRINT PARAMS");
             function.printParams();
@@ -371,11 +371,50 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         System.out.println("PRINT ALL FUNCTION");
         SymbolTableManager.getInstance().printAllFunctions();
 
+        if (!ExecutionManager.getInstance().getCurrentFunction().isReturned&&ExecutionManager.getInstance().getCurrentFunction().getReturnType()!= ClypsFunction.FunctionType.VOID_TYPE){
+            editor.addCustomError("MISSING RETURN STATEMENT", ctx.stop.getLine());
+        }
+
         ExecutionManager.getInstance().closeFunctionExecution();
 
 
 
         return null;
+    }
+
+    @Override
+    public ClypsValue visitReturnStatement(ClypsParser.ReturnStatementContext ctx) {
+
+        if (ExecutionManager.getInstance().isInFunctionExecution()){
+            ReturnCommand returnCommand = new ReturnCommand(ctx, ExecutionManager.getInstance().getCurrentFunction());
+            StatementController statementControl = StatementController.getInstance();
+
+            if(statementControl.isInConditionalCommand()) {
+                IConditionalCommand conditionalCommand = (IConditionalCommand) statementControl.getActiveControlledCommand();
+
+                if(statementControl.isInPositiveRule()) {
+                    conditionalCommand.addPositiveCommand(returnCommand);
+                }
+                else {
+                    String functionName = ExecutionManager.getInstance().getCurrentFunction().getMethodName();
+                    ExecutionManager.getInstance().getCurrentFunction().setValidReturns(true);
+                    conditionalCommand.addNegativeCommand(returnCommand);
+                }
+            }
+
+            else if(statementControl.isInControlledCommand()) {
+                IControlledCommand controlledCommand = (IControlledCommand) statementControl.getActiveControlledCommand();
+                controlledCommand.addCommand(returnCommand);
+            }else {
+                ExecutionManager.getInstance().getCurrentFunction().setValidReturns(true);
+
+                ExecutionManager.getInstance().addCommand(returnCommand);
+            }
+        }else {
+            editor.addCustomError("INVALID USE OF RETURN STATEMENT", ctx.start.getLine());
+        }
+
+        return visitChildren(ctx);
     }
 
     @Override

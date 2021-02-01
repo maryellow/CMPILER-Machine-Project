@@ -8,6 +8,7 @@ import execution.ExecutionThread;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 
 public class ClypsFunction {
     public enum FunctionType{
@@ -28,6 +29,7 @@ public class ClypsFunction {
     private FunctionType functionType = FunctionType.VOID_TYPE;
 
     private boolean hasValidReturns = true;
+    public boolean isReturned=false;
 
     public ClypsFunction(){
         this.commandList = new ArrayList<>();
@@ -56,6 +58,10 @@ public class ClypsFunction {
             default:
                 break;
         }
+    }
+
+    public void changeReturnValue(String value){
+        this.returnValue.setValue(value);
     }
 
     public boolean hasValidReturns(){
@@ -156,6 +162,30 @@ public class ClypsFunction {
         this.parameters.entrySet().forEach(entry -> {
             System.out.println(entry.getKey() + " " + entry.getValue().getValue().toString()+" "+entry.getValue().getPrimitiveType().toString());
         });
+    }
+
+    public FunctionType identifyFunctionType(String primitiveTypeString) {
+
+        if(primitiveTypeString.contains(ClypsValue.PrimitiveType.BOOLEAN.toString().toLowerCase(Locale.ROOT))) {
+            return FunctionType.BOOL_TYPE;
+        }
+        else if(primitiveTypeString.contains(ClypsValue.PrimitiveType.CHAR.toString().toLowerCase(Locale.ROOT))) {
+            return FunctionType.CHAR_TYPE;
+        }
+        else if(primitiveTypeString.contains(ClypsValue.PrimitiveType.DOUBLE.toString().toLowerCase(Locale.ROOT))) {
+            return FunctionType.DECIMAL_TYPE;
+        }
+        else if(primitiveTypeString.contains(ClypsValue.PrimitiveType.FLOAT.toString().toLowerCase(Locale.ROOT))) {
+            return FunctionType.DECIMAL_TYPE;
+        }
+        else if(primitiveTypeString.contains(ClypsValue.PrimitiveType.INT.toString().toLowerCase(Locale.ROOT))) {
+            return FunctionType.INT_TYPE;
+        }
+        else if(primitiveTypeString.toLowerCase(Locale.ROOT).contains(ClypsValue.PrimitiveType.STRING.toString().toLowerCase(Locale.ROOT))) {
+            return FunctionType.STRING_TYPE;
+        }else {
+            return FunctionType.VOID_TYPE;
+        }
     }
 
 

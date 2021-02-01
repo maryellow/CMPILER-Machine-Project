@@ -107,6 +107,7 @@ public class ClypsValue {
             try {
                 this.value = new Expression(value).eval().toPlainString();
             }catch (Expression.ExpressionException e){
+                System.out.println("EHEEEE?");
                 //editor.addCustomError("DUPLICATE FUNCTION DETECTED",0);
             }
         }else

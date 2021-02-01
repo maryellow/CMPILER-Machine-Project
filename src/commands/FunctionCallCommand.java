@@ -2,10 +2,8 @@ package commands;
 
 import antlr.ClypsParser;
 import com.udojava.evalex.Expression;
-import controller.ClypsCustomVisitor;
-import controller.ClypsFunction;
-import controller.SymbolTableManager;
-import controller.ClypsValue;
+import controller.*;
+import execution.ExecutionManager;
 
 import java.util.List;
 
@@ -39,9 +37,7 @@ public class FunctionCallCommand implements ICommand{
                 if (ClypsValue.checkValueType(ClypsValue.attemptTypeCast(ctx.argumentList().assignmentExpression().get(i).assignment().getText(),clypsFunction.getParameterAt(i).getPrimitiveType()),clypsFunction.getParameterAt(i).getPrimitiveType())){
                     this.clypsFunction.mapParameterByValueAt(ClypsCustomVisitor.testingExpression(ctx.argumentList().assignmentExpression().get(i).assignment().getText(),dummy,ctx.start.getLine()),i);
                 }else {
-                    System.out.println("HEY, WRONG TYPE");
-                    this.dError=true;
-                    break;
+                    editor.addCustomError("PARAMETER TYPE MISMATCH", ctx.start.getLine());
                 }
             }
             System.out.println("PRINT PARAMS");
@@ -53,5 +49,8 @@ public class FunctionCallCommand implements ICommand{
     @Override
     public void execute() {
         this.clypsFunction.execute();
+        System.out.println("FUNCTION RETURN VALUE: ");
+        System.out.println(this.clypsFunction.getReturnValue().getValue());
+
     }
 }
