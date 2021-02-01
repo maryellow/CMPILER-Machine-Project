@@ -6,6 +6,7 @@ import antlr.ClypsParser;
 import com.udojava.evalex.Expression;
 import commands.ForCommand;
 import commands.IFCommand;
+import commands.IncDecCommand;
 import commands.PrintCommand;
 import execution.ExecutionManager;
 import items.ClypsValue;
@@ -120,6 +121,7 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         if (ctx.variableDeclarator().variableDeclaratorId().getText().contains("[")) {
             List<Integer> dummy = null;
             System.out.println(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText());
+            System.out.println(ctx.variableDeclarator().variableInitializer().getText());
             int index = Integer.parseInt(testingExpression(ctx.variableDeclarator().variableDeclaratorId().expression().getText(), dummy, ctx.start.getLine()));
             String value = testingExpression(ctx.variableDeclarator().variableInitializer().getText(), dummy, ctx.start.getLine());
             if (SymbolTableManager.getInstance().getActiveLocalScope().searchArray(ctx.variableDeclarator().variableDeclaratorId().Identifier().getText()) != null) {
@@ -326,7 +328,7 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
 
         StatementController statementControl = StatementController.getInstance();
 
-        System.out.println(statementControl.getActiveControlledCommand());
+        //System.out.println(statementControl.getActiveControlledCommand());
 
         if(statementControl.isInConditionalCommand()) {
             System.out.println("PRINT IN CONDITIONAL");
@@ -361,26 +363,144 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
     }
 
     @Override
+    public ClypsValue visitIncDecStatement(ClypsParser.IncDecStatementContext ctx) {
+        System.out.println("ENTER INC DEC COMMAND");
+        String name = ctx.getText().replaceAll("\\+","").replaceAll("-","").replaceAll(";","");
+        name=name.replaceAll("\\[.*\\]", "");
+        if (SymbolTableManager.searchVariableInLocalIterative(name, SymbolTableManager.getInstance().getActiveLocalScope()) != null ||
+                SymbolTableManager.searchVariableInLocalIterative(name, SymbolTableManager.getInstance().getActiveLocalScope().getParent()) != null||
+                SymbolTableManager.getInstance().getActiveLocalScope().searchArray(name.replaceAll("\\[.*\\]", ""))!=null) {
+            //FIX NULL
+
+            System.out.println(name);
+
+            String check = "";
+            if (ctx.getText().contains("++"))
+                check = "pos";
+            else if (ctx.getText().contains("--"))
+                check = "neg";
+
+            System.out.println("SIII");
+            System.out.println(name);
+
+            IncDecCommand incDecCommand = null;
+
+            if (ctx.getText().contains("[")) {
+                if (SymbolTableManager.getInstance().getActiveLocalScope().searchArray(name).getPrimitiveType() == ClypsValue.PrimitiveType.INT ||
+                        SymbolTableManager.getInstance().getActiveLocalScope().searchArray(name).getPrimitiveType() == ClypsValue.PrimitiveType.DOUBLE ||
+                        SymbolTableManager.getInstance().getActiveLocalScope().searchArray(name).getPrimitiveType() == ClypsValue.PrimitiveType.FLOAT) {
+
+                    incDecCommand = new IncDecCommand(ctx, name, check, SymbolTableManager.getInstance().getActiveLocalScope().searchArray(name).getPrimitiveType());
+                } else {
+                    editor.addCustomError("CAN ONLY INC/DEC A NUMBER", ctx.start.getLine());
+                }
+                } else {
+                    if (SymbolTableManager.searchVariableInLocalIterative(name, SymbolTableManager.getInstance().getActiveLocalScope()).getPrimitiveType() == ClypsValue.PrimitiveType.INT ||
+                            SymbolTableManager.searchVariableInLocalIterative(name, SymbolTableManager.getInstance().getActiveLocalScope()).getPrimitiveType() == ClypsValue.PrimitiveType.DOUBLE ||
+                            SymbolTableManager.searchVariableInLocalIterative(name, SymbolTableManager.getInstance().getActiveLocalScope()).getPrimitiveType() == ClypsValue.PrimitiveType.FLOAT) {
+                        incDecCommand = new IncDecCommand(ctx, name, check, SymbolTableManager.searchVariableInLocalIterative(name, SymbolTableManager.getInstance().getActiveLocalScope()).getPrimitiveType());
+                    } else {
+                        editor.addCustomError("CAN ONLY INC/DEC A NUMBER", ctx.start.getLine());
+                    }
+                }
+                StatementController statementControl = StatementController.getInstance();
+
+            if (incDecCommand!=null){
+                if (statementControl.isInConditionalCommand()) {
+                    System.out.println("PRINT IN CONDITIONAL");
+                    IConditionalCommand conditionalCommand = (IConditionalCommand) statementControl.getActiveControlledCommand();
+
+                    if (statementControl.isInPositiveRule()) {
+                        conditionalCommand.addPositiveCommand(incDecCommand);
+                    } else {
+                        conditionalCommand.addNegativeCommand(incDecCommand);
+                    }
+                } else if (statementControl.isInControlledCommand()) {
+                    System.out.println("PRINT IN CONTROLLED");
+                    IControlledCommand controlledCommand = (IControlledCommand) statementControl.getActiveControlledCommand();
+                    controlledCommand.addCommand(incDecCommand);
+                } else {
+                    System.out.println("PRINT IN OPEN ");
+                    ExecutionManager.getInstance().addCommand(incDecCommand);
+                }
+            }
+
+
+        }else {
+            editor.addCustomError("VARIABLE DOES NOT EXIST", ctx.start.getLine());
+        }
+
+        System.out.println("PRINT ALL VARS");
+        SymbolTableManager.getInstance().getActiveLocalScope().printAllVars();
+        System.out.println("PRINT ALL VARS");
+
+        return visitChildren(ctx);
+        }
+
+
+    @Override
     public ClypsValue visitForStatement(ClypsParser.ForStatementContext ctx) {
         System.out.println("ENTER FOR COMMAND");
+        List<Integer> dummy = null;
+        String start=ClypsCustomVisitor.testingExpression(ctx.forInit().variableDeclaratorList().variableDeclarator(0).variableInitializer().getText(),dummy,ctx.start.getLine());
+        String end=ClypsCustomVisitor.testingExpression(ctx.assignmentExpression().getText(),dummy,ctx.start.getLine());
+        int counter=Integer.parseInt(new Expression(start).eval().toPlainString());
+        int stop=Integer.parseInt(new Expression(end).eval().toPlainString());
 
-        ForCommand forCommand = new ForCommand(ctx);
-        StatementController.getInstance().openControlledCommand(forCommand);
-        System.out.println(ctx.block().blockStatements().getChildCount());
+        if ((ctx.forMiddle().getText().contains("up to") && counter > stop) || (ctx.forMiddle().getText().contains("down to") && counter < stop)) {
+            editor.addCustomError("VALUE RANGE IS NOT POSSIBLE", ctx.start.getLine());
+        } else {
+            ForCommand forCommand = new ForCommand(ctx);
+            StatementController.getInstance().openControlledCommand(forCommand);
+            System.out.println(ctx.block().blockStatements().getChildCount());
 
-        visitChildren(ctx);
 
-        StatementController.getInstance().compileControlledCommand();
-        //ExecutionManager.getInstance().addCommand(forCommand);
+            //ExecutionManager.getInstance().addCommand(forCommand);
+            visitChildren(ctx);
+
+            StatementController.getInstance().compileControlledCommand();
+
+        }
 
         System.out.println("EXIT FOR COMMAND");
+
+        return null;
+    }
+
+    @Override
+    public ClypsValue visitForInit(ClypsParser.ForInitContext ctx) {
+
+        List<Integer> dummy = null;
+        String type = ctx.unannType().get(0).getText();
+        String name = ctx.variableDeclaratorList().variableDeclarator(0).variableDeclaratorId().getText();
+        //FIX VAR NOT FOUND
+        String value = testingExpression(ctx.variableDeclaratorList().variableDeclarator(0).variableInitializer().getText(),dummy,ctx.start.getLine());
+        System.out.println("ENTER FOR INIT");
+        System.out.println(type);
+        System.out.println(name);
+        System.out.println(value);
+
+        if (type.equals("int")){
+            if (SymbolTableManager.searchVariableInLocalIterative(name, SymbolTableManager.getInstance().getActiveLocalScope()) == null &&
+                    SymbolTableManager.searchVariableInLocalIterative(name, SymbolTableManager.getInstance().getActiveLocalScope().getParent()) == null) {
+                System.out.println("VAR NOT FOUND");
+                SymbolTableManager.getInstance().getActiveLocalScope().addInitializedVariableFromKeywords(type, name, value);
+            }else {
+                editor.addCustomError("VARIABLE ALREADY EXISTS IN FOR LOOP", ctx.start.getLine());
+            }
+        }else {
+            editor.addCustomError("TYPE MISMATCH IN FOR LOOP", ctx.start.getLine());
+        }
+
+        System.out.println("PRINT ALL VARS");
+        SymbolTableManager.getInstance().getActiveLocalScope().printAllVars();
+        System.out.println("PRINT ALL VARS");
 
         return visitChildren(ctx);
     }
 
-    public String testingExpression(String value, List<Integer> index, int line) {
+    public static String testingExpression(String value, List<Integer> index, int line) {
         System.out.println("START OF TESTING EXPRESSION");
-
         //String[] test = value.split("[^A-Za-z]+");
         String[] test = value.split("[-+*/\\(\\)&|><=!]+");
         ArrayList<String> vars = new ArrayList<>();
@@ -390,9 +510,9 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
             System.out.println(test[i]);
             if (SymbolTableManager.searchVariableInLocalIterative(test[i], SymbolTableManager.getInstance().getActiveLocalScope()) != null ||
                     SymbolTableManager.searchVariableInLocalIterative(test[i], SymbolTableManager.getInstance().getActiveLocalScope().getParent()) != null ||
-                    SymbolTableManager.getInstance().getActiveLocalScope().searchArray(test[i]) != null) {
-                vars.add(test[i]);
-                System.out.println(test[i]);
+                    SymbolTableManager.getInstance().getActiveLocalScope().searchArray(test[i].replaceAll("\\[.*\\]", "")) != null) {
+                vars.add(test[i].replaceAll("\\[.*\\]", ""));
+                System.out.println(test[i].replaceAll("\\[.*\\]", ""));
             } else if (test[i].matches("[A-Za-z]+") && (!test[i].contains("true") && !test[i].contains("false"))) {
                 System.out.println("Hey " + test[i]);
                 editor.addCustomError("VARIABLE DOES NOT EXIST", line);
@@ -436,7 +556,10 @@ public class ClypsCustomVisitor extends ClypsBaseVisitor<ClypsValue> {
         }
 
         for (int i = 0; i < store.size(); i++) {
-            value = value.replaceAll(vars.get(i), store.get(i));
+            if (store.size()==1&&!value.contains("\"")){
+                value = value.replaceAll(vars.get(i), store.get(i));
+            }else
+                value = value.replaceAll("(?<=[+])"+vars.get(i), store.get(i));
             if (value.contains("[")) {
                 value = value.replaceAll("\\[.*?\\]", "");
             }
