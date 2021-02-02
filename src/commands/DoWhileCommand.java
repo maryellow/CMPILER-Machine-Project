@@ -7,12 +7,13 @@ import java.util.List;
 
 public class DoWhileCommand extends WhileCommand {
 
+    private ClypsParser.DoStatementContext expr;
     private boolean isGo;
     private String value;
     private List<ICommand> blockCommands;
 
     public DoWhileCommand(ClypsParser.WhileStatementContext ctx) {
-        super(ctx);
+       super(ctx);
     }
 
     private boolean evaluate() {

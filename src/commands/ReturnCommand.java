@@ -35,7 +35,7 @@ public class ReturnCommand implements ICommand{
         String value = ClypsCustomVisitor.testingExpression(ctx.expression().getText(),dummy,ctx.start.getLine());
         System.out.println("RETURN NULL?");
         System.out.println(this.clypsFunction.getReturnType());
-        //ExecutionManager.getInstance().getCurrentFunction().getMethodName();
+        ExecutionManager.getInstance().getCurrentFunction().getMethodName();
         this.clypsFunction.changeReturnValue(value);
     }
 }
