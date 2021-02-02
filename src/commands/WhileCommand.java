@@ -85,3 +85,32 @@ public class WhileCommand implements IControlledCommand{
         return this.blockCommands.size();
     }
 }
+
+    @Override
+    public void execute() {
+        this.identifyVariables();
+
+        ExecutionMonitor executionMonitor = ExecutionManager.getInstance().getExecutionMonitor();
+
+        try {
+            //evaluate the given condition
+            while(ConditionEvaluator.evaluateCondition(this.conditionalExpr)) {
+                for(ICommand command : this.commandSequences) {
+                    executionMonitor.tryExecution();
+                    command.execute();
+                }
+
+                this.identifyVariables(); //identify variables again to detect changes to such variables used.
+            }
+
+        } catch(InterruptedException e) {
+            Log.e(TAG, "Monitor block interrupted! " +e.getMessage());
+        }
+    }
+
+    protected void identifyVariables() {
+        IValueMapper identifierMapper = new IdentifierMapper(this.conditionalExpr.getText());
+        identifierMapper.analyze(this.conditionalExpr);
+
+        this.modifiedConditionExpr = identifierMapper.getModifiedExp();
+    }
